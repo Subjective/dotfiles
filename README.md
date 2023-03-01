@@ -26,7 +26,8 @@ These are the dotfiles I use on my Mac system, currently running [MacOS Ventura]
   - [Ligatures](#ligatures)
   - [Nerd Font Variants](#nerd-font-variants)
   - [Useful Font Links](#useful-font-links)
-
+- [Some of my favorite dotfile repos](#some-of-my-favorite-dotfile-repos)
+- [Helpful web resources on dotfiles, et al.](#helpful-web-resources-on-dotfiles-et-al)
 
 ## Prerequisites
 
@@ -301,3 +302,33 @@ If using a font that does not have a patched variant (e.g. MonoLisa) iTerm2 has 
 I recently discovered a resolution to some significant performance issues I had been experiencing running Vim on macOS. These issues were particularly painful when editing Ruby files. I've documented what I learned here:
 
 &#9657; [What I've learned about slow performance in Vim](vim-performance.md)
+
+## Some of my favorite dotfile repos
+
+* Pro Vim (https://github.com/Integralist/ProVim)
+* Trevor Brown (https://github.com/Stratus3D/dotfiles)
+* Chris Toomey (https://github.com/christoomey/dotfiles)
+* thoughtbot (https://github.com/thoughtbot/dotfiles)
+* Lars Kappert (https://github.com/webpro/dotfiles)
+* Ryan Bates (https://github.com/ryanb/dotfiles)
+* Ben Orenstein (https://github.com/r00k/dotfiles)
+* Joshua Clayton (https://github.com/joshuaclayton/dotfiles)
+* Drew Neil (https://github.com/nelstrom/dotfiles)
+* Kevin Suttle (https://github.com/kevinSuttle/OSXDefaults)
+* Carlos Becker (https://github.com/caarlos0/dotfiles)
+* Zach Holman (https://github.com/holman/dotfiles/)
+* Mathias Bynens (https://github.com/mathiasbynens/dotfiles/)
+* Paul Irish (https://github.com/paulirish/dotfiles)
+* [The best way to store your dotfiles: A bare Git repository **EXPLAINED** - Ackama](https://www.ackama.com/what-we-think/the-best-way-to-store-your-dotfiles-a-bare-git-repository-explained/)
+* [How to Store Dotfiles - A Bare Git Repository | Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/dotfiles)
+* [Manage Dotfiles With a Bare Git Repository](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html)
+
+## Helpful web resources on dotfiles, et al.
+
+* http://dotfiles.github.io/
+* https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789
+* http://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449
+* https://github.com/webpro/awesome-dotfiles
+* http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
+* http://carlosbecker.com/posts/first-steps-with-mac-os-x-as-a-developer/
+* https://mattstauffer.co/blog/setting-up-a-new-os-x-development-machine-part-1-core-files-and-custom-shel
