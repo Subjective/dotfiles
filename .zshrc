@@ -121,7 +121,7 @@ alias astro=astronvim3.sh
 alias lazy=lazyvim.sh
 alias testingvim=testing.sh
 # alias nvcode=XDG_CONFIG_HOME=~/.config/nvcode nvim
-alias config='/usr/bin/git --git-dir=/Users/joshua/.cfg/ --work-tree=/Users/joshua'
+alias dotfiles='/usr/bin/git --git-dir=/Users/joshua/.cfg/ --work-tree=/Users/joshua'
 
 co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 run() { co $1 && ./${1%.*} & fg; }
