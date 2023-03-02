@@ -1413,5 +1413,4 @@
     },
     "editor.fontLigatures": true,
     "editor.fontFamily": "FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
-    "vim.easymotion": true
 }
