@@ -1,1 +1,0 @@
-# astronvim_config
