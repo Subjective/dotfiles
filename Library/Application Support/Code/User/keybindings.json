@@ -45,11 +45,11 @@
         "command": "copyRelativeFilePath",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-    {
-        "key": "space",
-        "command": "whichkey.show",
-        "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode == 'Normal'"
-    },
+    // {
+    //     "key": "space",
+    //     "command": "whichkey.show",
+    //     "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode == 'Normal'"
+    // },
     {
         "key": "a",
         "command": "explorer.newFile",

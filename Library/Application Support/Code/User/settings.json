@@ -98,8 +98,7 @@
         }
     ],
     "vim.smartRelativeLine": true,
-    "vim.leap": true, // experimental leap feature: https://github.com/VSCodeVim/Vim/issues/8144
-    "vim.sneak": true,
+    "vim.leap": true,
     "vim.sneakUseIgnorecaseAndSmartcase": true,
     "vim.timeout": 250,
     "vim.handleKeys": {
@@ -1413,5 +1412,6 @@
         "plaintext": "html"
     },
     "editor.fontLigatures": true,
-    "editor.fontFamily": "FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace"
+    "editor.fontFamily": "FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "vim.easymotion": true
 }
