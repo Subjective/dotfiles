@@ -5,7 +5,8 @@ return {
 		opts.statusline = {
 			-- statusline
 			hl = { fg = "fg", bg = "bg" },
-			status.component.mode({ mode_text = { padding = { left = 1, right = 1 } } }), -- add the mode text
+			-- status.component.mode({ mode_text = { padding = { left = 1, right = 1 } } }), -- add the mode text
+			status.component.mode(), -- add the mode text
 			status.component.git_branch(),
 			status.component.file_info({ filetype = {}, filename = false, file_modified = false }),
 			status.component.git_diff(),
@@ -16,7 +17,7 @@ return {
 			status.component.lsp(),
 			status.component.treesitter(),
 			status.component.nav(),
-			-- remove the 2nd mode indicator on the right
+			status.component.mode({ surround = { separator = "right" } }),
 		}
 		return opts
 	end,
