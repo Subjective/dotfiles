@@ -1244,9 +1244,13 @@ function M.component.foldcolumn(opts)
     on_click = {
       name = "fold_click",
       callback = function(...)
-        local lnum = M.utils.statuscolumn_clickargs(...).mousepos.line
-        if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then return end
-        vim.cmd.execute("'" .. lnum .. "fold" .. (vim.fn.foldclosed(lnum) == -1 and "close" or "open") .. "'")
+        local char = M.utils.statuscolumn_clickargs(...).char
+        local fillchars = vim.opt_local.fillchars:get()
+        if char == (fillchars.foldopen or get_icon "FoldOpened") then
+          vim.cmd "norm! zc"
+        elseif char == (fillchars.foldcolse or get_icon "FoldClosed") then
+          vim.cmd "norm! zo"
+        end
       end,
     },
   }, opts)
@@ -1472,18 +1476,17 @@ function M.utils.statuscolumn_clickargs(self, minwid, clicks, button, mods)
     mousepos = vim.fn.getmousepos(),
   }
   if not self.signs then self.signs = {} end
-  local sign = vim.fn.screenstring(args.mousepos.screenrow, args.mousepos.screencol)
-  if sign == " " then sign = vim.fn.screenstring(args.mousepos.screenrow, args.mousepos.screencol - 1) end
-  args.sign = self.signs[sign]
+  args.char = vim.fn.screenstring(args.mousepos.screenrow, args.mousepos.screencol)
+  if args.char == " " then args.char = vim.fn.screenstring(args.mousepos.screenrow, args.mousepos.screencol - 1) end
+  args.sign = self.signs[args.char]
   if not args.sign then -- update signs if not found on first click
     for _, sign_def in ipairs(vim.fn.sign_getdefined()) do
       if sign_def.text then self.signs[sign_def.text:gsub("%s", "")] = sign_def end
     end
-    args.sign = self.signs[sign]
+    args.sign = self.signs[args.char]
   end
   vim.api.nvim_set_current_win(args.mousepos.winid)
   vim.api.nvim_win_set_cursor(0, { args.mousepos.line, 0 })
-  vim.pretty_print(args)
   return args
 end
 

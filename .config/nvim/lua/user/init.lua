@@ -7,6 +7,7 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
+
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
@@ -24,8 +25,10 @@ local config = {
     --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     -- },
   },
+
   -- Set colorscheme to use
   colorscheme = "tokyonight-night",
+
   -- Add highlight groups in any theme
   highlights = {
     -- init = { -- this table overrides highlights in all themes
@@ -35,6 +38,7 @@ local config = {
     --   Normal = { bg = "#000000" },
     -- },
   },
+
   -- set vim options here (vim.<first_key>.<second_key> = value)
   options = {
     opt = {
@@ -69,6 +73,7 @@ local config = {
   diagnostics = {
     underline = true,
   },
+
   -- Extend LSP configuration
   lsp = {
     -- enable servers that you already have installed without mason
@@ -131,6 +136,7 @@ local config = {
       -- },
     },
   },
+
   -- Mapping data with "desc" stored directly by vim.keymap.set().
   --
   -- Please use this mappings table to set keyboard mapping since this is the
@@ -150,18 +156,13 @@ local config = {
       ["<leader>b"] = { name = "Buffers" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-      ["<S-l>"] = {
-        function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-      },
-      ["<S-h>"] = {
-        function() require("astronvim.utils.buffer").nav( -(vim.v.count > 0 and vim.v.count or 1)) end,
-      },
     },
     t = {
       -- setting a mapping to false will disable it
       -- ["<esc>"] = false,
     },
   },
+
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -180,59 +181,16 @@ local config = {
       },
     },
   },
+
   -- Configure plugins
   plugins = {
+    {
+      "folke/tokyonight.nvim"
+    },
     -- You can disable default plugins as follows:
     -- { "max397574/better-escape.nvim", enabled = false },
     --
     -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
-    { "folke/tokyonight.nvim" },
-    {
-      "echasnovski/mini.animate",
-      event = "VeryLazy",
-      opts = function()
-        -- don't use animate when scrolling with the mouse
-        local mouse_scrolled = false
-        for _, scroll in ipairs({ "Up", "Down" }) do
-          local key = "<ScrollWheel" .. scroll .. ">"
-          vim.keymap.set({ "", "i" }, key, function()
-            mouse_scrolled = true
-            return key
-          end, { expr = true })
-        end
-
-        local animate = require("mini.animate")
-        return {
-          cursor = {
-            enable = false,
-            timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-            path = animate.gen_path.line({
-              predicate = function(destination) return destination[1] < -2 or 2 < destination[1] end,
-            }),
-          },
-          resize = {
-            enable = false,
-            timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-          },
-          scroll = {
-            -- timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-            timing = function(_, n) return math.min(150 / n, 5) end,
-            subscroll = animate.gen_subscroll.equal({
-              predicate = function(total_scroll)
-                if mouse_scrolled then
-                  mouse_scrolled = false
-                  return false
-                end
-                return total_scroll > 1
-              end,
-            }),
-          },
-        }
-      end,
-      config = function(_, opts)
-        require("mini.animate").setup(opts)
-      end,
-    },
     -- {
     --   "L3MON4D3/LuaSnip",
     --   config = function(plugin, opts)
@@ -337,7 +295,6 @@ local config = {
       "nvim-treesitter/nvim-treesitter",
       opts = {
         -- ensure_installed = { "lua" },
-        indent = { enable = true, disable = { "lua", "python", "yaml" } },
       },
     },
     -- use mason-lspconfig to configure LSP installations
@@ -364,6 +321,7 @@ local config = {
       },
     },
   },
+
   -- Customize Heirline options
   heirline = {
     -- -- Customize different separators between sections
@@ -382,15 +340,16 @@ local config = {
     --   git_branch = { bold = true }, -- bold the git branch statusline component
     -- },
     -- -- Customize if icons should be highlighted
-    icon_highlights = {
-      breadcrumbs = true, -- LSP symbols in the breadcrumbs
-      file_icon = {
-        winbar = false, -- Filetype icon in the winbar inactive windows
-        statusline = true, -- Filetype icon in the statusline
-        tabline = true, -- Filetype icon in the tabline
-      },
-    },
+    -- icon_highlights = {
+    --   breadcrumbs = false, -- LSP symbols in the breadcrumbs
+    --   file_icon = {
+    --     winbar = false, -- Filetype icon in the winbar inactive windows
+    --     statusline = true, -- Filetype icon in the statusline
+    --     tabline = true, -- Filetype icon in the tabline
+    --   },
+    -- },
   },
+
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
