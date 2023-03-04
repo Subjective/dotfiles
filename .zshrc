@@ -120,6 +120,7 @@ alias lvide=lvide.sh
 alias astro=astronvim3.sh
 alias lazy=lazyvim.sh
 alias testingvim=testing.sh
+alias vi=astro
 # alias nvcode=XDG_CONFIG_HOME=~/.config/nvcode nvim
 alias dotfiles='/usr/bin/git --git-dir=/Users/joshua/.cfg/ --work-tree=/Users/joshua'
 
@@ -138,6 +139,7 @@ export PATH="$HOME/.local/bin":$PATH
 
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export HOMEBREW_BREWFILE=~/.config/brewfile/Brewfile
+export GIT_EDITOR=astronvim3.sh
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
