@@ -30,11 +30,11 @@ function M.check()
 
   for _, program in ipairs(programs) do
     if type(program.cmd) == "string" then program.cmd = { program.cmd } end
-    local name = table.concat(program.cmd, "/")
+    local name = program.name
     local found = false
     for _, cmd in ipairs(program.cmd) do
       if vim.fn.executable(cmd) == 1 then
-        name = cmd
+        if not name then name = cmd end
         found = true
         break
       end

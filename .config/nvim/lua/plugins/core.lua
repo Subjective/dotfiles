@@ -45,7 +45,8 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      icons = { group = vim.g.icons_enabled and "" or "+", separator = "" },
+      plugins = { spelling = { enabled = true }, presets = { operators = false } },
+      window = { border = "rounded", padding = { 2, 2, 2, 2 } },
       disable = { filetypes = { "TelescopePrompt" } },
     },
     config = require "plugins.configs.which-key",
