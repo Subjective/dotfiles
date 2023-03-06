@@ -100,7 +100,6 @@ return {
 			end,
 			desc = "Toggle smooth scrolling",
 		},
-
 		["<leader>m"] = {
 			function()
 				local utils = require("astronvim.utils")
@@ -121,7 +120,6 @@ return {
 			end,
 			desc = "Toggle MiniMap",
 		},
-
 		["<leader>T"] = {
 			name = "󰔫 Trouble",
 			r = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
@@ -131,7 +129,6 @@ return {
 			l = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
 			w = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
 		},
-
 		L = {
 			function()
 				require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
@@ -144,7 +141,6 @@ return {
 			end,
 			desc = "Previous buffer",
 		},
-
 		-- Resize with arrows
 		["<C-S-Up>"] = {
 			function()
