@@ -86,6 +86,7 @@ plugins=(
   zsh-autosuggestions
   fzf
   zsh-vi-mode
+  web-search
 )
 ZVM_VI_SURROUND_BINDKEY=classic
 # ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
