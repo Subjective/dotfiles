@@ -1,0 +1,11 @@
+[user]
+	email = 56745535+Subjective@users.noreply.github.com
+	name = Joshua Yin
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = /Users/joshua/.gitignore_global
+	editor = nvim
