@@ -71,6 +71,15 @@ ctrl - 4 : yabai -m space --focus 4 ctrl + alt - 5 : yabai -m space --focus 5
 ctrl - 6 : yabai -m space --focus 5
 ctrl - 7 : yabai -m space --focus 7
 
+# Enable / Disable gaps in current workspace
+ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# Set insertion point for focused container
+shift + ctrl + alt - h : yabai -m window --insert west
+shift + ctrl + alt - j : yabai -m window --insert south
+shift + ctrl + alt - k : yabai -m window --insert north
+shift + ctrl + alt - l : yabai -m window --insert east
+
 ### stop/start/restart yabai ###
 
 ctrl + alt - q : brew services stop yabai
