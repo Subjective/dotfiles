@@ -13,6 +13,10 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 	},
+	{
+		lazy = false,
+		"christoomey/vim-tmux-navigator",
+	},
 	-- {
 	-- 	"AstroNvim/astrocommunity",
 	-- 	{ import = "astrocommunity.colorscheme.tokyonight" },
