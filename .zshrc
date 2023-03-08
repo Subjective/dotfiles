@@ -20,7 +20,6 @@ export ZSH="/Users/joshua/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -87,6 +86,7 @@ plugins=(
   fzf
   zsh-vi-mode
   web-search
+  zsh-nvm
 )
 ZVM_VI_SURROUND_BINDKEY=classic
 # ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
@@ -143,7 +143,7 @@ run() { co $1 && ./${1%.*} & fg; }
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
