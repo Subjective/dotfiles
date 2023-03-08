@@ -78,7 +78,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# lazy load nvm
+export NVM_LAZY_LOAD=true
+
 plugins=(
+  zsh-nvm
   git
   dnf
   zsh-syntax-highlighting    
@@ -86,7 +91,6 @@ plugins=(
   fzf
   zsh-vi-mode
   web-search
-  zsh-nvm
 )
 ZVM_VI_SURROUND_BINDKEY=classic
 # ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
