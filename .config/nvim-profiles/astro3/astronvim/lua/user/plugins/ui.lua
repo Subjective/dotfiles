@@ -163,7 +163,10 @@ return {
 			})
 		end,
 	},
-	{ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
+	{
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+	},
 	{
 		enabled = false,
 		"folke/noice.nvim",

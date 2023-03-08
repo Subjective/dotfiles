@@ -18,6 +18,7 @@ return {
 		ui_notifications_enabled = true, -- disable notifications when toggling UI elements
 		neoscroll_enabled = false,
 		minimap_enabled = false,
+		dotfiles_diff_enabled = false, -- show git diff for dotfiles repo
 	},
 }
 -- If you need more control, you can use the function()...end notation

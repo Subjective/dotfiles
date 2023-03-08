@@ -17,6 +17,27 @@ return {
 		["<leader>b"] = { name = "Buffers" },
 		-- quick save
 		-- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+		["<leader>g."] = {
+			function()
+				if vim.g.dotfiles_diff_enabled then
+					vim.env.GIT_WORK_TREE = nil
+					vim.env.GIT_DIR = nil
+					require("astronvim.utils").notify("dotfiles diff disabled")
+				else
+					vim.env.GIT_WORK_TREE = vim.fn.expand("~")
+					vim.env.GIT_DIR = vim.fn.expand("~/.cfg")
+					require("astronvim.utils").notify("dotfiles diff enabled")
+				end
+				vim.g.dotfiles_diff_enabled = not vim.g.dotfiles_diff_enabled
+			end,
+			desc = "Toggle dotfiles diff",
+		},
+		["<leader>gD"] = {
+			function()
+				vim.cmd([[DiffviewOpen]])
+			end,
+			desc = "Open Diffview",
+		},
 		["<leader>E"] = {
 			function()
 				local function get_root()
