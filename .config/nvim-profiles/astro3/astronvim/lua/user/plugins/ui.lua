@@ -15,6 +15,10 @@ return {
 	},
 	{
 		lazy = false,
+		"ellisonleao/gruvbox.nvim",
+	},
+	{
+		lazy = false,
 		"christoomey/vim-tmux-navigator",
 	},
 	-- {
