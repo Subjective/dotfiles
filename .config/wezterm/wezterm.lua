@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 ---------------------------------------------------------------
 return {
-  -- term="wezterm",
+	-- term="wezterm",
 	-- font = wezterm.font("Cica"),
 	-- font_size = 10.0,
 	font = wezterm.font("FiraCode Nerd Font"),
@@ -25,7 +25,7 @@ return {
 	use_dead_keys = false,
 	warn_about_missing_glyphs = false,
 	-- enable_kitty_graphics = false,
-  window_decorations = "RESIZE",
+	window_decorations = "RESIZE",
 	animation_fps = 1,
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
@@ -44,17 +44,16 @@ return {
 		top = 6,
 		bottom = 0,
 	},
-  use_resize_increments = true,
+	use_resize_increments = true,
 	use_fancy_tab_bar = false,
 	exit_behavior = "CloseOnCleanExit",
 	tab_bar_at_bottom = true,
 	window_close_confirmation = "AlwaysPrompt",
-  skip_close_confirmation_for_processes_named = {
-    'bash',
-    'sh',
-    'zsh',
-    'fish',
-    'tmux',
-  },
+	skip_close_confirmation_for_processes_named = {
+		"bash",
+		"sh",
+		"zsh",
+		"fish",
+		"tmux",
+	},
 }
-
