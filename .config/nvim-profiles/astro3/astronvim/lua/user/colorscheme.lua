@@ -1,3 +1,3 @@
 -- Set colorscheme to use
-return "tokyonight-night"
--- return "catppuccin"
+-- return "tokyonight-night"
+return "catppuccin"
