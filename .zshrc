@@ -12,6 +12,19 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/joshua/.oh-my-zsh"
 
+# Custom Exports
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.local/bin":$PATH
+
+export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile
+export GIT_EDITOR=astronvim3.sh
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -79,6 +92,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+
+
 # lazy load nvm
 export NVM_LAZY_LOAD=true
 
@@ -139,23 +154,12 @@ alias testingvim=testing.sh
 alias vi=astro
 # alias nvcode=XDG_CONFIG_HOME=~/.config/nvcode nvim
 alias dotfiles='/usr/bin/git --git-dir=/Users/joshua/.cfg/ --work-tree=/Users/joshua'
+alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 
 co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 run() { co $1 && ./${1%.*} & fg; }
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.local/bin":$PATH
-
-export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
-export HOMEBREW_BREWFILE=~/.config/brewfile/Brewfile
-export GIT_EDITOR=astronvim3.sh
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
