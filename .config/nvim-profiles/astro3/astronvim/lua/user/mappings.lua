@@ -8,16 +8,16 @@ return {
 	n = {
 		-- second key is the lefthand side of the map
 		-- mappings seen under group name "Buffer"
-				["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-				["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-				["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-				["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+		["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+		["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
+		["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
+		["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
 		-- tables with the `name` key will be registered with which-key if it's installed
 		-- this is useful for naming menus
-				["<leader>b"] = { name = "Buffers" },
-		-- quick save
-		-- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-				["<leader>g."] = {
+		["<leader>b"] = { name = "Buffers" },
+		-- disable quick save
+		["<C-s>"] = false,
+		["<leader>g."] = {
 			function()
 				if vim.g.dotfiles_diff_enabled then
 					vim.env.GIT_WORK_TREE = nil
@@ -29,16 +29,18 @@ return {
 					require("astronvim.utils").notify("dotfiles diff enabled")
 				end
 				vim.g.dotfiles_diff_enabled = not vim.g.dotfiles_diff_enabled
+				-- reload buffer
+				vim.cmd([[e]])
 			end,
 			desc = "Toggle dotfiles diff",
 		},
-				["<leader>gD"] = {
+		["<leader>gD"] = {
 			function()
 				vim.cmd([[DiffviewOpen]])
 			end,
 			desc = "Open Diffview",
 		},
-				["<leader>E"] = {
+		["<leader>E"] = {
 			function()
 				local function get_root()
 					local root_patterns = { ".git", "lua" }
@@ -54,8 +56,8 @@ return {
 									and vim.tbl_map(function(ws)
 										return vim.uri_to_fname(ws.uri)
 									end, workspace)
-									or client.config.root_dir and { client.config.root_dir }
-									or {}
+								or client.config.root_dir and { client.config.root_dir }
+								or {}
 							for _, p in ipairs(paths) do
 								local r = vim.loop.fs_realpath(p)
 								if path:find(r, 1, true) then
@@ -82,13 +84,13 @@ return {
 			end,
 			desc = "Toggle Explorer (root)",
 		},
-				["<leader>e"] = {
+		["<leader>e"] = {
 			function()
 				require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
 			end,
 			desc = "Toggle Explorer (cwd)",
 		},
-				["<leader>ue"] = {
+		["<leader>ue"] = {
 			function()
 				local utils = require("astronvim.utils")
 				if vim.g.neoscroll_enabled then
@@ -121,7 +123,7 @@ return {
 			end,
 			desc = "Toggle smooth scrolling",
 		},
-				["<leader>um"] = {
+		["<leader>um"] = {
 			function()
 				local utils = require("astronvim.utils")
 				local status, map = pcall(require, "mini.map")
@@ -141,15 +143,18 @@ return {
 			end,
 			desc = "Toggle MiniMap",
 		},
-				["<leader>T"] = {
+		["<leader>T"] = {
 			name = "󰔫 Trouble",
-			r = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
-			f = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
-			d = { "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
-			q = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
-			l = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
-			w = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
 		},
+		["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
+		["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
+		["<leader>Td"] = { "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
+		["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
+		["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
+		["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+		-- better buffer navigation
+		["]b"] = false,
+		["[b"] = false,
 		L = {
 			function()
 				require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
@@ -162,31 +167,38 @@ return {
 			end,
 			desc = "Previous buffer",
 		},
+		["<C-Down>"] = false,
+		["<C-Left>"] = false,
+		["<C-Right>"] = false,
+		["<C-Up>"] = false,
 		-- Resize with arrows
-				["<C-S-Up>"] = {
+		["<Up>"] = {
 			function()
 				require("smart-splits").resize_up()
 			end,
 			desc = "Resize split up",
 		},
-				["<C-S-Down>"] = {
+		["<Down>"] = {
 			function()
 				require("smart-splits").resize_down()
 			end,
 			desc = "Resize split down",
 		},
-				["<C-S-Left>"] = {
+		["<Left>"] = {
 			function()
 				require("smart-splits").resize_left()
 			end,
 			desc = "Resize split left",
 		},
-				["<C-S-Right>"] = {
+		["<Right>"] = {
 			function()
 				require("smart-splits").resize_right()
 			end,
 			desc = "Resize split right",
 		},
+	},
+	i = {
+		["<C-s>"] = { "<C-g>u<Esc>[s1z=`]a<C-g>u", desc = "autocorrect spelling error" },
 	},
 	t = {
 		-- setting a mapping to false will disable it
