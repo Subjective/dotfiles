@@ -3,6 +3,11 @@ return {
 	{ import = "astrocommunity.colorscheme.tokyonight" },
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	{ import = "astrocommunity.colorscheme.gruvbox" },
+	{ import = "astrocommunity.markdown-and-latex.glow-nvim" },
+	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
+	{ import = "astrocommunity.media.vim-wakatime" },
+	-- { import = "astrocommunity.indent.indent-blankline-nvim" },
+	-- { import = "astrocommunity.indent.mini-indentscope" },
 	{
 		lazy = false,
 		"tokyonight.nvim",
@@ -29,7 +34,6 @@ return {
 	},
 	{
 		"karb94/neoscroll.nvim",
-		event = "VeryLazy",
 		config = function()
 			local neoscroll = require("neoscroll")
 			if vim.g.neoscroll_enabled then
@@ -43,7 +47,6 @@ return {
 	},
 	{
 		"echasnovski/mini.map",
-		event = "VeryLazy",
 		branch = "stable",
 		config = function()
 			local map = require("mini.map")
