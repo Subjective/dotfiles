@@ -15,4 +15,5 @@ return function()
 	--   },
 	-- }
 	--     { "BufEnter", "Filetype" },
+	require("user.autocmds")
 end
