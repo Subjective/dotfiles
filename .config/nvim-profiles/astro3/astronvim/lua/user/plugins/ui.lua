@@ -201,4 +201,5 @@ return {
 			vim.g.lsp_handlers_enabled = false
 		end,
 	},
+	{},
 }

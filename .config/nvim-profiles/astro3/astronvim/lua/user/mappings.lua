@@ -3,6 +3,8 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+local astro_utils = require("astronvim.utils")
+
 return {
 	-- first key is the mode
 	n = {
@@ -25,11 +27,12 @@ return {
 				if vim.g.dotfiles_diff_enabled then
 					vim.env.GIT_WORK_TREE = nil
 					vim.env.GIT_DIR = nil
-					require("astronvim.utils").notify("dotfiles diff disabled")
+					astro_utils.notify("dotfiles diff disabled")
+					require("gitsigns").refresh()
 				else
 					vim.env.GIT_WORK_TREE = vim.fn.expand("~")
 					vim.env.GIT_DIR = vim.fn.expand("~/.cfg")
-					require("astronvim.utils").notify("dotfiles diff enabled")
+					astro_utils.notify("dotfiles diff enabled")
 				end
 				vim.g.dotfiles_diff_enabled = not vim.g.dotfiles_diff_enabled
 				-- reload buffer
@@ -95,7 +98,7 @@ return {
 		},
 		["<leader>ue"] = {
 			function()
-				local utils = require("astronvim.utils")
+				local utils = astro_utils
 				if vim.g.neoscroll_enabled then
 					vim.cmd("unmap <C-u>")
 					vim.cmd("unmap <C-d>")
@@ -128,7 +131,7 @@ return {
 		},
 		["<leader>um"] = {
 			function()
-				local utils = require("astronvim.utils")
+				local utils = astro_utils
 				local status, map = pcall(require, "mini.map")
 				if not status then
 					utils.notify("MiniMap not available")
