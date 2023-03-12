@@ -1413,4 +1413,7 @@
     },
     "editor.fontLigatures": true,
     "editor.fontFamily": "FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "codeium.enableConfig": {
+        "*": true
+    },
 }
