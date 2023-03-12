@@ -18,7 +18,6 @@ return {
 		ui_notifications_enabled = true, -- disable notifications when toggling UI elements
 		neoscroll_enabled = false,
 		minimap_enabled = false,
-		-- copilot_enabled = true,
 	},
 }
 -- If you need more control, you can use the function()...end notation
