@@ -67,4 +67,9 @@ return {
 			end, { expr = true })
 		end,
 	},
+	{
+		"michaelb/sniprun",
+		build = "bash ./install.sh",
+		event = "VeryLazy",
+	},
 }
