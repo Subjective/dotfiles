@@ -149,15 +149,30 @@ return {
 			end,
 			desc = "Toggle MiniMap",
 		},
-		["<leader>T"] = {
-			name = "󰔫 Trouble",
-		},
+		["<leader>T"] = { name = "󰔫 Trouble" },
 		["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
 		["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
 		["<leader>Td"] = { "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
 		["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
+
 		["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
 		["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+		-- Codeium
+		["<leader>;"] = { name = "󰧑 AI Assistant" },
+		["<leader>;;"] = {
+			function()
+				vim.cmd.Codeium(vim.g.codeium_enabled == 0 and "Enable" or "Disable")
+				astro_utils.notify("Codeium " .. (vim.g.codeium_enabled == 0 and "Disabled" or "Enabled"))
+			end,
+			desc = "Toggle Global",
+		},
+		["<leader>;b"] = {
+			function()
+				vim.cmd.Codeium(vim.b.codeium_enabled == 0 and "EnableBuffer" or "DisableBuffer")
+				astro_utils.notify("Codeium (buffer) " .. (vim.b.codeium_enabled == 0 and "Disabled" or "Enabled"))
+			end,
+			desc = "Toggle Buffer",
+		},
 		-- better buffer navigation
 		["]b"] = false,
 		["[b"] = false,

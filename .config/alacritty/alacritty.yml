@@ -125,6 +125,7 @@ font:
 
 key_bindings:
   - { key: Apostrophe, mods: Control, chars: "\x1b[27;5;39~" } # add support for "Ctrl + '" keybindings (https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797)
+  - { key: Semicolon, mods: Control, chars: "\x1b[27;5;59~" } # add support for "Ctrl + ;" keybindings (https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797)
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: Key0, mods: Control, action: ResetFontSize }
