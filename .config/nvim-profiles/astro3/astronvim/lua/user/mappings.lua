@@ -17,6 +17,9 @@ return {
 		["<leader>b"] = { name = "Buffers" },
 		-- disable quick save
 		["<C-s>"] = false,
+		-- better increment/decrement
+		["-"] = { "<c-x>", desc = "Descrement number" },
+		["+"] = { "<c-a>", desc = "Increment number" },
 		["<leader>g."] = {
 			function()
 				if vim.g.dotfiles_diff_enabled then
@@ -203,5 +206,10 @@ return {
 	t = {
 		-- setting a mapping to false will disable it
 		-- ["<esc>"] = false,
+	},
+	x = {
+		-- better increment/decrement
+		["+"] = { "g<C-a>", desc = "Increment number" },
+		["-"] = { "g<C-x>", desc = "Descrement number" },
 	},
 }
