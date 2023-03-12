@@ -157,8 +157,18 @@ return {
 
 		["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
 		["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
-		-- Codeium
+
 		["<leader>;"] = { name = "󰧑 AI Assistant" },
+		-- Copilot
+		-- ["<leader>;;"] = {
+		-- 	function()
+		-- 		vim.cmd.Copilot(vim.g.copilot_enabled == false and "enable" or "disable")
+		-- 		vim.g.copilot_enabled = not vim.g.copilot_enabled
+		-- 		astro_utils.notify("Copilot " .. (vim.g.copilot_enabled == false and "Disabled" or "Enabled"))
+		-- 	end,
+		-- 	desc = "Toggle Global",
+		-- },
+		-- Codeium
 		["<leader>;;"] = {
 			function()
 				vim.cmd.Codeium(vim.g.codeium_enabled == 0 and "Enable" or "Disable")
