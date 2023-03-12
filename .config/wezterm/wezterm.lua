@@ -26,6 +26,7 @@ return {
 	warn_about_missing_glyphs = false,
 	-- enable_kitty_graphics = false,
 	window_decorations = "RESIZE",
+	window_background_opacity = 0.95,
 	animation_fps = 1,
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
