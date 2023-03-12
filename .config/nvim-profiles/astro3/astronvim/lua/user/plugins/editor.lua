@@ -11,8 +11,8 @@ return {
 	{
 		"ggandor/leap.nvim",
 		keys = {
-			{ "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-			{ "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+			{ "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
 			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
 		},
 		config = function(_, opts)
@@ -62,7 +62,7 @@ return {
 			vim.keymap.set("i", "<C-=>", function()
 				return vim.fn["codeium#CycleCompletions"](-1)
 			end, { expr = true })
-			vim.keymap.set("i", "<C-BS>", function()
+			vim.keymap.set("i", "<C-]>", function()
 				return vim.fn["codeium#Clear"]()
 			end, { expr = true })
 		end,

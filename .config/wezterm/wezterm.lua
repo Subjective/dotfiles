@@ -61,5 +61,7 @@ return {
 		-- allow tmux to receive <C-'>/<C-;> binding
 		{ key = "'", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;39~") },
 		{ key = ";", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;59~") },
+		{ key = "-", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;45~") },
+		{ key = "=", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;61~") },
 	},
 }
