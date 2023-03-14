@@ -15,7 +15,7 @@ export ZSH="/Users/joshua/.oh-my-zsh"
 # Custom Exports
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -145,16 +145,21 @@ source $ZSH/oh-my-zsh.sh
 
 alias gcc="gcc-11"
 alias g++="g++-11"
-alias python=python3
-alias pip=pip3
-alias lvide=lvide.sh
-alias astro=astronvim3.sh
-alias lazy=lazyvim.sh
-alias testingvim=testing.sh
-alias vi=astro
-# alias nvcode=XDG_CONFIG_HOME=~/.config/nvcode nvim
+alias python="python3"
+alias pip="pip3"
+alias lvide="lvide.sh"
+alias astro="astronvim3.sh"
+alias lazy="lazyvim.sh"
+alias testingvim="testing.sh"
+alias vi="astro"
 alias dotfiles='/usr/bin/git --git-dir=/Users/joshua/.cfg/ --work-tree=/Users/joshua'
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
+
+if (( $+commands[exa] )); then
+  alias ls="exa --icons"
+  alias ll="exa -l -g -H --icons"
+  alias lla="ll -a"
+fi
 
 co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 run() { co $1 && ./${1%.*} & fg; }
