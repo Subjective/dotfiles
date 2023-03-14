@@ -155,6 +155,7 @@ alias vi="astro"
 alias nvim="astro"
 alias dotfiles='/usr/bin/git --git-dir=/Users/joshua/.cfg/ --work-tree=/Users/joshua'
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
+alias ypwd="pwd|pbcopy && pwd|pbpaste" # setup alias to copy and print cwd
 
 if (( $+commands[exa] )); then
   alias ls="exa --icons"
