@@ -36,7 +36,7 @@ return {
 				end
 				vim.g.dotfiles_diff_enabled = not vim.g.dotfiles_diff_enabled
 				-- reload buffer
-				vim.cmd([[e]])
+				vim.cmd([[bufdo e]])
 			end,
 			desc = "Toggle dotfiles diff",
 		},
@@ -154,7 +154,6 @@ return {
 		["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
 		["<leader>Td"] = { "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
 		["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
-
 		["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
 		["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
 		-- better buffer navigation
