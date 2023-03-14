@@ -77,57 +77,57 @@ return {
 			})
 		end,
 	},
-	{
-		"echasnovski/mini.animate",
-		enabled = false,
-		event = "VeryLazy",
-		opts = function()
-			-- don't use animate when scrolling with the mouse
-			local mouse_scrolled = false
-			for _, scroll in ipairs({ "Up", "Down" }) do
-				local key = "<ScrollWheel" .. scroll .. ">"
-				vim.keymap.set({ "", "i" }, key, function()
-					mouse_scrolled = true
-					return key
-				end, { expr = true })
-			end
-
-			local animate = require("mini.animate")
-			return {
-				cursor = {
-					enable = false,
-					timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-					path = animate.gen_path.line({
-						predicate = function(destination)
-							return destination[1] < -2 or 2 < destination[1]
-						end,
-					}),
-				},
-				resize = {
-					enable = false,
-					timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-				},
-				scroll = {
-					-- timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-					timing = function(_, n)
-						return math.min(150 / n, 5)
-					end,
-					subscroll = animate.gen_subscroll.equal({
-						predicate = function(total_scroll)
-							if mouse_scrolled then
-								mouse_scrolled = false
-								return false
-							end
-							return total_scroll > 1
-						end,
-					}),
-				},
-			}
-		end,
-		config = function(_, opts)
-			require("mini.animate").setup(opts)
-		end,
-	},
+	-- {
+	-- 	"echasnovski/mini.animate",
+	-- 	enabled = false,
+	-- 	event = "VeryLazy",
+	-- 	opts = function()
+	-- 		-- don't use animate when scrolling with the mouse
+	-- 		local mouse_scrolled = false
+	-- 		for _, scroll in ipairs({ "Up", "Down" }) do
+	-- 			local key = "<ScrollWheel" .. scroll .. ">"
+	-- 			vim.keymap.set({ "", "i" }, key, function()
+	-- 				mouse_scrolled = true
+	-- 				return key
+	-- 			end, { expr = true })
+	-- 		end
+	--
+	-- 		local animate = require("mini.animate")
+	-- 		return {
+	-- 			cursor = {
+	-- 				enable = false,
+	-- 				timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+	-- 				path = animate.gen_path.line({
+	-- 					predicate = function(destination)
+	-- 						return destination[1] < -2 or 2 < destination[1]
+	-- 					end,
+	-- 				}),
+	-- 			},
+	-- 			resize = {
+	-- 				enable = false,
+	-- 				timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+	-- 			},
+	-- 			scroll = {
+	-- 				-- timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
+	-- 				timing = function(_, n)
+	-- 					return math.min(150 / n, 5)
+	-- 				end,
+	-- 				subscroll = animate.gen_subscroll.equal({
+	-- 					predicate = function(total_scroll)
+	-- 						if mouse_scrolled then
+	-- 							mouse_scrolled = false
+	-- 							return false
+	-- 						end
+	-- 						return total_scroll > 1
+	-- 					end,
+	-- 				}),
+	-- 			},
+	-- 		}
+	-- 	end,
+	-- 	config = function(_, opts)
+	-- 		require("mini.animate").setup(opts)
+	-- 	end,
+	-- },
 	{
 		"lewis6991/satellite.nvim",
 		lazy = false,
@@ -175,31 +175,30 @@ return {
 		"sindrets/diffview.nvim",
 		event = "VeryLazy",
 	},
-	{
-		enabled = false,
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = { "MunifTanjim/nui.nvim" },
-		opts = {
-			lsp = {
-				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true,
-				},
-			},
-			presets = {
-				bottom_search = true, -- use a classic bottom cmdline for search
-				command_palette = true, -- position the cmdline and popupmenu together
-				long_message_to_split = true, -- long messages will be sent to a split
-				inc_rename = false, -- enables an input dialog for inc-rename.nvim
-				lsp_doc_border = true, -- add a border to hover docs and signature help
-			},
-		},
-		init = function()
-			vim.g.lsp_handlers_enabled = false
-		end,
-	},
-	{},
+	-- {
+	-- 	enabled = false,
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = { "MunifTanjim/nui.nvim" },
+	-- 	opts = {
+	-- 		lsp = {
+	-- 			-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+	-- 			override = {
+	-- 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+	-- 				["vim.lsp.util.stylize_markdown"] = true,
+	-- 				["cmp.entry.get_documentation"] = true,
+	-- 			},
+	-- 		},
+	-- 		presets = {
+	-- 			bottom_search = true, -- use a classic bottom cmdline for search
+	-- 			command_palette = true, -- position the cmdline and popupmenu together
+	-- 			long_message_to_split = true, -- long messages will be sent to a split
+	-- 			inc_rename = false, -- enables an input dialog for inc-rename.nvim
+	-- 			lsp_doc_border = true, -- add a border to hover docs and signature help
+	-- 		},
+	-- 	},
+	-- 	init = function()
+	-- 		vim.g.lsp_handlers_enabled = false
+	-- 	end,
+	-- },
 }
