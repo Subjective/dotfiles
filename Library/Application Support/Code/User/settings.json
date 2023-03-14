@@ -1423,4 +1423,5 @@
         "plaintext": false,
         "markdown": false
     },
+    "editor.linkedEditing": true,
 }
