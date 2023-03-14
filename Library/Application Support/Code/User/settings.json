@@ -1368,7 +1368,7 @@
             "command": "workbench.action.focusEighthEditorGroup"
         }
     ],
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.colorCustomizations": {
         "[Tokyo Night]": {
             "foreground": "#959cbd",
@@ -1417,4 +1417,10 @@
         "*": true
     },
     "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": false,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    },
 }
