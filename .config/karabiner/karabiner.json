@@ -44,11 +44,11 @@
                         ]
                     },
                     {
-                        "description": "Ctrl Key → Hyper Key (⌃⌥⇧⌘)",
+                        "description": "Right Command → Hyper Key (⌃⌥⇧⌘)",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "left_control",
+                                    "key_code": "right_gui",
                                     "modifiers": {
                                         "optional": [
                                             "caps_lock"
