@@ -5,14 +5,26 @@ return {
 		config = function()
 			require("nvim-surround").setup({
 				indent_lines = false,
+				keymaps = {
+					insert = "<C-g>s",
+					insert_line = "<C-g>S",
+					normal = "ys",
+					normal_cur = "yss",
+					normal_line = "yS",
+					normal_cur_line = "ySS",
+					visual = "Z",
+					visual_line = "gS",
+					delete = "ds",
+					change = "cs",
+				},
 			})
 		end,
 	},
 	{
 		"ggandor/leap.nvim",
 		keys = {
-			{ "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-			{ "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
+			{ "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
 			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
 		},
 		config = function(_, opts)
