@@ -11,13 +11,13 @@ return {
 		-- second key is the lefthand side of the map
 		-- tables with the `name` key will be registered with which-key if it's installed
 		-- this is useful for naming menus
-		["<leader>b"] = { name = "Buffers" },
+				["<leader>b"] = { name = "Buffers" },
 		-- disable quick save
-		["<C-s>"] = false,
+				["<C-s>"] = false,
 		-- better increment/decrement
-		["-"] = { "<c-x>", desc = "Descrement number" },
-		["+"] = { "<c-a>", desc = "Increment number" },
-		["<leader>g."] = {
+				["-"] = { "<c-x>", desc = "Descrement number" },
+				["+"] = { "<c-a>", desc = "Increment number" },
+				["<leader>g."] = {
 			function()
 				if vim.g.dotfiles_diff_enabled then
 					vim.env.GIT_WORK_TREE = nil
@@ -31,17 +31,17 @@ return {
 				end
 				vim.g.dotfiles_diff_enabled = not vim.g.dotfiles_diff_enabled
 				-- reload buffer
-				vim.cmd([[bufdo e]])
+				vim.cmd([[silent! bufdo e]])
 			end,
 			desc = "Toggle dotfiles diff",
 		},
-		["<leader>gD"] = {
+				["<leader>gD"] = {
 			function()
 				vim.cmd([[DiffviewOpen]])
 			end,
 			desc = "Open Diffview",
 		},
-		["<leader>E"] = {
+				["<leader>E"] = {
 			function()
 				local function get_root()
 					local root_patterns = { ".git", "lua" }
@@ -57,8 +57,8 @@ return {
 									and vim.tbl_map(function(ws)
 										return vim.uri_to_fname(ws.uri)
 									end, workspace)
-								or client.config.root_dir and { client.config.root_dir }
-								or {}
+									or client.config.root_dir and { client.config.root_dir }
+									or {}
 							for _, p in ipairs(paths) do
 								local r = vim.loop.fs_realpath(p)
 								if path:find(r, 1, true) then
@@ -85,22 +85,22 @@ return {
 			end,
 			desc = "Toggle Explorer (root)",
 		},
-		["<leader>e"] = {
+				["<leader>e"] = {
 			function()
 				require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
 			end,
 			desc = "Toggle Explorer (cwd)",
 		},
-		["<leader>T"] = { name = "󰔫 Trouble" },
-		["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
-		["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
-		["<leader>Td"] = { "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
-		["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
-		["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
-		["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+				["<leader>T"] = { name = "󰔫 Trouble" },
+				["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
+				["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
+				["<leader>Td"] = { "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
+				["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
+				["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
+				["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
 		-- better buffer navigation
-		["]b"] = false,
-		["[b"] = false,
+				["]b"] = false,
+				["[b"] = false,
 		L = {
 			function()
 				require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
@@ -113,30 +113,30 @@ return {
 			end,
 			desc = "Previous buffer",
 		},
-		["<C-Down>"] = false,
-		["<C-Left>"] = false,
-		["<C-Right>"] = false,
-		["<C-Up>"] = false,
+				["<C-Down>"] = false,
+				["<C-Left>"] = false,
+				["<C-Right>"] = false,
+				["<C-Up>"] = false,
 		-- Resize with arrows
-		["<Up>"] = {
+				["<Up>"] = {
 			function()
 				require("smart-splits").resize_up()
 			end,
 			desc = "Resize split up",
 		},
-		["<Down>"] = {
+				["<Down>"] = {
 			function()
 				require("smart-splits").resize_down()
 			end,
 			desc = "Resize split down",
 		},
-		["<Left>"] = {
+				["<Left>"] = {
 			function()
 				require("smart-splits").resize_left()
 			end,
 			desc = "Resize split left",
 		},
-		["<Right>"] = {
+				["<Right>"] = {
 			function()
 				require("smart-splits").resize_right()
 			end,
@@ -144,7 +144,7 @@ return {
 		},
 	},
 	i = {
-		["<C-s>"] = { "<C-g>u<Esc>[s1z=`]a<C-g>u", desc = "autocorrect spelling error" },
+				["<C-s>"] = { "<C-g>u<Esc>[s1z=`]a<C-g>u", desc = "autocorrect spelling error" },
 	},
 	t = {
 		-- setting a mapping to false will disable it
@@ -152,7 +152,7 @@ return {
 	},
 	x = {
 		-- better increment/decrement
-		["+"] = { "g<C-a>", desc = "Increment number" },
-		["-"] = { "g<C-x>", desc = "Descrement number" },
+				["+"] = { "g<C-a>", desc = "Increment number" },
+				["-"] = { "g<C-x>", desc = "Descrement number" },
 	},
 }
