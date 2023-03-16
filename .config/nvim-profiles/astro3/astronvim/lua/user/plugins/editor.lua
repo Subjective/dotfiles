@@ -11,8 +11,8 @@ return {
 	{
 		"ggandor/leap.nvim",
 		keys = {
-			{ "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-			{ "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+			{ "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
 			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
 		},
 		config = function(_, opts)
@@ -48,5 +48,23 @@ return {
 		"michaelb/sniprun",
 		build = "bash ./install.sh",
 		event = "VeryLazy",
+	},
+	{
+		"nvim-pack/nvim-spectre",
+		cmd = "Spectre",
+		opts = function()
+			local prefix = "<leader>s"
+			return {
+				mapping = {
+					send_to_qf = { map = prefix .. "q" },
+					replace_cmd = { map = prefix .. "c" },
+					show_option_menu = { map = prefix .. "o" },
+					run_current_replace = { map = prefix .. "C" },
+					run_replace = { map = prefix .. "R" },
+					change_view_mode = { map = prefix .. "v" },
+					resume_last_search = { map = prefix .. "l" },
+				},
+			}
+		end,
 	},
 }
