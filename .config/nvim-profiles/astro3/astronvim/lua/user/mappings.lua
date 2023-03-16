@@ -96,59 +96,6 @@ return {
 			end,
 			desc = "Toggle Explorer (cwd)",
 		},
-		["<leader>ue"] = {
-			function()
-				local utils = astro_utils
-				if vim.g.neoscroll_enabled then
-					vim.cmd("unmap <C-u>")
-					vim.cmd("unmap <C-d>")
-					vim.cmd("unmap <C-b>")
-					vim.cmd("unmap <C-f>")
-					vim.cmd("unmap <C-y>")
-					vim.cmd("unmap <C-e>")
-					vim.cmd("unmap zt")
-					vim.cmd("unmap zz")
-					vim.cmd("unmap zb")
-					utils.notify("smooth scrolling off")
-				else
-					local t = {}
-					t["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
-					t["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
-					t["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "450" } }
-					t["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "450" } }
-					t["<C-y>"] = { "scroll", { "-0.10", "false", "100" } }
-					t["<C-e>"] = { "scroll", { "0.10", "false", "100" } }
-					t["zt"] = { "zt", { "250" } }
-					t["zz"] = { "zz", { "250" } }
-					t["zb"] = { "zb", { "250" } }
-					require("neoscroll.config").set_mappings(t)
-
-					utils.notify("smooth scrolling on")
-				end
-				vim.g.neoscroll_enabled = not vim.g.neoscroll_enabled
-			end,
-			desc = "Toggle smooth scrolling",
-		},
-		["<leader>um"] = {
-			function()
-				local utils = astro_utils
-				local status, map = pcall(require, "mini.map")
-				if not status then
-					utils.notify("MiniMap not available")
-				else
-					map.toggle()
-					if not vim.g.minimap_enabled then
-						vim.cmd([[SatelliteDisable]])
-						utils.notify("Minimap enabled")
-					else
-						vim.cmd([[SatelliteEnable]])
-						utils.notify("Minimap disabled")
-					end
-					vim.g.minimap_enabled = not vim.g.minimap_enabled
-				end
-			end,
-			desc = "Toggle MiniMap",
-		},
 		["<leader>T"] = { name = "󰔫 Trouble" },
 		["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
 		["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
