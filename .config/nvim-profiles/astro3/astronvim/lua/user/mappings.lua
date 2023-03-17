@@ -25,8 +25,8 @@ return {
 					astro_utils.notify("dotfiles diff disabled")
 					require("gitsigns").refresh()
 				else
-					vim.env.GIT_WORK_TREE = vim.fn.expand("~")
-					vim.env.GIT_DIR = vim.fn.expand("~/.cfg")
+					vim.env.GIT_DIR = vim.fn.expand("$HOME/.cfg")
+					vim.env.GIT_WORK_TREE = vim.fn.expand("$HOME")
 					astro_utils.notify("dotfiles diff enabled")
 				end
 				vim.g.dotfiles_diff_enabled = not vim.g.dotfiles_diff_enabled
@@ -35,11 +35,17 @@ return {
 			end,
 			desc = "Toggle dotfiles diff",
 		},
-		["<leader>gD"] = {
+		["<leader>gg"] = {
 			function()
-				vim.cmd([[DiffviewOpen]])
+				astro_utils.toggle_term_cmd("lazygit --work-tree=$GIT_WORK_TREE")
 			end,
-			desc = "Open Diffview",
+			desc = "ToggleTerm lazygit",
+		},
+		["<leader>tl"] = {
+			function()
+				astro_utils.toggle_term_cmd("lazygit --work-tree=$GIT_WORK_TREE")
+			end,
+			desc = "ToggleTerm lazygit",
 		},
 		["<leader>E"] = {
 			function()
