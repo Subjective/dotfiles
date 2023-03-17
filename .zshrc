@@ -154,6 +154,9 @@ alias testingvim="testing.sh"
 alias vi="astro"
 alias nvim="astro"
 alias dotfiles='/usr/bin/git --git-dir=/Users/joshua/.cfg/ --work-tree=/Users/joshua'
+alias lg="lazygit"
+alias lazygitdot="lazygit --git-dir=$HOME/.cfg --work-tree=$HOME"
+alias lgdot="lazygitdot"
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd="pwd && pwd|pbcopy" # setup alias to copy and print cwd
 alias ywd="pwd|pbcopy" # setup alias to copy and print cwd
