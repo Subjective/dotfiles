@@ -10,3 +10,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.spell = true
 	end,
 })
+
+local iterm_profile = os.getenv("ITERM_PROFILE")
+if iterm_profile then
+	local function set_colorscheme(colorscheme)
+		return string.format('call chansend(v:stderr, "\\e]50;SetProfile=%s\\x7")', colorscheme)
+	end
+	vim.cmd(set_colorscheme(vim.g.colors_name))
+	vim.api.nvim_create_autocmd({ "VimLeave" }, { pattern = { "*" }, command = set_colorscheme(iterm_profile) })
+end
