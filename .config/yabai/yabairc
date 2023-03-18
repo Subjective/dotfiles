@@ -39,6 +39,8 @@ yabai -m config window_border_width          4
 yabai -m config active_window_border_color 0xFF88C0D0
 yabai -m config normal_window_border_color 0x002E3440
 yabai -m config insert_feedback_color 0xFFA3BE8C
+# fix window blur ghosting
+yabai -m config window_border_blur off
 
 # center mouse on window with focus
 # yabai -m config mouse_follows_focus on
@@ -101,10 +103,11 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
 yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
-yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add label="Orion" app="^Orion$" title="^(General|Appearance|Browsing|Sync|Passwords|Privacy|Search|Websites|Advanced)$" manage=off
+yabai -m rule --add label="Discord Updater" app="Discord" title="Discord Updater" manage=off
 
 # make all non-resizeable windows float (#1317)
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
