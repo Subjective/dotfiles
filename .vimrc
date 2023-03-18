@@ -1,6 +1,6 @@
-set number
+set number relativenumber
 syntax on
-set tabstop=4
+set mouse=a
 set autoindent
 set expandtab
 set softtabstop=4
