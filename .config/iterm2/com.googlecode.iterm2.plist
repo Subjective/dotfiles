@@ -2935,7 +2935,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string>D</string>
+			<string>B</string>
 			<key>Show Mark Indicators</key>
 			<true/>
 			<key>Show Status Bar</key>
@@ -3383,7 +3383,9 @@
 				<real>0.1019607843137255</real>
 			</dict>
 			<key>Bound Hosts</key>
-			<array/>
+			<array>
+				<string>&amp;tmux</string>
+			</array>
 			<key>Brighten Bold Text</key>
 			<true/>
 			<key>Character Encoding</key>
@@ -4004,7 +4006,7 @@
 			<key>Thin Strokes</key>
 			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.14999999999999999</real>
+			<real>0.098936170212765961</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unicode Version</key>
@@ -4769,7 +4771,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>C</string>
 			<key>Show Mark Indicators</key>
 			<true/>
 			<key>Show Status Bar</key>
@@ -5635,7 +5637,7 @@
 			<key>Normal Font</key>
 			<string>FiraCodeNerdFontCompleteM-Regular 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -7513,7 +7515,9 @@
 				<real>0.1019607843137255</real>
 			</dict>
 			<key>Bound Hosts</key>
-			<array/>
+			<array>
+				<string></string>
+			</array>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
