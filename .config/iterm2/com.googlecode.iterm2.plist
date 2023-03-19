@@ -2036,7 +2036,7 @@
 		</dict>
 	</dict>
 	<key>Default Bookmark Guid</key>
-	<string>771B4DFF-68ED-482F-B617-E99380ACDB9D</string>
+	<string>FC19D0B1-0FA5-4BD2-996A-2E132D2E6C29</string>
 	<key>DisableCustomBoxDrawing</key>
 	<false/>
 	<key>DrawOutlineAroundCursor</key>
@@ -3385,9 +3385,7 @@
 				<real>0.1019607843137255</real>
 			</dict>
 			<key>Bound Hosts</key>
-			<array>
-				<string>&amp;tmux</string>
-			</array>
+			<array/>
 			<key>Brighten Bold Text</key>
 			<true/>
 			<key>Character Encoding</key>
@@ -4303,7 +4301,9 @@
 				<real>0.80392156862745101</real>
 			</dict>
 			<key>Bound Hosts</key>
-			<array/>
+			<array>
+				<string>&amp;tmux</string>
+			</array>
 			<key>Brighten Bold Text</key>
 			<true/>
 			<key>Character Encoding</key>
@@ -4924,7 +4924,7 @@
 			<key>Thin Strokes</key>
 			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.10212532205784575</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unicode Version</key>
