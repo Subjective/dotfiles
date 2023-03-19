@@ -162,8 +162,8 @@ alias lg="lazygit"
 alias lazygitdot="lazygit --git-dir=$HOME/.cfg --work-tree=$HOME"
 alias lgdot="lazygitdot"
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
-alias ypwd="pwd && pwd|pbcopy" # setup alias to copy and print cwd
-alias ywd="pwd|pbcopy" # setup alias to copy and print cwd
+alias ypwd="pwd && echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
+alias ywd="echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 
 if (( $+commands[exa] )); then
   alias ls="exa --icons"
