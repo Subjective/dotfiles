@@ -110,7 +110,7 @@ plugins=(
   web-search
 )
 ZVM_VI_SURROUND_BINDKEY=classic
-# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 ZVM_VI_HIGHLIGHT_BACKGROUND=blue
 
 # fix conflict with fzf in vi-mode
