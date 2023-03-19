@@ -96,8 +96,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # lazy load nvm
 export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 
 plugins=(
+  evalcache
   zsh-nvm
   git
   dnf
@@ -176,11 +178,23 @@ run() { co $1 && ./${1%.*} & fg; }
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+#
+# eval "$(rbenv init - zsh)"
 
-eval "$(rbenv init - zsh)"
+# Cache the result of eval on first run via the evalcache plugin
+# If you update a tool and expect for some reason that it's initialization might have changed, simply clear the cache and it will be regenerated
+if command -v pyenv 1>/dev/null 2>&1; then
+  _evalcache pyenv init -
+fi
+_evalcache rbenv init -
+
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
