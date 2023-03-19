@@ -21,7 +21,7 @@ return {
 			status.component.separated_path({
 				padding = { left = 0 },
 				separator = "/",
-				max_depth = 5,
+				max_depth = 3,
 				path_func = status.provider.filename({ modify = ":.:h" }),
 				update = { "BufEnter", "BufLeave", "DirChanged" },
 			}),
