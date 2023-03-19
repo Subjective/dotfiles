@@ -10,6 +10,8 @@
 	<true/>
 	<key>AnimateGraphStatusBarComponents</key>
 	<true/>
+	<key>Command</key>
+	<string>fish</string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>catppuccin-macchiato</key>
@@ -2939,7 +2941,7 @@
 			<key>Show Mark Indicators</key>
 			<true/>
 			<key>Show Status Bar</key>
-			<true/>
+			<false/>
 			<key>Show Timestamps</key>
 			<integer>0</integer>
 			<key>Silence Bell</key>
@@ -3395,7 +3397,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/usr/local/bin/fish</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>
@@ -3859,7 +3861,7 @@
 			<key>Show Mark Indicators</key>
 			<true/>
 			<key>Show Status Bar</key>
-			<true/>
+			<false/>
 			<key>Show Timestamps</key>
 			<integer>0</integer>
 			<key>Silence Bell</key>
@@ -4775,7 +4777,7 @@
 			<key>Show Mark Indicators</key>
 			<true/>
 			<key>Show Status Bar</key>
-			<true/>
+			<false/>
 			<key>Show Timestamps</key>
 			<integer>0</integer>
 			<key>Silence Bell</key>
@@ -6472,7 +6474,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Status Bar</key>
-			<true/>
+			<false/>
 			<key>Show Timestamps</key>
 			<integer>0</integer>
 			<key>Silence Bell</key>
@@ -7983,7 +7985,7 @@
 			<key>Show Mark Indicators</key>
 			<true/>
 			<key>Show Status Bar</key>
-			<true/>
+			<false/>
 			<key>Show Timestamps</key>
 			<integer>0</integer>
 			<key>Silence Bell</key>
@@ -8211,7 +8213,7 @@
 	<key>TerminalMargin</key>
 	<integer>4</integer>
 	<key>TerminalVMargin</key>
-	<integer>0</integer>
+	<integer>4</integer>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseExperimentalFontMetrics</key>
