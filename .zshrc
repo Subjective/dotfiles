@@ -145,8 +145,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias gcc="gcc-11"
-alias g++="g++-11"
+# alias gcc="gcc-11"
+# alias g++="g++-11"
 alias python="python3"
 alias pip="pip3"
 alias lvide="lvide.sh"
