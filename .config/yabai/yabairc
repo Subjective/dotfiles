@@ -59,38 +59,48 @@ yabai -m config mouse_action2 resize
 # when window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action swap
 
-# # Space labels
-# yabai -m space 1 --label "Browser"
-# yabai -m space 2 --label "School"
-# yabai -m space 3 --label "Code"
-# yabai -m space 4 --label "Comunications"
-# yabai -m space 5 --label "Misc"
-#
+# Space labels
+yabai -m space 1 --label "Browse"
+yabai -m space 2 --label "Code"
+yabai -m space 3 --label "School"
+yabai -m space 4 --label "Social"
+yabai -m space 5 --label "Music"
+yabai -m space 6 --label "Misc"
+
 # # Browser
-# yabai -m rule --add app="Edge" space="Browser"
-# yabai -m rule --add app="Chrome" space="Browser"
-# yabai -m rule --add app="Safari" space="Browser"
-#
-# # School
-# yabai -m rule --add app="Microsoft OneNote" space="School"
-# yabai -m rule --add app="Microsoft Teams" space="School"
-# yabai -m rule --add app="Microsoft Word" space="School"
-# yabai -m rule --add app="Microsoft PowerPoint" space="School"
-# yabai -m rule --add app="Microsoft Excel" space="School"
-#
-# # Programming
-# yabai -m rule --add app="Visual Studio Code" space="Code"
-# yabai -m rule --add app="iTerm" space="Code"
-#
-# # Communications
-# yabai -m rule --add app="Discord" space="Communications"
-# yabai -m rule --add app="Mail" space="Communications"
-# yabai -m rule --add app="Microsoft Outlook" space="Communications"
-# yabai -m rule --add app="zoom.us" space="Communications"
-#
-# # Misc
-# yabai -m rule --add app="Calendar" space="Misc"
-# yabai -m rule --add app="App Store" space="Misc"
+# yabai -m rule --add app="Edge" space="Browse"
+# yabai -m rule --add app="Orion" space="Browse"
+# yabai -m rule --add app="Min" space="Browse"
+# yabai -m rule --add app="Chrome" space="Browse"
+# yabai -m rule --add app="Safari" space="Browse"
+
+# Code
+yabai -m rule --add app="Visual Studio Code" space="Code"
+yabai -m rule --add app="iTerm" space="Code"
+yabai -m rule --add app="Alacritty" space="Code"
+yabai -m rule --add app="WezTerm" space="Code"
+
+# School
+yabai -m rule --add app="Microsoft OneNote" space="School"
+yabai -m rule --add app="Microsoft Teams" space="School"
+yabai -m rule --add app="Microsoft Word" space="School"
+yabai -m rule --add app="Microsoft PowerPoint" space="School"
+yabai -m rule --add app="Microsoft Excel" space="School"
+
+# Social
+yabai -m rule --add app="Discord" space="Social"
+yabai -m rule --add app="Mail" space="Social"
+yabai -m rule --add app="Microsoft Outlook" space="Social"
+yabai -m rule --add app="zoom.us" space="Social"
+yabai -m rule --add app="Calendar" space="Misc"
+
+# Music
+yabai -m rule --add app="YT Music" space="Music"
+yabai -m rule --add app="Spotify" space="Music"
+yabai -m rule --add app="Music" space="Music"
+
+# Misc
+yabai -m rule --add app="App Store" space="Misc"
 
 # apps to not manage (ignore)
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref|Finder Settings)" manage=off
