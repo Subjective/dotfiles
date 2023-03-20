@@ -32,4 +32,10 @@ return {
 		lazy = false,
 		"christoomey/vim-tmux-navigator",
 	},
+	{
+		"ellisonleao/glow.nvim",
+		opts = {
+			style = "~/.config/glowstyles/dracula.json",
+		},
+	},
 }
