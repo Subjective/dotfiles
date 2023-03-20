@@ -177,6 +177,9 @@ fi
 co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 run() { co $1 && ./${1%.*} & fg; }
 
+# function to make directory and cd into it
+mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" }
+
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # if command -v pyenv 1>/dev/null 2>&1; then
