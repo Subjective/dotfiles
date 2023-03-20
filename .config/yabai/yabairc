@@ -121,6 +121,7 @@ yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add label="Orion" app="^Orion$" title="^(General|Appearance|Browsing|Sync|Passwords|Privacy|Search|Websites|Advanced)$" manage=off
 yabai -m rule --add label="Discord Updater" app="Discord" title="Discord Updater" manage=off
 yabai -m rule --add app="^Digital Color Meter$" manage=off
+yabai -m rule --add label="Microsoft Teams" app="^Microsoft Teams$" title="^(Loading Microsoft Teams)$" manage=off
 
 # make all non-resizeable windows float (#1317)
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
