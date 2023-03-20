@@ -103,7 +103,7 @@ yabai -m rule --add app="Music" space="Music"
 yabai -m rule --add app="App Store" space="Misc"
 
 # apps to not manage (ignore)
-yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref|Finder Settings)" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref|Finder Settings|Go to Folder)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advanced)$" manage=off
 yabai -m rule --add label="Calendar" app="^Calendar$" title="^(General|(Account|Alert)s|Advanced)$" manage=off
 yabai -m rule --add label="Mail" app="^Mail$" title="^(General|(Account|Fonts & Color|Signature|Reule|Extension)s|Junk Mail|Viewing|Composing|Privacy)$" manage=off
