@@ -173,6 +173,7 @@ if (( $+commands[exa] )); then
   alias lla="ll -a"
 fi
 
+# functions to compile and run c++
 co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 run() { co $1 && ./${1%.*} & fg; }
 
