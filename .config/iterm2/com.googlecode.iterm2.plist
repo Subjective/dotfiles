@@ -5620,6 +5620,8 @@
 			<string>No</string>
 			<key>Custom Directory</key>
 			<string>Recycle</string>
+			<key>Custom Window Title</key>
+			<string></string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -5650,7 +5652,7 @@
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>HotKey Activated By Modifier</key>
-			<false/>
+			<true/>
 			<key>HotKey Alternate Shortcuts</key>
 			<array/>
 			<key>HotKey Characters</key>
@@ -5989,6 +5991,8 @@
 			<true/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
+			<key>Prevent Opening in a Tab</key>
+			<false/>
 			<key>Prompt Before Closing 2</key>
 			<integer>2</integer>
 			<key>Right Option Key Sends</key>
@@ -6179,6 +6183,8 @@
 			<key>Use Bright Bold</key>
 			<true/>
 			<key>Use Cursor Guide</key>
+			<false/>
+			<key>Use Custom Window Title</key>
 			<false/>
 			<key>Use Italic Font</key>
 			<true/>
