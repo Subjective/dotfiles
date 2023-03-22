@@ -24,6 +24,11 @@ shift + alt - x : yabai -m space --mirror x-axis
 # toggle window float
 shift + alt - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
+# toggle sticky window
+shift + alt - p : yabai -m window --toggle sticky\
+                  yabai -m window --toggle topmost\
+                  yabai -m window --grid 4:4:1:1:2:2
+
 ### Modifying Window Size Shortcuts ###
 
 # maximize a window
