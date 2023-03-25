@@ -28,7 +28,6 @@ brew "make"
 brew "readline"
 brew "mono"
 brew "neofetch"
-brew "neovim", args: ["HEAD"]
 brew "node"
 brew "pyenv"
 brew "ruby-build"
