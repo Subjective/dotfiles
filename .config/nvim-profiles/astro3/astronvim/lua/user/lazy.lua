@@ -11,7 +11,7 @@ return {
 				"zipPlugin",
 				"netrwPlugin",
 				"tarPlugin",
-				"matchparen",
+				-- "matchparen",
 			},
 		},
 	},
