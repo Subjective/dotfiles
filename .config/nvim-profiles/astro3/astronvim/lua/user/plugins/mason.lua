@@ -22,7 +22,7 @@ return {
 				opts.ensure_installed = {}
 			end
 			-- Add to opts.ensure_installed using vim.list_extend.
-			utils.list_insert_unique(opts.ensure_installed, { "prettier", "stylua" })
+			utils.list_insert_unique(opts.ensure_installed, { "stylua" })
 		end,
 	},
 	{
