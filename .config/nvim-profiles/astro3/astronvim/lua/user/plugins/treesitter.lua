@@ -28,6 +28,7 @@ return {
 			"latex",
 			"tsx",
 		})
+		opts.indent = { enable = true, disable = { "python" } }
 	end,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
