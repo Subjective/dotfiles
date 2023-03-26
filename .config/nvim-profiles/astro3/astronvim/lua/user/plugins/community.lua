@@ -15,4 +15,10 @@ return {
 	{ import = "astrocommunity.media.vim-wakatime" },
 	-- { import = "astrocommunity.indent.indent-blankline-nvim" },
 	-- { import = "astrocommunity.indent.mini-indentscope" },
+
+	{
+		event = "VeryLazy",
+		"NvChad/nvim-colorizer.lua",
+		opts = { user_default_options = { names = true, tailwind = true } },
+	},
 }
