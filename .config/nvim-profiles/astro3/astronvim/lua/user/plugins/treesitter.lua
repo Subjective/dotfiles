@@ -17,6 +17,7 @@ return {
 			"regex",
 			"vim",
 			"latex",
+			"tsx",
 		},
 	},
 	dependencies = {
