@@ -19,6 +19,14 @@ return {
 	{
 		event = "VeryLazy",
 		"NvChad/nvim-colorizer.lua",
-		opts = { user_default_options = { mode = "virtualtext", names = true, tailwind = true } },
+		opts = {
+			user_default_options = {
+				RRGGBBAA = true,
+				AARRGGBB = true,
+				-- mode = "virtualtext",
+				-- names = true,
+				-- tailwind = true,
+			},
+		},
 	},
 }
