@@ -29,4 +29,11 @@ return {
 			style = "~/.config/glowstyles/dracula.json",
 		},
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = "markdown",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 }
