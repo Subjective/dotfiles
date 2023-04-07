@@ -10,7 +10,10 @@ return {
 				opts.ensure_installed = {}
 			end
 			-- Add tsserver to opts.ensure_installed using vim.list_extend.
-			utils.list_insert_unique(opts.ensure_installed, { "lua_ls", "tsserver", "tailwindcss", "vimls", "clangd" })
+			utils.list_insert_unique(
+				opts.ensure_installed,
+				{ "lua_ls", "tsserver", "tailwindcss", "vimls", "clangd", "marksman", "grammarly" }
+			)
 		end,
 	},
 	-- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
