@@ -14,6 +14,14 @@ return function()
 	--     ["~/%.config/foo/.*"] = "fooscript",
 	--   },
 	-- }
+	vim.filetype.add({
+		extension = {
+			mdx = "mdx",
+		},
+	})
+
+	vim.treesitter.language.register("markdown", "mdx")
+
 	--     { "BufEnter", "Filetype" },
 	require("user.autocmds")
 end
