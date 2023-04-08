@@ -13,8 +13,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- set git repo for dotfiles and refresh gitsigns
 local home_dir = os.getenv("HOME")
-local git_file_list =
-	vim.fn.system("git --work-tree=" .. home_dir .. " --git-dir=" .. home_dir .. "/.cfg ls-tree --name-only -r HEAD")
+local git_file_list = vim.fn.system(
+	"(cd $HOME && git --work-tree=" .. home_dir .. " --git-dir=" .. home_dir .. "/.cfg ls-tree --name-only -r HEAD)"
+)
 
 local buftype_exclude = {
 	"terminal",
