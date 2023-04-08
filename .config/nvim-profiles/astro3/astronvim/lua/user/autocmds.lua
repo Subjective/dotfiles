@@ -35,7 +35,7 @@ local filetype_exclude = {
 	"nofile",
 }
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	pattern = { "*" },
 	callback = function()
 		-- require("astronvim.utils").notify("buftype: " .. vim.bo.buftype .. "filetype: " .. vim.bo.filetype)
@@ -58,9 +58,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 		if vim.fn.index(vim.fn.split(git_file_list, "\n"), buffer_relative_file) ~= -1 then
 			vim.env.GIT_DIR = home_dir .. "/.cfg"
 			vim.env.GIT_WORK_TREE = home_dir
-			-- require("astronvim.utils").notify(
-			-- 	"setting git dir: " .. vim.env.GIT_DIR .. "setting git work tree: " .. vim.env.GIT_WORK_TREE
-			-- )
+			require("astronvim.utils").notify(
+				"setting git dir: " .. vim.env.GIT_DIR .. "setting git work tree: " .. vim.env.GIT_WORK_TREE
+			)
 			if not vim.b.gitsigns_refreshed then
 				vim.b.gitsigns_refreshed = true
 				require("gitsigns").refresh()
