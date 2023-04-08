@@ -19,25 +19,19 @@ return {
 		["+"] = { "<c-a>", desc = "Increment number" },
 		["<leader>g."] = {
 			function()
-				if vim.g.dotfiles_diff_enabled then
-					vim.env.GIT_WORK_TREE = nil
-					vim.env.GIT_DIR = nil
-					astro_utils.notify("dotfiles diff disabled")
-					require("gitsigns").refresh()
-				else
-					vim.env.GIT_DIR = vim.fn.expand("$HOME/.cfg")
-					vim.env.GIT_WORK_TREE = vim.fn.expand("$HOME")
-					astro_utils.notify("dotfiles diff enabled")
-				end
-				vim.g.dotfiles_diff_enabled = not vim.g.dotfiles_diff_enabled
-				-- reload buffer
-				vim.cmd([[silent! bufdo e]])
+				astro_utils.toggle_term_cmd("lazygit --git-dir=$HOME/.cfg --work-tree=$HOME")
 			end,
-			desc = "Toggle dotfiles diff",
+			desc = "ToggleTerm lazygit dotfiles",
 		},
 		["<leader>gg"] = {
 			function()
-				astro_utils.toggle_term_cmd("lazygit --work-tree=$GIT_WORK_TREE")
+				local git_dir = vim.env.GIT_DIR
+				local git_work_tree = vim.env.GIT_WORK_TREE
+				if git_dir and git_work_tree then
+					astro_utils.toggle_term_cmd("lazygit --git-dir=" .. git_dir .. " --work-tree=" .. git_work_tree)
+				else
+					astro_utils.toggle_term_cmd("lazygit")
+				end
 			end,
 			desc = "ToggleTerm lazygit",
 		},

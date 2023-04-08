@@ -16,4 +16,8 @@ return {
 			return opts
 		end,
 	},
+	{
+		"lewis6991/gitsigns.nvim",
+		lazy = false,
+	},
 }
