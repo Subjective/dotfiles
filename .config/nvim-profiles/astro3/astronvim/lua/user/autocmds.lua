@@ -58,14 +58,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 		if vim.fn.index(vim.fn.split(git_file_list, "\n"), buffer_relative_file) ~= -1 then
 			vim.env.GIT_DIR = home_dir .. "/.cfg"
 			vim.env.GIT_WORK_TREE = home_dir
-			-- require("astronvim.utils").notify(
-			-- 	"setting git dir: " .. vim.env.GIT_DIR .. "setting git work tree: " .. vim.env.GIT_WORK_TREE
-			-- )
-			if not vim.b.gitsigns_refreshed then
-				vim.b.gitsigns_refreshed = true
-				require("gitsigns").refresh()
-				-- require("astronvim.utils").notify("setting local refreshed")
-			end
 		else
 			vim.env.GIT_DIR = nil
 			vim.env.GIT_WORK_TREE = nil
