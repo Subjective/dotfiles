@@ -26,6 +26,7 @@ export PATH="$HOME/.local/bin":$PATH
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export HOMEBREW_BUNDLE_FILE=~/.config/brewfile/Brewfile
 export GIT_EDITOR=astronvim3.sh
+export BAT_THEME="Catppuccin-mocha"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
