@@ -8571,12 +8571,16 @@
 	<false/>
 	<key>UseExperimentalFontMetrics</key>
 	<false/>
+	<key>UseMetal</key>
+	<true/>
 	<key>UseTmuxStatusBar</key>
 	<true/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>
 	<true/>
+	<key>XtermVersion</key>
+	<integer>2500</integer>
 	<key>ZippyTextDrawing</key>
 	<true/>
 	<key>findMode_iTerm</key>
