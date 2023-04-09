@@ -171,8 +171,9 @@ alias ywd="echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 
 if (( $+commands[exa] )); then
   alias ls="exa --icons"
-  alias ll="exa -l -g -H --icons"
-  alias lla="ll -a"
+  alias l="exa -l -H --icons --git"
+  alias la="l -a"
+  alias lt="l --tree --level=2"
 fi
 
 # functions to compile and run c++
