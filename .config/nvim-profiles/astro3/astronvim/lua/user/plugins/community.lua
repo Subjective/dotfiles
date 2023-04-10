@@ -61,6 +61,7 @@ return {
 						information = { "undercurl" },
 					},
 				},
+				leap = true,
 			},
 		},
 	},
