@@ -8549,6 +8549,8 @@
 	<true/>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
 	<key>ShowMetalFPSmeter</key>
 	<false/>
 	<key>SmartPlacement</key>
