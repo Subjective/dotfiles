@@ -43,10 +43,8 @@ return {
 			utils.list_insert_unique(opts.ensure_installed, { "stylua", "eslint_d" })
 			-- Remove lsps added by an astrocommunity language pack
 			utils.list_remove(opts.ensure_installed, { "rustywind" })
-			-- run setup
-			mason_null_ls.setup(opts)
-
-			mason_null_ls.setup_handlers({ -- setup custom handlers
+			-- setup custom handlers
+			utils.list_insert_unique(opts.handlers, {
 				-- For prettierd:
 				prettierd = function()
 					null_ls.register(null_ls.builtins.formatting.prettierd.with({
@@ -69,6 +67,8 @@ return {
 					}))
 				end,
 			})
+			-- run setup
+			mason_null_ls.setup(opts)
 		end,
 	},
 	{
