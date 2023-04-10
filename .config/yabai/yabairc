@@ -79,6 +79,7 @@ yabai -m rule --add app="Visual Studio Code" space="Code"
 yabai -m rule --add app="iTerm" space="Code"
 yabai -m rule --add app="Alacritty" space="Code"
 yabai -m rule --add app="WezTerm" space="Code"
+yabai -m rule --add app="kitty" space="Code"
 
 # School
 yabai -m rule --add app="Microsoft OneNote" space="School"
