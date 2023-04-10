@@ -191,6 +191,8 @@ mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" }
 #
 # eval "$(rbenv init - zsh)"
 
+eval "$(zoxide init zsh)"
+
 # Cache the result of eval on first run via the evalcache plugin
 # If you update a tool and expect for some reason that it's initialization might have changed, simply clear the cache and it will be regenerated
 if command -v pyenv 1>/dev/null 2>&1; then
