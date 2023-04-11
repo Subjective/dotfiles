@@ -89,17 +89,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+
+# lazy load nvm
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
-
-
-# lazy load nvm
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
 
 plugins=(
   evalcache
