@@ -2,26 +2,26 @@
 -- augroups/autocommands and custom filetypes also this just pure lua so
 -- anything that doesn't fit in the normal config locations above can go here
 return function()
-	-- Set up custom filetypes
-	-- vim.filetype.add {
-	--   extension = {
-	--     foo = "fooscript",
-	--   },
-	--   filename = {
-	--     ["Foofile"] = "fooscript",
-	--   },
-	--   pattern = {
-	--     ["~/%.config/foo/.*"] = "fooscript",
-	--   },
-	-- }
-	vim.filetype.add({
-		extension = {
-			mdx = "mdx",
-		},
-	})
+  -- Set up custom filetypes
+  -- vim.filetype.add {
+  --   extension = {
+  --     foo = "fooscript",
+  --   },
+  --   filename = {
+  --     ["Foofile"] = "fooscript",
+  --   },
+  --   pattern = {
+  --     ["~/%.config/foo/.*"] = "fooscript",
+  --   },
+  -- }
+  vim.filetype.add {
+    extension = {
+      mdx = "mdx",
+    },
+  }
 
-	vim.treesitter.language.register("markdown", "mdx")
+  vim.treesitter.language.register("markdown", "mdx")
 
-	--     { "BufEnter", "Filetype" },
-	require("user.autocmds")
+  --     { "BufEnter", "Filetype" },
+  require "user.autocmds"
 end

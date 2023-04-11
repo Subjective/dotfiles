@@ -1,3 +1,3 @@
 return {
-	filetypes = { "markdown", "mdx", "text" },
+  filetypes = { "markdown", "mdx", "text" },
 }
