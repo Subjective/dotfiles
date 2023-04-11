@@ -25,7 +25,7 @@ export PATH="$HOME/.local/bin":$PATH
 
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export HOMEBREW_BUNDLE_FILE="~/.config/brewfile/Brewfile"
-export GIT_EDITOR="astronvim3.sh"
+export GIT_EDITOR="default-editor.sh"
 export BAT_THEME="Catppuccin-mocha"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -133,7 +133,8 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"
 else
-  export EDITOR="astronvim3.sh"
+  export EDITOR="default-editor.sh"
+
 fi
 
 # Compilation flags
