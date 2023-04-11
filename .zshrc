@@ -191,6 +191,13 @@ run() { co $1 && ./${1%.*} & fg; }
 # function to make directory and cd into it
 mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" }
 
+# macos specific hack to enable yanking in zsh-vi-mode (https://github.com/jeffreytse/zsh-vi-mode/issues/19)
+function zvm_vi_yank() {
+	zvm_yank
+	echo ${CUTBUFFER} | pbcopy
+	zvm_exit_visual_mode
+}
+
 function nvims() {
   items=("default" "astro3" "astro2" "testing" "lazy")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=25% --layout=reverse --border --exit-0)
