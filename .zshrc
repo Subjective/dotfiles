@@ -152,11 +152,12 @@ fi
 # alias g++="g++-11"
 alias python="python3"
 alias pip="pip3"
-alias astro="astronvim3.sh"
-alias lazy="lazyvim.sh"
-alias testingvim="testing.sh"
-alias vi="astro"
-alias nvim="astro"
+alias astro2="NVIM_APPNAME="nvim-profiles/astro2" nvim"
+alias astro3="NVIM_APPNAME="nvim-profiles/astro3" nvim"
+alias lazy="NVIM_APPNAME="nvim-profiles/lazy" nvim"
+alias testingvim="NVIM_APPNAME="nvim-profiles/testing" nvim"
+alias astro="astro3"
+alias vi="astro3"
 alias dotfiles="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias dot="dotfiles"
 alias dots="dot status"
@@ -182,6 +183,20 @@ run() { co $1 && ./${1%.*} & fg; }
 
 # function to make directory and cd into it
 mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" }
+
+function nvims() {
+  items=("default" "astro3" "astro2" "testing" "lazy")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=25% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  else
+    config="nvim-profiles/$config"
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
