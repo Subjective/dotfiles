@@ -78,6 +78,10 @@ return {
       function() require("neo-tree.command").execute { toggle = true, dir = vim.loop.cwd() } end,
       desc = "Toggle Explorer (cwd)",
     },
+    ["<leader>uW"] = {
+      function() vim.opt_local.winbar = nil end,
+      desc = "Hide winbar (local)",
+    },
     ["<leader>T"] = { name = "󰔫 Trouble" },
     ["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
     ["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
