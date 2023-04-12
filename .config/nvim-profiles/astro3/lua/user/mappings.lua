@@ -165,5 +165,13 @@ return {
     -- better increment/decrement
     ["+"] = { "g<C-a>", desc = "Increment number" },
     ["-"] = { "g<C-x>", desc = "Descrement number" },
+    -- line text-objects
+    ["il"] = { "g_o^", desc = "Inside line text object" },
+    ["al"] = { "$o^", desc = "Around line text object" },
+  },
+  o = {
+    -- line text-objects
+    ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
+    ["al"] = { ":normal val<cr>", desc = "Around line text object" },
   },
 }
