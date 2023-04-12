@@ -82,6 +82,7 @@ return {
       function() vim.opt_local.winbar = nil end,
       desc = "Hide winbar (local)",
     },
+    ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
     ["<leader>T"] = { name = "󰔫 Trouble" },
     ["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
     ["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
