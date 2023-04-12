@@ -101,6 +101,16 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
+    ["<Tab>"] = {
+      function()
+        if #vim.t.bufs > 1 then
+          require("telescope.builtin").buffers { sort_mru = true, ignore_current_buffer = true }
+        else
+          astro_utils.notify "No other buffers open"
+        end
+      end,
+      desc = "Switch Buffers",
+    },
     -- spectre mappings
     ["<leader>s"] = { desc = "󰛔 Search/Replace" },
     ["<leader>ss"] = {
