@@ -20,7 +20,7 @@ return {
   -- editor
   { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
-  { import = "astrocommunity.editing-support.neogen" },
+  -- { import = "astrocommunity.editing-support.neogen" },
 
   -- organization
   { import = "astrocommunity.project.project-nvim" },
