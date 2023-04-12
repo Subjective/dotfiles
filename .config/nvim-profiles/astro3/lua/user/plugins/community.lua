@@ -17,6 +17,10 @@ return {
   -- { import = "astrocommunity.indent.indent-blankline-nvim" },
   -- { import = "astrocommunity.indent.mini-indentscope" },
 
+  -- editor
+  { import = "astrocommunity.syntax.vim-easy-align" },
+  { import = "astrocommunity.indent.indent-tools-nvim" },
+
   {
     event = "VeryLazy",
     "NvChad/nvim-colorizer.lua",
