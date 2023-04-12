@@ -157,12 +157,11 @@ fi
 # alias g++="g++-11"
 alias python="python3"
 alias pip="pip3"
-alias astro2="NVIM_APPNAME=nvim-profiles/astro2 nvim"
-alias astro3="NVIM_APPNAME=nvim-profiles/astro3 nvim"
-alias lazy="NVIM_APPNAME=nvim-profiles/lazy nvim"
-alias testingvim="NVIM_APPNAME=nvim-profiles/testing nvim"
-alias chad="NVIM_APPNAME=nvim-profiles/chad nvim"
-alias astro="astro3"
+alias astronvim="NVIM_APPNAME=astronvim nvim"
+alias lazyvim="NVIM_APPNAME=lazyvim nvim"
+alias nvchad="NVIM_APPNAME=nvchad nvim"
+alias testvim="NVIM_APPNAME=testvim nvim"
+alias astro="astronvim"
 alias vi="default-editor.sh"
 alias dotfiles="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias dot="dotfiles"
@@ -201,7 +200,7 @@ function zvm_vi_yank() {
 }
 
 function nvims() {
-  items=("default" "astro3" "astro2" "chad" "lazy" "testing" )
+  items=("default" "astronvim" "nvchad" "lazyvim" "testvim" )
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=25% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -209,7 +208,7 @@ function nvims() {
   elif [[ $config == "default" ]]; then
     config=""
   else
-    config="nvim-profiles/$config"
+    config="$config"
   fi
   NVIM_APPNAME=$config nvim $@
 }
