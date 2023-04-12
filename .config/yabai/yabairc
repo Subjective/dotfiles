@@ -102,7 +102,7 @@ yabai -m rule --add app="Music" space="Media"
 yabai -m rule --add app="Podcasts" space="Media"
 
 # Misc
-yabai -m rule --add app="App Store" space="Misc"
+# yabai -m rule --add app="App Store" space="Misc"
 
 # apps to not manage (ignore)
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref|Finder Settings|Go to Folder)" manage=off
