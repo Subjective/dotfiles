@@ -102,6 +102,7 @@ return {
     ["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
     ["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
     ["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+    ["<leader>Tt"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs" },
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- better buffer navigation
