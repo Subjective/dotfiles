@@ -177,6 +177,7 @@ alias ypwd="pwd && echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias ywd="echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias v='fd --type f --hidden --exclude .git | fzf --height=35% --reverse | xargs default-editor.sh'
 alias vs='vi "+SessionManager load_current_dir_session"'
+alias t="tmux"
 
 if (( $+commands[exa] )); then
   alias ls="exa --icons"
