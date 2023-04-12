@@ -115,6 +115,7 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
+    -- telescope mappings
     ["<Tab>"] = {
       function()
         if #vim.t.bufs > 1 then
@@ -125,6 +126,9 @@ return {
       end,
       desc = "Switch Buffers",
     },
+    ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
+    ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
+    ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
     -- spectre mappings
     ["<leader>s"] = { desc = "󰛔 Search/Replace" },
     ["<leader>ss"] = {

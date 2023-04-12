@@ -21,6 +21,9 @@ return {
   { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
 
+  -- organization
+  { import = "astrocommunity.project.project-nvim" },
+
   {
     event = "VeryLazy",
     "NvChad/nvim-colorizer.lua",
