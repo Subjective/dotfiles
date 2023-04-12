@@ -103,6 +103,22 @@ return {
     ["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
     ["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
     ["<leader>Tt"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs" },
+    ["<leader>;"] = { name = "󰧑 AI Assistant" },
+    -- ChatGPT
+    ["<leader>;c"] = { "<cmd>ChatGPT<cr>" },
+    ["<leader>;a"] = { "<cmd>ChatGPTActAs<cr>" },
+    ["<leader>;e"] = { "<cmd>ChatGPTEditWithInstructions<cr>" },
+    ["<leader>;r"] = { name = "ChatGPTRun" },
+    ["<leader>;rg"] = { "<cmd>ChatGPTRun grammar_correction<cr>", desc = "Grammar Correction" },
+    ["<leader>;rT"] = { "<cmd>ChatGPTRun translate<cr>", desc = "Translate" },
+    ["<leader>;rk"] = { "<cmd>ChatGPTRun keywords<cr>", desc = "Keywords" },
+    ["<leader>;rd"] = { "<cmd>ChatGPTRun docstring<cr>", desc = "Docstring" },
+    ["<leader>;rt"] = { "<cmd>ChatGPTRun add_test<cr>", desc = "Add Tests" },
+    ["<leader>;ro"] = { "<cmd>ChatGPTRun optimize code<cr>", desc = "Optimize Code" },
+    ["<leader>;rs"] = { "<cmd>ChatGPTRun summarize<cr>", desc = "Summarize" },
+    ["<leader>;rf"] = { "<cmd>ChatGPTRun fix_bugs<cr>", desc = "Fix Bugs" },
+    ["<leader>;re"] = { "<cmd>ChatGPTRun explain_code<cr>", desc = "Explain" },
+    ["<leader>;rr"] = { "<cmd>ChatGPTRun roxygen_edit<cr>", desc = "Roxygen Edit" },
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- better buffer navigation
