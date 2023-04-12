@@ -54,7 +54,7 @@ return {
     opts.window.mappings["."] = "set_cwd"
     opts.window.mappings["@"] = "set_root_to_home"
     opts.filesystem.bind_to_cwd = false
-
+    opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
     -- return new opts
     return opts
   end,
