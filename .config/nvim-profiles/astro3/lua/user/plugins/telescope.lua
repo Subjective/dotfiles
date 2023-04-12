@@ -22,9 +22,6 @@ return {
         },
       },
       pickers = {
-        find_files = {
-          hidden = true,
-        },
         buffers = {
           path_display = { "smart" },
           mappings = {
