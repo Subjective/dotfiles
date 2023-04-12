@@ -102,6 +102,8 @@ return {
     ["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
     ["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
     ["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+    -- Easy-Align
+    ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- better buffer navigation
     ["]b"] = false,
     ["[b"] = false,
@@ -181,6 +183,8 @@ return {
     -- line text-objects
     ["il"] = { "g_o^", desc = "Inside line text object" },
     ["al"] = { "$o^", desc = "Around line text object" },
+    -- Easy-Align
+    ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
   },
   o = {
     -- line text-objects
