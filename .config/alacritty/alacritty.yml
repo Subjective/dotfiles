@@ -5,8 +5,8 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  # TERM: "alacritty"
-  TERM: xterm-256color
+  TERM: "alacritty"
+  # TERM: xterm-256color
 
 window:
   # Background opacity
@@ -84,19 +84,22 @@ colors:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: "FiraCode Nerd Font Mono"
+    family: "JetBrainsMono Nerd Font Mono"
+    # family: "FiraCode Nerd Font Mono"
     # Style can be specified to pick a specific face.
     # style: Regular
 
   # The bold font face
   bold:
-    family: "FiraCode Nerd Font Mono"
+    family: "JetBrainsMono Nerd Font Mono"
+    # family: "FiraCode Nerd Font Mono"
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
-    family: "FiraCode Nerd Font Mono"
+    family: "JetBrainsMono Nerd Font Mono"
+    # family: "FiraCode Nerd Font Mono"
     # Style can be specified to pick a specific face.
     # style: Italic
   size: 15.0
