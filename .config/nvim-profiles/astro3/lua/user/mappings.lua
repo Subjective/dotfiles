@@ -103,7 +103,22 @@ return {
     ["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
     ["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
     ["<leader>Tt"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs" },
+    -- Codeium
     ["<leader>;"] = { name = "󰧑 AI Assistant" },
+    ["<leader>;;"] = {
+      function()
+        vim.cmd.Codeium(vim.g.codeium_enabled == 0 and "Enable" or "Disable")
+        astro_utils.notify("Codeium " .. (vim.g.codeium_enabled == 0 and "Disabled" or "Enabled"))
+      end,
+      desc = "Toggle Codeium (global)",
+    },
+    ["<leader>;b"] = {
+      function()
+        vim.cmd.Codeium(vim.b.codeium_enabled == 0 and "EnableBuffer" or "DisableBuffer")
+        astro_utils.notify("Codeium (buffer) " .. (vim.b.codeium_enabled == 0 and "Disabled" or "Enabled"))
+      end,
+      desc = "Toggle Codeium (buffer)",
+    },
     -- ChatGPT
     ["<leader>;c"] = { "<cmd>ChatGPT<cr>" },
     ["<leader>;a"] = { "<cmd>ChatGPTActAs<cr>" },
