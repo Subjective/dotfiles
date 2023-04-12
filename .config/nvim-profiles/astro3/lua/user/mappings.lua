@@ -17,6 +17,7 @@ return {
     -- better increment/decrement
     ["-"] = { "<c-x>", desc = "Descrement number" },
     ["+"] = { "<c-a>", desc = "Increment number" },
+    -- smart toggle-term bindings
     ["<leader>g."] = {
       function() astro_utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
       desc = "ToggleTerm lazygit dotfiles",
@@ -37,6 +38,7 @@ return {
       function() astro_utils.toggle_term_cmd "lazygit --work-tree=$GIT_WORK_TREE" end,
       desc = "ToggleTerm lazygit",
     },
+    -- explorer bindings
     ["<leader>E"] = {
       function()
         local function get_root()
@@ -78,11 +80,13 @@ return {
       function() require("neo-tree.command").execute { toggle = true, dir = vim.loop.cwd() } end,
       desc = "Toggle Explorer (cwd)",
     },
+    -- hide winbar in local buffer
     ["<leader>uW"] = {
       function() vim.opt_local.winbar = nil end,
       desc = "Hide winbar (local)",
     },
     ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+    -- trouble plugin mappings
     ["<leader>T"] = { name = "󰔫 Trouble" },
     ["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
     ["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
@@ -154,6 +158,7 @@ return {
       desc = "Spectre",
     },
   },
+  -- spelling autocorrect binding
   i = {
     ["<C-s>"] = { "<C-g>u<Esc>[s1z=`]a<C-g>u", desc = "autocorrect spelling error" },
   },
