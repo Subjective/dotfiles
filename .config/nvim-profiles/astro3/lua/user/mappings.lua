@@ -35,7 +35,15 @@ return {
       desc = "ToggleTerm lazygit",
     },
     ["<leader>tl"] = {
-      function() astro_utils.toggle_term_cmd "lazygit --work-tree=$GIT_WORK_TREE" end,
+      function()
+        local git_dir = vim.env.GIT_DIR
+        local git_work_tree = vim.env.GIT_WORK_TREE
+        if git_dir and git_work_tree then
+          astro_utils.toggle_term_cmd("lazygit --git-dir=" .. git_dir .. " --work-tree=" .. git_work_tree)
+        else
+          astro_utils.toggle_term_cmd "lazygit"
+        end
+      end,
       desc = "ToggleTerm lazygit",
     },
     -- explorer bindings
