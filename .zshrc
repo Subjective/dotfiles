@@ -160,7 +160,7 @@ alias pip="pip3"
 alias astronvim="NVIM_APPNAME=astronvim nvim"
 alias lazyvim="NVIM_APPNAME=lazyvim nvim"
 alias nvchad="NVIM_APPNAME=nvchad nvim"
-alias testvim="NVIM_APPNAME=testvim nvim"
+alias kickstart="NVIM_APPNAME=kickstart nvim"
 alias astro="astronvim"
 alias vi="default-editor.sh"
 alias dotfiles="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
@@ -200,7 +200,7 @@ function zvm_vi_yank() {
 }
 
 function nvims() {
-  items=("default" "astronvim" "nvchad" "lazyvim" "testvim" )
+  items=("default" "astronvim" "nvchad" "lazyvim" "kickstart" )
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=25% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
