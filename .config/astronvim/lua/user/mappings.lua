@@ -215,7 +215,7 @@ return {
 			desc = "Find projects",
 		},
 		["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
-		["<leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Search Undo Tree" },
+		["<leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Find in undo history" },
 		-- spectre mappings
 		["<leader>s"] = { desc = "󰛔 Search/Replace" },
 		["<leader>ss"] = {
