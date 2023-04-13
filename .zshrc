@@ -185,14 +185,22 @@ if (( $+commands[exa] )); then
   alias l="exa -l -H --icons --git"
   alias la="l -a"
   alias lt="l --tree --level=2"
+  # function to check for file pattern in cwd
+  function lag {
+    if (($+commands[rg])); then
+      la | rg "$@"
+    else
+      la | grep "$@"
+    fi
+  }
 fi
+
+# function to make directory and cd into it
+function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
 
 # functions to compile and run c++
 function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 function run() { co $1 && ./${1%.*} & fg; }
-
-# function to make directory and cd into it
-function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
 
 # macos specific hack to enable yanking in zsh-vi-mode (https://github.com/jeffreytse/zsh-vi-mode/issues/19)
 function zvm_vi_yank() {
