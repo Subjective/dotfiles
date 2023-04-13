@@ -192,7 +192,7 @@ function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 function run() { co $1 && ./${1%.*} & fg; }
 
 # function to make directory and cd into it
-function mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" }
+function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
 
 # macos specific hack to enable yanking in zsh-vi-mode (https://github.com/jeffreytse/zsh-vi-mode/issues/19)
 function zvm_vi_yank() {
