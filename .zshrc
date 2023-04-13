@@ -17,18 +17,19 @@ export ZSH="/Users/joshua/.oh-my-zsh"
 
 # Custom Exports
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.local/bin":$PATH
+export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.local/bin":$PATH
 
-export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export HOMEBREW_BUNDLE_FILE="~/.config/brewfile/Brewfile"
 export GIT_EDITOR="nvim"
+
 export BAT_THEME="Catppuccin-mocha"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -125,7 +126,7 @@ ZVM_VI_HIGHLIGHT_BACKGROUND=blue
 
 # fix conflict with fzf in vi-mode
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
-
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -187,11 +188,11 @@ if (( $+commands[exa] )); then
 fi
 
 # functions to compile and run c++
-co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
-run() { co $1 && ./${1%.*} & fg; }
+function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
+function run() { co $1 && ./${1%.*} & fg; }
 
 # function to make directory and cd into it
-mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" }
+function mkcdir () { mkdir -p -- "$1" && cd -P -- "$1" }
 
 # macos specific hack to enable yanking in zsh-vi-mode (https://github.com/jeffreytse/zsh-vi-mode/issues/19)
 function zvm_vi_yank() {
@@ -200,6 +201,7 @@ function zvm_vi_yank() {
 	zvm_exit_visual_mode
 }
 
+# function to interactively load nvim configs via fzf
 function nvims() {
   items=("default" "nvchad" "lazyvim" "kickstart" )
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=25% --layout=reverse --border --exit-0)
@@ -214,7 +216,14 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# function to guage zsh's startup time
+function timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+# enable zoxide for blazingly fast and intuitive cd
+eval "$(zoxide init zsh)"
 
 # if command -v pyenv 1>/dev/null 2>&1; then
 #   eval "$(pyenv init -)"
@@ -222,19 +231,12 @@ function nvims() {
 #
 # eval "$(rbenv init - zsh)"
 
-eval "$(zoxide init zsh)"
-
 # Cache the result of eval on first run via the evalcache plugin
 # If you update a tool and expect for some reason that it's initialization might have changed, simply clear the cache and it will be regenerated
 if command -v pyenv 1>/dev/null 2>&1; then
   _evalcache pyenv init -
 fi
 _evalcache rbenv init -
-
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
