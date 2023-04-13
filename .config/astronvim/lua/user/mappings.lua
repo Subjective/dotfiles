@@ -168,6 +168,7 @@ return {
     ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
     ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
     ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
+    ["<leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Search Undo Tree" },
     -- spectre mappings
     ["<leader>s"] = { desc = "󰛔 Search/Replace" },
     ["<leader>ss"] = {
