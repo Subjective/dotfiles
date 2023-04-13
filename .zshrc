@@ -25,7 +25,7 @@ export PATH="$HOME/.local/bin":$PATH
 
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export HOMEBREW_BUNDLE_FILE="~/.config/brewfile/Brewfile"
-export GIT_EDITOR="default-editor.sh"
+export GIT_EDITOR="nvim"
 export BAT_THEME="Catppuccin-mocha"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -137,7 +137,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"
 else
-  export EDITOR="default-editor.sh"
+  export EDITOR="nvim"
 
 fi
 
@@ -157,12 +157,10 @@ fi
 # alias g++="g++-11"
 alias python="python3"
 alias pip="pip3"
-alias astronvim="NVIM_APPNAME=astronvim nvim"
 alias lazyvim="NVIM_APPNAME=lazyvim nvim"
 alias nvchad="NVIM_APPNAME=nvchad nvim"
 alias kickstart="NVIM_APPNAME=kickstart nvim"
-alias astro="astronvim"
-alias vi="default-editor.sh"
+alias vi="nvim"
 alias dotfiles="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias dot="dotfiles"
 alias dots="dot status"
@@ -174,8 +172,8 @@ alias lgdot="lazygitdot"
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd="pwd && echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias ywd="echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
-alias v='fd --type f --hidden --exclude .git | fzf --height=35% --reverse | xargs default-editor.sh'
-alias vs='vi "+SessionManager load_current_dir_session"'
+alias v='fd --type f --hidden --exclude .git | fzf --height=35% --reverse | xargs nvim'
+alias vs='nvim "+SessionManager load_current_dir_session"'
 alias t="tmux"
 
 if (( $+commands[exa] )); then
@@ -200,7 +198,7 @@ function zvm_vi_yank() {
 }
 
 function nvims() {
-  items=("default" "astronvim" "nvchad" "lazyvim" "kickstart" )
+  items=("default" "nvchad" "lazyvim" "kickstart" )
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=25% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
