@@ -161,6 +161,8 @@ fi
 # alias g++="g++-11"
 alias python="python3"
 alias pip="pip3"
+alias mv="mv -i"
+alias rm="rm -I"
 alias lazyvim="NVIM_APPNAME=lazyvim nvim"
 alias nvchad="NVIM_APPNAME=nvchad nvim"
 alias kickstart="NVIM_APPNAME=kickstart nvim"
