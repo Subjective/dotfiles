@@ -129,6 +129,7 @@ yabai -m rule --add app="^Gifski$" manage=off
 yabai -m rule --add app="^1Password$" title="Settings" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add label="Arc" app="^Arc$" title="^(Joshua|General|Shortcuts|Little Arc|Advanced)$" manage=off
 
 # make all non-resizeable windows float (#1317)
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
