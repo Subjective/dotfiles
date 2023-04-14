@@ -146,7 +146,8 @@ return {
 		["<leader>;rs"] = { "<cmd>ChatGPTRun summarize<cr>", desc = "Summarize" },
 		["<leader>;rf"] = { "<cmd>ChatGPTRun fix_bugs<cr>", desc = "Fix Bugs" },
 		["<leader>;re"] = { "<cmd>ChatGPTRun explain_code<cr>", desc = "Explain" },
-		["<leader>;rr"] = { "<cmd>ChatGPTRun roxygen_edit<cr>", desc = "Roxygen Edit" },
+		["<leader>;rr"] = { "<cmd>ChatGPTRun code_readability_analysis<cr>", desc = "Code Readability Analysis" },
+		["<leader>;rR"] = { "<cmd>ChatGPTRun roxygen_edit<cr>", desc = "Roxygen Edit" },
 		-- Easy-Align
 		ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
 		-- better buffer navigation
