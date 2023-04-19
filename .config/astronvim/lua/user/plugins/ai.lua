@@ -1,147 +1,139 @@
 -- get the system environment variables for home directory
-local home = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local home = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 return {
-	{
-		"Exafunction/codeium.vim",
-		cmd = "Codeium",
-		init = function()
-			vim.g.codeium_enabled = 0
-			vim.g.codeium_disable_bindings = 1
-			vim.g.codeium_idle_delay = 1500
-		end,
-		config = function()
-			vim.keymap.set("i", "<C-;>", function()
-				return vim.fn["codeium#Accept"]()
-			end, { expr = true })
-			vim.keymap.set("i", "<C-->", function()
-				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true })
-			vim.keymap.set("i", "<C-=>", function()
-				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true })
-			vim.keymap.set("i", "<C-BS>", function()
-				return vim.fn["codeium#Clear"]()
-			end, { expr = true })
-		end,
-	},
-	{
-		"jackMort/ChatGPT.nvim",
-		event = "User AstroFile",
-		opts = {
-			{
-				yank_register = "+",
-				edit_with_instructions = {
-					diff = false,
-					keymaps = {
-						accept = "<C-y>",
-						toggle_diff = "<C-d>",
-						toggle_settings = "<C-o>",
-						cycle_windows = "<Tab>",
-						use_output_as_input = "<C-i>",
-					},
-				},
-				chat = {
-					welcome_message = WELCOME_MESSAGE,
-					loading_text = "Loading, please wait ...",
-					question_sign = "", -- 🙂
-					answer_sign = "ﮧ", -- 🤖
-					max_line_length = 120,
-					sessions_window = {
-						border = {
-							style = "rounded",
-							text = {
-								top = " Sessions ",
-							},
-						},
-						win_options = {
-							winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-						},
-					},
-					keymaps = {
-						close = { "<C-c>" },
-						yank_last = "<C-y>",
-						yank_last_code = "<C-k>",
-						scroll_up = "<C-u>",
-						scroll_down = "<C-d>",
-						toggle_settings = "<C-o>",
-						new_session = "<C-n>",
-						cycle_windows = "<Tab>",
-						select_session = "<Space>",
-						rename_session = "r",
-						delete_session = "d",
-					},
-				},
-				popup_layout = {
-					relative = "editor",
-					position = "50%",
-					size = {
-						height = "80%",
-						width = "80%",
-					},
-				},
-				popup_window = {
-					filetype = "chatgpt",
-					border = {
-						highlight = "FloatBorder",
-						style = "rounded",
-						text = {
-							top = " ChatGPT ",
-						},
-					},
-					win_options = {
-						winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-					},
-				},
-				popup_input = {
-					prompt = "  ",
-					border = {
-						highlight = "FloatBorder",
-						style = "rounded",
-						text = {
-							top_align = "center",
-							top = " Prompt ",
-						},
-					},
-					win_options = {
-						winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-					},
-					submit = "<C-Enter>",
-				},
-				settings_window = {
-					border = {
-						style = "rounded",
-						text = {
-							top = " Settings ",
-						},
-					},
-					win_options = {
-						winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-					},
-				},
-				openai_params = {
-					model = "gpt-3.5-turbo",
-					frequency_penalty = 0,
-					presence_penalty = 0,
-					max_tokens = 300,
-					temperature = 0,
-					top_p = 1,
-					n = 1,
-				},
-				openai_edit_params = {
-					model = "code-davinci-edit-001",
-					temperature = 0,
-					top_p = 1,
-					n = 1,
-				},
-				actions_paths = {},
-				predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
-			},
-		},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-	},
+  {
+    "Exafunction/codeium.vim",
+    cmd = "Codeium",
+    init = function()
+      vim.g.codeium_enabled = 0
+      vim.g.codeium_disable_bindings = 1
+      vim.g.codeium_idle_delay = 1500
+    end,
+    config = function()
+      vim.keymap.set("i", "<C-;>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
+      vim.keymap.set("i", "<C-->", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
+      vim.keymap.set("i", "<C-=>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
+      vim.keymap.set("i", "<C-BS>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
+    end,
+  },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "User AstroFile",
+    opts = {
+      {
+        yank_register = "+",
+        edit_with_instructions = {
+          diff = false,
+          keymaps = {
+            accept = "<C-y>",
+            toggle_diff = "<C-d>",
+            toggle_settings = "<C-o>",
+            cycle_windows = "<Tab>",
+            use_output_as_input = "<C-i>",
+          },
+        },
+        chat = {
+          welcome_message = WELCOME_MESSAGE,
+          loading_text = "Loading, please wait ...",
+          question_sign = "", -- 🙂
+          answer_sign = "ﮧ", -- 🤖
+          max_line_length = 120,
+          sessions_window = {
+            border = {
+              style = "rounded",
+              text = {
+                top = " Sessions ",
+              },
+            },
+            win_options = {
+              winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+            },
+          },
+          keymaps = {
+            close = { "<C-c>" },
+            yank_last = "<C-y>",
+            yank_last_code = "<C-k>",
+            scroll_up = "<C-u>",
+            scroll_down = "<C-d>",
+            toggle_settings = "<C-o>",
+            new_session = "<C-n>",
+            cycle_windows = "<Tab>",
+            select_session = "<Space>",
+            rename_session = "r",
+            delete_session = "d",
+          },
+        },
+        popup_layout = {
+          relative = "editor",
+          position = "50%",
+          size = {
+            height = "80%",
+            width = "80%",
+          },
+        },
+        popup_window = {
+          filetype = "chatgpt",
+          border = {
+            highlight = "FloatBorder",
+            style = "rounded",
+            text = {
+              top = " ChatGPT ",
+            },
+          },
+          win_options = {
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+          },
+        },
+        popup_input = {
+          prompt = "  ",
+          border = {
+            highlight = "FloatBorder",
+            style = "rounded",
+            text = {
+              top_align = "center",
+              top = " Prompt ",
+            },
+          },
+          win_options = {
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+          },
+          submit = "<C-Enter>",
+        },
+        settings_window = {
+          border = {
+            style = "rounded",
+            text = {
+              top = " Settings ",
+            },
+          },
+          win_options = {
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+          },
+        },
+        openai_params = {
+          model = "gpt-3.5-turbo",
+          frequency_penalty = 0,
+          presence_penalty = 0,
+          max_tokens = 300,
+          temperature = 0,
+          top_p = 1,
+          n = 1,
+        },
+        openai_edit_params = {
+          model = "code-davinci-edit-001",
+          temperature = 0,
+          top_p = 1,
+          n = 1,
+        },
+        actions_paths = {},
+        predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }
