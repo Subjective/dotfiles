@@ -162,6 +162,7 @@ fi
 alias python="python3"
 alias pip="pip3"
 alias mv="mv -i"
+alias cp="cp -i"
 alias rm="rm -I"
 alias lazyvim="NVIM_APPNAME=lazyvim nvim"
 alias nvchad="NVIM_APPNAME=nvchad nvim"
