@@ -29,6 +29,8 @@ return {
       "tsx",
     })
     opts.indent = { enable = true, disable = { "python" } }
+    opts.highlight.disable = false
+    return opts
   end,
   dependencies = {
     {
