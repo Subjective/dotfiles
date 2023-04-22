@@ -247,7 +247,7 @@ eval "$(zoxide init zsh)"
 if command -v pyenv 1>/dev/null 2>&1; then
   _evalcache pyenv init -
 fi
-_evalcache rbenv init -
+_evalcache rbenv init - zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
