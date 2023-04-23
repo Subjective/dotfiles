@@ -1,25 +1,23 @@
 # Subjective's dotfiles
-These are the dotfiles I use on my Mac system, currently running [MacOS Ventura](https://www.apple.com/macos/ventura/). My editor of choice is [VSCode](https://code.visualstudio.com/), but I also dabble with [Neovim](https://neovim.io/) sometimes.
 
-## WIP Readme (template taken from [joshukraine's dotfiles](https://github.com/joshukraine/dotfiles/blob/master/README.md))
+These are the dotfiles I use on my Mac system, currently running [MacOS Ventura][ventura]. My editor of choice is [Neovim][neovim], but I also dabble with [VSCode][vscode] occasionally. The instructions are adapted from Joshua Steele's [dotfiles repository][joshua-steele].
 
-## Table of Contents 
+<!-- TODO: Add steps to backup application preferences via Mackup and MacOS Global Preferences (https://github.com/mathiasbynens/dotfiles/blob/main/.macos) -->
 
-- [Mac Bootstrap Script](#mac-bootstrap-script)
+## Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Fish or Zsh?](#fish-or-zsh)
-  - [Zsh Setup](#zsh-setup)
-  - [Fish Setup](#fish-setup)
+- [Zsh Setup](#zsh-setup)
 - [Post-install Tasks](#post-install-tasks)
 - [Setting up Homebrew](#setting-up-iterm2)
 - [Setting up iTerm2](#setting-up-iterm2)
+- [Setting up yabai and skhd](#setting-up-yabai-and-skhd)
 - [Colorschemes](#colorschemes)
   - [1. Colorschemes](#1-colorschemes)
-  - [2. Machine-specific Config](#2-machine-specific-config)
-  - [3. Terminal Colorschemes](#3-terminal-colorschemes)
-  - [4. Tmux Custom Overrides](#4-tmux-custom-overrides)
-  - [Useful Colorscheme Links](#useful-colorscheme-links)
+  - [2. Terminal Colorschemes](#3-terminal-colorschemes)
+  - [3. Tmux Custom Overrides](#4-tmux-custom-overrides)
+  - [4. Useful Colorscheme Links](#useful-colorscheme-links)
 - [My Favorite Programming Fonts](#my-favorite-programming-fonts)
   - [Free Fonts](#free-fonts)
   - [Premium Fonts](#premium-fonts)
@@ -33,211 +31,137 @@ These are the dotfiles I use on my Mac system, currently running [MacOS Ventura]
 
 The dotfiles assume you are running macOS with the following software pre-installed:
 
-* [Git][git]
-* [Homebrew][homebrew] (including [coreutils][coreutils])
-* [Ruby][ruby]
-* [Node.js][nodejs]
-* [Fish][fish] or [Zsh][zsh]
-* [Oh-My-Zsh][oh-my-zsh] (if using zsh)
-* [Neovim][neovim]
-* [Tmux][tmux]
-* [asdf][asdf]
-* [Starship][starship]
-
-All of the above and more are included in [Mac Bootstrap][mac-bootstrap]
+- [Git][git]
+- [Homebrew][homebrew] (including [coreutils][coreutils])
+- [Ruby][ruby]
+- [Node.js][nodejs]
+- [Fish][fish] or [Zsh][zsh]
+- [Oh-My-Zsh][oh-my-zsh] (if using zsh)
+- [Neovim][neovim]
+- [Tmux][tmux]
 
 ## Installation
 
-The install script will create the needed directories and symlinks for your setup, adding config files for both Zsh and Fish.
+I'm using a bare git repo with its working tree set to my home directory to manage my dotfiles without symlinks.
 
 1. Setup your shell. (See Fish/Zsh instructions below.)
 
-2. Run the installation script.
+2. Run the following commands in the shell to clone the dotfiles:
 
 ```
-echo ".cfg" >> .gitignore
 git clone --bare <remote-git-repo-url> $HOME/.cfg
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 dotfiles config --local status.showUntrackedFiles no
 dotfiles checkout
 ```
 
-## Fish or Zsh?
-
-I have used Zsh for years and really liked it. Recently I've switched to Fish, and am loving that too! I've kept both of my configs intact in my dotfiles. Running the install script will link configs for both Fish and Zsh shells.
-
-### Zsh Setup
+## Zsh Setup
 
 1. Install zsh: `$ brew install zsh`
-1. Set it as your default shell: `$ chsh -s $(which zsh)`
 1. Install [Oh My Zsh][oh-my-zsh].
 1. Restart your computer.
+1. Install [powerlevel10k][powerlevel10k] theme:
+   `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+1. Install custom plugins:
 
-### Fish Setup
-
-1. Install Fish: `$ brew install fish`
-1. Add Fish to `/etc/shells`: `$ echo /usr/local/bin/fish | sudo tee -a /etc/shells`
-1. Set it as your default shell: `$ chsh -s /usr/local/bin/fish`
-1. Restart your terminal emulator. This will create the `~/.config` and `~/.local` directories if they don’t already exist.
+```
+git clone https://github.com/mroth/evalcache ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/evalcache
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+```
 
 ## Post-install Tasks
 
-After running `install.sh` there are still a couple of things that need to be done.
+After cloning the dotfiles repo there are still a couple of things that need to be done.
 
-* Add machine-specific configs as needed. (see Machine-specific Configs below)
-* Set up iTerm2 or Alacritty profile (see details below).
-* Complete [Brew Bundle][brew-bundle] with `brew bundle install`
-* Add personal data to `~/.gitconfig.local`, `~/.vimrc.local`, `~/dotfiles/local/config.fish.local`, and `~/.zshrc.local` as needed.
-* After opening Neovim, run [`:checkhealth`][checkhealth] and resolve errors/warnings.
-* If using Fish, customize your setup by running the `fish_config` command.
+- Set up iTerm2 or Kitty profile (see details below).
+- Complete [Brew Bundle][brew-bundle] with `brew bundle install`
+- After opening Neovim, run [`:checkhealth`][checkhealth] and resolve errors/warnings.
+- If using Fish, customize your setup by running the `fish_config` command.
 
 ## Setting up Hombrew
 
-```brew bundle```
+`brew bundle`
 
 ## Setting up iTerm2
-
-Thanks to a [great blog post][blog-post] by Trevor Brown, I learned that you can quickly set up iTerm2 by exporting your profile. Here are the steps.
 
 1. Open iTerm2.
 1. Select iTerm2 > Preferences.
 1. Under the General tab, check the box labeled "Load preferences from a custom folder or URL:"
-1. Press "Browse" and point it to `~/dotfiles/machines/<hostname>/com.googlecode.iterm2.plist`.
+1. Press "Browse" and point it to `~/.config/iterm2/com.googlecode.iterm2.plist`.
 1. Restart iTerm2.
 
-## Setting up Alacritty
+## Setting up Kitty
 
 Getting set up after a fresh install is simple.
 
-1. Tweak preferences in `~/dotfiles/machines/<hostname>/alacritty.yml`.
-1. Uncomment Alacritty terminfo lines in  `~/dotfiles/machines/<hostname>/tmux.conf.custom`
+1. Tweak preferences in `~/.config/kitty/kitty.conf`.
+1. Uncomment Alacritty terminfo lines in `~/.tmux.conf`
 1. Run Alacritty!
 
-## Machine-specific Configs
+## Setting up yabai and skhd
 
-I regularly use two Mac computers: a desktop and laptop. Most of my configs are identical between the two, but there are some some differences. I also occasionally install my dotfiles on other machines (family computer, wife's computer, your computer if I can get to it... 😈) 
+I use a tiling window manager called [yabai][yabai] to manage my windows and workspaces and the hotkey daemon [skhd][skhd] to customize yabai's keyboard shortcuts. However, in order to enable all of of yabai's features such as border highlights, instant switching between spaces, and window animations, [System Integrity Protection (SIP)][system-integrity-protection] must be partially disabled.
 
-For this reason, I've introduced a `machines/` folder where I keep configs that are specific to a given computer. Machine-specific configs should be stored in sub-folders of `machines/` and named for the `hostname` of that machine. The overall structure looks like this:
+1. Partially Disable System Integrity Protection according the [yabai docs][disable-sip].
+1. Configure Scripting Addition according to the [yabai docs][configure-scripting-addition]
+1. Start yabai and skhd:
 
 ```
-machines/
-├── joshuas-imac
-│   ├── Brewfile -> ../../Brewfile
-│   ├── Brewfile.lock.json
-│   ├── alacritty.yml
-│   ├── colors.fish
-│   ├── colorscheme.vim
-│   ├── com.googlecode.iterm2.plist
-│   ├── starship.toml
-│   └── tmux.conf.custom
-└── joshuas-mbp15
-    ├── Brewfile -> ../../Brewfile
-    ├── Brewfile.lock.json
-    ├── alacritty.yml
-    ├── colors.fish
-    ├── colorscheme.vim
-    ├── com.googlecode.iterm2.plist
-    ├── starship.toml
-    └── tmux.conf.custom
+brew services start yabai
+brew services start skhd
 ```
-
-My current [Homebrew Bundle][brew-bundle] approach depends heavily on the above setup. I have a Fish function (`bb`) which runs a machine-specific `Brewfile` based on the `hostname` of the current computer. (See `fish/functions/bb.fish`)
 
 ## Colorschemes
 
-My all-time favorite colorscheme for code-editing is [Solarized Dark][solarized]. That said, there are times when I like to dabble with something new, just to have some variety. In the past it's been painful to switch colorschemes for vim since I also needed to find a suitable profile for iTerm2, make tweaks to tmux.conf, etc. Sometimes the colorschemes were 24-bit only (think `set termguicolors`) and others were more simple (256-color), like the original version of Solarized.
+My all-time favorite colorscheme for code-editing is [Catppuccin][catppuccin]. That said, there are times when I like to dabble with something new, just to have some variety.
 
-I've now introduced an approach for switching between colorschemes which I hope will be more straightforward. It's still not a one-step operation, but all the colorschemes and their individual settings can be stored simultaneously, and switching between them takes minimal effort.
+![One Half Dark Screenshot][catppuccin-screenshot]
 
-![One Half Dark Screenshot][one-half-dark-screenshot]
-
-*Example of a React app with the One Half Dark colorscheme*
-
-At the time of this writing, I've incorporated 11 colorschemes, all of which require true color support.
-
-1. [Gruvbox][gruvbox]
-1. [Material][material]
-1. [Night Owl][night-owl]
-1. [Nightfly][nightfly]
-1. [Nord Vim][nord]
-1. [Oceanic Next][oceanic-next]
-1. [One Half Dark][one-half-dark]
-1. [Solarized Dark][neo-solarized]
-1. [Tender][tender]
-1. [Vim One][vim-one]
-1. [vim-monokai-tasty][vim-monokai-tasty]
+_Example of a React app with the Catppuccin colorscheme_
 
 Here's how everything is organized:
 
 #### 1. Colorschemes
 
-The settings for individual colorschemes are stored in separate files. To add a new colorscheme, add a file for it here.
+The settings for individual colorschemes are stored in . To add a new colorscheme, add a file for it here.
 
-```
-nvim/
-└── colorschemes
-    ├── gruvbox.vim
-    ├── material.vim
-    ├── night-owl.vim
-    ├── nightfly.vim
-    ├── nord.vim
-    ├── oceanic-next.vim
-    ├── onehalfdark.vim
-    ├── solarized.vim
-    ├── tender.vim
-    ├── vim-monokai-tasty.vim
-    └── vim-one.vim
-```
+#### 2. Terminal Colorschemes
 
-#### 2. Machine-specific Config
-
-Every machine I manage has a `colorscheme.vim` file in its directory. That file defines in one line which colorscheme should be used. For example:
-
-```
-" machines/joshuas-imac/colorscheme.vim
-
-exe 'source' stdpath('config') . '/colorschemes/gruvbox.vim'
-```
-
-This theme is then loaded in `nvim/init.vim` with the following line (see the Appearance section):
-
-```
-" nvim/init.vim
-
-exe 'source' "$DOTFILES/machines/$HOST_NAME/colorscheme.vim"
-```
-
-#### 3. Terminal Colorschemes
-
-Since I use vim in the terminal, I need corresponding iTerm2 or Alacritty colorschemes for every vim colorscheme. My iTerm2 colorschemes are stored in `itermcolors/`, but of course must be added manually to the iTerm profile. Alacritty colorschemes are defined in `~/dotfiles/machines/<hostname>/alacritty.yml`.
+Since I use vim in the terminal, I need corresponding iTerm2 or Kitty colorschemes for every vim colorscheme. My iTerm2 colorschemes are stored in `itermcolors/`, but of course must be added manually to the iTerm profile. Kitty colorschemes are defined in `~/.config/kitty/themes/` and can be set with kitty's built-in theme manager: `kitty +kitten themes --reload-in=all`.
 
 Multiple pre-made colorschemes are available online for both iTerm2 and Alacritty:
 
-* [iTerm2 colorschemes][iterm2-colorschemes]
-* [Alacritty colorschemes][alacritty-colorschemes]
+- [iTerm2 colorschemes][iterm2-colorschemes]
+- [Kitty colorschemes][kitty-colorschemes]
 
-#### 4. Tmux Custom Overrides
+#### 3. Tmux Custom Overrides
 
-The last tweak is for Tmux. I like to set custom hex color codes for the status bar depending on which colorscheme I'm using. Each machine profile now has its own `tmux.conf.custom` file. In particular, it can be nice to adjust the background of the status bar to better match the current colorscheme.
-
-The main `tmux.conf` file contains all the settings that Tmux needs. However, any setting that is re-declared in `machines/$HOST_NAME/tmux.conf.custom` will override the defaults.
+The last tweak is for Tmux. I like to set a custom statusline depending on what colorscheme I'm using. The main `tmux.conf` file contains all the settings that Tmux needs. Uncomment the section for a specific statusline to enable it.
 
 ```
-# machines/joshuas-imac/tmux.conf.custom
+## Detailed Catppuccin Statusline ##
 
-# Gruvbox {{{
-setw -g window-status-style fg=$BLACK,bg=$BRIGHT_BLUE
-setw -g window-status-current-style fg="#fbf1c7",bg=$BRIGHT_RED
-set -g pane-border-style bg=default,fg="#665c54"
-set -g status-left "#[fg=$BRIGHT_GREEN][#S] #[fg=$RED]w#I #[fg=$BLUE]p#P"
-set -g status-style bg="#3c3836"
-# }}}
+# Set status bar color to match background
+set-option -g status-style bg=default
 
-# Material {{{
-# set -g status-style bg="#2c3b41"
-# }}}
+## Set status bar position to top
+# set-option -g status-position top
+
+## Change spacing between window and statusline
+set -Fg 'status-format[1]' '#{status-format[0]}'
+set -g 'status-format[0]' ''
+set -g status 2
 
 [...]
+```
+
+I also use [tmux plugin manager](https://github.com/tmux-plugins/tpm) to manage my tmux plugins. Clone the repository and press `prefix` + `I` to install plugins:
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ### Useful Colorscheme Links
@@ -251,17 +175,16 @@ I've recently branched out to explore some of the different mono-spaced fonts av
 
 ### Free Fonts
 
-*Included in my `Brewfile` and installed by default via [Homebrew Cask Fonts][homebrew-cask-fonts]*
+_Included in my `Brewfile` and installed by default via [Homebrew Cask Fonts][homebrew-cask-fonts]_
 
 - [Fira Code][fira-code]
-- [Cascadia Code][cascadia-code]
-- [Victor Mono][victor-mono]
+- [Caskaydia Cove][caskaydia-cove]
+- [Hack Mono][hack-mono]
 - [JetBrains Mono][jetbrains-mono]
-- [Iosveka][iosevka]
 
 ### Premium Fonts
 
-*You have to give people money if you want these.* 🤑
+_You have to give people money if you want these._ 🤑
 
 - [Operator Mono][operator-mono]
 - [MonoLisa][monolisa]
@@ -269,9 +192,9 @@ I've recently branched out to explore some of the different mono-spaced fonts av
 
 ### Ligatures
 
-I first discovered ligatures through [Fira Code][fira-code], which IMO is probably the king of programming fonts. After using Fira Code, it's hard to go back to a sans-ligature typeface. Therefore †all the fonts I've included in my fave's list *do* include ligatures, although some have more than others.
+I first discovered ligatures through [Fira Code][fira-code], which IMO is probably the king of programming fonts. After using Fira Code, it's hard to go back to a sans-ligature typeface. Therefore †all the fonts I've included in my fave's list _do_ include ligatures, although some have more than others.
 
-† *Operator Mono does not include ligatures but [can be easily patched][operator-mono-lig] to add them.*
+† _Operator Mono does not include ligatures but [can be easily patched][operator-mono-lig] to add them._
 
 ### Nerd Font Variants
 
@@ -297,38 +220,88 @@ If using a font that does not have a patched variant (e.g. MonoLisa) iTerm2 has 
 - [Programming Fonts - Test Drive][programming-fonts]
 - [Homebrew Cask Fonts][homebrew-cask-fonts]
 
-## A Note about Vim performance and Ruby files
+## Some cool dotfile repos
 
-I recently discovered a resolution to some significant performance issues I had been experiencing running Vim on macOS. These issues were particularly painful when editing Ruby files. I've documented what I learned here:
-
-&#9657; [What I've learned about slow performance in Vim](vim-performance.md)
-
-## Some of my favorite dotfile repos
-
-* Pro Vim (https://github.com/Integralist/ProVim)
-* Trevor Brown (https://github.com/Stratus3D/dotfiles)
-* Chris Toomey (https://github.com/christoomey/dotfiles)
-* thoughtbot (https://github.com/thoughtbot/dotfiles)
-* Lars Kappert (https://github.com/webpro/dotfiles)
-* Ryan Bates (https://github.com/ryanb/dotfiles)
-* Ben Orenstein (https://github.com/r00k/dotfiles)
-* Joshua Clayton (https://github.com/joshuaclayton/dotfiles)
-* Drew Neil (https://github.com/nelstrom/dotfiles)
-* Kevin Suttle (https://github.com/kevinSuttle/OSXDefaults)
-* Carlos Becker (https://github.com/caarlos0/dotfiles)
-* Zach Holman (https://github.com/holman/dotfiles/)
-* Mathias Bynens (https://github.com/mathiasbynens/dotfiles/)
-* Paul Irish (https://github.com/paulirish/dotfiles)
-* [The best way to store your dotfiles: A bare Git repository **EXPLAINED** - Ackama](https://www.ackama.com/what-we-think/the-best-way-to-store-your-dotfiles-a-bare-git-repository-explained/)
-* [How to Store Dotfiles - A Bare Git Repository | Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/dotfiles)
-* [Manage Dotfiles With a Bare Git Repository](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html)
+- Joshua Steele (https://github.com/joshukraine/dotfiles)
+- Pro Vim (https://github.com/Integralist/ProVim)
+- Aaron Bates (https://github.com/aaronbates/dotfiles)
+- Trevor Brown (https://github.com/Stratus3D/dotfiles)
+- Chris Toomey (https://github.com/christoomey/dotfiles)
+- thoughtbot (https://github.com/thoughtbot/dotfiles)
+- Lars Kappert (https://github.com/webpro/dotfiles)
+- Ryan Bates (https://github.com/ryanb/dotfiles)
+- Ben Orenstein (https://github.com/r00k/dotfiles)
+- Joshua Clayton (https://github.com/joshuaclayton/dotfiles)
+- Drew Neil (https://github.com/nelstrom/dotfiles)
+- Kevin Suttle (https://github.com/kevinSuttle/OSXDefaults)
+- Carlos Becker (https://github.com/caarlos0/dotfiles)
+- Zach Holman (https://github.com/holman/dotfiles/)
+- Mathias Bynens (https://github.com/mathiasbynens/dotfiles/)
+- Paul Irish (https://github.com/paulirish/dotfiles)
+- Tnixc (https://github.com/Tnixc/dots)
+- AsianKoala (https://github.com/AsianKoala/dotfiles)
+- Benjamin Brast-McKie (https://github.com/benbrastmckie/.config)
 
 ## Helpful web resources on dotfiles, et al.
 
-* http://dotfiles.github.io/
-* https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789
-* http://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449
-* https://github.com/webpro/awesome-dotfiles
-* http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
-* http://carlosbecker.com/posts/first-steps-with-mac-os-x-as-a-developer/
-* https://mattstauffer.co/blog/setting-up-a-new-os-x-development-machine-part-1-core-files-and-custom-shel
+- http://dotfiles.github.io/
+- https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789
+- http://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449
+- https://github.com/webpro/awesome-dotfiles
+- http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
+- http://carlosbecker.com/posts/first-steps-with-mac-os-x-as-a-developer/
+- https://mattstauffer.co/blog/setting-up-a-new-os-x-development-machine-part-1-core-files-and-custom-shel
+- https://www.ackama.com/what-we-think/the-best-way-to-store-your-dotfiles-a-bare-git-repository-explained/
+- https://www.atlassian.com/git/tutorials/dotfiles
+- https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html
+
+## License
+
+Copyright &copy; 2023 Joshua Yin. [MIT License][license]
+
+[vscode]: https://code.visualstudio.com/
+[kitty-colorschemes]: https://github.com/kovidgoyal/kitty-themes
+[alacritty]: https://github.com/alacritty/alacritty
+[brew-bundle]: https://github.com/Homebrew/homebrew-bundle
+[caskaydia-cove]: https://github.com/eliheuer/caskaydia-cove
+[ventura]: https://www.apple.com/macos/ventura/
+[checkhealth]: https://neovim.io/doc/user/pi_health.html#:checkhealth
+[coreutils]: https://formulae.brew.sh/formula/coreutils
+[dank-mono]: https://dank.sh/
+[devicons]: https://github.com/nvim-tree/nvim-web-devicons
+[fira-code]: https://github.com/tonsky/FiraCode
+[fish]: http://fishshell.com/
+[git]: https://git-scm.com/
+[homebrew-cask-fonts]: https://github.com/Homebrew/homebrew-cask-fonts
+[homebrew]: http://brew.sh
+[iterm2-colorschemes]: https://github.com/mbadolato/iTerm2-Color-Schemes
+[iterm2-font-settings]: https://res.cloudinary.com/dnkvsijzu/image/upload/v1587816605/screenshots/iterm2-font-settings_k7upta.png
+[iterm2]: https://www.iterm2.com/
+[javascript]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[jetbrains-mono]: https://www.jetbrains.com/lp/mono/
+[license]: https://github.com/Subjective/dotfiles/blob/main/LICENSE
+[material]: https://github.com/kaicataldo/material.vim
+[monolisa]: https://www.monolisa.dev/
+[neovim]: https://neovim.io/
+[nerd-fonts-downloads]: https://www.nerdfonts.com/font-downloads
+[nodejs]: https://nodejs.org/
+[oh-my-zsh]: https://github.com/ohmyzsh/ohmyzsh
+[catppuccin-screenshot]: https://i.imgur.com/IgdYAhN.png
+[operator-mono-lig]: https://github.com/kiliman/operator-mono-lig
+[operator-mono]: https://www.typography.com/fonts/operator/styles/operatormonoscreensmart
+[programming-fonts]: https://app.programmingfonts.org/
+[react]: https://reactjs.org/
+[ruby]: https://www.ruby-lang.org/en
+[screenshot]: https://res.cloudinary.com/dnkvsijzu/image/upload/v1584547844/screenshots/dotfiles-mar-2020_a5p5do.png
+[catppuccin]: https://github.com/catppuccin
+[tmux]: https://github.com/tmux/tmux/wiki
+[hack-mono]: https://github.com/source-foundry/Hack
+[vim]: http://www.vim.org/
+[zsh]: https://www.zsh.org/
+[powerlevel10k]: https://github.com/romkatv/powerlevel10k#oh-my-zsh
+[joshua-steele]: https://github.com/joshukraine/dotfiles
+[yabai]: https://github.com/koekeishiya/yabai
+[skhd]: https://github.com/koekeishiya/skhd
+[disable-sip]: https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
+[configure-scripting-addition]: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+[system-integrity-protection]: https://support.apple.com/en-us/HT204899
