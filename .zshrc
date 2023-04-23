@@ -99,6 +99,7 @@ alias ypwd="pwd && echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias ywd="echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias v='fd --type f --hidden --exclude .git | fzf --height=35% --reverse | xargs nvim'
 alias vs='nvim "+SessionManager load_current_dir_session"'
+alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
 
 if (( $+commands[exa] )); then
