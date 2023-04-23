@@ -57,6 +57,8 @@ dotfiles checkout
 
 ## Zsh Setup
 
+<!-- TODO: Add steps to configure `.envkeys` -->
+
 1. Install zsh: `$ brew install zsh`
 1. Install [Oh My Zsh][oh-my-zsh].
 1. Restart your computer.
