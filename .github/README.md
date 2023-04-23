@@ -99,9 +99,10 @@ After cloning the dotfiles repo there are still a couple of things that need to 
 
 Getting set up after a fresh install is simple.
 
-1. Tweak preferences in `~/.config/kitty/kitty.conf`.
+1. Tweak preferences in `~/.config/kitty/kitty.conf`
 1. Uncomment Alacritty terminfo lines in `~/.tmux.conf`
-1. Run Alacritty!
+1. Setup [alternative][alt-kitty-icon] MacOS application icon for Kitty.
+1. Run Kitty!
 
 ## Setting up yabai and skhd
 
@@ -307,3 +308,4 @@ Copyright &copy; 2023 Joshua Yin. [MIT License][license]
 [disable-sip]: https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
 [configure-scripting-addition]: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 [system-integrity-protection]: https://support.apple.com/en-us/HT204899
+[alt-kitty-icon]: https://github.com/DinkDonk/kitty-icon
