@@ -288,7 +288,7 @@ Copyright &copy; 2023 Joshua Yin. [MIT License][license]
 [nerd-fonts-downloads]: https://www.nerdfonts.com/font-downloads
 [nodejs]: https://nodejs.org/
 [oh-my-zsh]: https://github.com/ohmyzsh/ohmyzsh
-[catppuccin-screenshot]: https://i.imgur.com/IgdYAhN.png
+[catppuccin-screenshot]: https://i.imgur.com/heGAQXx.png
 [operator-mono-lig]: https://github.com/kiliman/operator-mono-lig
 [operator-mono]: https://www.typography.com/fonts/operator/styles/operatormonoscreensmart
 [programming-fonts]: https://app.programmingfonts.org/
