@@ -98,6 +98,7 @@ alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd="pwd && echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias ywd="echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias v='fd --type f --hidden --exclude .git | fzf --height=35% --reverse | xargs nvim'
+alias vp="fd --type f --hidden --exclude .git | fzf --reverse --preview 'bat --style=numbers --color=always {}' | xargs nvim"
 alias vs='nvim "+SessionManager load_current_dir_session"'
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
