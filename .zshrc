@@ -77,8 +77,6 @@ else
 fi
 
 # Personal aliases
-alias python="python3"
-alias pip="pip3"
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -I"
@@ -92,8 +90,7 @@ alias dots="dot status"
 alias dota="dot add"
 alias dotc="dot commit"
 alias lg="lazygit"
-alias lazygitdot="lazygit --git-dir=$HOME/.cfg --work-tree=$HOME"
-alias lgdot="lazygitdot"
+alias lgdot="lazygit --git-dir=$HOME/.cfg --work-tree=$HOME"
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd="pwd && echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
 alias ywd="echo -n `pwd`|pbcopy" # setup alias to copy and print cwd
