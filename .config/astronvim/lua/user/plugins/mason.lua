@@ -1,5 +1,4 @@
-local utils = require "astrocommunity.utils"
-
+local utils = require "astronvim.utils"
 function utils.list_remove(tbl, vals)
   if type(vals) ~= "table" then vals = { vals } end
   for _, val in ipairs(vals) do
@@ -36,7 +35,7 @@ return {
       -- Remove lsps added by an astrocommunity language pack
       utils.list_remove(opts.ensure_installed, { "rustywind" })
       -- setup custom handlers
-      utils.list_insert_unique(opts.handlers, {
+      utils.extend_tbl(opts.handlers, {
         -- For prettierd:
         prettierd = function()
           null_ls.register(null_ls.builtins.formatting.prettierd.with {
