@@ -99,6 +99,7 @@ alias vp='fd --type f --hidden --exclude .git | fzf --reverse --preview "bat --s
 alias vs='nvim "+SessionManager load_current_dir_session"'
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
+alias icat="kitty +kitten icat"
 
 if (( $+commands[exa] )); then
   alias ls="exa --icons"
