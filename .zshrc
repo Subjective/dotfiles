@@ -106,6 +106,7 @@ if (( $+commands[exa] )); then
   alias l="exa -l -H --icons --git"
   alias la="l -a"
   alias lt="l --tree --level=2"
+  alias tree="exa --tree --level=3"
 
   # function to check for file pattern in cwd
   function lag {
