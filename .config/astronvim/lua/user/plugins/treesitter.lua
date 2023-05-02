@@ -29,7 +29,9 @@ return {
       "tsx",
     })
     opts.indent = { enable = true, disable = { "python" } }
-    opts.highlight.disable = false
+    -- fix compatibility issues with vimtex
+    opts.highlight.disable = { "latex" }
+    opts.additional_vim_regex_highlighting = { "latex", "markdown" }
     return opts
   end,
   dependencies = {
