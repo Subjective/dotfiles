@@ -31,7 +31,7 @@ return {
     opts.indent = { enable = true, disable = { "python" } }
     -- fix compatibility issues with vimtex
     opts.highlight.disable = { "latex" }
-    opts.additional_vim_regex_highlighting = { "latex", "markdown" }
+    -- opts.additional_vim_regex_highlighting = { "latex", "markdown" } -- enable vimtex compatibility with md plugins
     return opts
   end,
   dependencies = {
