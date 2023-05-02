@@ -9,6 +9,10 @@ return {
   },
   {
     lazy = false,
+    "arzg/vim-colors-xcode",
+  },
+  {
+    lazy = false,
     "gruvbox.nvim",
     opts = {
       integrations = {
