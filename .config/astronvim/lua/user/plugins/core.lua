@@ -1,3 +1,4 @@
+local utils = require "astronvim.utils"
 return {
   {
     "goolord/alpha-nvim",
@@ -39,6 +40,23 @@ return {
       require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "~/.config/astronvim/lua/user/snippets/vscode" } } -- load vscode snippets
       require("luasnip.loaders.from_lua").load { paths = "~/.config/astronvim/lua/user/snippets/lua" } -- load lua snippets
+    end,
+  },
+  { -- override nvim-cmp plugin
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-calc",
+    },
+    opts = function(_, opts)
+      local cmp = require "cmp"
+      opts.sources = cmp.config.sources {
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip", priority = 750 },
+        { name = "buffer", priority = 500 },
+        { name = "path", priority = 250 },
+        { name = "calc", priority = 700 },
+      }
+      return opts
     end,
   },
 }
