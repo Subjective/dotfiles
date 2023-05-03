@@ -11,6 +11,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- fix heirline flicker with vimtex when cmdheight=0 and cleanup latexmk junk files upon exit
+vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventInitPre" }, command = "set cmdheight=1" })
+vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventQuit" }, command = "VimtexClean" })
+
 -- set git repo for dotfiles and refresh gitsigns
 local home_dir = os.getenv "HOME"
 local git_file_list = vim.fn.system(
