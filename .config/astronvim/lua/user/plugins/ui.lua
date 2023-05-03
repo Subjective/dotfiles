@@ -37,5 +37,15 @@ return {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
     build = function() vim.fn["mkdp#util#install"]() end,
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          require("which-key").register({
+            ["p"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
+          }, { prefix = "<localleader>", buffer = vim.api.nvim_get_current_buf() })
+        end,
+      })
+    end,
   },
 }
