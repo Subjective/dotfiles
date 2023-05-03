@@ -18,7 +18,7 @@ return {
       -- Add tsserver to opts.ensure_installed using vim.list_extend.
       utils.list_insert_unique(
         opts.ensure_installed,
-        { "lua_ls", "tsserver", "tailwindcss", "vimls", "clangd", "marksman", "grammarly", "pyright" }
+        { "lua_ls", "tsserver", "tailwindcss", "vimls", "clangd", "marksman", "grammarly", "pyright", "texlab", "ltex" }
       )
     end,
   },
