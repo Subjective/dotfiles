@@ -56,6 +56,12 @@ return {
         { name = "path", priority = 250 },
         { name = "calc", priority = 700 },
       }
+      -- disable autocomplete on latex files
+      cmp.setup.filetype({ "tex" }, {
+        completion = {
+          autocomplete = false,
+        },
+      })
       return opts
     end,
   },
