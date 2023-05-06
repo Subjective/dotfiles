@@ -78,6 +78,7 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+-- automatically change iterm colorscheme to match vim
 local iterm_profile = os.getenv "ITERM_PROFILE"
 if iterm_profile then
   local function set_colorscheme(colorscheme)
