@@ -16,7 +16,7 @@ return {
         filename = false,
         file_modified = false,
         -- file_modified = { padding = { left = 0 } },
-        file_read_only = { padding = { right = 1 } },
+        file_read_only = false,
         surround = { separator = "none" },
       },
       status.component.separated_path {
