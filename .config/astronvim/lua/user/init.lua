@@ -27,6 +27,7 @@ local config = {
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     underline = true,
+    update_in_insert = false,
   },
   -- -- Extend LSP configuration
   -- lsp = {
