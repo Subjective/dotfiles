@@ -13,6 +13,7 @@ These are the dotfiles I use on my Mac system, currently running [MacOS Ventura]
 - [Setting up Homebrew](#setting-up-iterm2)
 - [Setting up iTerm2](#setting-up-iterm2)
 - [Setting up yabai and skhd](#setting-up-yabai-and-skhd)
+- [Backing up app settings and personal files](backing-up-app-settings-and-personal-files)
 - [Colorschemes](#colorschemes)
   - [1. Colorschemes](#1-colorschemes)
   - [2. Terminal Colorschemes](#3-terminal-colorschemes)
@@ -116,6 +117,60 @@ I use a tiling window manager called [yabai][yabai] to manage my windows and wor
 brew services start yabai
 brew services start skhd
 ```
+
+## Backing up app settings and personal files
+
+### Mackup for backup
+
+[Mackup](https://github.com/lra/mackup) is a fantastic tool that allows you to: backup personal application settings and private data; sync that data between computers; and then easily restore your configuration to a fresh install — all in a simple command line interface. Seems good!
+
+While by no means a comprehensive backup solution, Mackup keeps things simple, currently supports [over 360 applications](https://github.com/lra/mackup/mackup/applications) and can store data on Dropbox, Google Drive, iCloud or any path you can copy to.
+
+#### How I use Mackup
+
+I store on iCloud and explicitly declare which apps to sync and which to ignore — anything handled by my dotfiles is ignored (bash, git, vim etc.)
+
+I backup a wide range of other applications including those containing credentials such as aws, gnupg and ssh. It's also possible to backup apps not natively supported using custom `.cfg` files. For example, to backup [Ulysses](https://ulyssesapp.com) (an amazing markdown writing app), create a `~/.mackup` directory and place a `ulysses.cfg` file inside:
+
+```ini
+[application]
+name = Ulysses
+
+[configuration_files]
+Library/Preferences/com.soulmen.ulysses3.plist
+Library/Preferences/com.ulyssesapp.mac.plist
+```
+
+It is usually straight-forward to find which `.plist` files in `Library/Preferences` you'll need to list, they always feature the application name.
+
+Taking that a step further we can also declare a "personal files" application using a `personal-files.cfg` and then cherry pick any other files we want to backup while keeping them out of a public repo:
+
+```ini
+[application]
+name = Personal Files
+
+[configuration_files]
+.gitconfig.local
+.extra
+```
+
+When I declare this in my main [`.mackup.cfg`](mackup/.mackup.cfg) they are handled with ease:
+
+```ini
+[storage]
+engine = iCloud
+directory = Mackup
+
+# Apps to sync — if empty, syncs all supported.
+# custom: personal-files, ulysses
+[applications_to_sync]
+personal-files
+spotify
+...
+ulysses
+```
+
+A simple `$ mackup backup` saves everything to iCloud and I can later `$ mackup restore` on a fresh install to get these settings back (you can also easily `$ mackup uninstall`).
 
 ## Colorschemes
 
