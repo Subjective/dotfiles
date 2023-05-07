@@ -11,6 +11,6 @@ return {
     dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
     opts = { use_treesitter = true },
     -- treesitter is required for markdown
-    ft = { "tex", "markdown" },
+    ft = { "tex" },
   },
 }
