@@ -34,30 +34,6 @@ return {
       utils.list_insert_unique(opts.ensure_installed, { "stylua", "eslint_d" })
       -- Remove lsps added by an astrocommunity language pack
       utils.list_remove(opts.ensure_installed, { "rustywind" })
-      -- setup custom handlers
-      utils.extend_tbl(opts.handlers, {
-        -- For prettierd:
-        prettierd = function()
-          null_ls.register(null_ls.builtins.formatting.prettierd.with {
-            condition = function(local_utils)
-              return local_utils.root_has_file "package.json"
-                or local_utils.root_has_file ".prettierrc"
-                or local_utils.root_has_file ".prettierrc.json"
-                or local_utils.root_has_file ".prettierrc.js"
-            end,
-          })
-        end,
-        -- For eslint_d:
-        eslint_d = function()
-          null_ls.register(null_ls.builtins.diagnostics.eslint_d.with {
-            condition = function(local_utils)
-              return local_utils.root_has_file "package.json"
-                or local_utils.root_has_file ".eslintrc.json"
-                or local_utils.root_has_file ".eslintrc.js"
-            end,
-          })
-        end,
-      })
       -- run setup
       mason_null_ls.setup(opts)
     end,
