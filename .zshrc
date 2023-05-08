@@ -113,9 +113,9 @@ if (( $+commands[exa] )); then
   # function to check for file pattern in cwd
   function lag {
     if (($+commands[rg])); then
-      la | rg "$@"
+      exa -l -a -H --icons --git | rg "$@"
     else
-      la | grep "$@"
+      exa -l -a -H --icons --git | grep "$@"
     fi
   }
 fi
