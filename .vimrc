@@ -52,7 +52,7 @@ nnoremap <C-h> <C-w>h
 " buffers
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>c :bd<CR>
-nnoremap <Leader>b :buffers<CR>
+nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>w :w<CR>
 
 " buffer navigation
