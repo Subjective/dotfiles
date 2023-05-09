@@ -39,22 +39,36 @@ let &t_EI = "\e[2 q"
 let mapleader = " "
 let maplocalleader = "\\"
 
+" escape insert mode
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" window navigation
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 
+" buffers
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>c :bd<CR>
 nnoremap <Leader>b :buffers<CR>
+nnoremap <Leader>w :w<CR>
 
+" buffer navigation
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
 
-nnoremap <Leader>e :Lex<CR>:vertical resize 30%<CR>
+" toggle netrw
+nnoremap <Leader>e :Lex<CR>
 
 " Plugin Configuration
 let g:highlightedyank_highlight_duration = 250
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 20
+
+" Hack fix to make ctrl-l work properly in netrw
+autocmd filetype netrw noremap <buffer> <C-l> <C-w>l 
