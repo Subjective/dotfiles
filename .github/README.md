@@ -2,8 +2,6 @@
 
 These are the dotfiles I use on my Mac system, currently running [MacOS Ventura][ventura]. My editor of choice is [Neovim][neovim], but I also dabble with [VSCode][vscode] occasionally. The instructions are adapted from Joshua Steele's [dotfiles repository][joshua-steele].
 
-<!-- TODO: Add steps to backup application preferences via Mackup and MacOS Global Preferences (https://github.com/mathiasbynens/dotfiles/blob/main/.macos) -->
-
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
