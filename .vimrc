@@ -32,10 +32,11 @@ set hlsearch
 set belloff=all
 set updatetime=100
 
-" Vertical Cursor Line in Insert Mode
+" vertical cursor line in insert mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+" leader and localleader keys
 let mapleader = " "
 let maplocalleader = "\\"
 
