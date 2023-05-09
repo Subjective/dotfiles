@@ -30,10 +30,6 @@ return {
     end,
   },
   {
-    "stevearc/resession.nvim",
-    enabled = false,
-  },
-  {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
       opts.enable_autosnippets = true
