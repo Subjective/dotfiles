@@ -11,10 +11,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- fix heirline flicker with vimtex when cmdheight=0 and cleanup latexmk junk files upon exit
-vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventInitPre" }, command = "set cmdheight=1" })
-vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventQuit" }, command = "VimtexClean" })
-
 -- FIX: Improve performance hit to startup time
 
 -- -- set git repo for dotfiles and refresh gitsigns
@@ -79,6 +75,10 @@ vim.api.nvim_create_autocmd("User", {
     if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
   end,
 })
+
+-- fix heirline flicker with vimtex when cmdheight=0 and cleanup latexmk junk files upon exit
+vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventInitPre" }, command = "set cmdheight=1" })
+vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventQuit" }, command = "VimtexClean" })
 
 -- add which-key mapping descriptions for VimTex
 vim.api.nvim_create_autocmd("BufEnter", {
