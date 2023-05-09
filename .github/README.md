@@ -81,6 +81,8 @@ After cloning the dotfiles repo there are still a couple of things that need to 
 
 - Set up iTerm2 or Kitty profile (see details below).
 - Complete [Brew Bundle][brew-bundle] with `brew bundle install`
+- Install [Rust][rust] via Rustup: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- Install neovim via [bob][bob]: `cargo install bob-nvim`
 - After opening Neovim, run [`:checkhealth`][checkhealth] and resolve errors/warnings.
 - If using Fish, customize your setup by running the `fish_config` command.
 
@@ -364,3 +366,5 @@ Copyright &copy; 2023 Joshua Yin. [MIT License][license]
 [configure-scripting-addition]: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 [system-integrity-protection]: https://support.apple.com/en-us/HT204899
 [alt-kitty-icon]: https://github.com/DinkDonk/kitty-icon
+[rust]: https://www.rust-lang.org/tools/install
+[bob]: https://github.com/MordechaiHadad/bob
