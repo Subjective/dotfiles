@@ -93,6 +93,14 @@ return {
       function() vim.opt_local.winbar = nil end,
       desc = "Hide winbar (local)",
     },
+    ["<leader>uI"] = {
+      function()
+        vim.cmd [[IndentBlanklineToggle]]
+        astro_utils.notify("Indentation guides " .. (vim.g.indentation_guides and "Enabled" or "Disabled"))
+        vim.g.indentation_guides = not vim.g.indentation_guides
+      end,
+      desc = "Toggle indentation guides",
+    },
     ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
     -- trouble plugin mappings
     ["<leader>T"] = { name = "󰔫 Trouble" },
