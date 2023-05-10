@@ -29,7 +29,7 @@ return {
     "NvChad/nvim-colorizer.lua",
     opts = {
       filetypes = {
-        "*",
+        -- "*",
         javascriptreact = { names = true, tailwind = "both" },
         javascript = { names = true, tailwind = "both" },
         typescript = { names = true, tailwind = "both" },
