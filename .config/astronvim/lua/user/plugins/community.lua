@@ -73,4 +73,8 @@ return {
       },
     },
   },
+  {
+    "ahmedkhalf/project.nvim",
+    opts = { ignore_lsp = { "lua_ls", "texlab" } },
+  },
 }
