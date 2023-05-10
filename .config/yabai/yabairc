@@ -34,13 +34,13 @@ yabai -m config right_padding 12
 yabai -m config window_gap 12
 
 # Add border to focused window
-yabai -m config window_border                on 
-yabai -m config window_border_width          4
+yabai -m config window_border on 
+yabai -m config window_border_width 4
 # yabai -m config active_window_border_color 0xFF88C0D0 # blue
 yabai -m config active_window_border_color 0xFFC4A6F5 # tokyonight purple
 # yabai -m config active_window_border_color 0xFF93518B # purple/pink
-yabai -m config normal_window_border_color 0x002E3440
-yabai -m config insert_feedback_color 0xFFA3BE8C
+yabai -m config normal_window_border_color 0x002E3440 # black
+yabai -m config insert_feedback_color 0xFFA3BE8C # green
 # fix window blur ghosting
 yabai -m config window_border_blur off
 
