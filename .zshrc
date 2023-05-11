@@ -50,7 +50,6 @@ plugins=(
   zsh-autosuggestions
   fzf
   zsh-vi-mode
-  web-search
 )
 
 # zsh-vi-mode configuration
