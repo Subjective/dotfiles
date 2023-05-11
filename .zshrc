@@ -34,6 +34,7 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 
 # lazy load nvm
 export NVM_LAZY_LOAD=true
@@ -50,6 +51,7 @@ plugins=(
   zsh-autosuggestions
   fzf
   zsh-vi-mode
+  virtualenv
 )
 
 # zsh-vi-mode configuration
