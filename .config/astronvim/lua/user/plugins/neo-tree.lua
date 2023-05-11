@@ -22,16 +22,7 @@ return {
       end,
       trash_visual = function(state, selected_nodes)
         local inputs = require "neo-tree.ui.inputs"
-
-        function GetTableLen(tbl)
-          local len = 0
-          for _ in pairs(tbl) do
-            len = len + 1
-          end
-          return len
-        end
-
-        local count = GetTableLen(selected_nodes)
+        local count = #selected_nodes
         local msg = "Are you sure you want to trash " .. count .. " files ?"
         inputs.confirm(msg, function(confirmed)
           if not confirmed then return end
