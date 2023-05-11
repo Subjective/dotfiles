@@ -1,0 +1,8 @@
+{
+  "Safe Callback": {
+    "prefix": "sfn",
+    "body": [
+      "${1:fn} && typeof ${1:fn} === 'function' && ${1:fn}($2)$0"
+    ]
+  }
+}
