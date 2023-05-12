@@ -42,6 +42,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-calc",
+      "js-everts/cmp-tailwind-colors",
     },
     opts = function(_, opts)
       local cmp = require "cmp"
@@ -58,7 +59,38 @@ return {
           autocomplete = false,
         },
       })
+      local format_kinds = opts.formatting.format
+      opts.formatting.format = function(entry, item)
+        if item.kind == "Color" then
+          item = require("cmp-tailwind-colors").format(entry, item)
+          return item
+        end
+        return format_kinds(entry, item)
+      end
       return opts
     end,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      filetypes = {
+        -- "*",
+        javascriptreact = { names = true, tailwind = "both" },
+        javascript = { names = true, tailwind = "both" },
+        typescript = { names = true, tailwind = "both" },
+        typescriptreact = { names = true, tailwind = "both" },
+        "!javascriptreact",
+        "!javascript",
+        "!typescript",
+        "!typescriptreact",
+        "!cmp_menu",
+      },
+      user_default_options = {
+        RRGGBBAA = true,
+        AARRGGBB = true,
+        -- mode = "virtualtext",
+        names = false,
+      },
+    },
   },
 }

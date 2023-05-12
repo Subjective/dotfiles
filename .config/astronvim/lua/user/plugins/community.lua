@@ -2,7 +2,7 @@ return {
   "AstroNvim/astrocommunity",
   -- language packs
   { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.pack.tailwindcss" },
+  -- { import = "astrocommunity.pack.tailwindcss" },
 
   -- colorschemes
   { import = "astrocommunity.colorscheme.tokyonight" },
@@ -24,31 +24,6 @@ return {
   -- organization
   { import = "astrocommunity.project.project-nvim" },
 
-  {
-    event = "VeryLazy",
-    "NvChad/nvim-colorizer.lua",
-    opts = {
-      filetypes = {
-        -- "*",
-        javascriptreact = { names = true, tailwind = "both" },
-        javascript = { names = true, tailwind = "both" },
-        typescript = { names = true, tailwind = "both" },
-        typescriptreact = { names = true, tailwind = "both" },
-        "!javascriptreact",
-        "!javascript",
-        "!typescript",
-        "!typescriptreact",
-        "!cmp_menu",
-      },
-      user_default_options = {
-        RRGGBBAA = true,
-        AARRGGBB = true,
-        -- mode = "virtualtext",
-        names = false,
-        tailwind = true,
-      },
-    },
-  },
   {
     "catppuccin/nvim",
     name = "catppuccin",
