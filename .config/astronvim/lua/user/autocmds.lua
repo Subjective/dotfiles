@@ -81,8 +81,7 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
--- fix heirline flicker with vimtex when cmdheight=0 and cleanup latexmk junk files upon exit
-vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventInitPre" }, command = "set cmdheight=1" })
+-- cleanup latexmk junk files upon exit
 vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventQuit" }, command = "VimtexClean" })
 
 -- add which-key mapping descriptions for VimTex
