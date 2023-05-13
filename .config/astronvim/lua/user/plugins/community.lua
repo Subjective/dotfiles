@@ -30,6 +30,7 @@ return {
     name = "catppuccin",
     opts = {
       integrations = {
+        noice = true,
         native_lsp = {
           enabled = true,
           virtual_text = {
