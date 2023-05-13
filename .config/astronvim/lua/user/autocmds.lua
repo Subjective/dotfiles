@@ -11,59 +11,64 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- FIX: Improve performance hit to startup time
+-- create user command to set git repo for dotfiles and refresh gitsigns
+vim.api.nvim_create_user_command("DotfilesGit", function()
+  vim.g.home_dir = os.getenv "HOME"
+  vim.g.dotfile_list = vim.fn.system(
+    "(cd $HOME && git --work-tree="
+      .. vim.g.home_dir
+      .. " --git-dir="
+      .. vim.g.home_dir
+      .. "/.cfg ls-tree --name-only -r HEAD)"
+  )
 
--- -- set git repo for dotfiles and refresh gitsigns
--- local home_dir = os.getenv "HOME"
--- local git_file_list = vim.fn.system(
---   "(cd $HOME && git --work-tree=" .. home_dir .. " --git-dir=" .. home_dir .. "/.cfg ls-tree --name-only -r HEAD)"
--- )
---
--- local buftype_exclude = {
---   "terminal",
---   "nofile",
--- }
--- local filetype_exclude = {
---   "help",
---   "startify",
---   "aerial",
---   "alpha",
---   "dashboard",
---   "lazy",
---   "neogitstatus",
---   "NvimTree",
---   "neo-tree",
---   "Trouble",
---   "nofile",
--- }
---
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   pattern = { "*" },
---   callback = function()
---     if
---       vim.bo.filetype and vim.tbl_contains(filetype_exclude, vim.bo.filetype)
---       or vim.bo.buftype and vim.tbl_contains(buftype_exclude, vim.bo.buftype)
---     then
---       return
---     end
---
---     local buffer_file = vim.fn.expand "%:p"
---     local buffer_relative_file
---     if home_dir then
---       buffer_relative_file = string.gsub(buffer_file, home_dir .. "/", "", 1)
---     else
---       buffer_relative_file = buffer_file
---     end
---
---     if vim.fn.index(vim.fn.split(git_file_list, "\n"), buffer_relative_file) ~= -1 then
---       vim.env.GIT_DIR = home_dir .. "/.cfg"
---       vim.env.GIT_WORK_TREE = home_dir
---     else
---       vim.env.GIT_DIR = nil
---       vim.env.GIT_WORK_TREE = nil
---     end
---   end,
--- })
+  vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*" },
+    callback = function()
+      local buftype_exclude = {
+        "terminal",
+        "nofile",
+      }
+      local filetype_exclude = {
+        "help",
+        "startify",
+        "aerial",
+        "alpha",
+        "dashboard",
+        "lazy",
+        "neogitstatus",
+        "NvimTree",
+        "neo-tree",
+        "Trouble",
+        "nofile",
+      }
+      if
+        vim.bo.filetype and vim.tbl_contains(filetype_exclude, vim.bo.filetype)
+        or vim.bo.buftype and vim.tbl_contains(buftype_exclude, vim.bo.buftype)
+      then
+        return
+      end
+
+      local buffer_file = vim.fn.expand "%:p"
+      local buffer_relative_file
+      if vim.g.home_dir then
+        buffer_relative_file = string.gsub(buffer_file, vim.g.home_dir .. "/", "", 1)
+      else
+        buffer_relative_file = buffer_file
+      end
+
+      if vim.fn.index(vim.fn.split(vim.g.dotfile_list, "\n"), buffer_relative_file) ~= -1 then
+        vim.env.GIT_DIR = vim.g.home_dir .. "/.cfg"
+        vim.env.GIT_WORK_TREE = vim.g.home_dir
+      else
+        vim.env.GIT_DIR = nil
+        vim.env.GIT_WORK_TREE = nil
+      end
+    end,
+  })
+
+  vim.cmd "silent! bufdo e"
+end, {})
 
 -- automatically hide tabline when a single buffer is open
 vim.api.nvim_create_autocmd("User", {
