@@ -21,6 +21,9 @@ return {
   { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
 
+  -- motion
+  { import = "astrocommunity.motion.harpoon" },
+
   -- organization
   { import = "astrocommunity.project.project-nvim" },
 
