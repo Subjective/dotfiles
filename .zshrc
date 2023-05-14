@@ -100,10 +100,10 @@ alias v='fd --type f --hidden --exclude .git | fzf --height=35% --reverse | tr \
 alias vp='fd --type f --hidden --exclude .git | fzf --reverse --preview "bat --style=numbers --color=always {}" | tr \\n \\0 | xargs -0 nvim'
 alias vs='nvim "+SessionManager load_current_dir_session"'
 # alias vs='nvim "+lua require(\"resession\").load(vim.fn.getcwd(), { dir = \"dirsession\" })"'
-
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
 alias icat="kitty +kitten icat"
+alias s="kitty +kitten ssh"
 
 if (( $+commands[exa] )); then
   alias ls="exa --icons"
