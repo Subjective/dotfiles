@@ -73,6 +73,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
 ```
 
+## Fish Setup
+
+1. Install fish: `$ brew install fish`
+1. Install [fisher][fisher]:
+`curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
+1. Restart your computer.
+1. Install [tide][tide] theme:
+`fisher install IlanCosman/tide@v5`
+
 ## Post-install Tasks
 
 After cloning the dotfiles repo there are still a couple of things that need to be done.
@@ -366,3 +375,5 @@ Copyright &copy; 2023 Joshua Yin. [MIT License][license]
 [alt-kitty-icon]: https://github.com/DinkDonk/kitty-icon
 [rust]: https://www.rust-lang.org/tools/install
 [bob]: https://github.com/MordechaiHadad/bob
+[fisher]: https://github.com/jorgebucaran/fisher
+[tide]: https://github.com/IlanCosman/tide
