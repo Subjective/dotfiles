@@ -29,7 +29,7 @@
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(prompt_char dir vcs)
   # Right prompt segments.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv)
 
   # Basic style options that define the overall prompt look.
   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
