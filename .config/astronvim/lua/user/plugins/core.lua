@@ -63,7 +63,7 @@ return {
       opts.formatting.format = function(entry, item)
         if item.kind == "Color" then
           item = require("cmp-tailwind-colors").format(entry, item)
-          item.kind = " "
+          item.kind = ""
           return item
         end
         return format_kinds(entry, item)
