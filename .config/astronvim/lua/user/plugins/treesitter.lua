@@ -27,6 +27,11 @@ return {
       "vim",
       "latex",
       "tsx",
+      "diff",
+      "git_rebase",
+      "gitcommit",
+      "git_config",
+      "gitignore",
     })
     opts.indent = { enable = true, disable = { "python" } }
     -- fix compatibility issues with vimtex
