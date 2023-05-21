@@ -48,18 +48,15 @@ plugins=(
   dnf
   zsh-syntax-highlighting    
   zsh-autosuggestions
+  vi-mode
   fzf
-  zsh-vi-mode
   virtualenv
 )
 
-# zsh-vi-mode configuration
-ZVM_VI_SURROUND_BINDKEY=classic
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-ZVM_VI_HIGHLIGHT_BACKGROUND=blue
-
-# fix conflict with fzf in vi-mode
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+# vi-mode settings
+KEYTIMEOUT=1
+VI_MODE_SET_CURSOR=true
+bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,13 +125,6 @@ function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
 # functions to compile and run c++
 function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 function run() { co $1 && ./${1%.*} & fg; }
-
-# macos specific hack to enable yanking in zsh-vi-mode (https://github.com/jeffreytse/zsh-vi-mode/issues/19)
-function zvm_vi_yank() {
-	zvm_yank
-	echo ${CUTBUFFER} | pbcopy
-	zvm_exit_visual_mode
-}
 
 # function to interactively load nvim configs via fzf
 function nvims() {
