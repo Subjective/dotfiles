@@ -1,30 +1,6 @@
 return {
   {
     lazy = false,
-    "tokyonight.nvim",
-  },
-  {
-    lazy = false,
-    "catppuccin",
-  },
-  {
-    lazy = false,
-    "arzg/vim-colors-xcode",
-  },
-  {
-    lazy = false,
-    "gruvbox.nvim",
-    opts = {
-      integrations = {
-        mini = true,
-        leap = true,
-        markdown = true,
-        cmp = true,
-      },
-    },
-  },
-  {
-    lazy = false,
     "christoomey/vim-tmux-navigator",
   },
   {
