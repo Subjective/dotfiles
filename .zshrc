@@ -79,7 +79,7 @@ alias l="exa -l -H --icons --git"
 alias la="l -a"
 alias lt="l --tree --level=2"
 alias tree="exa --tree --level=3"
-alias lag='exa -l -a -H --icons --git | rg'
+alias lag='exa -l -a -H --icons --color=always --git | rg'
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -I"
