@@ -39,7 +39,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 
-# Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
   evalcache
