@@ -74,11 +74,17 @@ else
 fi
 
 # Personal aliases
-alias python="python3"
-alias pip="pip3"
+alias ls="exa --icons"
+alias l="exa -l -H --icons --git"
+alias la="l -a"
+alias lt="l --tree --level=2"
+alias tree="exa --tree --level=3"
+alias lag='exa -l -a -H --icons --git | rg'
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -I"
+alias python="python3"
+alias pip="pip3"
 alias lazyvim="NVIM_APPNAME=lazyvim nvim"
 alias nvchad="NVIM_APPNAME=nvchad nvim"
 alias kickstart="NVIM_APPNAME=kickstart nvim"
@@ -101,23 +107,6 @@ alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
 alias icat="kitty +kitten icat"
 alias s="kitty +kitten ssh"
-
-if (( $+commands[exa] )); then
-  alias ls="exa --icons"
-  alias l="exa -l -H --icons --git"
-  alias la="l -a"
-  alias lt="l --tree --level=2"
-  alias tree="exa --tree --level=3"
-
-  # function to check for file pattern in cwd
-  function lag {
-    if (($+commands[rg])); then
-      exa -l -a -H --icons --git | rg "$@"
-    else
-      exa -l -a -H --icons --git | grep "$@"
-    fi
-  }
-fi
 
 # function to make directory and cd into it
 function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
