@@ -32,6 +32,8 @@ plugins=(
   zsh-syntax-highlighting    
   zsh-autosuggestions
   fzf
+  colored-man-pages
+  zoxide
   virtualenv
 )
 
