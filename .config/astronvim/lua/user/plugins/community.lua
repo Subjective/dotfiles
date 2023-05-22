@@ -3,7 +3,6 @@ return {
 
   -- language packs
   { import = "astrocommunity.pack.typescript" },
-  -- { import = "astrocommunity.pack.tailwindcss" },
 
   -- colorschemes
   { import = "astrocommunity.colorscheme.catppuccin" },
