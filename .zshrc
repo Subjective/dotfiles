@@ -51,7 +51,7 @@ plugins=(
 # vi-mode settings
 KEYTIMEOUT=1
 VI_MODE_SET_CURSOR=true
-bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
+bindkey -M vicmd '^V' edit-command-line; bindkey -M viins '^V' edit-command-line # remap `vv` to `Ctrl-V`
 
 source $ZSH/oh-my-zsh.sh
 
