@@ -29,7 +29,7 @@
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(prompt_char dir vcs)
   # Right prompt segments.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv)
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv context)
 
   # Basic style options that define the overall prompt look.
   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
@@ -51,6 +51,9 @@
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
   # Bold directory.
   typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='%B$P9K_CONTENT'
+
+  # Don't show context unless running with privileges or in SSH.
+  typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
 
   # Git status formatter.
   function my_git_formatter() {
@@ -106,6 +109,7 @@
 
 # Tell `p10k configure` which file it should overwrite.
 typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
+
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
