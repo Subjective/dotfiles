@@ -1,3 +1,5 @@
+### Oh my zsh configuration ###
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -6,34 +8,9 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load api keys as environment variables from .envkeys
-source ~/.envkeys
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/joshua/.oh-my-zsh"
-
-# Custom Exports
-export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.local/bin":$PATH
-export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
-
-export PYENV_ROOT="$HOME/.pyenv"
-
-export HOMEBREW_BUNDLE_FILE="~/.config/brewfile/Brewfile"
-export GIT_EDITOR="nvim"
-
-export BAT_THEME="Catppuccin-mocha"
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# lazy load nvm
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
@@ -47,14 +24,24 @@ plugins=(
   virtualenv
 )
 
-# vi-mode settings
+# configure zsh-nvm plugin
+NVM_LAZY_LOAD=true
+NVM_COMPLETION=true
+
+# configure vi-mode plugin
 KEYTIMEOUT=1
 VI_MODE_SET_CURSOR=true
-bindkey -M vicmd '^V' edit-command-line; bindkey -M viins '^V' edit-command-line # remap `vv` to `Ctrl-V`
+bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
 
+# initialize oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 ### User configuration ###
+
+# Load api keys as environment variables from .envkeys
+source ~/.envkeys
+
+## Custom Exports ##
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -67,7 +54,30 @@ else
   export EDITOR="nvim"
 fi
 
-# Personal aliases
+export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
+export PATH="$HOME/.local/bin":$PATH
+export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+
+export HOMEBREW_BUNDLE_FILE="~/.config/brewfile/Brewfile"
+export GIT_EDITOR="nvim"
+export BAT_THEME="Catppuccin-mocha"
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+# enable zoxide for blazingly fast and intuitive cd
+eval "$(zoxide init zsh)"
+
+# Cache the result of evals on first run via the evalcache plugin
+# If you update a tool and expect that its initialization might have changed, clear the cache w/ `_evalcache_clear` and it will be regenerated
+_evalcache pyenv init -
+_evalcache rbenv init - zsh
+
+## Personal aliases and functions ##
 alias ls="exa --icons"
 alias l="exa -l -H --icons --git"
 alias la="l -a"
@@ -129,13 +139,3 @@ function timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
-
-# enable zoxide for blazingly fast and intuitive cd
-eval "$(zoxide init zsh)"
-
-# Cache the result of eval on first run via the evalcache plugin
-# If you update a tool and expect for some reason that it's initialization might have changed, simply clear the cache w/ `_evalcache_clear` and it will be regenerated
-if command -v pyenv 1>/dev/null 2>&1; then
-  _evalcache pyenv init -
-fi
-_evalcache rbenv init - zsh
