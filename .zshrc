@@ -39,10 +39,10 @@ export NVM_COMPLETION=true
 plugins=(
   evalcache
   zsh-nvm
+  vi-mode
   git
   zsh-syntax-highlighting    
   zsh-autosuggestions
-  vi-mode
   fzf
   virtualenv
 )
