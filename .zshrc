@@ -40,7 +40,6 @@ plugins=(
   evalcache
   zsh-nvm
   git
-  dnf
   zsh-syntax-highlighting    
   zsh-autosuggestions
   vi-mode
