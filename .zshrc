@@ -16,6 +16,9 @@ bindkey -v
 # Prompt for spelling correction of commands.
 setopt CORRECT
 
+# Invert + and - meanings so that directories can be selected from stack by number
+setopt PUSHDMINUS
+
 # Customize spelling correction prompt.
 SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
