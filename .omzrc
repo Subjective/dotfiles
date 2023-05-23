@@ -1,0 +1,40 @@
+### Oh my zsh configuration ###
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/joshua/.oh-my-zsh"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
+
+## Custom plugins ##
+
+# configure nvm plugin
+NVM_DIR="/usr/local/opt/nvm"
+zstyle ':omz:plugins:nvm' lazy yes
+
+# configure vi-mode plugin
+KEYTIMEOUT=1
+VI_MODE_SET_CURSOR=true
+bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
+
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+plugins=(
+  evalcache
+  nvm
+  vi-mode
+  git
+  zsh-syntax-highlighting    
+  zsh-autosuggestions
+  fzf
+  colored-man-pages
+  zoxide
+)
+
+# initialize oh-my-zsh
+source $ZSH/oh-my-zsh.sh
