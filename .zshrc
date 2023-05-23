@@ -217,6 +217,7 @@ alias vs='nvim "+SessionManager load_current_dir_session"'
 # alias vs='nvim "+lua require(\"resession\").load(vim.fn.getcwd(), { dir = \"dirsession\" })"'
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
+alias tks="t kill-server"
 alias icat="kitty +kitten icat"
 alias s="kitty +kitten ssh"
 
