@@ -1,57 +1,113 @@
-### Oh my zsh configuration ###
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# -----------------
+# Zim configuration
+# -----------------
+
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
+
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+bindkey -v
+
+# Prompt for spelling correction of commands.
+setopt CORRECT
+
+# Customize spelling correction prompt.
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
+
+# Use degit instead of git as the default tool to install and update modules.
+zstyle ':zim:zmodule' use 'degit'
+
+# --------------------
+# Module configuration
+# --------------------
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+zstyle ':zim:git' aliases-prefix 'g'
+
+# Append `../` to your input for each `.` you type after an initial `..`
+zstyle ':zim:input' double-dot-expand yes
+
+# Disable automatic widget re-binding on each precmd
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Set what highlighters will be used.
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# Colorize completions using default `ls` colors. 
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
+# ------------------
+# Initialize modules
+# ------------------
+
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+# Initialize zsh-defer.
+source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
+
+# ------------------------------
+# Post-init module configuration
+# ------------------------------
+
+# zsh-history-substring-search
+zmodload -F zsh/terminfo +p:terminfo
+# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
+for key ('k') bindkey -M vicmd ${key} history-substring-search-up
+for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+unset key
+
+# ------------------
+# User configuration 
+# ------------------
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/joshua/.oh-my-zsh"
-export ZSH_THEME="powerlevel10k/powerlevel10k"
+## Plugin configuration ##
 
-## Custom plugins ##
-
-# configure nvm plugin
-NVM_DIR="/usr/local/opt/nvm"
-zstyle ':omz:plugins:nvm' lazy yes
-
-# configure vi-mode plugin
+# configure vi-mode
 KEYTIMEOUT=1
 VI_MODE_SET_CURSOR=true
 bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
 
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(
-  evalcache
-  nvm
-  vi-mode
-  git
-  zsh-syntax-highlighting    
-  zsh-autosuggestions
-  fzf
-  colored-man-pages
-  zoxide
-  virtualenv
-)
-
-# initialize oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-### User configuration ###
-
-# Load api keys as environment variables from .envkeys
+# load api keys as environment variables from .envkeys
 source ~/.envkeys
 
 ## Custom Exports ##
+
 export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_US.UTF-8 # set language environment
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
+# preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"
 else
@@ -75,11 +131,18 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-# Cache the result of evals on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`)
-_evalcache pyenv init -
-_evalcache rbenv init - zsh
+## Eval statements ##
+
+# defer evals and cache the results on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`)
+zsh-defer _evalcache fnm env --use-on-cd
+zsh-defer _evalcache pyenv init -
+zsh-defer _evalcache rbenv init - zsh
+zsh-defer _evalcache zoxide init zsh
+
 
 ## Personal aliases and functions ##
+alias md='mkdir -p'
+alias rd=rmdir
 alias ls="exa --icons"
 alias l="exa -l -H --icons --git"
 alias la="l -a"
