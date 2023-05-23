@@ -105,6 +105,11 @@ bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
+# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
