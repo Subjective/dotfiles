@@ -86,6 +86,7 @@ ctrl - 4 : yabai -m space --focus 4
 ctrl - 5 : yabai -m space --focus 5
 ctrl - 6 : yabai -m space --focus 6
 ctrl - 7 : yabai -m space --focus 7
+
 # Enable / Disable gaps in current workspace
 ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
