@@ -13,8 +13,7 @@ zmodule utility
 
 ### Custom Modules ###
 zmodule romkatv/zsh-defer -d
-zmodule ohmyzsh/ohmyzsh --root lib --source clipboard.zsh
-zmodule ohmyzsh/ohmyzsh --root plugins/vi-mode
+zmodule kutsan/zsh-system-clipboard
 zmodule ohmyzsh/ohmyzsh --root plugins/fzf
 zmodule mroth/evalcache
 
