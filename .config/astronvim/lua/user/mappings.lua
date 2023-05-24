@@ -19,7 +19,7 @@ return {
     -- disable quick save
     ["<C-s>"] = false,
     -- better increment/decrement
-    ["-"] = { "<c-x>", desc = "Descrement number" },
+    ["-"] = { "<c-x>", desc = "Decrement number" },
     ["+"] = { "<c-a>", desc = "Increment number" },
     -- smart toggle-term bindings
     ["<leader>g."] = {
@@ -254,7 +254,7 @@ return {
   x = {
     -- better increment/decrement
     ["+"] = { "g<C-a>", desc = "Increment number" },
-    ["-"] = { "g<C-x>", desc = "Descrement number" },
+    ["-"] = { "g<C-x>", desc = "Decrement number" },
     -- line text-objects
     ["il"] = { "g_o^", desc = "Inside line text object" },
     ["al"] = { "$o^", desc = "Around line text object" },
