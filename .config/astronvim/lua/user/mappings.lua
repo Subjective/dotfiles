@@ -18,6 +18,11 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- disable quick save
     ["<C-s>"] = false,
+    -- move cursor 1 line down, on the first non-blank character
+    ["="] = { "+" },
+    -- better increment/decrement
+    ["<C-->"] = { "<c-x>", desc = "Decrement number" },
+    ["<C-=>"] = { "<c-a>", desc = "Increment number" },
     -- smart toggle-term bindings
     ["<leader>g."] = {
       function() astro_utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
@@ -239,6 +244,9 @@ return {
     -- ["<esc>"] = false,
   },
   x = {
+    -- better increment/decrement
+    ["<C-->"] = { "g<C-a>", desc = "Increment number" },
+    ["<C-=>"] = { "g<C-x>", desc = "Decrement number" },
     -- line text-objects
     ["il"] = { "g_o^", desc = "Inside line text object" },
     ["al"] = { "$o^", desc = "Around line text object" },
