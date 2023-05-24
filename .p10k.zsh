@@ -1,1 +1,1 @@
-source ~/.p10k/themes/p10k-pure.zsh
+source ~/.p10k/themes/p10k-catppuccin.zsh
