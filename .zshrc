@@ -44,7 +44,7 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # Set what highlighters will be used.
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-# Colorize completions using default `ls` colors. 
+# Colorize completions using default `ls` colors.
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
@@ -128,7 +128,7 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
- # Use beam shape cursor for each new prompt.
+# Use beam shape cursor for each new prompt.
 precmd_functions+=(echo -ne '\e[5 q')
 
 # load api keys as environment variables from .envkeys
