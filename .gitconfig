@@ -9,3 +9,5 @@
 [core]
 	excludesfile = /Users/joshua/.gitignore_global
 	editor = nvim
+[http]
+	postBuffer = 1048576000
