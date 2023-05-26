@@ -19,6 +19,7 @@ return {
 
   -- motion
   { import = "astrocommunity.motion.harpoon" },
+  { import = "astrocommunity.motion.leap-nvim" },
 
   -- organization
   { import = "astrocommunity.project.project-nvim" },
