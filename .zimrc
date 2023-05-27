@@ -15,6 +15,7 @@ zmodule utility
 zmodule romkatv/zsh-defer -d
 zmodule kutsan/zsh-system-clipboard
 zmodule ohmyzsh/ohmyzsh --root plugins/fzf
+zmodule fzf
 zmodule mroth/evalcache
 
 ### Prompt ###
