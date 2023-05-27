@@ -242,6 +242,15 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
+# function to fuzzy find file and open it directly in neovim
+v() {
+  if [ $# -eq 0 ]; then
+    fd --type f --hidden --exclude .git | fzf --height=35% --reverse | tr '\n' '\0' | xargs -0 nvim
+  else
+    nvim "$@"
+  fi
+}
+
 # function to guage zsh's startup time
 function timezsh() {
   shell=${1-$SHELL}
