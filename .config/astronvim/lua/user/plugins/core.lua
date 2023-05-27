@@ -22,14 +22,6 @@ return {
     event = "User AstroFile",
   },
   {
-    "Shatur/neovim-session-manager",
-    config = function()
-      require("session_manager").setup {
-        autoload_mode = require("session_manager.config").AutoloadMode.CurrentDir,
-      }
-    end,
-  },
-  {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
       opts.enable_autosnippets = true
