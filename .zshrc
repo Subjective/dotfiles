@@ -212,7 +212,6 @@ alias lgdot="lazygit --git-dir=$HOME/.cfg --work-tree=$HOME"
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd='pwd && echo -n `pwd`|pbcopy' # copy and print cwd
 alias ywd='echo -n `pwd`|pbcopy' # copy cwd
-alias vp='fd --type f --hidden --exclude .git | fzf --reverse --preview "bat --style=numbers --color=always {}" | tr \\n \\0 | xargs -0 nvim'
 alias vs='nvim "+lua require(\"resession\").load(vim.fn.getcwd(), { dir = \"dirsession\" })"'
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
@@ -245,7 +244,26 @@ function nvims() {
 # function to fuzzy find file and open it directly in neovim
 v() {
   if [ $# -eq 0 ]; then
-    fd --type f --hidden --exclude .git | fzf --height=35% --reverse | tr '\n' '\0' | xargs -0 nvim
+    local file
+    file=$(fd --type f --hidden --exclude .git | fzf --height=35% --reverse)
+
+    if [ -n "$file" ]; then
+      nvim "$file"
+    fi
+  else
+    nvim "$@"
+  fi
+}
+
+# function to fuzzy find file w/ preview and open it directly in neovim
+vp() {
+  if [ $# -eq 0 ]; then
+    local file
+    file=$(fd --type f --hidden --exclude .git | fzf --reverse --preview "bat --style=numbers --color=always {}")
+
+    if [ -n "$file" ]; then
+      nvim "$file"
+    fi
   else
     nvim "$@"
   fi
