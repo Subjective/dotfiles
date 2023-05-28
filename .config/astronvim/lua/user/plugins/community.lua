@@ -47,6 +47,13 @@ return {
         },
         leap = true,
       },
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            NormalFloat = { bg = colors.none },
+          }
+        end,
+      },
     },
   },
   {
