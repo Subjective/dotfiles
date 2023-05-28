@@ -1,7 +1,0 @@
-os:
-  editCommand: "lazygit_edit"
-  editCommandTemplate: "{{editor}} {{filename}} {{line}}"
-git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
