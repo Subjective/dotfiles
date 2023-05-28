@@ -7,18 +7,28 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-	excludesfile = /Users/joshua/.gitignore_global
 	editor = nvim
+	pager = delta
+	excludesfile = /Users/joshua/.gitignore_global
 [http]
 	postBuffer = 1048576000
 [diff]
 	algorithm = patience
 	compactionHeuristic = true
 	tool = nvimdiff
-[difftool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
 [merge]
-	tool = nvimdiff4
+	tool = vimdiff
+	conflictstyle = diff3
 	prompt = false
-[mergetool "nvimdiff4"]
-	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+[delta]
+  side-by-side = true
+  features = decorations
+  navigate = true
+  whitespace-error-style = 22 reverse
+  syntax-theme = Catppuccin-mocha
+[delta "decorations"]
+	file-style = bold white ul
+	file-decoration-style = none
+
