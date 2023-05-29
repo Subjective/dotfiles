@@ -226,21 +226,6 @@ function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
 function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 function run() { co $1 && ./${1%.*} & fg; }
 
-# function to interactively load nvim configs via fzf
-function nvims() {
-  items=("default" "nvchad" "lazyvim" "kickstart" )
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=25% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  else
-    config="$config"
-  fi
-  NVIM_APPNAME=$config nvim $@
-}
-
 # function to fuzzy find file and open it directly in neovim
 v() {
   if [ $# -eq 0 ]; then
