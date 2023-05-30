@@ -46,6 +46,7 @@ return {
           },
         },
         leap = true,
+        octo = true,
       },
     },
   },
