@@ -243,9 +243,11 @@ return {
       desc = "Spectre",
     },
   },
-  -- spelling autocorrect binding
   i = {
+    -- spelling autocorrect binding
     ["<C-s>"] = { "<C-g>u<Esc>[s1z=`]a<C-g>u", desc = "autocorrect spelling error" },
+    -- view lsp signature help
+    ["<C-l>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
   },
   t = {
     -- setting a mapping to false will disable it
