@@ -194,6 +194,7 @@ return {
     ["<leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Find in undo history" },
     -- octo plugin mappings
     ["<leader>G"] = { name = " GitHub" },
+    ["<leader>Gs"] = { "<cmd>Octo search<cr>", desc = "Search GitHub" },
     ["<leader>Gi"] = { "<cmd>Octo issue list<cr>", desc = "Open Issues" },
     ["<leader>GI"] = { "<cmd>Octo issue search<cr>", desc = "Search Issues" },
     ["<leader>Gp"] = { "<cmd>Octo pr list<cr>", desc = "Open PRs" },
