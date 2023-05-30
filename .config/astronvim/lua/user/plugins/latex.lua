@@ -6,13 +6,15 @@ return {
       vim.g.vimtex_view_method = "skim"
 
       -- add which-key mapping descriptions for VimTex
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "*.tex",
-        callback = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        desc = "Set up VimTex Which-Key descriptions",
+        group = vim.api.nvim_create_augroup("vimtex_mapping_descriptions", { clear = true }),
+        pattern = "tex",
+        callback = function(event)
           local wk = require "which-key"
           local opts = {
             mode = "n", -- NORMAL mode
-            buffer = vim.api.nvim_get_current_buf(), -- Specify a buffer number for buffer local mappings to show only in tex buffers
+            buffer = event.buf, -- Specify a buffer number for buffer local mappings to show only in tex buffers
           }
           local mappings = {
             ["<localleader>l"] = {
