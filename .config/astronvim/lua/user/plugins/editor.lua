@@ -56,10 +56,6 @@ return {
     },
   },
   {
-    "tpope/vim-fugitive",
-    event = "User AstroGitFile",
-  },
-  {
     "mbbill/undotree",
     event = "User AstroFile",
   },
