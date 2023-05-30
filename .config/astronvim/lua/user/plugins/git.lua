@@ -5,8 +5,14 @@ return {
   },
   {
     "pwntester/octo.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
     cmd = "Octo",
     config = function(_, opts)
+      opts.use_diagnostics_signs = true
       require("octo").setup(opts)
       vim.treesitter.language.register("markdown", "octo")
       vim.api.nvim_create_autocmd("FileType", {
@@ -17,14 +23,75 @@ return {
           vim.api.nvim_buf_set_keymap(0, "i", "@", "@<C-x><C-o>", { silent = true, noremap = true })
           vim.api.nvim_buf_set_keymap(0, "i", "#", "#<C-x><C-o>", { silent = true, noremap = true })
           require("which-key").register({
-            i = { name = " Issue" },
-            p = { name = " PR" },
-            a = { name = " Assignee" },
+            c = { name = " Comments" },
+            ca = { "<cmd>Octo comment add<CR>", "Add a new comment" },
+            cd = { "<cmd>Octo comment delete<CR>", "Delete a comment" },
+
+            t = { name = "󰠢 Threads" },
+            ta = { "<cmd>Octo thread resolve<CR>", "Mark thread as resolved" },
+            td = { "<cmd>Octo thread unresolve<CR>", "Mark thread as unresolved" },
+
+            i = { name = " Issues" },
+            ic = { "<cmd>Octo issue close<CR>", "Close current issue" },
+            ir = { "<cmd>Octo issue reopen<CR>", "Reopen current issue" },
+            il = { "<cmd>Octo issue list<CR>", "List open issues" },
+            iu = { "<cmd>Octo issue url<CR>", "Copies URL of current issue" },
+            io = { "<cmd>Octo issue browser<CR>", "Open current issue in browser" },
+
+            p = { name = " Pull requests" },
+            pp = { "<cmd>Octo pr checkout<CR>", "Checkout PR" },
+            pm = { name = "Merge current PR" },
+            pmm = { "<cmd>Octo pr merge commit<CR>", "Merge commit PR" },
+            pms = { "<cmd>Octo pr merge squash<CR>", "Squash merge PR" },
+            pmd = { "<cmd>Octo pr merge delete<CR>", "Delete merge PR" },
+            pmr = { "<cmd>Octo pr merge rebase<CR>", "Rebase merge PR" },
+            pc = { "<cmd>Octo pr close<CR>", "Close current PR" },
+            pn = { "<cmd>Octo pr create<CR>", "Create PR for current branch" },
+            pd = { "<cmd>Octo pr diff<CR>", "Show PR diff" },
+            ps = { "<cmd>Octo pr list<CR>", "List open PRs" },
+            pr = { "<cmd>Octo pr ready<CR>", "Mark draft as ready for review" },
+            po = { "<cmd>Octo pr browser<CR>", "Open current PR in browser" },
+            pu = { "<cmd>Octo pr url<CR>", "Copies URL of current PR" },
+            pt = { "<cmd>Octo pr commits<CR>", "List PR commits" },
+            pl = { "<cmd>Octo pr commits<CR>", "List changed files in PR" },
+
+            r = { name = " Repo" },
+            rl = { "<cmd>Octo repo list<CR>", "List repo user stats" },
+            rf = { "<cmd>Octo repo fork<CR>", "Fork repo" },
+            ro = { "<cmd>Octo repo open<CR>", "Open current repo in browser" },
+            ru = { "<cmd>Octo repo url<CR>", "Copies URL of current repo" },
+
+            a = { name = " Assignee/Reviewer" },
+            aa = { "<cmd> Octo assignee add<CR>", "Assign a user" },
+            ar = { "<cmd> Octo assignee remove<CR>", "Remove a user" },
+            ap = { "<cmd> Octo reviewer add<CR>", "Assign a PR reviewer" },
+
             l = { name = " Label" },
-            r = { name = " React" },
-            c = { name = " Comment" },
-            v = { name = " Reviewer" },
-          }, { prefix = "<leader>", buffer = event.buf })
+            la = { "<cmd> Octo label add<CR>", "Assign a label" },
+            lr = { "<cmd> Octo label remove<CR>", "Remove a label" },
+            lc = { "<cmd> Octo label create<CR>", "Create a label" },
+
+            e = { name = " Reactions" },
+            e1 = { "<cmd>Octo reaction thumbs_up<CR>", "Add 👍 reaction" },
+            e2 = { "<cmd>Octo reaction thumbs_down<CR>", "Add 👎 reaction" },
+            e3 = { "<cmd>Octo reaction eyes<CR>", "Add 👀 reaction" },
+            e4 = { "<cmd>Octo reaction laugh<CR>", "Add 😄 reaction" },
+            e5 = { "<cmd>Octo reaction confused<CR>", "Add 😕 reaction" },
+            e6 = { "<cmd>Octo reaction rocket<CR>", "Add 🚀 reaction" },
+            e7 = { "<cmd>Octo reaction heart<CR>", "Add ❤️ reaction" },
+            e8 = { "<cmd>Octo reaction party<CR>", "Add 🎉 reaction" },
+
+            x = { "<cmd>Octo actions<CR>", "Run an action" },
+
+            s = { name = " Review" },
+            ss = { "<cmd> Octo review start<CR>", "Start review" },
+            sf = { "<cmd> Octo review submit<CR>", "Submit review" },
+            sr = { "<cmd> Octo review resume<CR>", "Submit resume" },
+            sd = { "<cmd> Octo review discard<CR>", "Delete pending review" },
+            sc = { "<cmd> Octo review comments<CR>", "View pending comments" },
+            sp = { "<cmd> Octo review commit<CR>", "Select commit to review" },
+            sC = { "<cmd> Octo review close<CR>", "Return to PR" },
+          }, { prefix = "<localleader>", buffer = event.buf })
         end,
       })
     end,
