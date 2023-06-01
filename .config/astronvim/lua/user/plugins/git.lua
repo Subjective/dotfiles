@@ -182,7 +182,7 @@ return {
             r = { name = " Repo" },
             rl = { "<cmd>Octo repo list<CR>", "List repo user stats" },
             rf = { "<cmd>Octo repo fork<CR>", "Fork repo" },
-            ro = { "<cmd>Octo repo open<CR>", "Open current repo in browser" },
+            ro = { "<cmd>Octo repo browser<CR>", "Open current repo in browser" },
             ru = { "<cmd>Octo repo url<CR>", "Copies URL of current repo" },
 
             a = { name = " Assignee/Reviewer" },
