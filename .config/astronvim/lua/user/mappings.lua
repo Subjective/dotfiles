@@ -94,6 +94,11 @@ return {
       function() require("neo-tree.command").execute { toggle = true, dir = vim.loop.cwd() } end,
       desc = "Toggle Explorer (cwd)",
     },
+    -- toggle undo tree
+    ["<leader>U"] = {
+      "<cmd>UndotreeToggle<cr>",
+      desc = "Toggle Undo Tree",
+    },
     -- hide winbar in local buffer
     ["<leader>uW"] = {
       function() vim.opt_local.winbar = nil end,
