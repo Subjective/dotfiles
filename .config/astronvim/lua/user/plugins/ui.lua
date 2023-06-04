@@ -1,8 +1,9 @@
 return {
-  {
-    lazy = false,
-    "christoomey/vim-tmux-navigator",
-  },
+  -- {
+  --   lazy = false,
+  --   enabled = false,
+  --   "christoomey/vim-tmux-navigator",
+  -- },
   {
     "ellisonleao/glow.nvim",
     opts = {
