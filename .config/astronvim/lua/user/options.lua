@@ -9,6 +9,8 @@ return {
     wrap = false, -- sets vim.opt.wrap
     conceallevel = 2,
     showtabline = 0,
+    list = true, -- show whitespace characters
+    listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
