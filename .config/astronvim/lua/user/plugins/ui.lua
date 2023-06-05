@@ -1,15 +1,4 @@
 return {
-  -- {
-  --   lazy = false,
-  --   enabled = false,
-  --   "christoomey/vim-tmux-navigator",
-  -- },
-  {
-    "ellisonleao/glow.nvim",
-    opts = {
-      style = "~/.config/glowstyles/dracula.json",
-    },
-  },
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
