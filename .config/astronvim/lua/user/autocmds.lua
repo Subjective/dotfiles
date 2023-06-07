@@ -71,15 +71,15 @@ vim.api.nvim_create_user_command("DotfilesGit", function()
 end, {})
 
 -- automatically hide tabline when a single buffer is open
-vim.api.nvim_create_autocmd("User", {
-  desc = "Hide tabline when only one buffer and one tab",
-  pattern = "AstroBufsUpdated",
-  group = vim.api.nvim_create_augroup("autohidetabline", { clear = true }),
-  callback = function()
-    local new_showtabline = #vim.t.bufs > 1 and 2 or 1
-    if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
-  end,
-})
+-- vim.api.nvim_create_autocmd("User", {
+--   desc = "Hide tabline when only one buffer and one tab",
+--   pattern = "AstroBufsUpdated",
+--   group = vim.api.nvim_create_augroup("autohidetabline", { clear = true }),
+--   callback = function()
+--     local new_showtabline = #vim.t.bufs > 1 and 2 or 1
+--     if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
+--   end,
+-- })
 
 -- cleanup latexmk junk files upon exit
 vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventQuit" }, command = "VimtexClean" })
