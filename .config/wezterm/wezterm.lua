@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 ---------------------------------------------------------------
 return {
 	-- term="wezterm",
-	font = wezterm.font({ family = "FiraCode Nerd Font" }),
+	font = wezterm.font({ family = "JetBrains Mono" }),
 	font_size = 16,
 	-- cell_width = 1.1,
 	-- line_height = 1.1,
