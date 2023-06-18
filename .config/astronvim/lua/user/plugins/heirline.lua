@@ -1,3 +1,17 @@
+local harpoon_components = {}
+harpoon_components.index = {
+  provider = function()
+    local Marked = require "harpoon.mark"
+    local filename = vim.api.nvim_buf_get_name(0)
+    local success, index = pcall(Marked.get_index_of, filename)
+    if success and index and index > 0 then
+      return "󱡀 " .. index .. " "
+    else
+      return
+    end
+  end,
+}
+
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
@@ -8,6 +22,7 @@ return {
       status.component.git_branch(),
       status.component.git_diff(),
       status.component.diagnostics(),
+      harpoon_components.index,
       status.component.file_info {
         filetype = false,
         filename = false,
