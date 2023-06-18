@@ -250,6 +250,8 @@ return {
     -- move lines up and down
     J = { ":m '>+1<CR>gv=gv", desc = "move line down" },
     K = { ":m '<-2<CR>gv=gv", desc = "move line up" },
+    -- don't replace yank buffer when pasting over selection
+    ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
   },
   i = {
     -- spelling autocorrect binding
