@@ -18,7 +18,7 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- disable quick save
     ["<C-s>"] = false,
-    ["<ESC>"] = { "<cmd>nohlsearch<cr>", desc = "Clear search highlights" },
+    ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr>", desc = "Clear search highlights" },
     -- move cursor 1 line down, on the first non-blank character
     ["="] = { "+" },
     -- better increment/decrement
