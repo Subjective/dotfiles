@@ -59,7 +59,7 @@ return {
           local root_patterns = { ".git", "lua" }
           ---@type string?
           local path = vim.api.nvim_buf_get_name(0)
-          path = path ~= "" and vim.loop.fs_realpath(path) or nil
+          path = path ~= "" and vim.uv.fs_realpath(path) or nil
           ---@type string[]
           local roots = {}
           if path then
@@ -69,7 +69,7 @@ return {
                 or client.config.root_dir and { client.config.root_dir }
                 or {}
               for _, p in ipairs(paths) do
-                local r = vim.loop.fs_realpath(p)
+                local r = vim.uv.fs_realpath(p)
                 if path:find(r, 1, true) then roots[#roots + 1] = r end
               end
             end
@@ -78,10 +78,10 @@ return {
           ---@type string?
           local root = roots[1]
           if not root then
-            path = path and vim.fs.dirname(path) or vim.loop.cwd()
+            path = path and vim.fs.dirname(path) or vim.uv.cwd()
             ---@type string?
             root = vim.fs.find(root_patterns, { path = path, upward = true })[1]
-            root = root and vim.fs.dirname(root) or vim.loop.cwd()
+            root = root and vim.fs.dirname(root) or vim.uv.cwd()
           end
           ---@cast root string
           return root
@@ -91,7 +91,7 @@ return {
       desc = "Toggle Explorer (root)",
     },
     ["<leader>e"] = {
-      function() require("neo-tree.command").execute { toggle = true, dir = vim.loop.cwd() } end,
+      function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end,
       desc = "Toggle Explorer (cwd)",
     },
     -- toggle undo tree
