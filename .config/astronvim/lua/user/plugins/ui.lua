@@ -147,6 +147,8 @@ return {
         { filter = { event = "msg_show", find = "^%d+ more lines$" }, opts = { skip = true } }, -- skip paste notifications
         { filter = { event = "msg_show", find = "^%d+ fewer lines$" }, opts = { skip = true } }, -- skip delete notifications
         { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
+        { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
+        { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
         { filter = { event = "msg_show", find = "; before #" }, opts = { skip = true } }, -- skip undo notifications
         { filter = { event = "msg_show", find = "; after #" }, opts = { skip = true } }, -- skip redo notifications
       },
