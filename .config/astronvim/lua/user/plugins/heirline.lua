@@ -20,8 +20,6 @@ return {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode(),
       status.component.git_branch(),
-      status.component.git_diff(),
-      status.component.diagnostics(),
       harpoon_components.index,
       status.component.file_info {
         filetype = false,
@@ -42,6 +40,8 @@ return {
         filetype = false,
         filename = { fallback = "Empty" },
       },
+      status.component.git_diff(),
+      status.component.diagnostics(),
       status.component.fill(),
       status.component.cmd_info(),
       status.component.fill(),
