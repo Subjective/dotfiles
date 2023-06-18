@@ -249,8 +249,8 @@ return {
       desc = "Spectre",
     },
     -- move lines up and down
-    J = { ":m '>+1<CR>gv=gv", desc = "move line down" },
-    K = { ":m '<-2<CR>gv=gv", desc = "move line up" },
+    J = { ":m '>+1<CR>gv=gv", silent = true },
+    K = { ":m '<-2<CR>gv=gv", silent = true },
     -- don't replace yank buffer when pasting over selection
     ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
   },
@@ -292,7 +292,7 @@ return {
   },
   o = {
     -- line text-objects
-    ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
-    ["al"] = { ":normal val<cr>", desc = "Around line text object" },
+    ["il"] = { "<cmd>normal vil<cr>", desc = "Inside line text object" },
+    ["al"] = { "<cmd>normal val<cr>", desc = "Around line text object" },
   },
 }
