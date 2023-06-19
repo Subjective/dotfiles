@@ -154,6 +154,7 @@ return {
         { filter = { event = "msg_show", find = "^/" }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "^?" }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "E486: Pattern not found: " }, opts = { skip = true } }, -- skip search not found notifications
+        { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
       },
       presets = {
         -- you can enable a preset by setting it to true, or a table that will override the preset config
