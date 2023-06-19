@@ -33,6 +33,7 @@ return {
       "git_config",
       "gitignore",
     })
+    opts.matchup = { enable = true }
     opts.indent = { enable = true, disable = { "python" } }
     -- fix compatibility issues with vimtex
     opts.highlight.disable = { "latex" }
@@ -129,6 +130,7 @@ return {
         }
       end,
     },
+    { "andymass/vim-matchup", init = function() vim.g.matchup_matchparen_deferred = 1 end },
     {
       "RRethy/nvim-treesitter-textsubjects",
       config = function()
