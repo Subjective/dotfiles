@@ -23,10 +23,10 @@ return {
       desc = "ToggleTerm lazygit dotfiles",
     },
     -- harpoon bindings
-    ["<leader>1"] = { function() require("harpoon.ui").nav_file(1) end, desc = "Goto file 1" },
-    ["<leader>2"] = { function() require("harpoon.ui").nav_file(2) end, desc = "Goto file 2" },
-    ["<leader>3"] = { function() require("harpoon.ui").nav_file(3) end, desc = "Goto file 3" },
-    ["<leader>4"] = { function() require("harpoon.ui").nav_file(4) end, desc = "Goto file 4" },
+    ["<leader>1"] = { function() require("harpoon.ui").nav_file(1) end, desc = "which_key_ignore" },
+    ["<leader>2"] = { function() require("harpoon.ui").nav_file(2) end, desc = "which_key_ignore" },
+    ["<leader>3"] = { function() require("harpoon.ui").nav_file(3) end, desc = "which_key_ignore" },
+    ["<leader>4"] = { function() require("harpoon.ui").nav_file(4) end, desc = "which_key_ignore" },
     -- explorer bindings
     ["<leader>E"] = {
       function()
