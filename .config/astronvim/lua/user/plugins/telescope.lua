@@ -2,7 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     { "nvim-telescope/telescope-file-browser.nvim" },
-    { "ahmedkhalf/project.nvim" }, -- defined in  ./editor.lua
     { "debugloop/telescope-undo.nvim" },
   },
   cmd = "Telescope",
@@ -43,7 +42,6 @@ return {
   config = function(...)
     require "plugins.configs.telescope"(...)
     local telescope = require "telescope"
-    telescope.load_extension "projects"
     telescope.load_extension "file_browser"
     telescope.load_extension "undo"
   end,
