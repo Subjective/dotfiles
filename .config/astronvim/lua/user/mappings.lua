@@ -217,17 +217,7 @@ return {
       desc = "Resize split right",
     },
   },
-  v = {
-    ["<leader>s"] = {
-      function() require("spectre").open_visual() end,
-      desc = "Spectre",
-    },
-    -- move lines up and down
-    J = { ":m '>+1<CR>gv=gv", silent = true },
-    K = { ":m '<-2<CR>gv=gv", silent = true },
-    -- don't replace yank buffer when pasting over selection
-    ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
-  },
+  v = {},
   i = {
     -- spelling autocorrect binding
     ["<C-s>"] = { "<C-g>u<Esc>[s1z=`]a<C-g>u", desc = "autocorrect spelling error" },
@@ -239,6 +229,15 @@ return {
     -- ["<esc>"] = false,
   },
   x = {
+    ["<leader>s"] = {
+      function() require("spectre").open_visual() end,
+      desc = "Spectre",
+    },
+    -- move lines up and down
+    J = { ":m '>+1<CR>gv=gv", silent = true },
+    K = { ":m '<-2<CR>gv=gv", silent = true },
+    -- don't replace yank buffer when pasting over selection
+    ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
     -- better increment/decrement
     ["<C-->"] = { "g<C-a>", desc = "Increment number" },
     ["<C-=>"] = { "g<C-x>", desc = "Decrement number" },
