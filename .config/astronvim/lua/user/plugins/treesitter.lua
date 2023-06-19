@@ -33,6 +33,7 @@ return {
       "git_config",
       "gitignore",
     })
+    opts.auto_install = vim.fn.executable "tree-sitter" == 1
     opts.matchup = { enable = true }
     opts.indent = { enable = true, disable = { "python" } }
     -- fix compatibility issues with vimtex
