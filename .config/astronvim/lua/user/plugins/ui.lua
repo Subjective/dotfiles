@@ -151,6 +151,9 @@ return {
         { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
         { filter = { event = "msg_show", find = "; before #" }, opts = { skip = true } }, -- skip undo notifications
         { filter = { event = "msg_show", find = "; after #" }, opts = { skip = true } }, -- skip redo notifications
+        { filter = { event = "msg_show", find = "^/" }, opts = { skip = true } }, -- skip search not found notifications
+        { filter = { event = "msg_show", find = "^?" }, opts = { skip = true } }, -- skip search not found notifications
+        { filter = { event = "msg_show", find = "E486: Pattern not found: " }, opts = { skip = true } }, -- skip search not found notifications
       },
       presets = {
         -- you can enable a preset by setting it to true, or a table that will override the preset config
