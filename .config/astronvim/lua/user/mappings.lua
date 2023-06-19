@@ -10,12 +10,7 @@ local function ui_notify(str)
 end
 
 return {
-  -- first key is the mode
   n = {
-    -- second key is the lefthand side of the map
-    -- tables with the `name` key will be registered with which-key if it's installed
-    -- this is useful for naming menus
-    ["<leader>b"] = { name = "Buffers" },
     -- disable quick save
     ["<C-s>"] = false,
     ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr>", desc = "Clear search highlights" },
@@ -26,30 +21,6 @@ return {
     ["<leader>g."] = {
       function() astro_utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
       desc = "ToggleTerm lazygit dotfiles",
-    },
-    ["<leader>gg"] = {
-      function()
-        local git_dir = vim.env.GIT_DIR
-        local git_work_tree = vim.env.GIT_WORK_TREE
-        if git_dir and git_work_tree then
-          astro_utils.toggle_term_cmd("lazygit --git-dir=" .. git_dir .. " --work-tree=" .. git_work_tree)
-        else
-          astro_utils.toggle_term_cmd "lazygit"
-        end
-      end,
-      desc = "ToggleTerm lazygit",
-    },
-    ["<leader>tl"] = {
-      function()
-        local git_dir = vim.env.GIT_DIR
-        local git_work_tree = vim.env.GIT_WORK_TREE
-        if git_dir and git_work_tree then
-          astro_utils.toggle_term_cmd("lazygit --git-dir=" .. git_dir .. " --work-tree=" .. git_work_tree)
-        else
-          astro_utils.toggle_term_cmd "lazygit"
-        end
-      end,
-      desc = "ToggleTerm lazygit",
     },
     -- explorer bindings
     ["<leader>E"] = {
@@ -105,7 +76,7 @@ return {
     },
     ["<leader>uI"] = {
       function()
-        vim.cmd [[IndentBlanklineToggle]]
+        vim.cmd "IndentBlanklineToggle"
         ui_notify("Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)")
         vim.b.indentation_guides = not vim.b.indentation_guides
       end,
