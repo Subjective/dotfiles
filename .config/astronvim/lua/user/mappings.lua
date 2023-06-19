@@ -19,8 +19,6 @@ return {
     -- disable quick save
     ["<C-s>"] = false,
     ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr>", desc = "Clear search highlights" },
-    -- move cursor 1 line down, on the first non-blank character
-    ["="] = { "+" },
     -- better increment/decrement
     ["<C-->"] = { "<c-x>", desc = "Decrement number" },
     ["<C-=>"] = { "<c-a>", desc = "Increment number" },
