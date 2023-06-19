@@ -242,9 +242,6 @@ return {
     -- better increment/decrement
     ["<C-->"] = { "g<C-a>", desc = "Increment number" },
     ["<C-=>"] = { "g<C-x>", desc = "Decrement number" },
-    -- line text-objects
-    ["il"] = { "g_o^", desc = "Inside line text object" },
-    ["al"] = { "$o^", desc = "Around line text object" },
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- ChatGPT
@@ -264,9 +261,5 @@ return {
     ["<leader>;rr"] = { "<cmd>ChatGPTRun code_readability_analysis<cr>", desc = "Code Readability Analysis" },
     ["<leader>;rR"] = { "<cmd>ChatGPTRun roxygen_edit<cr>", desc = "Roxygen Edit" },
   },
-  o = {
-    -- line text-objects
-    ["il"] = { "<cmd>normal vil<cr>", desc = "Inside line text object" },
-    ["al"] = { "<cmd>normal val<cr>", desc = "Around line text object" },
-  },
+  o = {},
 }
