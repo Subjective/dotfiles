@@ -6,10 +6,10 @@ return {
     config = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
-        callback = function()
+        callback = function(event)
           require("which-key").register({
             ["p"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
-          }, { prefix = "<localleader>", buffer = vim.api.nvim_get_current_buf() })
+          }, { prefix = "<localleader>", buffer = event.buf })
         end,
       })
     end,
