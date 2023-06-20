@@ -142,7 +142,20 @@ return {
           },
         },
       },
-      routes = {},
+      routes = {
+        -- { filter = { event = "msg_show", find = "%d+L,%s%d+B" }, opts = { skip = true } }, -- skip save notifications
+        -- { filter = { event = "msg_show", find = "^%d+ more lines$" }, opts = { skip = true } }, -- skip paste notifications
+        -- { filter = { event = "msg_show", find = "^%d+ fewer lines$" }, opts = { skip = true } }, -- skip delete notifications
+        -- { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
+        { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
+        { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
+        -- { filter = { event = "msg_show", find = "; before #" }, opts = { skip = true } }, -- skip undo notifications
+        -- { filter = { event = "msg_show", find = "; after #" }, opts = { skip = true } }, -- skip redo notifications
+        { filter = { event = "msg_show", find = "^/" }, opts = { skip = true } }, -- skip search not found notifications
+        { filter = { event = "msg_show", find = "^?" }, opts = { skip = true } }, -- skip search not found notifications
+        -- { filter = { event = "msg_show", find = "E486: Pattern not found: " }, opts = { skip = true } }, -- skip search not found notifications
+        -- { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
+      },
       presets = {
         -- you can enable a preset by setting it to true, or a table that will override the preset config
         -- you can also add custom presets that you can enable/disable with enabled=true
