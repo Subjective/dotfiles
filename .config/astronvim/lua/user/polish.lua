@@ -22,9 +22,8 @@ return function()
 
   vim.treesitter.language.register("markdown", "mdx")
 
-  --     { "BufEnter", "Filetype" },
-  require "user.autocmds"
-
   -- disable auto_hlsearch
   vim.on_key(function() end, vim.api.nvim_create_namespace "auto_hlsearch")
+
+  require "user.autocmds"
 end
