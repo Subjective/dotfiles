@@ -2,6 +2,10 @@ local utils = require "astronvim.utils"
 
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    { "andymass/vim-matchup", init = function() vim.g.matchup_matchparen_deferred = 1 end },
+    { "RRethy/nvim-treesitter-textsubjects" },
+  },
   opts = function(_, opts)
     -- Ensure that opts.ensure_installed exists and is a table or string "all".
     if not opts.ensure_installed then
@@ -39,25 +43,15 @@ return {
     -- fix compatibility issues with vimtex
     opts.highlight.disable = { "latex" }
     -- opts.additional_vim_regex_highlighting = { "latex", "markdown" } -- enable vimtex compatibility with md plugins
+    opts.textsubjects = {
+      enable = true,
+      prev_selection = ",", -- (Optional) keymap to select the previous selection
+      keymaps = {
+        ["."] = "textsubjects-smart",
+        [";"] = "textsubjects-container-outer",
+        ["i;"] = "textsubjects-container-inner",
+      },
+    }
     return opts
   end,
-  dependencies = {
-    { "andymass/vim-matchup", init = function() vim.g.matchup_matchparen_deferred = 1 end },
-    {
-      "RRethy/nvim-treesitter-textsubjects",
-      config = function()
-        require("nvim-treesitter.configs").setup {
-          textsubjects = {
-            enable = true,
-            prev_selection = ",", -- (Optional) keymap to select the previous selection
-            keymaps = {
-              ["."] = "textsubjects-smart",
-              [";"] = "textsubjects-container-outer",
-              ["i;"] = "textsubjects-container-inner",
-            },
-          },
-        }
-      end,
-    },
-  },
 }
