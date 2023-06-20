@@ -180,8 +180,6 @@ return {
     ["<leader>Gp"] = { "<cmd>Octo pr list<cr>", desc = "Open PRs" },
     ["<leader>GP"] = { "<cmd>Octo pr search<cr>", desc = "Search PRs" },
     ["<leader>Gr"] = { "<cmd>Octo repo list<cr>", desc = "Open Repository" },
-    -- refactoring.nvim
-    ["<leader>r"] = { name = "󰑌 Refactor" },
     -- spectre mappings
     ["<leader>s"] = { desc = "󰛔 Search/Replace" },
     ["<leader>ss"] = {
