@@ -5,10 +5,6 @@
 -- automatically pick-up stored data by this setting.)
 local astro_utils = require "astronvim.utils"
 
-local function ui_notify(str)
-  if vim.g.ui_notifications_enabled then astro_utils.notify(str) end
-end
-
 return {
   n = {
     -- disable quick save
@@ -82,7 +78,9 @@ return {
     ["<leader>uI"] = {
       function()
         vim.cmd "IndentBlanklineToggle"
-        ui_notify("Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)")
+        astro_utils.notify(
+          "Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)"
+        )
         vim.b.indentation_guides = not vim.b.indentation_guides
       end,
       desc = "Toggle indentation guides (buffer)",
