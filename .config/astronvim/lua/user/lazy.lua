@@ -7,6 +7,11 @@ return {
       disabled_plugins = {
         "matchit",
         "matchparen",
+        "tohtml",
+        "gzip",
+        "zipPlugin",
+        "netrwPlugin",
+        "tarPlugin",
       },
     },
   },
