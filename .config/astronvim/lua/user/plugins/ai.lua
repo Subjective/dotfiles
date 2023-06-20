@@ -1,15 +1,5 @@
 local astro_utils = require "astronvim.utils"
 
-require("which-key").register {
-  ["<leader>;"] = { name = "󰧑 AI Assistant" },
-  mode = { "n", "x" },
-}
-
-require("which-key").register {
-  ["<leader>;r"] = { name = "ChatGPT: Run" },
-  mode = { "n", "x" },
-}
-
 return {
   {
     "Exafunction/codeium.vim",

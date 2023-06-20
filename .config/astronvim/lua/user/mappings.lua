@@ -162,6 +162,11 @@ return {
       function() require("spectre").open_visual { select_word = true } end,
       desc = "Spectre (current word)",
     },
+    -- AI bindings
+    ["<leader>;"] = { name = "󰧑 AI Assistant" },
+    ["<leader>;r"] = { name = "ChatGPT: Run" },
+    -- refactoring.nvim
+    ["<leader>r"] = { name = "󰑌 Refactor" },
     -- disable default bindings
     ["<C-Down>"] = false,
     ["<C-Left>"] = false,
@@ -211,6 +216,11 @@ return {
     ["<C-=>"] = { "g<C-x>", desc = "Decrement number" },
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
+    -- AI bindings
+    ["<leader>;"] = { name = "󰧑 AI Assistant" },
+    ["<leader>;r"] = { name = "ChatGPT: Run" },
+    -- refactoring.nvim
+    ["<leader>r"] = { name = "󰑌 Refactor" },
   },
   o = {},
 }

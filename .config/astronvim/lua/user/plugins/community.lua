@@ -42,15 +42,6 @@ return {
   { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
-  {
-    "ThePrimeagen/refactoring.nvim",
-    init = function()
-      require("which-key").register {
-        ["<leader>r"] = { name = "󰑌 Refactor" },
-        mode = { "n", "x" },
-      }
-    end,
-  },
 
   -- motion
   { import = "astrocommunity.motion.harpoon" },
