@@ -2,7 +2,7 @@ return {
   {
     "lervag/vimtex",
     lazy = false,
-    config = function()
+    init = function()
       vim.g.vimtex_view_method = "skim"
 
       -- add which-key mapping descriptions for VimTex
