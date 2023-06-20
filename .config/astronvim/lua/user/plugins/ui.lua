@@ -24,7 +24,7 @@ return {
         -- This is a current Neovim limitation.
         enabled = true, -- enables the Noice messages UI
         view = "notify", -- default view for messages
-        view_error = "notify", -- view for errors
+        view_error = "mini", -- view for errors
         view_warn = "notify", -- view for warnings
         view_history = "messages", -- view for :messages
         view_search = false, -- view for search count messages. Set to `false` to disable
@@ -150,7 +150,6 @@ return {
         { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
         { filter = { event = "msg_show", find = "^/" }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "^?" }, opts = { skip = true } }, -- skip search not found notifications
-        { filter = { event = "msg_show", find = "E486: Pattern not found: " }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
         {
           filter = {
