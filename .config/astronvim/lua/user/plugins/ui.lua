@@ -23,9 +23,9 @@ return {
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
         -- This is a current Neovim limitation.
         enabled = true, -- enables the Noice messages UI
-        view = "notify", -- default view for messages
-        view_error = "notify", -- view for errors
-        view_warn = "notify", -- view for warnings
+        view = "mini", -- default view for messages
+        view_error = "mini", -- view for errors
+        view_warn = "mini", -- view for warnings
         view_history = "messages", -- view for :messages
         view_search = false, -- view for search count messages. Set to `false` to disable
       },
@@ -142,20 +142,7 @@ return {
           },
         },
       },
-      routes = {
-        { filter = { event = "msg_show", find = "%d+L,%s%d+B" }, opts = { skip = true } }, -- skip save notifications
-        { filter = { event = "msg_show", find = "^%d+ more lines$" }, opts = { skip = true } }, -- skip paste notifications
-        { filter = { event = "msg_show", find = "^%d+ fewer lines$" }, opts = { skip = true } }, -- skip delete notifications
-        { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
-        { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
-        { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
-        { filter = { event = "msg_show", find = "; before #" }, opts = { skip = true } }, -- skip undo notifications
-        { filter = { event = "msg_show", find = "; after #" }, opts = { skip = true } }, -- skip redo notifications
-        { filter = { event = "msg_show", find = "^/" }, opts = { skip = true } }, -- skip search not found notifications
-        { filter = { event = "msg_show", find = "^?" }, opts = { skip = true } }, -- skip search not found notifications
-        { filter = { event = "msg_show", find = "E486: Pattern not found: " }, opts = { skip = true } }, -- skip search not found notifications
-        { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
-      },
+      routes = {},
       presets = {
         -- you can enable a preset by setting it to true, or a table that will override the preset config
         -- you can also add custom presets that you can enable/disable with enabled=true
