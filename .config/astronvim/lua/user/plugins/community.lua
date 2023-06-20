@@ -42,6 +42,7 @@ return {
   -- editor
   { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
+  { import = "astrocommunity.editing-support.refactoring-nvim" },
 
   -- motion
   { import = "astrocommunity.motion.harpoon" },
