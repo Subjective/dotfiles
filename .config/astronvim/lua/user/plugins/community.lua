@@ -6,25 +6,6 @@ return {
 
   -- colorschemes
   { import = "astrocommunity.colorscheme.catppuccin" },
-
-  -- ui
-  { import = "astrocommunity.markdown-and-latex.glow-nvim" },
-  { import = "astrocommunity.editing-support.todo-comments-nvim" },
-  { import = "astrocommunity.editing-support.zen-mode-nvim" },
-  { import = "astrocommunity.media.vim-wakatime" },
-
-  -- editor
-  { import = "astrocommunity.syntax.vim-easy-align" },
-  { import = "astrocommunity.indent.indent-tools-nvim" },
-
-  -- motion
-  { import = "astrocommunity.motion.harpoon" },
-  { import = "astrocommunity.motion.leap-nvim" },
-  { import = "astrocommunity.motion.flit-nvim" },
-
-  -- organization
-  { import = "astrocommunity.project.project-nvim" },
-
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -51,6 +32,24 @@ return {
       },
     },
   },
+
+  -- ui
+  { import = "astrocommunity.markdown-and-latex.glow-nvim" },
+  { import = "astrocommunity.editing-support.todo-comments-nvim" },
+  { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  { import = "astrocommunity.media.vim-wakatime" },
+
+  -- editor
+  { import = "astrocommunity.syntax.vim-easy-align" },
+  { import = "astrocommunity.indent.indent-tools-nvim" },
+
+  -- motion
+  { import = "astrocommunity.motion.harpoon" },
+  { import = "astrocommunity.motion.leap-nvim" },
+  { import = "astrocommunity.motion.flit-nvim" },
+
+  -- organization
+  { import = "astrocommunity.project.project-nvim" },
   {
     "ahmedkhalf/project.nvim",
     opts = { ignore_lsp = { "lua_ls", "texlab" } },
