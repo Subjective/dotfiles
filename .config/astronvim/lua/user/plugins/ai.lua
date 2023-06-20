@@ -1,5 +1,14 @@
--- get the system environment variables for home directory
-local home = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local astro_utils = require "astronvim.utils"
+
+require("which-key").register {
+  ["<leader>;"] = { name = "󰧑 AI Assistant" },
+  mode = { "n", "x" },
+}
+
+require("which-key").register {
+  ["<leader>;r"] = { name = "ChatGPT: Run" },
+  mode = { "n", "x" },
+}
 
 return {
   {
@@ -16,118 +25,104 @@ return {
       vim.keymap.set("i", "<C-=>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
       vim.keymap.set("i", "<C-BS>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
     end,
+    keys = {
+      {
+        "<leader>;;",
+        function()
+          vim.cmd.Codeium(vim.g.codeium_enabled == 0 and "Enable" or "Disable")
+          astro_utils.notify("Codeium " .. (vim.g.codeium_enabled == 0 and "Disabled" or "Enabled"))
+        end,
+        desc = "Toggle Codeium (global)",
+      },
+      {
+        "<leader>;,",
+        function()
+          vim.cmd.Codeium(vim.b.codeium_enabled == 0 and "EnableBuffer" or "DisableBuffer")
+          astro_utils.notify("Codeium (buffer) " .. (vim.b.codeium_enabled == 0 and "Disabled" or "Enabled"))
+        end,
+        desc = "Toggle Codeium (buffer)",
+      },
+    },
   },
   {
     "jackMort/ChatGPT.nvim",
-    event = "User AstroFile",
-    opts = {
+    cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions", "ChatGPTRun" },
+    config = function() require("chatgpt").setup() end,
+    keys = {
+      { "<leader>;C", "<cmd>ChatGPT<cr>", { mode = "n" }, desc = "ChatGPT" },
+      { "<leader>;p", "<cmd>ChatGPTActAs<cr>", { mode = "n" }, desc = "ChatGPT: Act As" },
+      { "<leader>;c", "<cmd>ChatGPTCompleteCode<cr>", { mode = "n" }, desc = "ChatGPT: Complete Code" },
       {
-        yank_register = "+",
-        edit_with_instructions = {
-          diff = false,
-          keymaps = {
-            accept = "<C-y>",
-            toggle_diff = "<C-d>",
-            toggle_settings = "<C-o>",
-            cycle_windows = "<Tab>",
-            use_output_as_input = "<C-i>",
-          },
-        },
-        chat = {
-          welcome_message = WELCOME_MESSAGE,
-          loading_text = "Loading, please wait ...",
-          question_sign = "", -- 🙂
-          answer_sign = "ﮧ", -- 🤖
-          max_line_length = 120,
-          sessions_window = {
-            border = {
-              style = "rounded",
-              text = {
-                top = " Sessions ",
-              },
-            },
-            win_options = {
-              winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-            },
-          },
-          keymaps = {
-            close = { "<C-c>" },
-            yank_last = "<C-y>",
-            yank_last_code = "<C-k>",
-            scroll_up = "<C-u>",
-            scroll_down = "<C-d>",
-            toggle_settings = "<C-o>",
-            new_session = "<C-n>",
-            cycle_windows = "<Tab>",
-            select_session = "<Space>",
-            rename_session = "r",
-            delete_session = "d",
-          },
-        },
-        popup_layout = {
-          relative = "editor",
-          position = "50%",
-          size = {
-            height = "80%",
-            width = "80%",
-          },
-        },
-        popup_window = {
-          filetype = "chatgpt",
-          border = {
-            highlight = "FloatBorder",
-            style = "rounded",
-            text = {
-              top = " ChatGPT ",
-            },
-          },
-          win_options = {
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          },
-        },
-        popup_input = {
-          prompt = "  ",
-          border = {
-            highlight = "FloatBorder",
-            style = "rounded",
-            text = {
-              top_align = "center",
-              top = " Prompt ",
-            },
-          },
-          win_options = {
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          },
-          submit = "<C-Enter>",
-        },
-        settings_window = {
-          border = {
-            style = "rounded",
-            text = {
-              top = " Settings ",
-            },
-          },
-          win_options = {
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-          },
-        },
-        openai_params = {
-          model = "gpt-3.5-turbo",
-          frequency_penalty = 0,
-          presence_penalty = 0,
-          max_tokens = 300,
-          temperature = 0,
-          top_p = 1,
-          n = 1,
-        },
-        openai_edit_params = {
-          model = "code-davinci-edit-001",
-          temperature = 0,
-          top_p = 1,
-          n = 1,
-        },
-        actions_paths = {},
-        predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
+        "<leader>;e",
+        "<cmd>ChatGPTEditWithInstructions<cr>",
+        mode = { "n", "x" },
+        desc = "ChatGPT: Edit With Instructions",
+      },
+      {
+        "<leader>;rg",
+        "<cmd>ChatGPTRun grammar_correction<cr>",
+        mode = { "n", "x" },
+        desc = "Grammar Correction",
+      },
+      {
+        "<leader>;rT",
+        "<cmd>ChatGPTRun translate<cr>",
+        mode = { "n", "x" },
+        desc = "Translate",
+      },
+      {
+        "<leader>;rk",
+        "<cmd>ChatGPTRun keywords<cr>",
+        mode = { "n", "x" },
+        desc = "Keywords",
+      },
+      {
+        "<leader>;rd",
+        "<cmd>ChatGPTRun docstring<cr>",
+        mode = { "n", "x" },
+        desc = "Docstring",
+      },
+      {
+        "<leader>;rt",
+        "<cmd>ChatGPTRun add_tests<cr>",
+        mode = { "n", "x" },
+        desc = "Add Tests",
+      },
+      {
+        "<leader>;ro",
+        "<cmd>ChatGPTRun optimize_code<cr>",
+        mode = { "n", "x" },
+        desc = "Optimize Code",
+      },
+      {
+        "<leader>;rs",
+        "<cmd>ChatGPTRun summarize<cr>",
+        mode = { "n", "x" },
+        desc = "Summarize",
+      },
+      {
+        "<leader>;rf",
+        "<cmd>ChatGPTRun fix_bugs<cr>",
+        mode = { "n", "x" },
+        desc = "Fix Bugs",
+      },
+      {
+        "<leader>;re",
+        "<cmd>ChatGPTRun explain_code<cr>",
+        mode = { "n", "x" },
+        desc = "Explain Code",
+      },
+      {
+        "<leader>;rR",
+        "<cmd>ChatGPTRun roxygen_edit<cr>",
+        mode = { "n", "x" },
+        desc = "Roxygen Edit",
+      },
+      {
+        "<leader>;rr",
+        "<cmd>ChatGPTRun code_readability_analysis<cr>",
+        mode = { "n", "x" },
+        desc = "Code Readabiliy Analysis",
       },
     },
     dependencies = {
