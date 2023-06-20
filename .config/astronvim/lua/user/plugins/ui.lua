@@ -143,18 +143,26 @@ return {
         },
       },
       routes = {
-        { filter = { event = "msg_show", find = "%d+L,%s%d+B" }, opts = { skip = true } }, -- skip save notifications
         { filter = { event = "msg_show", find = "^%d+ more lines$" }, opts = { skip = true } }, -- skip paste notifications
         { filter = { event = "msg_show", find = "^%d+ fewer lines$" }, opts = { skip = true } }, -- skip delete notifications
         { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
         { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
         { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
-        { filter = { event = "msg_show", find = "; before #" }, opts = { skip = true } }, -- skip undo notifications
-        { filter = { event = "msg_show", find = "; after #" }, opts = { skip = true } }, -- skip redo notifications
         { filter = { event = "msg_show", find = "^/" }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "^?" }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "E486: Pattern not found: " }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
+        {
+          filter = {
+            event = "msg_show",
+            any = {
+              { find = "%d+L, %d+B" }, -- show skip notifications in mini view
+              { find = "; after #%d+" }, -- show redo notifications in mini view
+              { find = "; before #%d+" }, -- show undo notifications in mini view
+            },
+          },
+          view = "mini",
+        },
       },
       presets = {
         -- you can enable a preset by setting it to true, or a table that will override the preset config
