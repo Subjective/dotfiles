@@ -51,7 +51,7 @@ yabai -m config window_opacity_duration 0.15
 # yabai -m config mouse_follows_focus on
 
 # modifier for clicking and dragging with mouse
-yabai -m config mouse_modifier fn
+yabai -m config mouse_modifier alt
 # # set modifier + left-click drag to move window
 yabai -m config mouse_action1 move
 # # set modifier + right-click drag to resize window
