@@ -14,7 +14,6 @@ return {
         " ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
         "                                                    ",
       }
-      return opts
     end,
   },
   {
@@ -73,7 +72,6 @@ return {
         end
         return format_kinds(entry, item)
       end
-      return opts
     end,
   },
   {

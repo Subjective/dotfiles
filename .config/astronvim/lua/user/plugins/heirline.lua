@@ -48,6 +48,5 @@ return {
       status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
     }
-    return opts
   end,
 }

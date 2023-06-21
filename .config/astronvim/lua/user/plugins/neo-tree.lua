@@ -42,7 +42,5 @@ return {
     }
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
-    -- return new opts
-    return opts
   end,
 }

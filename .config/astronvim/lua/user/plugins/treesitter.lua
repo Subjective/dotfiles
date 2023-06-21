@@ -52,6 +52,5 @@ return {
         ["i;"] = "textsubjects-container-inner",
       },
     }
-    return opts
   end,
 }
