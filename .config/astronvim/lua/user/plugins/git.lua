@@ -146,7 +146,7 @@ return {
             c = { name = " Comment" },
             v = { name = " Reviewer" },
             g = { name = "󱘇 Navigate" },
-            ["<space>"] = { name = " All Commands" },
+            [","] = { name = " All Commands" },
           }, { prefix = "<localleader>", buffer = event.buf })
           require("which-key").register({
             c = { name = " Comments" },
@@ -217,7 +217,7 @@ return {
             sc = { "<cmd> Octo review comments<CR>", "View pending comments" },
             sp = { "<cmd> Octo review commit<CR>", "Select commit to review" },
             sC = { "<cmd> Octo review close<CR>", "Return to PR" },
-          }, { prefix = "<localleader><space>", buffer = event.buf })
+          }, { prefix = "<localleader><localleader>", buffer = event.buf })
         end,
       })
     end,
