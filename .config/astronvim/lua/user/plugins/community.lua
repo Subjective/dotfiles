@@ -91,9 +91,14 @@ return {
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   {
     "iamcco/markdown-preview.nvim",
+    ft = { "markdown", "mdx" },
     init = function()
+      vim.g.mkdp_filetypes = { "markdown", "mdx" }
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
+        pattern = {
+          "markdown",
+          "mdx",
+        },
         callback = function(event)
           require("which-key").register({
             ["p"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
