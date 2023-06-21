@@ -6,7 +6,7 @@ return {
     status.component.grapple = {
       provider = function()
         local success, key = pcall(require("grapple").key, { buffer = 0 })
-        if success and key and key > 0 then
+        if success and key then
           return " " .. key .. " "
         else
           return
