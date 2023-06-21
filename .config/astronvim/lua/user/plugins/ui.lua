@@ -159,5 +159,6 @@ return {
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
     },
+    keys = { { "<leader>fn", function() require("noice").cmd "telescope" end, desc = "Find notifications" } },
   },
 }
