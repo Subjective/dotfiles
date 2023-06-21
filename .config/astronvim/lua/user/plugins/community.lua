@@ -61,6 +61,9 @@ return {
   -- media
   { import = "astrocommunity.media.vim-wakatime" },
 
+  -- code-runner
+  { import = "astrocommunity.code-runner.sniprun" },
+
   -- motion
   { import = "astrocommunity.motion.grapple-nvim" },
   {
