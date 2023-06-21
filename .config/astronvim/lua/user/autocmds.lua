@@ -15,11 +15,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_user_command("DotfilesGit", function()
   vim.g.home_dir = os.getenv "HOME"
   vim.g.dotfile_list = vim.fn.system(
-    "(cd $HOME && git --work-tree="
-      .. vim.g.home_dir
-      .. " --git-dir="
-      .. vim.g.home_dir
-      .. "/.cfg ls-tree --name-only -r HEAD)"
+    "(cd $HOME && git --work-tree=" .. vim.g.home_dir .. " --git-dir=" .. vim.g.home_dir .. "/.cfg ls-tree --name-only -r HEAD)"
   )
 
   vim.api.nvim_create_autocmd({ "BufEnter" }, {
