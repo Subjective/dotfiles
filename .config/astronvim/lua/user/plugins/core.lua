@@ -68,7 +68,6 @@ return {
         return format_kinds(entry, item)
       end
 
-      local compare = require "cmp.config.compare"
       local luasnip = require "luasnip"
       local function has_words_before()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -76,18 +75,6 @@ return {
       end
 
       return require("astronvim.utils").extend_tbl(opts, {
-        sorting = {
-          comparators = {
-            compare.locality,
-            compare.recently_used,
-            compare.score,
-            compare.offset,
-            compare.order,
-          },
-        },
-        completion = {
-          completeopt = "menu,menuone",
-        },
         mapping = {
           -- <C-n> and <C-p> for navigating snippets
           ["<C-n>"] = cmp.mapping(function()
