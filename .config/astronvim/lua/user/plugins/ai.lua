@@ -1,5 +1,10 @@
 local astro_utils = require "astronvim.utils"
 
+astro_utils.set_mappings {
+  n = { ["<leader>;"] = { name = "󰧑 AI Assistant" } },
+  x = { ["<leader>;"] = { name = "󰧑 AI Assistant" } },
+}
+
 return {
   {
     "Exafunction/codeium.vim",
@@ -37,83 +42,29 @@ return {
   {
     "jackMort/ChatGPT.nvim",
     cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions", "ChatGPTRun" },
+    init = function()
+      astro_utils.set_mappings {
+        n = { ["<leader>;r"] = { name = "ChatGPT: Run" } },
+        x = { ["<leader>;r"] = { name = "ChatGPT: Run" } },
+      }
+    end,
     config = function() require("chatgpt").setup() end,
     keys = {
       { "<leader>;C", "<cmd>ChatGPT<cr>", { mode = "n" }, desc = "ChatGPT" },
       { "<leader>;p", "<cmd>ChatGPTActAs<cr>", { mode = "n" }, desc = "ChatGPT: Act As" },
       { "<leader>;c", "<cmd>ChatGPTCompleteCode<cr>", { mode = "n" }, desc = "ChatGPT: Complete Code" },
-      {
-        "<leader>;e",
-        "<cmd>ChatGPTEditWithInstructions<cr>",
-        mode = { "n", "x" },
-        desc = "ChatGPT: Edit With Instructions",
-      },
-      {
-        "<leader>;rg",
-        "<cmd>ChatGPTRun grammar_correction<cr>",
-        mode = { "n", "x" },
-        desc = "Grammar Correction",
-      },
-      {
-        "<leader>;rT",
-        "<cmd>ChatGPTRun translate<cr>",
-        mode = { "n", "x" },
-        desc = "Translate",
-      },
-      {
-        "<leader>;rk",
-        "<cmd>ChatGPTRun keywords<cr>",
-        mode = { "n", "x" },
-        desc = "Keywords",
-      },
-      {
-        "<leader>;rd",
-        "<cmd>ChatGPTRun docstring<cr>",
-        mode = { "n", "x" },
-        desc = "Docstring",
-      },
-      {
-        "<leader>;rt",
-        "<cmd>ChatGPTRun add_tests<cr>",
-        mode = { "n", "x" },
-        desc = "Add Tests",
-      },
-      {
-        "<leader>;ro",
-        "<cmd>ChatGPTRun optimize_code<cr>",
-        mode = { "n", "x" },
-        desc = "Optimize Code",
-      },
-      {
-        "<leader>;rs",
-        "<cmd>ChatGPTRun summarize<cr>",
-        mode = { "n", "x" },
-        desc = "Summarize",
-      },
-      {
-        "<leader>;rf",
-        "<cmd>ChatGPTRun fix_bugs<cr>",
-        mode = { "n", "x" },
-        desc = "Fix Bugs",
-      },
-      {
-        "<leader>;re",
-        "<cmd>ChatGPTRun explain_code<cr>",
-        mode = { "n", "x" },
-        desc = "Explain Code",
-      },
-      {
-        "<leader>;rR",
-        "<cmd>ChatGPTRun roxygen_edit<cr>",
-        mode = { "n", "x" },
-        desc = "Roxygen Edit",
-      },
-      {
-        "<leader>;rr",
-        "<cmd>ChatGPTRun code_readability_analysis<cr>",
-        mode = { "n", "x" },
-        desc = "Code Readabiliy Analysis",
-      },
+      { "<leader>;e", "<cmd>ChatGPTEditWithInstructions<cr>", mode = { "n", "x" }, desc = "ChatGPT: Edit With Instructions" },
+      { "<leader>;rg", "<cmd>ChatGPTRun grammar_correction<cr>", mode = { "n", "x" }, desc = "Grammar Correction" },
+      { "<leader>;rT", "<cmd>ChatGPTRun translate<cr>", mode = { "n", "x" }, desc = "Translate" },
+      { "<leader>;rk", "<cmd>ChatGPTRun keywords<cr>", mode = { "n", "x" }, desc = "Keywords" },
+      { "<leader>;rd", "<cmd>ChatGPTRun docstring<cr>", mode = { "n", "x" }, desc = "Docstring" },
+      { "<leader>;rt", "<cmd>ChatGPTRun add_tests<cr>", mode = { "n", "x" }, desc = "Add Tests" },
+      { "<leader>;ro", "<cmd>ChatGPTRun optimize_code<cr>", mode = { "n", "x" }, desc = "Optimize Code" },
+      { "<leader>;rs", "<cmd>ChatGPTRun summarize<cr>", mode = { "n", "x" }, desc = "Summarize" },
+      { "<leader>;rf", "<cmd>ChatGPTRun fix_bugs<cr>", mode = { "n", "x" }, desc = "Fix Bugs" },
+      { "<leader>;re", "<cmd>ChatGPTRun explain_code<cr>", mode = { "n", "x" }, desc = "Explain Code" },
+      { "<leader>;rR", "<cmd>ChatGPTRun roxygen_edit<cr>", mode = { "n", "x" }, desc = "Roxygen Edit" },
+      { "<leader>;rr", "<cmd>ChatGPTRun code_readability_analysis<cr>", mode = { "n", "x" }, desc = "Code Readabiliy Analysis" },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",

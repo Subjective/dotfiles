@@ -1,3 +1,5 @@
+local astro_utils = require "astronvim.utils"
+
 return {
   {
     "kylechui/nvim-surround",
@@ -21,9 +23,24 @@ return {
     end,
   },
   {
+    "folke/todo-comments.nvim",
+    event = "User AstroFile",
+    cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
+    keys = { { "<leader>fT", "<cmd>TodoTelescope<cr>", desc = "Find TODOs" } },
+  },
+  {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
-    config = function() require("trouble").setup {} end,
+    init = function() astro_utils.set_mappings { n = { ["<leader>T"] = { name = "󰔫 Trouble" } } } end,
+    keys = {
+      { "<leader>Tr", "<cmd>Trouble lsp_references<cr>", desc = "References" },
+      { "<leader>Tf", "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
+      { "<leader>Td", "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
+      { "<leader>Tq", "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
+      { "<leader>Tl", "<cmd>Trouble loclist<cr>", desc = "LocationList" },
+      { "<leader>Tw", "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+      { "<leader>Tt", "<cmd>TodoTrouble<cr>", desc = "TODOs" },
+    },
   },
   {
     "nvim-pack/nvim-spectre",
@@ -42,6 +59,12 @@ return {
         },
       }
     end,
+    init = function() astro_utils.set_mappings { n = { ["<leader>s"] = { desc = "󰛔 Search/Replace" } } } end,
+    keys = {
+      { "<leader>ss", function() require("spectre").open() end, desc = "Spectre" },
+      { "<leader>sf", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
+      { "<leader>sw", function() require("spectre").open_visual { select_word = true } end, desc = "Spectre (current word)" },
+    },
   },
   {
     "danymat/neogen",
@@ -54,9 +77,26 @@ return {
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
     },
+    init = function() astro_utils.set_mappings { n = { ["<leader>a"] = { desc = "󰏫 Annotate" } } } end,
+    keys = {
+      { "<leader>a<cr>", function() require("neogen").generate { type = "current" } end, desc = "Current" },
+      { "<leader>ac", function() require("neogen").generate { type = "class" } end, desc = "Class" },
+      { "<leader>af", function() require("neogen").generate { type = "func" } end, desc = "Function" },
+      { "<leader>at", function() require("neogen").generate { type = "type" } end, desc = "Type" },
+      { "<leader>aF", function() require("neogen").generate { type = "file" } end, desc = "File" },
+    },
   },
   {
     "mbbill/undotree",
-    event = "User AstroFile",
+    cmd = { "UndotreeFocus", "UndotreeHide", "UndotreeShow", "UndotreeToggle" },
+    keys = {
+      { "<leader>U", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undo Tree" },
+    },
+  },
+  {
+    "junegunn/vim-easy-align",
+    keys = {
+      { "ga", "<Plug>(EasyAlign)", mode = { "n", "x" }, desc = "Easy Align" },
+    },
   },
 }

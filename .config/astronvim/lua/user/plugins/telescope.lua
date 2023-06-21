@@ -1,8 +1,14 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    { "nvim-telescope/telescope-file-browser.nvim" },
-    { "debugloop/telescope-undo.nvim" },
+    {
+      "nvim-telescope/telescope-file-browser.nvim",
+      keys = { { "<leader>fe", "<cmd>Telescope file_browser<cr>", desc = "File explorer" } },
+    },
+    {
+      "debugloop/telescope-undo.nvim",
+      keys = { { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Find in undo history" } },
+    },
   },
   cmd = "Telescope",
   opts = function(_, opts)

@@ -13,16 +13,11 @@ return {
     -- better increment/decrement
     ["<C-->"] = { "<c-x>", desc = "Decrement number" },
     ["<C-=>"] = { "<c-a>", desc = "Increment number" },
-    -- smart toggle-term bindings
+    -- toggle-term dotfiles
     ["<leader>g."] = {
       function() astro_utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
       desc = "ToggleTerm lazygit dotfiles",
     },
-    -- harpoon bindings
-    ["<leader>1"] = { function() require("harpoon.ui").nav_file(1) end, desc = "which_key_ignore" },
-    ["<leader>2"] = { function() require("harpoon.ui").nav_file(2) end, desc = "which_key_ignore" },
-    ["<leader>3"] = { function() require("harpoon.ui").nav_file(3) end, desc = "which_key_ignore" },
-    ["<leader>4"] = { function() require("harpoon.ui").nav_file(4) end, desc = "which_key_ignore" },
     -- explorer bindings
     ["<leader>E"] = {
       function()
@@ -65,11 +60,6 @@ return {
       function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end,
       desc = "Toggle Explorer (cwd)",
     },
-    -- toggle undo tree
-    ["<leader>U"] = {
-      "<cmd>UndotreeToggle<cr>",
-      desc = "Toggle Undo Tree",
-    },
     -- hide winbar in local buffer
     ["<leader>uW"] = {
       function() vim.opt_local.winbar = nil end,
@@ -78,28 +68,12 @@ return {
     ["<leader>uI"] = {
       function()
         vim.cmd "IndentBlanklineToggle"
-        astro_utils.notify(
-          "Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)"
-        )
+        astro_utils.notify("Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)")
         vim.b.indentation_guides = not vim.b.indentation_guides
       end,
       desc = "Toggle indentation guides (buffer)",
     },
-    ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
-    -- trouble plugin mappings
-    ["<leader>T"] = { name = "󰔫 Trouble" },
-    ["<leader>Tr"] = { "<cmd>Trouble lsp_references<cr>", desc = "References" },
-    ["<leader>Tf"] = { "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
-    ["<leader>Td"] = { "<cmd>Trouble document_diagnostics<cr>", desc = "Diagnostics" },
-    ["<leader>Tq"] = { "<cmd>Trouble quickfix<cr>", desc = "QuickFix" },
-    ["<leader>Tl"] = { "<cmd>Trouble loclist<cr>", desc = "LocationList" },
-    ["<leader>Tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
-    ["<leader>Tt"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs" },
-    -- Easy-Align
-    ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- better buffer navigation
-    ["]b"] = false,
-    ["[b"] = false,
     L = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
@@ -108,63 +82,6 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
-    -- neogen
-    ["<leader>a"] = { desc = "󰏫 Annotate" },
-    ["<leader>a<cr>"] = {
-      function() require("neogen").generate { type = "current" } end,
-      desc = "Current",
-    },
-    ["<leader>ac"] = {
-      function() require("neogen").generate { type = "class" } end,
-      desc = "Class",
-    },
-    ["<leader>af"] = {
-      function() require("neogen").generate { type = "func" } end,
-      desc = "Function",
-    },
-    ["<leader>at"] = {
-      function() require("neogen").generate { type = "type" } end,
-      desc = "Type",
-    },
-    ["<leader>aF"] = {
-      function() require("neogen").generate { type = "file" } end,
-      desc = "File",
-    },
-    -- telescope mappings
-    ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
-    ["<leader>fp"] = {
-      function() require("telescope").extensions.projects.projects {} end,
-      desc = "Find projects",
-    },
-    ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
-    ["<leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Find in undo history" },
-    -- octo plugin mappings
-    ["<leader>G"] = { name = " GitHub" },
-    ["<leader>Gs"] = { "<cmd>Octo search<cr>", desc = "Search GitHub" },
-    ["<leader>Gi"] = { "<cmd>Octo issue list<cr>", desc = "Open Issues" },
-    ["<leader>GI"] = { "<cmd>Octo issue search<cr>", desc = "Search Issues" },
-    ["<leader>Gp"] = { "<cmd>Octo pr list<cr>", desc = "Open PRs" },
-    ["<leader>GP"] = { "<cmd>Octo pr search<cr>", desc = "Search PRs" },
-    ["<leader>Gr"] = { "<cmd>Octo repo list<cr>", desc = "Open Repository" },
-    -- spectre mappings
-    ["<leader>s"] = { desc = "󰛔 Search/Replace" },
-    ["<leader>ss"] = {
-      function() require("spectre").open() end,
-      desc = "Spectre",
-    },
-    ["<leader>sf"] = {
-      function() require("spectre").open_file_search() end,
-      desc = "Spectre (current file)",
-    },
-    ["<leader>sw"] = {
-      function() require("spectre").open_visual { select_word = true } end,
-      desc = "Spectre (current word)",
-    },
-    -- AI bindings
-    ["<leader>;"] = { name = "󰧑 AI Assistant" },
-    ["<leader>;r"] = { name = "ChatGPT: Run" },
-    -- refactoring.nvim
-    ["<leader>r"] = { name = "󰑌 Refactor" },
     -- disable default bindings
     ["<C-Down>"] = false,
     ["<C-Left>"] = false,
@@ -212,13 +129,6 @@ return {
     -- better increment/decrement
     ["<C-->"] = { "g<C-a>", desc = "Increment number" },
     ["<C-=>"] = { "g<C-x>", desc = "Decrement number" },
-    -- Easy-Align
-    ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
-    -- AI bindings
-    ["<leader>;"] = { name = "󰧑 AI Assistant" },
-    ["<leader>;r"] = { name = "ChatGPT: Run" },
-    -- refactoring.nvim
-    ["<leader>r"] = { name = "󰑌 Refactor" },
   },
   o = {},
 }
