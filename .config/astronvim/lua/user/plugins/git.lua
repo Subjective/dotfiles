@@ -4,7 +4,7 @@ return {
   {
     "tpope/vim-fugitive",
     event = "User AstroGitFile",
-    init = function()
+    config = function()
       vim.api.nvim_create_autocmd("FileType", {
         desc = "Make q close fugitive",
         group = vim.api.nvim_create_augroup("quit_fugitive", { clear = true }),
