@@ -35,9 +35,11 @@ return {
     })
 
     -- add new mappings to all windows
-    opts.window.mappings.T = "trash"
-    opts.window.mappings["."] = "set_cwd"
-    opts.window.mappings["@"] = "set_root_to_home"
+    opts.window.mappings = {
+      T = "trash",
+      ["."] = "set_cwd",
+      ["@"] = "set_root_to_home",
+    }
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
     -- return new opts
