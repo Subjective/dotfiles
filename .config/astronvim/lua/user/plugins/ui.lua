@@ -76,7 +76,7 @@ return {
         -- The default routes will forward notifications to nvim-notify
         -- Benefit of using Noice for this is the routing and consistent history view
         enabled = true,
-        view = "notify",
+        view = "mini",
       },
       lsp = {
         progress = {
