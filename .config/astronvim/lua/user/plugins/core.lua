@@ -35,12 +35,14 @@ return {
     dependencies = {
       "hrsh7th/cmp-calc",
       "js-everts/cmp-tailwind-colors",
+      "kdheepak/cmp-latex-symbols",
     },
     opts = function(_, opts)
       local cmp = require "cmp"
       opts.sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
         { name = "luasnip", priority = 750 },
+        { name = "latex_symbols", priority = 700 },
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
         { name = "calc", priority = 700 },
