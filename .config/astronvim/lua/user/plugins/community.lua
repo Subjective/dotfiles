@@ -46,12 +46,8 @@ return {
     "ThePrimeagen/refactoring.nvim",
     init = function()
       astro_utils.set_mappings {
-        n = {
-          ["<leader>r"] = { name = "󰑌 Refactor" },
-        },
-        x = {
-          ["<leader>r"] = { name = "󰑌 Refactor" },
-        },
+        n = { ["<leader>r"] = { name = "󰑌 Refactor" } },
+        x = { ["<leader>r"] = { name = "󰑌 Refactor" } },
       }
     end,
   },
@@ -69,6 +65,11 @@ return {
   { import = "astrocommunity.motion.grapple-nvim" },
   {
     "cbochs/grapple.nvim",
+    init = function()
+      astro_utils.set_mappings {
+        n = { ["<leader><leader>"] = { name = "󰛢 Grapple" } },
+      }
+    end,
     keys = {
       { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "which_key_ignore" },
       { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "which_key_ignore" },
