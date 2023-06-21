@@ -52,7 +52,7 @@ return {
       opts.sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
         { name = "luasnip", priority = 750 },
-        { name = "latex_symbols", priority = 700 },
+        { name = "latex_symbols", priority = 700, option = { strategy = 2 } },
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
         { name = "calc", priority = 700 },
