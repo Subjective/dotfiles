@@ -57,12 +57,13 @@ return {
         { name = "path", priority = 250 },
         { name = "calc", priority = 700 },
       }
-      -- disable autocomplete on latex and markdown files
-      cmp.setup.filetype({ "tex", "markdown" }, {
+      -- disable autocomplete on latex files
+      cmp.setup.filetype({ "tex" }, {
         completion = {
           autocomplete = false,
         },
       })
+
       local format_kinds = opts.formatting.format
       opts.formatting.format = function(entry, item)
         if item.kind == "Color" then
@@ -72,6 +73,42 @@ return {
         end
         return format_kinds(entry, item)
       end
+
+      local compare = require "cmp.config.compare"
+      local luasnip = require "luasnip"
+      local function has_words_before()
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+      end
+
+      return require("astronvim.utils").extend_tbl(opts, {
+        sorting = {
+          comparators = {
+            compare.locality,
+            compare.recently_used,
+            compare.score,
+            compare.offset,
+            compare.order,
+          },
+        },
+        mapping = {
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() and has_words_before() then
+              cmp.confirm { select = true }
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          -- <C-n> and <C-p> for navigating snippets
+          ["<C-n>"] = cmp.mapping(function()
+            if luasnip.jumpable(1) then luasnip.jump(1) end
+          end, { "i", "s" }),
+          ["<C-p>"] = cmp.mapping(function()
+            if luasnip.jumpable(-1) then luasnip.jump(-1) end
+          end, { "i", "s" }),
+        },
+        experimental = { ghost_text = true },
+      })
     end,
   },
   {
