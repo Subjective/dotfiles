@@ -1,0 +1,1 @@
+-- List of language servers to guarantee the lspconfig setup is never called on automatically

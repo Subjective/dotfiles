@@ -1,0 +1,1 @@
+-- Modify the default LSP flags table
