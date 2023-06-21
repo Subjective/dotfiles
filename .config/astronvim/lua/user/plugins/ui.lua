@@ -133,8 +133,8 @@ return {
         { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
         { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
         { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
-        { filter = { event = "msg_show", find = "^/" }, opts = { skip = true } }, -- skip search not found notifications
-        { filter = { event = "msg_show", find = "^?" }, opts = { skip = true } }, -- skip search not found notifications
+        { filter = { event = "msg_show", find = "^?.+%s$" }, opts = { skip = true } }, -- skip search not found notifications
+        { filter = { event = "msg_show", find = "^/.+%s$" }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
         { filter = { event = "msg_show", find = "^no targets$" }, opts = { skip = true } }, -- skip flit notifications
         {
