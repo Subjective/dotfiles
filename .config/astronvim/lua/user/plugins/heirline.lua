@@ -1,26 +1,24 @@
-local harpoon_components = {}
-harpoon_components.index = {
-  provider = function()
-    local Marked = require "harpoon.mark"
-    local filename = vim.api.nvim_buf_get_name(0)
-    local success, index = pcall(Marked.get_index_of, filename)
-    if success and index and index > 0 then
-      return "󱡀 " .. index .. " "
-    else
-      return
-    end
-  end,
-}
-
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
     local status = require "astronvim.utils.status"
+
+    status.component.grapple = {
+      provider = function()
+        local success, key = pcall(require("grapple").key, { buffer = 0 })
+        if success and key and key > 0 then
+          return " [" .. key .. "]"
+        else
+          return
+        end
+      end,
+    }
+
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode(),
       status.component.git_branch(),
-      harpoon_components.index,
+      status.component.grapple,
       status.component.file_info {
         filetype = false,
         filename = false,

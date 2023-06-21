@@ -66,15 +66,14 @@ return {
   { import = "astrocommunity.media.vim-wakatime" },
 
   -- motion
-  { import = "astrocommunity.motion.harpoon" },
+  { import = "astrocommunity.motion.grapple-nvim" },
   {
-    "ThePrimeagen/harpoon",
-    event = "VeryLazy",
+    "cbochs/grapple.nvim",
     keys = {
-      { "<leader>1", function() require("harpoon.ui").nav_file(1) end, desc = "which_key_ignore" },
-      { "<leader>2", function() require("harpoon.ui").nav_file(2) end, desc = "which_key_ignore" },
-      { "<leader>4", function() require("harpoon.ui").nav_file(4) end, desc = "which_key_ignore" },
-      { "<leader>3", function() require("harpoon.ui").nav_file(3) end, desc = "which_key_ignore" },
+      { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "which_key_ignore" },
+      { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "which_key_ignore" },
+      { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "which_key_ignore" },
+      { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "which_key_ignore" },
     },
   },
   { import = "astrocommunity.motion.leap-nvim" },
