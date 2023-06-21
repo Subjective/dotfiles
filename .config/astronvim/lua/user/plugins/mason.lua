@@ -1,12 +1,4 @@
 local utils = require "astronvim.utils"
-function utils.list_remove(tbl, vals)
-  if type(vals) ~= "table" then vals = { vals } end
-  for _, val in ipairs(vals) do
-    for i = #tbl, 1, -1 do
-      if tbl[i] == val then table.remove(tbl, i) end
-    end
-  end
-end
 
 return {
   -- use mason-lspconfig to configure LSP installations
@@ -31,8 +23,6 @@ return {
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add to opts.ensure_installed using vim.list_extend.
       utils.list_insert_unique(opts.ensure_installed, { "stylua" })
-      -- Remove lsps added by an astrocommunity language pack
-      utils.list_remove(opts.ensure_installed, { "rustywind" })
       -- run setup
       mason_null_ls.setup(opts)
     end,
