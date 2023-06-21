@@ -86,4 +86,20 @@ return {
     opts = { ignore_lsp = { "lua_ls", "texlab" } },
     keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
   },
+
+  -- markdown and latex
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  {
+    "iamcco/markdown-preview.nvim",
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function(event)
+          require("which-key").register({
+            ["p"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
+          }, { prefix = "<localleader>", buffer = event.buf })
+        end,
+      })
+    end,
+  },
 }
