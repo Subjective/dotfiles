@@ -1,4 +1,4 @@
-local astro_utils = require "astronvim.utils" --  astronvim utils
+local astro_utils = require "astronvim.utils"
 
 return {
   "AstroNvim/astrocommunity",
@@ -35,17 +35,12 @@ return {
     },
   },
 
-  -- ui
-  { import = "astrocommunity.editing-support.todo-comments-nvim" },
-  { import = "astrocommunity.editing-support.zen-mode-nvim" },
-  {
-    "folke/zen-mode.nvim",
-    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
-  },
-  { import = "astrocommunity.media.vim-wakatime" },
+  -- indent
+  { import = "astrocommunity.indent.indent-tools-nvim" },
 
   -- editor
-  { import = "astrocommunity.indent.indent-tools-nvim" },
+  { import = "astrocommunity.editing-support.todo-comments-nvim" },
+
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   {
     "ThePrimeagen/refactoring.nvim",
@@ -61,6 +56,15 @@ return {
     end,
   },
 
+  { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  {
+    "folke/zen-mode.nvim",
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
+  },
+
+  -- media
+  { import = "astrocommunity.media.vim-wakatime" },
+
   -- motion
   { import = "astrocommunity.motion.harpoon" },
   {
@@ -75,15 +79,11 @@ return {
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.flit-nvim" },
 
-  -- organization
+  -- project
   { import = "astrocommunity.project.project-nvim" },
   {
     "ahmedkhalf/project.nvim",
-    keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
-  },
-
-  {
-    "ahmedkhalf/project.nvim",
     opts = { ignore_lsp = { "lua_ls", "texlab" } },
+    keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
   },
 }
