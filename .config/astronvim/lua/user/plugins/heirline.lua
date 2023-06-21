@@ -7,7 +7,7 @@ return {
       provider = function()
         local success, key = pcall(require("grapple").key, { buffer = 0 })
         if success and key and key > 0 then
-          return " [" .. key .. "]"
+          return " " .. key .. " "
         else
           return
         end
