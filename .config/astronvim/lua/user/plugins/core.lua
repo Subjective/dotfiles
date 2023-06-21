@@ -34,7 +34,18 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-calc",
-      "js-everts/cmp-tailwind-colors",
+      {
+        "js-everts/cmp-tailwind-colors",
+        opts = {
+          format = function(itemColor)
+            return {
+              fg = itemColor,
+              bg = itemColor,
+              text = " ",
+            }
+          end,
+        },
+      },
       "kdheepak/cmp-latex-symbols",
     },
     opts = function(_, opts)
@@ -57,7 +68,7 @@ return {
       opts.formatting.format = function(entry, item)
         if item.kind == "Color" then
           item = require("cmp-tailwind-colors").format(entry, item)
-          item.kind = ""
+          if item.kind == "Color" then item.kind = "" end
           return item
         end
         return format_kinds(entry, item)
