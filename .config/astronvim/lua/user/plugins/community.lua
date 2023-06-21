@@ -69,6 +69,7 @@ return {
   { import = "astrocommunity.motion.harpoon" },
   {
     "ThePrimeagen/harpoon",
+    event = "VeryLazy",
     keys = {
       { "<leader>1", function() require("harpoon.ui").nav_file(1) end, desc = "which_key_ignore" },
       { "<leader>2", function() require("harpoon.ui").nav_file(2) end, desc = "which_key_ignore" },
