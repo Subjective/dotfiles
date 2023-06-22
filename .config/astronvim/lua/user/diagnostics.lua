@@ -2,4 +2,5 @@
 return {
   underline = true,
   update_in_insert = false,
+  signs = false,
 }
