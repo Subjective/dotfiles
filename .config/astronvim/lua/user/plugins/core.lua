@@ -75,6 +75,7 @@ return {
       end
 
       return require("astronvim.utils").extend_tbl(opts, {
+        -- tab completion
         mapping = {
           -- <C-n> and <C-p> for navigating snippets
           ["<C-n>"] = cmp.mapping(function()
@@ -83,6 +84,9 @@ return {
           ["<C-p>"] = cmp.mapping(function()
             if luasnip.jumpable(-1) then luasnip.jump(-1) end
           end, { "i", "s" }),
+        },
+        completion = {
+          completeopt = "menu,menuone",
         },
         experimental = { ghost_text = true },
       })
