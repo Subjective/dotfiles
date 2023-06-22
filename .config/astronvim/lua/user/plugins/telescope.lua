@@ -51,4 +51,5 @@ return {
     telescope.load_extension "file_browser"
     telescope.load_extension "undo"
   end,
+  keys = { { "<leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Git commits (buffer)" } },
 }
