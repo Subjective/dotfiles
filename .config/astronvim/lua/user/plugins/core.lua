@@ -69,23 +69,12 @@ return {
       end
 
       local luasnip = require "luasnip"
-      local function has_words_before()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
-      end
 
       return require("astronvim.utils").extend_tbl(opts, {
         mapping = {
-          -- tab completion
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() and has_words_before() then
-              cmp.confirm { select = true }
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
+          -- Accept currently selected item. If none selected, `select` first item.
+          -- Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = cmp.mapping.confirm { select = true },
           -- <C-n> and <C-p> for navigating snippets
           ["<C-n>"] = cmp.mapping(function()
             if luasnip.jumpable(1) then luasnip.jump(1) end
@@ -94,10 +83,9 @@ return {
             if luasnip.jumpable(-1) then luasnip.jump(-1) end
           end, { "i", "s" }),
         },
-        -- completion = {
-        --   completeopt = "menu,menuone",
-        -- },
-        experimental = { ghost_text = true },
+        experimental = {
+          ghost_text = true,
+        },
       })
     end,
   },
