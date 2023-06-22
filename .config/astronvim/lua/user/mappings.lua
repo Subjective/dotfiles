@@ -63,7 +63,7 @@ return {
     -- hide winbar in local buffer
     ["<leader>uW"] = {
       function() vim.opt_local.winbar = nil end,
-      desc = "Hide winbar (local)",
+      desc = "Hide winbar (buffer)",
     },
     ["<leader>uI"] = {
       function()
