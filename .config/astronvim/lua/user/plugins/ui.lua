@@ -163,11 +163,6 @@ return {
           },
           view = "mini",
         },
-        -- long messages will be sent to a split
-        {
-          filter = { event = "msg_show", min_height = 20 },
-          view = "cmdline_output",
-        },
       },
     },
     keys = { { "<leader>fn", function() require("noice").cmd "telescope" end, desc = "Find notifications" } },
