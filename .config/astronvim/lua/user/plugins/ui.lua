@@ -153,6 +153,7 @@ return {
           filter = {
             event = "msg_show",
             any = {
+              { find = "^(%d+ lines [><]ed %d+ time)$" }, -- show indent notifications in mini view
               { find = "^%d+ more lines$" }, -- show paste notifications in mini view
               { find = "^%d+ fewer lines$" }, -- show delete notifications in mini view
               { find = "^%d+ lines yanked" }, -- show yank notifications in mini view
