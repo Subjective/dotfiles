@@ -9,7 +9,11 @@ return {
   n = {
     -- disable quick save
     ["<C-s>"] = false,
+    -- clear search highlights
     ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr>", desc = "Clear search highlights" },
+    -- yank to system clipboard
+    ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
+    ["<leader>Y"] = { '"+Y', desc = "Yank line to clipboard" },
     -- better increment/decrement
     ["<C-->"] = { "<c-x>", desc = "Decrement number" },
     ["<C-=>"] = { "<c-a>", desc = "Increment number" },
@@ -117,6 +121,8 @@ return {
     -- ["<esc>"] = false,
   },
   x = {
+    -- yank to system clipboard
+    ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
     ["<leader>s"] = {
       function() require("spectre").open_visual() end,
       desc = "Spectre",
