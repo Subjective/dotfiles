@@ -143,9 +143,6 @@ return {
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
       routes = {
-        { filter = { event = "msg_show", find = "^%d+ more lines$" }, opts = { skip = true } }, -- skip paste notifications
-        { filter = { event = "msg_show", find = "^%d+ fewer lines$" }, opts = { skip = true } }, -- skip delete notifications
-        { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
         { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
         { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
         { filter = { event = "msg_show", find = "^?.+%s$" }, opts = { skip = true } }, -- skip search not found notifications
@@ -156,6 +153,9 @@ return {
           filter = {
             event = "msg_show",
             any = {
+              { find = "^%d+ more lines$" }, -- show paste notifications in mini view
+              { find = "^%d+ fewer lines$" }, -- show delete notifications in mini view
+              { find = "^%d+ lines yanked" }, -- show yank notifications in mini view
               { find = "%d+L, %d+B" }, -- show skip notifications in mini view
               { find = "; after #%d+" }, -- show redo notifications in mini view
               { find = "; before #%d+" }, -- show undo notifications in mini view
