@@ -10,6 +10,7 @@ return {
     swapfile = false,
     list = true, -- show whitespace characters
     listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+    clipboard = "",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
