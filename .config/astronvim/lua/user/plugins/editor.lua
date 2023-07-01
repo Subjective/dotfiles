@@ -3,12 +3,10 @@ local astro_utils = require "astronvim.utils"
 return {
   {
     "kylechui/nvim-surround",
-    lazy = false,
-    config = function()
-      require("nvim-surround").setup {
-        indent_lines = false,
-      }
-    end,
+    event = "VeryLazy",
+    opts = {
+      indent_lines = false,
+    },
   },
   {
     "folke/flash.nvim",
