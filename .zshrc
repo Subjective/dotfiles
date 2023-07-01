@@ -169,7 +169,7 @@ export FZF_DEFAULT_OPTS=" \
 # defer evals and cache the results on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`)
 zsh-defer _evalcache fnm env --use-on-cd
 zsh-defer _evalcache pyenv init -
-zsh-defer _evalcache rbenv init - zsh
+zsh-defer _evalcache rbenv init -
 zsh-defer _evalcache zoxide init zsh
 
 
