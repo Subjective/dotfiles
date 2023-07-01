@@ -22,7 +22,7 @@ return {
     ui_notifications_enabled = true, -- enable notifications
     resession_enabled = true,
     inlay_hints_enabled = true,
-    semantic_tokens_enabled = false,
+    semantic_tokens_enabled = true,
   },
 }
 -- If you need more control, you can use the function()...end notation
