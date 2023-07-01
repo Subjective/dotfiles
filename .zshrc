@@ -255,7 +255,7 @@ vp() {
   fi
 }
 
-# function to guage zsh's startup time
+# function to gauge zsh's startup time
 function timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
