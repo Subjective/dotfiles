@@ -7,4 +7,5 @@ return {
   GitSignsCurrentLineBlame = { fg = nontext.fg, italic = true }, -- italicize git blame virtual text
   HighlightURL = { undercurl = true }, -- always underline URLs
   OctoEditable = { fg = "NONE", bg = "NONE" }, -- use treesitter for octo.nvim highlighting
+  LeapBackdrop = { link = "Comment" }, -- gray out the search area when leaping
 }
