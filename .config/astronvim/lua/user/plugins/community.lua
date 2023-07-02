@@ -84,14 +84,6 @@ return {
       { "<leader><leader>x", "<cmd>GrappleReset<cr><cmd>redrawstatus<cr>", desc = "Clear tags from current project" },
     },
   },
-  { import = "astrocommunity.motion.leap-nvim" },
-  { import = "astrocommunity.motion.flit-nvim" },
-  {
-    "ggandor/flit.nvim",
-    opts = {
-      multiline = false,
-    },
-  },
 
   -- project
   { import = "astrocommunity.project.project-nvim" },

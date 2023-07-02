@@ -7,16 +7,44 @@ return {
     opts = {
       indent_lines = false,
       keymaps = {
-        insert = "<C-g>z",
-        insert_line = "g<C-g>gZ",
-        normal = "gz",
-        normal_cur = "gZ",
-        normal_line = "gzz",
-        normal_cur_line = "gZZ",
-        visual = "gz",
-        visual_line = "gZ",
-        delete = "gzd",
-        change = "gzr",
+        insert = "<C-g>s",
+        insert_line = "g<C-g>gS",
+        normal = "gs",
+        normal_cur = "gS",
+        normal_line = "gss",
+        normal_cur_line = "gSS",
+        visual = "gs",
+        visual_line = "gS",
+        delete = "gsd",
+        change = "gsr",
+      },
+    },
+  },
+  {
+    "ggandor/leap.nvim",
+    keys = {
+      { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
+      { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
+      { "zS", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
+    },
+    opts = {},
+    dependencies = {
+      {
+        "ggandor/flit.nvim",
+        keys = function()
+          ---@type LazyKeys[]
+          local ret = {}
+          for _, key in ipairs { "f", "F", "t", "T" } do
+            ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
+          end
+          return ret
+        end,
+        opts = {
+          labeled_modes = "nx",
+          multiline = false,
+        },
       },
     },
   },
