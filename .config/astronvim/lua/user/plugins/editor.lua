@@ -30,7 +30,9 @@ return {
       { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
       { "zS", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
     },
-    opts = {},
+    opts = {
+      highlight_unlabeled_phase_one_targets = true,
+    },
     dependencies = {
       {
         "ggandor/flit.nvim",
