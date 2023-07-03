@@ -8,8 +8,6 @@ return {
     wrap = false, -- sets vim.opt.wrap
     conceallevel = 2,
     swapfile = false,
-    list = true, -- show whitespace characters
-    listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     clipboard = "",
   },
   g = {
