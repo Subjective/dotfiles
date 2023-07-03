@@ -28,6 +28,7 @@ return {
             warnings = { "undercurl" },
             information = { "undercurl" },
           },
+          inlay_hints = { background = false },
         },
         leap = true,
         octo = true,
