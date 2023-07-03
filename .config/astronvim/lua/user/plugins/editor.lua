@@ -8,7 +8,7 @@ return {
       indent_lines = false,
       keymaps = {
         insert = "<C-g>s",
-        insert_line = "g<C-g>gS",
+        insert_line = "<C-g>S",
         normal = "gs",
         normal_cur = "gss",
         normal_line = "gS",
