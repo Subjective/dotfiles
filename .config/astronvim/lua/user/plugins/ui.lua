@@ -166,6 +166,6 @@ return {
         },
       },
     },
-    keys = { { "<leader>fn", function() require("noice").cmd "telescope" end, desc = "Find notifications" } },
+    keys = { { "<leader>fN", function() require("noice").cmd "telescope" end, desc = "Find Noice" } },
   },
 }
