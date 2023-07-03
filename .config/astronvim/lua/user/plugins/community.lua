@@ -63,17 +63,40 @@ return {
   { import = "astrocommunity.media.vim-wakatime" },
 
   -- code-runner
-  { import = "astrocommunity.code-runner.sniprun" },
+  {
+    init = function() astro_utils.set_mappings { n = { ["<leader>R"] = { name = " Run" } } } end,
+    "CRAG666/code_runner.nvim",
+    cmd = { "RunCode", "RunFile", "RunProject", "RunClose", "CRFiletype", "CRProjects" },
+    keys = {
+      { "<leader>Rf", "<cmd>RunFile<cr>", desc = "Run File" },
+      { "<leader>Rc", "<cmd>RunClose<cr>", desc = "Close Runner" },
+      { "<leader>Rp", "<cmd>RunProject<cr>", desc = "Run Project" },
+    },
+    opts = {},
+  },
+
+  {
+    import = "astrocommunity.code-runner.sniprun",
+  },
+  {
+    "michaelb/sniprun",
+    init = function() astro_utils.set_mappings { n = { ["<leader>Rs"] = { name = " SnipRun" } } } end,
+    keys = {
+      { "<leader>R", ":SnipRun<cr>", silent = true, mode = "x", desc = "Run Snippet" },
+      { "<leader>Rsc", "<cmd>SnipClose<cr>", desc = "Close" },
+      { "<leader>Rsi", "<cmd>SnipInfo<cr>", desc = "Info" },
+      { "<leader>Rsx", "<cmd>SnipReplMemoryClean<cr>", desc = "Clean REPL Memory" },
+      { "<leader>Rsr", "<cmd>SnipReset<cr>", desc = "Reset" },
+    },
+  },
+
+  { import = "astrocommunity.code-runner.compiler-nvim" },
 
   -- motion
   { import = "astrocommunity.motion.grapple-nvim" },
   {
     "cbochs/grapple.nvim",
-    init = function()
-      astro_utils.set_mappings {
-        n = { ["<leader><leader>"] = { name = "󰛢 Grapple" } },
-      }
-    end,
+    init = function() astro_utils.set_mappings { n = { ["<leader><leader>"] = { name = "󰛢 Grapple" } } } end,
     keys = {
       { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "which_key_ignore" },
       { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "which_key_ignore" },
