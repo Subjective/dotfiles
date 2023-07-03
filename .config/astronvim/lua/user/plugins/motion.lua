@@ -62,7 +62,7 @@ return {
       },
       {
         "R",
-        mode = { "o", "x" },
+        mode = "o",
         function() require("flash").treesitter_search() end,
         desc = "Flash Treesitter Search",
       },
