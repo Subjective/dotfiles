@@ -27,26 +27,17 @@ return {
       labeled_modes = "nxo",
       multiline = false,
     },
-    dependencies = {
-      "ggandor/leap.nvim",
-    },
   },
   {
     "ggandor/leap-spooky.nvim",
     event = "VeryLazy",
     opts = {},
-    dependencies = {
-      "ggandor/leap.nvim",
-    },
   },
   {
     "ggandor/leap-ast.nvim",
     keys = {
       { "<C-s>", 'v<cmd>lua require("leap-ast").leap()<cr>', "Leap Treesitter" },
       { "<C-s>", mode = { "x", "o" }, function() require("leap-ast").leap() end, "Leap Treesitter" },
-    },
-    dependencies = {
-      "ggandor/leap.nvim",
     },
   },
 }
