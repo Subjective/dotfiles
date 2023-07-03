@@ -49,6 +49,9 @@ return {
           multiline = false,
         },
       },
+      {
+        "tpope/vim-repeat",
+      },
     },
   },
   {
