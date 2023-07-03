@@ -27,17 +27,38 @@ return {
       labeled_modes = "nxo",
       multiline = false,
     },
+    dependencies = {
+      "ggandor/leap.nvim",
+    },
   },
   {
-    "ggandor/leap-spooky.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
-    "ggandor/leap-ast.nvim",
+    "folke/flash.nvim",
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        },
+        char = {
+          enabled = false,
+        },
+      },
+      prompt = {
+        enabled = false,
+      },
+    },
     keys = {
-      { "<C-s>", 'v<cmd>lua require("leap-ast").leap()<cr>', "Leap Treesitter" },
-      { "<C-s>", mode = { "x", "o" }, function() require("leap-ast").leap() end, "Leap Treesitter" },
+      {
+        "<c-s>",
+        mode = { "n", "o", "x" },
+        function() require("flash").treesitter() end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function() require("flash").remote() end,
+        desc = "Remote Flash",
+      },
     },
   },
 }
