@@ -128,11 +128,11 @@ return {
       function() require("spectre").open_visual() end,
       desc = "Spectre",
     },
+    -- don't replace yank buffer when pasting over selection
+    ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
     -- move lines up and down
     J = { ":m '>+1<CR>gv=gv", silent = true },
     K = { ":m '<-2<CR>gv=gv", silent = true },
-    -- don't replace yank buffer when pasting over selection
-    ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
     -- better increment/decrement
     ["<C-->"] = { "g<C-a>", desc = "Increment number" },
     ["<C-=>"] = { "g<C-x>", desc = "Decrement number" },
