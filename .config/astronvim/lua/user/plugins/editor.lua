@@ -43,6 +43,10 @@ return {
         },
       },
       {
+        "ggandor/leap-spooky.nvim",
+        opts = {},
+      },
+      {
         "tpope/vim-repeat",
       },
     },
