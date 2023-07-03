@@ -23,6 +23,7 @@ return {
   },
   {
     "ggandor/leap.nvim",
+    event = "VeryLazy",
     keys = {
       { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
       { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
@@ -36,14 +37,6 @@ return {
     dependencies = {
       {
         "ggandor/flit.nvim",
-        keys = function()
-          ---@type LazyKeys[]
-          local ret = {}
-          for _, key in ipairs { "f", "F", "t", "T" } do
-            ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
-          end
-          return ret
-        end,
         opts = {
           labeled_modes = "nx",
           multiline = false,
