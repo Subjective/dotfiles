@@ -33,6 +33,9 @@ return {
         leap = true,
         octo = true,
       },
+      custom_highlights = {
+        LspInlayHint = { style = { "italic" } },
+      },
     },
   },
 
