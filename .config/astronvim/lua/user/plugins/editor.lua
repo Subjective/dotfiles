@@ -62,6 +62,16 @@ return {
     },
   },
   {
+    "ggandor/leap-ast.nvim",
+    keys = {
+      { "<C-s>", 'v<cmd>lua require("leap-ast").leap()<cr>', "Leap Treesitter" },
+      { "<C-s>", mode = { "x", "o" }, function() require("leap-ast").leap() end, "Leap Treesitter" },
+    },
+    dependencies = {
+      "ggandor/leap.nvim",
+    },
+  },
+  {
     "folke/todo-comments.nvim",
     event = "User AstroFile",
     cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
