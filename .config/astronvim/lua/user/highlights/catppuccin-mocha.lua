@@ -1,5 +1,5 @@
 local mocha = require("catppuccin.palettes").get_palette "mocha"
---
+
 return {
   -- lightspeed-style highlighting
   LeapMatch = { fg = mocha.text, bold = true, nocombine = true },
