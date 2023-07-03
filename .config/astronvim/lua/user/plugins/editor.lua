@@ -47,6 +47,7 @@ return {
     opts = function()
       local prefix = "<leader>s"
       return {
+        open_cmd = "new",
         mapping = {
           send_to_qf = { map = prefix .. "q" },
           replace_cmd = { map = prefix .. "c" },
