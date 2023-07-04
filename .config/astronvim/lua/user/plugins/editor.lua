@@ -3,7 +3,7 @@ local astro_utils = require "astronvim.utils"
 return {
   {
     "kylechui/nvim-surround",
-    event = "VeryLazy",
+    event = "User AstroFile",
     opts = {
       indent_lines = false,
       keymaps = {
