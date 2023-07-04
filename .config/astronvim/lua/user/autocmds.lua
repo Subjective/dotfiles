@@ -18,7 +18,7 @@ vim.api.nvim_create_user_command("DotfilesGit", function()
     "(cd $HOME && git --work-tree=" .. vim.g.home_dir .. " --git-dir=" .. vim.g.home_dir .. "/.cfg ls-tree --name-only -r HEAD)"
   )
 
-  vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  vim.api.nvim_create_autocmd({ "User AstroFile" }, {
     pattern = { "*" },
     callback = function()
       local buftype_exclude = {
@@ -62,8 +62,9 @@ vim.api.nvim_create_user_command("DotfilesGit", function()
       end
     end,
   })
-
-  vim.cmd "silent! bufdo e"
+  require("gitsigns").detach()
+  require("gitsigns").attach()
+  require("gitsigns").refresh()
 end, {})
 
 -- automatically hide tabline when a single buffer is open
