@@ -48,8 +48,6 @@ return {
   { import = "astrocommunity.indent.indent-tools-nvim" },
 
   -- editor
-  { import = "astrocommunity.editing-support.todo-comments-nvim" },
-
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   {
     "ThePrimeagen/refactoring.nvim",
