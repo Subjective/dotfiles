@@ -9,6 +9,12 @@ return {
       { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
       { "zS", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
     },
+    config = function()
+      require("leap").add_repeat_mappings(";", ",", {
+        relative_directions = true,
+        modes = { "n", "x", "o" },
+      })
+    end,
     opts = {
       highlight_unlabeled_phase_one_targets = true,
     },
