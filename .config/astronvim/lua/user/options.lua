@@ -7,7 +7,6 @@ return {
     swapfile = false,
     clipboard = "",
     splitkeep = "screen",
-    showbreak = "↪ ",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
