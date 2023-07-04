@@ -15,9 +15,6 @@ return {
     local actions = require "telescope.actions"
     local fb_actions = require("telescope").extensions.file_browser.actions
     return require("astronvim.utils").extend_tbl(opts, {
-      defaults = {
-        results_title = "",
-      },
       extensions = {
         file_browser = {
           mappings = {
