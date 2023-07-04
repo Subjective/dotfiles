@@ -13,6 +13,7 @@ return {
     name = "catppuccin",
     opts = {
       integrations = {
+        telescope = { enabled = true, style = "nvchad" },
         noice = true,
         native_lsp = {
           enabled = true,
