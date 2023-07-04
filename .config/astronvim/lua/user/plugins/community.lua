@@ -30,12 +30,17 @@ return {
           },
           inlay_hints = { background = false },
         },
-        leap = true,
         octo = true,
       },
-      custom_highlights = {
-        LspInlayHint = { style = { "italic" } },
-      },
+      custom_highlights = function(colors)
+        return {
+          LspInlayHint = { style = { "italic" } },
+          -- lightspeed-style highlighting for leap
+          LeapMatch = { fg = colors.text, bold = true, nocombine = true },
+          LeapLabelPrimary = { fg = colors.pink, bold = true, nocombine = true },
+          LeapLabelSecondary = { fg = colors.blue, bold = true, nocombine = true },
+        }
+      end,
     },
   },
 
