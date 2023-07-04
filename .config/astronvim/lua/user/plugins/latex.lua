@@ -87,7 +87,7 @@ return {
           -- VimTeX Text Objects without variants with targets.vim
           opts = {
             mode = "o", -- Operator pending mode
-            buffer = vim.api.nvim_get_current_buf(),
+            buffer = event.buf,
           }
           local objects = {
             ["ic"] = [[LaTeX Command]],
