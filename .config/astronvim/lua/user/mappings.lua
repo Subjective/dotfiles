@@ -18,6 +18,19 @@ return {
     -- better increment/decrement
     ["<C-->"] = { "<c-x>", desc = "Decrement number" },
     ["<C-=>"] = { "<c-a>", desc = "Increment number" },
+    -- smart toggle-term
+    ["<leader>gg"] = {
+      function()
+        local git_dir = vim.env.GIT_DIR
+        local git_work_tree = vim.env.GIT_WORK_TREE
+        if git_dir and git_work_tree then
+          astro_utils.toggle_term_cmd("lazygit --git-dir=" .. git_dir .. " --work-tree=" .. git_work_tree)
+        else
+          astro_utils.toggle_term_cmd "lazygit"
+        end
+      end,
+      desc = "ToggleTerm lazygit",
+    },
     -- toggle-term dotfiles
     ["<leader>g."] = {
       function() astro_utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
