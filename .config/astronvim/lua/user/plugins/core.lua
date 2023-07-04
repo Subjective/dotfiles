@@ -16,10 +16,7 @@ return {
       }
     end,
   },
-  {
-    "lewis6991/gitsigns.nvim",
-    event = "User AstroFile",
-  },
+  { "max397574/better-escape.nvim", enabled = false },
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -29,7 +26,7 @@ return {
       require("luasnip.loaders.from_lua").load { paths = "~/.config/astronvim/lua/user/snippets/lua" } -- load lua snippets
     end,
   },
-  { -- override nvim-cmp plugin
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-calc",
