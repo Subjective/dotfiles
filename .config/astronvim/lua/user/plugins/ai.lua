@@ -48,10 +48,10 @@ return {
         x = { ["<leader>;r"] = { name = "ChatGPT: Run" } },
       }
     end,
-    config = function() require("chatgpt").setup() end,
+    opts = {},
     keys = {
       { "<leader>;C", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
-      { "<leader>;p", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT: Act As" },
+      { "<leader>;a", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT: Act As" },
       { "<leader>;c", "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT: Complete Code" },
       { "<leader>;e", "<cmd>ChatGPTEditWithInstructions<cr>", mode = { "n", "x" }, desc = "ChatGPT: Edit With Instructions" },
       { "<leader>;rg", "<cmd>ChatGPTRun grammar_correction<cr>", mode = { "n", "x" }, desc = "Grammar Correction" },
