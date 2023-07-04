@@ -1,20 +1,24 @@
--- don't auto comment new lines
-vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "*" }, command = "setlocal fo-=c fo-=r fo-=o" })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  desc = "Don't auto comment new lines",
+  group = vim.api.nvim_create_augroup("dotfiles_git", { clear = true }),
+  pattern = { "*" },
+  command = "setlocal fo-=c fo-=r fo-=o",
+})
 
--- text like documents enable wrap and spell
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "gitcommit", "markdown", "mdx", "text", "plaintex" },
+  desc = "Enable wrap and spell for text like documents",
   group = vim.api.nvim_create_augroup("auto_spell", { clear = true }),
+  pattern = { "gitcommit", "markdown", "mdx", "text", "plaintex" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
   end,
 })
 
--- set git repo for dotfiles
 vim.api.nvim_create_autocmd({ "User AstroFile" }, {
-  pattern = { "*" },
+  desc = "Configure git integration when editing dotfiles",
   group = vim.api.nvim_create_augroup("dotfiles_git", { clear = true }),
+  pattern = { "*" },
   callback = function()
     local home_dir = os.getenv "HOME"
     if not vim.g.dotfile_list then
@@ -40,9 +44,8 @@ vim.api.nvim_create_autocmd({ "User AstroFile" }, {
   end,
 })
 
--- automatically hide tabline when a single buffer is open
 -- vim.api.nvim_create_autocmd("User", {
---   desc = "Hide tabline when only one buffer and one tab",
+--   desc = "Hide tabline when only one buffer and one tab are open",
 --   pattern = "AstroBufsUpdated",
 --   group = vim.api.nvim_create_augroup("autohidetabline", { clear = true }),
 --   callback = function()
@@ -51,5 +54,9 @@ vim.api.nvim_create_autocmd({ "User AstroFile" }, {
 --   end,
 -- })
 
--- cleanup latexmk junk files upon exit
-vim.api.nvim_create_autocmd({ "User" }, { pattern = { "VimtexEventQuit" }, command = "VimtexClean" })
+vim.api.nvim_create_autocmd({ "User" }, {
+  desc = "Cleanup latexmk junk files upon exiting Vim",
+  group = vim.api.nvim_create_augroup("vimtex_autocleanup", { clear = true }),
+  pattern = { "VimtexEventQuit" },
+  command = "VimtexClean",
+})
