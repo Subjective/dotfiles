@@ -149,6 +149,7 @@ return {
         { filter = { event = "msg_show", find = "^/.+%s$" }, opts = { skip = true } }, -- skip search not found notifications
         { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
         { filter = { event = "msg_show", find = "^no targets$" }, opts = { skip = true } }, -- skip flit notifications
+        { filter = { event = "msg_show", find = "^not found: " }, opts = { skip = true } }, -- skip leap notifications
         {
           filter = {
             event = "msg_show",
