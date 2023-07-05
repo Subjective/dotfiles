@@ -28,7 +28,7 @@ autocmd({ "BufEnter" }, {
   callback = function(args)
     if vim.fn.expand "%" == "" or vim.api.nvim_get_option_value("buftype", { buf = args.buf }) == "nofile" then return end
 
-    local home_dir = os.getenv "HOME"
+    local home_dir = vim.env.HOME
 
     if not vim.g.dotfile_list then
       vim.g.dotfile_list =
