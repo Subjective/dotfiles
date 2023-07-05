@@ -15,6 +15,10 @@ return {
       })
       return {
         highlight_unlabeled_phase_one_targets = true,
+        special_keys = {
+          next_target = ";",
+          prev_target = ",",
+        },
       }
     end,
     dependencies = {
