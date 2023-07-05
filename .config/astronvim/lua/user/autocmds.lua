@@ -27,15 +27,18 @@ autocmd({ "BufEnter" }, {
   pattern = { "*" },
   callback = function(args)
     if vim.fn.expand "%" == "" or vim.api.nvim_get_option_value("buftype", { buf = args.buf }) == "nofile" then return end
+
     local home_dir = os.getenv "HOME"
+
     if not vim.g.dotfile_list then
-      vim.g.dotfile_list = vim.fn.system("git --work-tree=" .. home_dir .. " --git-dir=" .. home_dir .. "/.cfg ls-tree --name-only -r HEAD")
+      vim.g.dotfile_list =
+        vim.fn.system("cd $HOME && git --work-tree=" .. home_dir .. " --git-dir=" .. home_dir .. "/.cfg ls-tree --name-only -r HEAD")
     end
 
-    local buffer_file = vim.api.nvim_buf_get_name(0)
-    local buffer_relative_file = string.gsub(buffer_file, home_dir .. "/", "", 1)
+    local filename = vim.api.nvim_buf_get_name(0)
+    local relative_filename = string.gsub(filename, home_dir .. "/", "", 1)
 
-    if vim.fn.index(vim.fn.split(vim.g.dotfile_list, "\n"), buffer_relative_file) ~= -1 then
+    if vim.fn.index(vim.fn.split(vim.g.dotfile_list, "\n"), relative_filename) ~= -1 then
       vim.env.GIT_DIR = home_dir .. "/.cfg"
       vim.env.GIT_WORK_TREE = home_dir
       if not is_available "gitsigns" then pcall(require, "gitsigns") end
