@@ -32,7 +32,7 @@ autocmd({ "BufEnter" }, {
 
     if not vim.g.dotfile_list then
       vim.g.dotfile_list =
-        vim.fn.system("cd $HOME && git --work-tree=" .. home_dir .. " --git-dir=" .. home_dir .. "/.cfg ls-tree --name-only -r HEAD")
+        vim.fn.system("git -C $HOME --work-tree=" .. home_dir .. " --git-dir=" .. home_dir .. "/.cfg ls-tree --name-only -r HEAD")
     end
 
     local filename = vim.api.nvim_buf_get_name(0)
