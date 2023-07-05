@@ -108,6 +108,6 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    opts = { render = "minimal", timeout = 0 },
+    opts = { render = "default", timeout = 0 },
   },
 }
