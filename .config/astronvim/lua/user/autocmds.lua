@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "User AstroFile" }, {
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
   desc = "Configure git integration when editing dotfiles",
   group = vim.api.nvim_create_augroup("dotfiles_git", { clear = true }),
   pattern = { "*" },
@@ -37,6 +37,7 @@ vim.api.nvim_create_autocmd({ "User AstroFile" }, {
     if vim.fn.index(vim.fn.split(vim.g.dotfile_list, "\n"), buffer_relative_file) ~= -1 then
       vim.env.GIT_DIR = home_dir .. "/.cfg"
       vim.env.GIT_WORK_TREE = home_dir
+      pcall(require, "gitsigns")
     else
       vim.env.GIT_DIR = nil
       vim.env.GIT_WORK_TREE = nil
