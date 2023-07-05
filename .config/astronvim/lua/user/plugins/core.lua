@@ -80,9 +80,6 @@ return {
             if luasnip.jumpable(-1) then luasnip.jump(-1) end
           end, { "i", "s" }),
         },
-        experimental = {
-          ghost_text = true,
-        },
       })
     end,
   },
