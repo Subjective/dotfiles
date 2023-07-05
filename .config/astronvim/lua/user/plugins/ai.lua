@@ -50,9 +50,9 @@ return {
     end,
     opts = {},
     keys = {
-      { "<leader>;C", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
+      { "<leader>;c", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
       { "<leader>;a", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT: Act As" },
-      { "<leader>;c", "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT: Complete Code" },
+      { "<leader>;C", "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT: Complete Code" },
       { "<leader>;e", "<cmd>ChatGPTEditWithInstructions<cr>", mode = { "n", "x" }, desc = "ChatGPT: Edit With Instructions" },
       { "<leader>;rg", "<cmd>ChatGPTRun grammar_correction<cr>", mode = { "n", "x" }, desc = "Grammar Correction" },
       { "<leader>;rT", "<cmd>ChatGPTRun translate<cr>", mode = { "n", "x" }, desc = "Translate" },
