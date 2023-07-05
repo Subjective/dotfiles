@@ -1,9 +1,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local astro_utils = require "astronvim.utils"
-local is_available = astro_utils.is_available
-
 autocmd({ "FileType" }, {
   desc = "Don't auto comment new lines",
   group = augroup("dotfiles_git", { clear = true }),
@@ -18,38 +15,6 @@ autocmd("FileType", {
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
-  end,
-})
-
-autocmd({ "BufEnter" }, {
-  desc = "Configure git integration when editing dotfiles",
-  group = augroup("dotfiles_git", { clear = true }),
-  pattern = { "*" },
-  callback = function(args)
-    local filename = vim.api.nvim_buf_get_name(0)
-    if filename == "" or vim.api.nvim_get_option_value("buftype", { buf = args.buf }) == "nofile" then return end
-
-    local home_dir = vim.env.HOME
-
-    if
-      astro_utils.cmd({
-        "git",
-        "--work-tree",
-        home_dir,
-        "--git-dir",
-        home_dir .. "/.cfg",
-        "ls-files",
-        "--error-unmatch",
-        filename,
-      }, false)
-    then
-      vim.env.GIT_DIR = home_dir .. "/.cfg"
-      vim.env.GIT_WORK_TREE = home_dir
-      if not is_available "gitsigns" then pcall(require, "gitsigns") end
-    else
-      vim.env.GIT_DIR = nil
-      vim.env.GIT_WORK_TREE = nil
-    end
   end,
 })
 
