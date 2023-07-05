@@ -81,7 +81,7 @@ return {
         -- The default routes will forward notifications to nvim-notify
         -- Benefit of using Noice for this is the routing and consistent history view
         enabled = true,
-        view = "mini",
+        view = "notify",
       },
       lsp = {
         progress = {
@@ -142,6 +142,14 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
+      throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
+      ---@type NoiceConfigViews
+      views = {}, ---@see section on views
+      ---@type table<string, NoiceFilter>
+      status = {}, --- @see section on statusline components
+      ---@type NoiceFormatOptions
+      format = {}, --- @see section on formatting
+      ---@type NoiceRouteConfig[]
       routes = {
         { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
         { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
