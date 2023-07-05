@@ -19,6 +19,7 @@ return {
     resession_enabled = true,
     inlay_hints_enabled = true,
     semantic_tokens_enabled = true,
+    git_worktrees = { { toplevel = vim.env.HOME, gitdir = vim.env.HOME .. "/.cfg" } }, -- allow custom git_worktrees to be detected
   },
 }
 -- If you need more control, you can use the function()...end notation
