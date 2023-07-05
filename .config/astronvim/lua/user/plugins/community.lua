@@ -115,6 +115,12 @@ return {
     },
   },
 
+  { import = "astrocommunity.motion.portal-nvim" },
+  {
+    "cbochs/portal.nvim",
+    cmd = { "Portal" },
+  },
+
   -- project
   { import = "astrocommunity.project.project-nvim" },
   {
