@@ -16,9 +16,8 @@ return {
     diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
     icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     ui_notifications_enabled = true, -- enable notifications
-    resession_enabled = true,
-    inlay_hints_enabled = true,
-    semantic_tokens_enabled = true,
+    resession_enabled = true, -- enable resession
+    inlay_hints_enabled = true, -- enable lsp inlay hints
     git_worktrees = { { toplevel = vim.env.HOME, gitdir = vim.env.HOME .. "/.cfg" } }, -- allow custom git_worktrees to be detected
   },
 }
