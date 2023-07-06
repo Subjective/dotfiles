@@ -24,6 +24,7 @@ return {
       desc = "ToggleTerm lazygit dotfiles",
     },
     -- explorer bindings
+    ["<leader>o"] = false,
     ["<leader>E"] = {
       function()
         local function get_root()
