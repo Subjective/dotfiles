@@ -11,13 +11,6 @@ zmodule termtitle
 # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule utility
 
-### Custom Modules ###
-zmodule romkatv/zsh-defer -d
-zmodule mroth/evalcache
-zmodule zsh-vi-more/evil-registers
-zmodule ohmyzsh/ohmyzsh --root plugins/fzf
-zmodule fzf
-
 ### Prompt ###
 
 zmodule romkatv/powerlevel10k
@@ -34,4 +27,12 @@ zmodule completion
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 zmodule zsh-users/zsh-autosuggestions
+
+### Custom Modules ###
+
+zmodule romkatv/zsh-defer -d
+zmodule mroth/evalcache
 zmodule softmoth/zsh-vim-mode
+zmodule zsh-vi-more/evil-registers
+zmodule ohmyzsh/ohmyzsh --root plugins/fzf
+zmodule fzf
