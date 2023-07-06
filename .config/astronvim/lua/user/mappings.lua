@@ -3,7 +3,7 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
-local astro_utils = require "astronvim.utils"
+local utils = require "astronvim.utils"
 
 return {
   n = {
@@ -20,7 +20,7 @@ return {
     ["<C-=>"] = { "<c-a>", desc = "Increment number" },
     -- toggle-term dotfiles
     ["<leader>g."] = {
-      function() astro_utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
+      function() utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
       desc = "ToggleTerm lazygit dotfiles",
     },
     -- explorer bindings
@@ -73,7 +73,7 @@ return {
     ["<leader>uI"] = {
       function()
         vim.cmd "IndentBlanklineToggle"
-        astro_utils.notify("Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)")
+        utils.notify("Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)")
         vim.b.indentation_guides = not vim.b.indentation_guides
       end,
       desc = "Toggle indentation guides (buffer)",

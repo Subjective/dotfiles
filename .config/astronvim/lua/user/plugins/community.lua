@@ -1,4 +1,4 @@
-local astro_utils = require "astronvim.utils"
+local utils = require "astronvim.utils"
 
 return {
   "AstroNvim/astrocommunity",
@@ -52,7 +52,7 @@ return {
   {
     "ThePrimeagen/refactoring.nvim",
     init = function()
-      astro_utils.set_mappings {
+      utils.set_mappings {
         n = { ["<leader>r"] = { name = "󰑌 Refactor" } },
         x = { ["<leader>r"] = { name = "󰑌 Refactor" } },
       }
@@ -70,7 +70,7 @@ return {
 
   -- code-runner
   {
-    init = function() astro_utils.set_mappings { n = { ["<leader>R"] = { name = " Run" } } } end,
+    init = function() utils.set_mappings { n = { ["<leader>R"] = { name = " Run" } } } end,
     "CRAG666/code_runner.nvim",
     cmd = { "RunCode", "RunFile", "RunProject", "RunClose", "CRFiletype", "CRProjects" },
     keys = {
@@ -86,7 +86,7 @@ return {
   },
   {
     "michaelb/sniprun",
-    init = function() astro_utils.set_mappings { n = { ["<leader>Rs"] = { name = " SnipRun" } } } end,
+    init = function() utils.set_mappings { n = { ["<leader>Rs"] = { name = " SnipRun" } } } end,
     keys = {
       { "<leader>R", ":SnipRun<cr>", silent = true, mode = "x", desc = "Run Snippet" },
       { "<leader>Rsc", "<cmd>SnipClose<cr>", desc = "Close" },
@@ -102,7 +102,7 @@ return {
   { import = "astrocommunity.motion.grapple-nvim" },
   {
     "cbochs/grapple.nvim",
-    init = function() astro_utils.set_mappings { n = { ["<leader><leader>"] = { name = "󰛢 Grapple" } } } end,
+    init = function() utils.set_mappings { n = { ["<leader><leader>"] = { name = "󰛢 Grapple" } } } end,
     keys = {
       { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "which_key_ignore" },
       { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "which_key_ignore" },

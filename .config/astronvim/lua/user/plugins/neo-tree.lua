@@ -1,8 +1,8 @@
-local astro_utils = require "astronvim.utils"
+local utils = require "astronvim.utils"
 return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = function(_, opts)
-    opts.commands = astro_utils.extend_tbl(opts.commands, {
+    opts.commands = utils.extend_tbl(opts.commands, {
       -- allow set_root when bind_to_cwd is disabled
       set_cwd = function(state)
         local path = state.tree:get_node().path
@@ -36,7 +36,7 @@ return {
     })
 
     -- add new mappings to all windows
-    opts.window.mappings = astro_utils.extend_tbl(opts.window.mappings, {
+    opts.window.mappings = utils.extend_tbl(opts.window.mappings, {
       T = "trash",
       ["."] = "set_cwd",
       ["@"] = "set_root_to_home",

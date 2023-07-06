@@ -1,6 +1,6 @@
-local astro_utils = require "astronvim.utils"
+local utils = require "astronvim.utils"
 
-astro_utils.set_mappings {
+utils.set_mappings {
   n = { ["<leader>;"] = { name = "󰧑 AI Assistant" } },
   x = { ["<leader>;"] = { name = "󰧑 AI Assistant" } },
 }
@@ -25,7 +25,7 @@ return {
         "<leader>;;",
         function()
           vim.cmd.Codeium(vim.g.codeium_enabled == 0 and "Enable" or "Disable")
-          astro_utils.notify("Codeium " .. (vim.g.codeium_enabled == 0 and "Disabled" or "Enabled"))
+          utils.notify("Codeium " .. (vim.g.codeium_enabled == 0 and "Disabled" or "Enabled"))
         end,
         desc = "Toggle Codeium (global)",
       },
@@ -33,7 +33,7 @@ return {
         "<leader>;,",
         function()
           vim.cmd.Codeium(vim.b.codeium_enabled == 0 and "EnableBuffer" or "DisableBuffer")
-          astro_utils.notify("Codeium (buffer) " .. (vim.b.codeium_enabled == 0 and "Disabled" or "Enabled"))
+          utils.notify("Codeium (buffer) " .. (vim.b.codeium_enabled == 0 and "Disabled" or "Enabled"))
         end,
         desc = "Toggle Codeium (buffer)",
       },
@@ -43,7 +43,7 @@ return {
     "jackMort/ChatGPT.nvim",
     cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions", "ChatGPTRun" },
     init = function()
-      astro_utils.set_mappings {
+      utils.set_mappings {
         n = { ["<leader>;r"] = { name = "ChatGPT: Run" } },
         x = { ["<leader>;r"] = { name = "ChatGPT: Run" } },
       }

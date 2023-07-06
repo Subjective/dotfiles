@@ -1,4 +1,4 @@
-local astro_utils = require "astronvim.utils"
+local utils = require "astronvim.utils"
 
 return {
   {
@@ -30,7 +30,7 @@ return {
   {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
-    init = function() astro_utils.set_mappings { n = { ["<leader>T"] = { name = "󰔫 Trouble" } } } end,
+    init = function() utils.set_mappings { n = { ["<leader>T"] = { name = "󰔫 Trouble" } } } end,
     keys = {
       { "<leader>Tr", "<cmd>Trouble lsp_references<cr>", desc = "References" },
       { "<leader>Tf", "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
@@ -59,7 +59,7 @@ return {
         },
       }
     end,
-    init = function() astro_utils.set_mappings { n = { ["<leader>s"] = { desc = "󰛔 Search/Replace" } } } end,
+    init = function() utils.set_mappings { n = { ["<leader>s"] = { desc = "󰛔 Search/Replace" } } } end,
     keys = {
       { "<leader>ss", function() require("spectre").open() end, desc = "Spectre" },
       { "<leader>sf", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
@@ -77,7 +77,7 @@ return {
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
     },
-    init = function() astro_utils.set_mappings { n = { ["<leader>a"] = { desc = "󰏫 Annotate" } } } end,
+    init = function() utils.set_mappings { n = { ["<leader>a"] = { desc = "󰏫 Annotate" } } } end,
     keys = {
       { "<leader>a<cr>", function() require("neogen").generate { type = "current" } end, desc = "Current" },
       { "<leader>ac", function() require("neogen").generate { type = "class" } end, desc = "Class" },

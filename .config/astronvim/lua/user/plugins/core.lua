@@ -1,4 +1,5 @@
 local utils = require "astronvim.utils"
+
 return {
   {
     "goolord/alpha-nvim",
@@ -30,6 +31,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-calc",
+      "kdheepak/cmp-latex-symbols",
       {
         "js-everts/cmp-tailwind-colors",
         opts = {
@@ -42,7 +44,6 @@ return {
           end,
         },
       },
-      "kdheepak/cmp-latex-symbols",
     },
     opts = function(_, opts)
       local cmp = require "cmp"
@@ -67,7 +68,7 @@ return {
 
       local luasnip = require "luasnip"
 
-      return require("astronvim.utils").extend_tbl(opts, {
+      return utils.extend_tbl(opts, {
         mapping = {
           -- Accept currently selected item. If none selected, `select` first item.
           -- Set `select` to `false` to only confirm explicitly selected items.
