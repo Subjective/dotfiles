@@ -125,7 +125,6 @@ return {
   { import = "astrocommunity.project.project-nvim" },
   {
     "jay-babu/project.nvim",
-    opts = { ignore_lsp = { "lua_ls", "texlab" } },
     keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
   },
 
