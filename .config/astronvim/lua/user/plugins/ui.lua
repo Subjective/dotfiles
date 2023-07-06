@@ -151,13 +151,22 @@ return {
       format = {}, --- @see section on formatting
       ---@type NoiceRouteConfig[]
       routes = {
-        { filter = { event = "msg_show", find = "^%d+ lines moved$" }, opts = { skip = true } }, -- skip line move notifications
-        { filter = { event = "msg_show", find = "^%d+ lines indented $" }, opts = { skip = true } }, -- skip line indent notifications
-        { filter = { event = "msg_show", find = "^?.+%s$" }, opts = { skip = true } }, -- skip search not found notifications
-        { filter = { event = "msg_show", find = "^/.+%s$" }, opts = { skip = true } }, -- skip search not found notifications
-        { filter = { event = "msg_show", find = "--No lines in buffer--" }, opts = { skip = true } }, -- skip "no lines in buffer" notification
-        { filter = { event = "msg_show", find = "^no targets$" }, opts = { skip = true } }, -- skip flit notifications
-        { filter = { event = "msg_show", find = "^not found: " }, opts = { skip = true } }, -- skip leap notifications
+        {
+          filter = {
+            event = "msg_show",
+            any = {
+              { find = "^%d+ lines moved$" }, -- skip line move notifications
+              { find = "^%d+ lines indented $" }, -- skip line indent notifications
+              { find = "^?.+%s$" }, -- skip search not found notifications
+              { find = "^/.+%s$" }, -- skip search not found notifications
+              { find = "--No lines in buffer--" }, -- skip "no lines in buffer" notification
+              { find = "^no targets$" }, -- skip flit notifications
+              { find = "^not found: " }, -- skip leap notifications
+              { find = "^no previous search$" }, -- skip leap notifications
+            },
+          },
+          opts = { skip = true },
+        },
         {
           filter = {
             event = "msg_show",
