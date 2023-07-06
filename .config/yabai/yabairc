@@ -137,7 +137,7 @@ yabai -m rule --add app="^Arc$" title="^$" mouse_follows_focus=off
 yabai -m rule --add app="^Arc$" title="^Space 1$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
-
+yabai -m rule --add app="^LinearMouse$" manage=off
 
 # make all non-resizeable windows float (#1317)
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
