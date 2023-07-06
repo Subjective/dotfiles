@@ -48,16 +48,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
-# Disable copying to clipboard by default
-ZSH_SYSTEM_CLIPBOARD_DISABLE_DEFAULT_MAPS=1
-
 # Configure zsh-vim-mode
 VIM_MODE_NO_DEFAULT_BINDINGS=true
 MODE_CURSOR_VIINS="blinking bar"
 MODE_CURSOR_VISUAL="block"
-
-# Set vi-mode timeout to eliminate lag
-KEYTIMEOUT=1
 
 # ------------------
 # Initialize modules
@@ -98,8 +92,12 @@ for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 
-# vi-mode bindings
-bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
+## Vi-Mode ##
+
+# Set vi-mode timeout to eliminate lag
+KEYTIMEOUT=1
+# remap `vv` to `Ctrl-V`
+bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line 
 # allow ctrl-a and ctrl-e to move to beginning/end of line
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
@@ -108,24 +106,6 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^u' backward-kill-line
-
-# yank to clipboard with space as prefix key
-function () {
-	local binded_keys i parts key cmd keymap
-	for keymap in vicmd visual emacs; do
-		binded_keys=(${(f)"$(bindkey -M $keymap)"})
-		for (( i = 1; i < ${#binded_keys[@]}; ++i )); do
-			parts=("${(z)binded_keys[$i]}")
-			key="${parts[1]}"
-			cmd="${parts[2]}"
-			if (( $+functions[zsh-system-clipboard-$keymap-$cmd] )); then
-				eval bindkey -M $keymap \"\ \"$key zsh-system-clipboard-$keymap-$cmd
-			fi
-		done
-	done
-
-  bindkey -ar " "
-}
 
 # ------------------
 # User configuration 

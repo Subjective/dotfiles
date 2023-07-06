@@ -13,10 +13,10 @@ zmodule utility
 
 ### Custom Modules ###
 zmodule romkatv/zsh-defer -d
-zmodule kutsan/zsh-system-clipboard
+zmodule mroth/evalcache
+zmodule zsh-vi-more/evil-registers
 zmodule ohmyzsh/ohmyzsh --root plugins/fzf
 zmodule fzf
-zmodule mroth/evalcache
 
 ### Prompt ###
 
