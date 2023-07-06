@@ -48,6 +48,17 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
+# Disable copying to clipboard by default
+ZSH_SYSTEM_CLIPBOARD_DISABLE_DEFAULT_MAPS=1
+
+# Configure zsh-vim-mode
+VIM_MODE_NO_DEFAULT_BINDINGS=true
+MODE_CURSOR_VIINS="blinking bar"
+MODE_CURSOR_VISUAL="block"
+
+# Set vi-mode timeout to eliminate lag
+KEYTIMEOUT=1
+
 # ------------------
 # Initialize modules
 # ------------------
@@ -87,6 +98,35 @@ for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 
+# vi-mode bindings
+bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
+# allow ctrl-a and ctrl-e to move to beginning/end of line
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+# allow ctrl-h, ctrl-w, ctrl-?, ctrl-u for char, word, and line deletion (standard behaviour)
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^u' backward-kill-line
+
+# yank to clipboard with space as prefix key
+function () {
+	local binded_keys i parts key cmd keymap
+	for keymap in vicmd visual emacs; do
+		binded_keys=(${(f)"$(bindkey -M $keymap)"})
+		for (( i = 1; i < ${#binded_keys[@]}; ++i )); do
+			parts=("${(z)binded_keys[$i]}")
+			key="${parts[1]}"
+			cmd="${parts[2]}"
+			if (( $+functions[zsh-system-clipboard-$keymap-$cmd] )); then
+				eval bindkey -M $keymap \"\ \"$key zsh-system-clipboard-$keymap-$cmd
+			fi
+		done
+	done
+
+  bindkey -ar " "
+}
+
 # ------------------
 # User configuration 
 # ------------------
@@ -94,43 +134,6 @@ unset key
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #
-
-## Plugin configuration ##
-
-# configure vi-mode
-KEYTIMEOUT=1
-bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line # remap `vv` to `Ctrl-V`
-
-# allow ctrl-a and ctrl-e to move to beginning/end of line
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
-
-# allow ctrl-h, ctrl-w, ctrl-?, ctrl-u for char, word, and line deletion (standard behaviour)
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
-bindkey '^u' backward-kill-line
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-# Use beam shape cursor for each new prompt.
-precmd_functions+=(echo -ne '\e[5 q')
 
 # load api keys as environment variables from .envkeys
 source ~/.envkeys
