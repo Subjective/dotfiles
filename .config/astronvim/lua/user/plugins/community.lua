@@ -36,9 +36,9 @@ return {
         return {
           LspInlayHint = { style = { "italic" } },
           -- lightspeed-style highlighting for leap
-          LeapMatch = { fg = colors.text, bold = true, nocombine = true },
-          LeapLabelPrimary = { fg = colors.pink, bold = true, nocombine = true },
-          LeapLabelSecondary = { fg = colors.blue, bold = true, nocombine = true },
+          LeapMatch = { fg = colors.text, bold = true },
+          LeapLabelPrimary = { fg = colors.pink, bold = true },
+          LeapLabelSecondary = { fg = colors.blue, bold = true },
         }
       end,
     },
