@@ -51,5 +51,27 @@ return {
     telescope.load_extension "file_browser"
     telescope.load_extension "undo"
   end,
-  keys = { { "<leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Git commits (buffer)" } },
+  keys = {
+    { "<leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Git commits (buffer)" },
+    {
+      "<leader>f.",
+      function()
+        require("telescope.builtin").find_files {
+          find_command = {
+            "git",
+            "--git-dir",
+            vim.env.HOME .. "/.cfg/",
+            "--work-tree",
+            vim.env.HOME,
+            "ls-tree",
+            "--full-tree",
+            "-r",
+            "--name-only",
+            "HEAD",
+          },
+        }
+      end,
+      desc = "Find dotfiles",
+    },
+  },
 }
