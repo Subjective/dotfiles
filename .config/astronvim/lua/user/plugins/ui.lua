@@ -163,6 +163,7 @@ return {
               { find = "^no targets$" }, -- skip flit notifications
               { find = "^not found: " }, -- skip leap notifications
               { find = "^no previous search$" }, -- skip leap notifications
+              { find = "^no targetable windows$" }, -- skip leap notifications
             },
           },
           opts = { skip = true },
