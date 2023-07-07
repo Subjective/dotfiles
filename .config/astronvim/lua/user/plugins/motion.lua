@@ -55,6 +55,9 @@ return {
       prompt = {
         enabled = false,
       },
+      remote_op = {
+        motion = true,
+      },
     },
     keys = {
       {
