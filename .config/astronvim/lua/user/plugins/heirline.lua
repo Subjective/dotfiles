@@ -5,8 +5,11 @@ return {
 
     status.component.grapple = {
       provider = function()
-        local success, key = pcall(require("grapple").key, { buffer = 0 })
-        if success and key then return " " .. key .. " " end
+        local available, grapple = pcall(require, "grapple")
+        if available then
+          local key = grapple.key { buffer = 0 }
+          if key ~= nil then return " " .. key .. " " end
+        end
       end,
     }
 
