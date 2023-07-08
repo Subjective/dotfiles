@@ -34,7 +34,6 @@ return {
       },
       custom_highlights = function(colors)
         return {
-          LspInlayHint = { style = { "italic" } },
           -- lightspeed-style highlighting for leap
           LeapMatch = { fg = colors.text, style = { "bold", "nocombine" } },
           LeapLabelPrimary = { fg = colors.pink, style = { "bold", "nocombine" } },
