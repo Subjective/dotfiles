@@ -68,6 +68,7 @@ return {
       "<leader>f.",
       function()
         require("telescope.builtin").find_files {
+          cwd = vim.env.HOME,
           find_command = {
             "git",
             "--git-dir",
