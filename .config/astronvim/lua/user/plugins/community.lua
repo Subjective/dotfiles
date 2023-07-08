@@ -42,6 +42,9 @@ return {
           LeapLabelSecondary = { fg = colors.blue, style = { "bold", "nocombine" } },
           -- hide results title in flat theme for telescope
           TelescopeResultsTitle = { fg = colors.mantle, bg = colors.none },
+          -- set telescope prompt background to lighter color
+          TelescopePromptNormal = { bg = colors.surface0 },
+          TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
         }
       end,
     },
