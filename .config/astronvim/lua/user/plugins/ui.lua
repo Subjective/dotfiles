@@ -187,7 +187,6 @@ return {
               { find = "; before #%d+" }, -- show undo notifications in mini view
               { find = "^Already at newest change$" }, -- show redo notifications in mini view
               { find = "^Already at oldest change$" }, -- show undo notifications in mini view
-              { find = "^Hunk %d+ of %d+$" }, -- show git hunk navigation notifications in mini view
             },
           },
           view = "mini",
