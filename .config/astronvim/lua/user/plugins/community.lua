@@ -121,13 +121,6 @@ return {
     cmd = { "Portal" },
   },
 
-  -- project
-  { import = "astrocommunity.project.project-nvim" },
-  {
-    "jay-babu/project.nvim",
-    keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
-  },
-
   -- markdown and latex
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   {

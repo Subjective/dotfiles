@@ -9,6 +9,13 @@ return {
       "debugloop/telescope-undo.nvim",
       keys = { { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Find in undo history" } },
     },
+    {
+      "jay-babu/project.nvim",
+      name = "project-nvim",
+      event = "VeryLazy",
+      opts = { ignore_lsp = { "lua_ls", "texlab" } },
+      keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
+    },
   },
   cmd = "Telescope",
   opts = function(_, opts)
@@ -50,6 +57,7 @@ return {
     local telescope = require "telescope"
     telescope.load_extension "file_browser"
     telescope.load_extension "undo"
+    telescope.load_extension "projects"
   end,
   keys = {
     { "<leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Git commits (buffer)" },
