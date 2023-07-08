@@ -4,9 +4,11 @@ return {
     spell = false,
     wrap = false,
     conceallevel = 2,
-    swapfile = false,
     clipboard = "",
     splitkeep = "screen",
+    swapfile = false,
+    spellfile = vim.fn.expand "~/.config/astronvim/lua/user/spell/en.utf-8.add",
+    thesaurus = vim.fn.expand "~/.config/astronvim/lua/user/spell/mthesaur.txt",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
