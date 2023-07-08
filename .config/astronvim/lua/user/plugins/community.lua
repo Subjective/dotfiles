@@ -14,6 +14,7 @@ return {
     opts = {
       term_colors = true,
       integrations = {
+        telescope = { enabled = true, style = "nvchad" },
         noice = true,
         native_lsp = {
           enabled = true,
@@ -39,6 +40,8 @@ return {
           LeapMatch = { fg = colors.text, style = { "bold", "nocombine" } },
           LeapLabelPrimary = { fg = colors.pink, style = { "bold", "nocombine" } },
           LeapLabelSecondary = { fg = colors.blue, style = { "bold", "nocombine" } },
+          -- hide results title in flat theme for telescope
+          TelescopeResultsTitle = { fg = colors.mantle, bg = colors.none },
         }
       end,
     },
