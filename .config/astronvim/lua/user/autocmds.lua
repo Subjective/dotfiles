@@ -45,9 +45,8 @@ if vim.env.KITTY_LISTEN_ON then
 
       local autocmd_group = augroup("kitty_background", { clear = true })
 
-      autocmd("User", {
+      autocmd("ColorScheme", {
         desc = "Set Kitty background to colorscheme's background",
-        pattern = "AstroColorScheme",
         group = autocmd_group,
         callback = function()
           local bg_color = require("astronvim.utils").get_hlgroup("Normal").bg
