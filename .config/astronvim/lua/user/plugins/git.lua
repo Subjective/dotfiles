@@ -245,14 +245,14 @@ return {
     opts = function()
       local actions = require "diffview.actions"
 
-      local prefix = "<leader>D"
+      local prefix = "<localleader>"
 
       utils.set_mappings {
         n = {
-          [prefix] = { name = " Diff View" },
-          [prefix .. "<cr>"] = { "<cmd>DiffviewOpen<cr>", desc = "Open DiffView" },
-          [prefix .. "h"] = { "<cmd>DiffviewFileHistory %<cr>", desc = "Open DiffView File History" },
-          [prefix .. "H"] = { "<cmd>DiffviewFileHistory<cr>", desc = "Open DiffView Branch History" },
+          ["<leader>D"] = { name = " Diff View" },
+          ["<leader>D" .. "<cr>"] = { "<cmd>DiffviewOpen<cr>", desc = "Open DiffView" },
+          ["<leader>D" .. "h"] = { "<cmd>DiffviewFileHistory %<cr>", desc = "Open DiffView File History" },
+          ["<leader>D" .. "H"] = { "<cmd>DiffviewFileHistory<cr>", desc = "Open DiffView Branch History" },
         },
       }
 
@@ -261,7 +261,7 @@ return {
         local i = 1
         for lhs, def in
           pairs(utils.extend_tbl(maps, {
-            [prefix .. "q"] = { "<cmd>DiffviewClose<cr>", desc = "Quit Diffview" }, -- Toggle the file panel.
+            ["<leader>D" .. "q"] = { "<cmd>DiffviewClose<cr>", desc = "Quit Diffview" }, -- Toggle the file panel.
             ["]D"] = { actions.select_next_entry, desc = "Next Difference" }, -- Open the diff for the next file
             ["[D"] = { actions.select_prev_entry, desc = "Previous Difference" }, -- Open the diff for the previous file
             ["[C"] = { actions.prev_conflict, desc = "Next Conflict" }, -- In the merge_tool: jump to the previous conflict
@@ -360,5 +360,10 @@ return {
         },
       }
     end,
+  },
+  {
+    "sourcegraph/sg.nvim",
+    build = "cargo build --workspace",
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
 }
