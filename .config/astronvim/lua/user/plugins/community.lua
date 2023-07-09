@@ -36,6 +36,8 @@ return {
       },
       custom_highlights = function(colors)
         return {
+          -- italicize lsp inlay hints
+          LspInlayHint = { style = { "italic" } },
           -- lightspeed-style highlighting for leap
           LeapMatch = { fg = colors.text, style = { "bold", "nocombine" } },
           LeapLabelPrimary = { fg = colors.pink, style = { "bold", "nocombine" } },
@@ -46,6 +48,17 @@ return {
       end,
     },
   },
+
+  -- { import = "astrocommunity.colorscheme.vscode-nvim" },
+  -- { import = "astrocommunity.colorscheme.nightfox-nvim" },
+  -- { import = "astrocommunity.colorscheme.rose-pine" },
+  -- { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  -- { import = "astrocommunity.colorscheme.github-nvim-theme" },
+  -- { import = "astrocommunity.colorscheme.oxocarbon-nvim" },
+  -- { import = "astrocommunity.colorscheme.gruvbox-nvim" },
+  -- { import = "astrocommunity.colorscheme.everforest" },
+  -- { import = "astrocommunity.colorscheme.dracula-nvim" },
+  -- { import = "astrocommunity.colorscheme.helix-nvim" },
 
   -- indent
   { import = "astrocommunity.indent.indent-tools-nvim" },
