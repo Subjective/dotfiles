@@ -70,7 +70,7 @@ return {
       {
         "<leader>sS",
         function() require("spectre").open_visual { select_word = true } end,
-        desc = "Spectre word (all files)",
+        desc = "Spectre WORD (all files)",
       },
       {
         "<leader>sf",
@@ -80,7 +80,7 @@ return {
       {
         "<leader>sF",
         function() require("spectre").open_file_search { select_word = true } end,
-        desc = "Spectre word (current file)",
+        desc = "Spectre WORD (current file)",
       },
       {
         "<leader>s",
