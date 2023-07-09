@@ -126,10 +126,6 @@ return {
   x = {
     -- yank to system clipboard
     ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
-    ["<leader>s"] = {
-      function() require("spectre").open_visual() end,
-      desc = "Spectre",
-    },
     -- don't replace yank buffer when pasting over selection
     ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
     -- move lines up and down

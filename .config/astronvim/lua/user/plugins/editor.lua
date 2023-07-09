@@ -64,6 +64,7 @@ return {
       { "<leader>ss", function() require("spectre").open() end, desc = "Spectre" },
       { "<leader>sf", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
       { "<leader>sw", function() require("spectre").open_visual { select_word = true } end, desc = "Spectre (current word)" },
+      { "<leader>s", function() require("spectre").open_visual() end, mode = "x", desc = "Spectre" },
     },
   },
   {
