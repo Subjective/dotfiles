@@ -62,11 +62,33 @@ return {
     end,
     init = function() utils.set_mappings { n = { ["<leader>s"] = { desc = "󰛔 Search/Replace" } } } end,
     keys = {
-      { "<leader>ss", function() require("spectre").open() end, desc = "Spectre (all files)" },
-      { "<leader>sS", function() require("spectre").open_visual { select_word = true } end, desc = "Spectre word (all files)" },
-      { "<leader>sf", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
-      { "<leader>sF", function() require("spectre").open_file_search { select_word = true } end, desc = "Spectre word (current files)" },
-      { "<leader>s", ':lua require("spectre").open_visual()<cr>', silent = true, mode = "x", desc = "Spectre selection" },
+      {
+        "<leader>ss",
+        function() require("spectre").open() end,
+        desc = "Spectre (all files)",
+      },
+      {
+        "<leader>sS",
+        function() require("spectre").open_visual { select_word = true } end,
+        desc = "Spectre word (all files)",
+      },
+      {
+        "<leader>sf",
+        function() require("spectre").open_file_search() end,
+        desc = "Spectre (current file)",
+      },
+      {
+        "<leader>sF",
+        function() require("spectre").open_file_search { select_word = true } end,
+        desc = "Spectre word (current file)",
+      },
+      {
+        "<leader>s",
+        ':lua require("spectre").open_visual()<cr>',
+        silent = true,
+        mode = "x",
+        desc = "Spectre selection",
+      },
     },
   },
   {
