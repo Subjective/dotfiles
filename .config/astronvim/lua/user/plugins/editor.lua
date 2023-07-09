@@ -66,7 +66,7 @@ return {
       { "<leader>sS", function() require("spectre").open_visual { select_word = true } end, desc = "Spectre word (all files)" },
       { "<leader>sf", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
       { "<leader>sF", function() require("spectre").open_file_search { select_word = true } end, desc = "Spectre word (current files)" },
-      { "<leader>s", function() require("spectre").open_visual() end, mode = "x", desc = "Spectre selection" },
+      { "<leader>s", ':lua require("spectre").open_visual()<cr>', silent = true, mode = "x", desc = "Spectre selection" },
     },
   },
   {
