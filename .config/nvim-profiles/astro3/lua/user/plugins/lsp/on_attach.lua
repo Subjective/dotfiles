@@ -1,3 +1,0 @@
--- add to the global LSP on_attach function
--- on_attach = function(client, bufnr)
--- end,
