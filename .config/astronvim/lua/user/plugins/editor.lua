@@ -46,14 +46,14 @@ return {
     cmd = "Spectre",
     dependencies = "nvim-lua/plenary.nvim",
     opts = function()
-      local prefix = "<leader>s"
+      local prefix = "<localleader>"
       return {
         open_cmd = "new",
         mapping = {
           send_to_qf = { map = prefix .. "q" },
           replace_cmd = { map = prefix .. "c" },
           show_option_menu = { map = prefix .. "o" },
-          run_current_replace = { map = prefix .. "C" },
+          run_current_replace = { map = prefix .. "r" },
           run_replace = { map = prefix .. "R" },
           change_view_mode = { map = prefix .. "v" },
           resume_last_search = { map = prefix .. "l" },
@@ -62,10 +62,11 @@ return {
     end,
     init = function() utils.set_mappings { n = { ["<leader>s"] = { desc = "󰛔 Search/Replace" } } } end,
     keys = {
-      { "<leader>ss", function() require("spectre").open() end, desc = "Spectre" },
+      { "<leader>ss", function() require("spectre").open() end, desc = "Spectre (all files)" },
+      { "<leader>sS", function() require("spectre").open_visual { select_word = true } end, desc = "Spectre word (all files)" },
       { "<leader>sf", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
-      { "<leader>sw", function() require("spectre").open_visual { select_word = true } end, desc = "Spectre (current word)" },
-      { "<leader>s", function() require("spectre").open_visual() end, mode = "x", desc = "Spectre" },
+      { "<leader>sF", function() require("spectre").open_file_search { select_word = true } end, desc = "Spectre word (current files)" },
+      { "<leader>s", function() require("spectre").open_visual() end, mode = "x", desc = "Spectre selection" },
     },
   },
   {
