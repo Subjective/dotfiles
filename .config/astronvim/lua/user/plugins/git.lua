@@ -53,7 +53,7 @@ return {
         pull_request = {
           checkout_pr = { lhs = "<localleader>po", desc = "checkout PR" },
           merge_pr = { lhs = "<localleader>pm", desc = "merge commit PR" },
-          squash_and_merge_pr = { lhs = "<localleader>psm", desc = "squash and merge PR" },
+          squash_and_merge_pr = { lhs = "<localleader>ps", desc = "squash and merge PR" },
           list_commits = { lhs = "<localleader>pc", desc = "list PR commits" },
           list_changed_files = { lhs = "<localleader>pf", desc = "list PR changed files" },
           show_pr_diff = { lhs = "<localleader>pd", desc = "show PR diff" },
