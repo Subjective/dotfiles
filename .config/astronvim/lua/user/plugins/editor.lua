@@ -49,12 +49,11 @@ return {
       local prefix = "<localleader>"
 
       vim.api.nvim_create_autocmd("FileType", {
-        desc = "Set up Spectre mappings",
-        group = vim.api.nvim_create_augroup("spectre_mappings", { clear = true }),
+        desc = "Set up Spectre Which-Key descriptions",
+        group = vim.api.nvim_create_augroup("spectre_mapping_descriptions", { clear = true }),
         pattern = "spectre_panel",
         callback = function()
           vim.keymap.set("n", "<localleader>", function() require("which-key").show "," end, { buffer = true })
-          vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true })
         end,
       })
 
@@ -68,6 +67,7 @@ return {
           run_replace = { map = prefix .. "R" },
           change_view_mode = { map = prefix .. "v" },
           resume_last_search = { map = prefix .. "l" },
+          close_spectre = { map = "q", cmd = "<cmd>lua require('spectre').close()<cr>", desc = "close spectre" },
         },
       }
     end,
@@ -75,7 +75,7 @@ return {
     keys = {
       {
         "<leader>ss",
-        function() require("spectre").toggle() end,
+        function() require("spectre").open() end,
         desc = "Spectre (all files)",
       },
       {
