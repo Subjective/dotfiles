@@ -169,7 +169,7 @@ return {
             ic = { "<cmd>Octo issue close<CR>", "Close current issue" },
             ir = { "<cmd>Octo issue reopen<CR>", "Reopen current issue" },
             il = { "<cmd>Octo issue list<CR>", "List open issues" },
-            iu = { "<cmd>Octo issue url<CR>", "Copies URL of current issue" },
+            iu = { "<cmd>Octo issue url<CR>", "Copy URL of current issue" },
             io = { "<cmd>Octo issue browser<CR>", "Open current issue in browser" },
 
             p = { name = " Pull requests" },
