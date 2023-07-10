@@ -75,7 +75,7 @@ return {
     keys = {
       {
         "<leader>ss",
-        function() require("spectre").open() end,
+        function() require("spectre").toggle() end,
         desc = "Spectre (all files)",
       },
       {
