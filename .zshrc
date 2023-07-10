@@ -193,6 +193,7 @@ alias dota="dot add"
 alias dotc="dot commit"
 alias lg="lazygit"
 alias lgdot="lazygit --git-dir=$HOME/.cfg --work-tree=$HOME"
+alias gitui="gitui -t themes/mocha.ron"
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd='pwd && echo -n `pwd`|pbcopy' # copy and print cwd
 alias ywd='echo -n `pwd`|pbcopy' # copy cwd
