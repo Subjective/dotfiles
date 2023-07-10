@@ -47,6 +47,17 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     opts = function()
       local prefix = "<localleader>"
+
+      vim.api.nvim_create_autocmd("FileType", {
+        desc = "Set up Spectre mappings",
+        group = vim.api.nvim_create_augroup("spectre_mappings", { clear = true }),
+        pattern = "spectre_panel",
+        callback = function()
+          vim.keymap.set("n", "<localleader>", function() require("which-key").show "," end, { buffer = true })
+          vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true })
+        end,
+      })
+
       return {
         open_cmd = "new",
         mapping = {
