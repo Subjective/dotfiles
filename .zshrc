@@ -69,15 +69,37 @@ if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   fi
 fi
 
+# Initialize zsh-defer.
+source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
+
 # Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
-# Initialize modules.
-source ${ZIM_HOME}/init.zsh
 
-# Initialize zsh-defer.
-source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
+# Initialize modules.
+
+skip_defer=(environment utility powerlevel10k zsh-vim-mode)
+
+# source ${ZIM_HOME}/init.zsh
+for zline in ${(f)"$(<$ZIM_HOME/init.zsh)"}; do
+  if [[ $zline == source* ]]; then
+    skip_source=0
+    for skip in "${skip_defer[@]}"; do
+      if [[ $zline == *"/modules/$skip/"* ]]; then
+        skip_source=1
+        break
+      fi
+    done
+    if [[ $skip_source -eq 0 ]]; then
+      zsh-defer -c "${zline}"
+    else
+      eval "${zline}"
+    fi
+  else
+    eval "${zline}"
+  fi
+done
 
 # ------------------------------
 # Post-init module configuration
@@ -94,7 +116,7 @@ unset key
 
 ## Vi-Mode ##
 
-# Set vi-mode timeout to eliminate lag
+# set vi-mode timeout to eliminate lag
 KEYTIMEOUT=1
 # remap `vv` to `Ctrl-V`
 bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line 
