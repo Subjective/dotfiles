@@ -73,6 +73,8 @@ return {
 
   -- indent
   { import = "astrocommunity.indent.indent-tools-nvim" },
+  { import = "astrocommunity.indent.indent-blankline-nvim" },
+  { import = "astrocommunity.indent.mini-indentscope" },
 
   -- editor
   { import = "astrocommunity.editing-support.refactoring-nvim" },
