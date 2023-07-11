@@ -1,6 +1,7 @@
 return {
   {
     "ggandor/leap.nvim",
+    dependencies = { "tpope/vim-repeat" },
     keys = {
       { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
       { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
@@ -21,12 +22,10 @@ return {
         },
       }
     end,
-    dependencies = {
-      "tpope/vim-repeat",
-    },
   },
   {
     "ggandor/flit.nvim",
+    dependencies = { "ggandor/leap.nvim" },
     keys = {
       { "f", mode = { "n", "x", "o" }, desc = "Flit forward to" },
       { "F", mode = { "n", "x", "o" }, desc = "Flit backward to" },
@@ -36,9 +35,6 @@ return {
     opts = {
       labeled_modes = "nxo",
       multiline = false,
-    },
-    dependencies = {
-      "ggandor/leap.nvim",
     },
   },
   {
