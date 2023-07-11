@@ -111,6 +111,8 @@ return {
       function() require("smart-splits").resize_right() end,
       desc = "Resize split right",
     },
+    -- fix substution command conflict with Noice
+    ["&"] = { "&", silent = true, desc = "Repeat last substiution" },
   },
   v = {},
   i = {
