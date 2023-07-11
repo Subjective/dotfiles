@@ -70,9 +70,6 @@ return {
 
       return utils.extend_tbl(opts, {
         mapping = {
-          -- Accept currently selected item. If none selected, `select` first item.
-          -- Set `select` to `false` to only confirm explicitly selected items.
-          ["<CR>"] = cmp.mapping.confirm { select = true },
           -- <C-n> and <C-p> for navigating snippets
           ["<C-n>"] = cmp.mapping(function()
             if luasnip.jumpable(1) then luasnip.jump(1) end
