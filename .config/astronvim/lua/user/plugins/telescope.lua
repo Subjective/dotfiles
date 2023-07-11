@@ -16,6 +16,15 @@ return {
       opts = { ignore_lsp = { "lua_ls", "texlab" } },
       keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
     },
+    {
+      "AckslD/nvim-neoclip.lua",
+      event = { "TextYankPost", "RecordingEnter" },
+      opts = {},
+      keys = {
+        { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Find yank history" },
+        { "<leader>fq", function() require("telescope").extensions.macroscope.default() end, desc = "Find macro history" },
+      },
+    },
   },
   cmd = "Telescope",
   opts = function(_, opts)
@@ -61,6 +70,7 @@ return {
     telescope.load_extension "file_browser"
     telescope.load_extension "undo"
     telescope.load_extension "projects"
+    telescope.load_extension "neoclip"
   end,
   keys = {
     {
