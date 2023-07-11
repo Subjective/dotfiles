@@ -63,7 +63,6 @@ return {
     telescope.load_extension "projects"
   end,
   keys = {
-    { "<leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Git commits (buffer)" },
     {
       "<leader>f.",
       function()
