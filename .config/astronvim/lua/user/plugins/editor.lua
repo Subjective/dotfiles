@@ -25,6 +25,7 @@ return {
     "folke/todo-comments.nvim",
     event = "User AstroFile",
     cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
+    opts = {},
     keys = { { "<leader>fT", "<cmd>TodoTelescope<cr>", desc = "Find TODOs" } },
   },
   {
