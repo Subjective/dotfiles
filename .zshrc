@@ -69,16 +69,15 @@ if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   fi
 fi
 
-# Initialize zsh-defer.
-source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
-
 # Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 
-# Initialize modules.
+# Initialize zsh-defer.
+source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
 
+# Initialize modules.
 skip_defer=(environment utility powerlevel10k zsh-vim-mode)
 
 # source ${ZIM_HOME}/init.zsh
