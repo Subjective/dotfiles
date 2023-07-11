@@ -86,10 +86,10 @@ return {
     opts = {
       filetypes = {
         "*",
-        javascriptreact = { names = true, tailwind = "both" },
-        javascript = { names = true, tailwind = "both" },
-        typescript = { names = true, tailwind = "both" },
-        typescriptreact = { names = true, tailwind = "both" },
+        javascriptreact = { names = true, tailwind = "lsp" },
+        javascript = { names = true, tailwind = "lsp" },
+        typescript = { names = true, tailwind = "lsp" },
+        typescriptreact = { names = true, tailwind = "lsp" },
         "!javascriptreact",
         "!javascript",
         "!typescript",
