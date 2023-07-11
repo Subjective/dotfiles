@@ -95,6 +95,8 @@ return {
         "!typescript",
         "!typescriptreact",
         "!cmp_menu",
+        "!noice",
+        "!TelescopeResults",
       },
       user_default_options = {
         RRGGBBAA = true,
