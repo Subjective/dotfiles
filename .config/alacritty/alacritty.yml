@@ -12,74 +12,13 @@ window:
   # Background opacity
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95
+  opacity: 1.00
   padding:
     x: 2
     y: 2
 
-# TokyoNight Alacritty Colors
-colors:
-  # Default colors
-  primary:
-    background: "0x1a1b26"
-    foreground: "0xc0caf5"
-
-  # Normal colors
-  normal:
-    black: "0x15161e"
-    red: "0xf7768e"
-    green: "0x9ece6a"
-    yellow: "0xe0af68"
-    blue: "0x7aa2f7"
-    magenta: "0xbb9af7"
-    cyan: "0x7dcfff"
-    white: "0xa9b1d6"
-
-  # Bright colors
-  bright:
-    black: "0x414868"
-    red: "0xf7768e"
-    green: "0x9ece6a"
-    yellow: "0xe0af68"
-    blue: "0x7aa2f7"
-    magenta: "0xbb9af7"
-    cyan: "0x7dcfff"
-    white: "0xc0caf5"
-
-  indexed_colors:
-    - { index: 16, color: "0xff9e64" }
-    - { index: 17, color: "0xdb4b4b" }
-
-# # Colors (One Darker)
-# colors:
-#   # Default colors
-#   primary:
-#     background: "#1E1E1E"
-#     # background: "#2E3440"
-#     foreground: "#D8DEE9"
-#
-#   # Normal colors
-#   normal:
-#     black: "#3B4252"
-#     red: "#D54646"
-#     green: "#23D18B"
-#     yellow: "#D7BA7D"
-#     blue: "#569CD6"
-#     magenta: "#C586C0"
-#     cyan: "#29B8DB"
-#     white: "#abb2bf"
-#
-#   # Bright colors
-#   bright:
-#     black: "#3B4252"
-#     red: "#D54646"
-#     green: "#23D18B"
-#     yellow: "#D7BA7D"
-#     blue: "#569CD6"
-#     magenta: "#C586C0"
-#     cyan: "#29B8DB"
-#     white: "#ECEFF4"
-#   # background_opacity: 1.0
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 
 font:
   # The normal (roman) font face to use.
