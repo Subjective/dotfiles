@@ -100,6 +100,10 @@ for zline in ${(f)"$(<$ZIM_HOME/init.zsh)"}; do
   fi
 done
 
+# Defer evals and cache the results on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`)
+zsh-defer _evalcache zoxide init zsh
+zsh-defer _evalcache rtx activate zsh
+
 # ------------------------------
 # Post-init module configuration
 # ------------------------------
@@ -167,12 +171,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-## Eval statements ##
-
-# defer evals and cache the results on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`)
-zsh-defer _evalcache zoxide init zsh
-zsh-defer _evalcache rtx activate zsh
 
 ## Personal aliases and functions ##
 alias d='dirs -v | head -10'
