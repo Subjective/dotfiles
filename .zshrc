@@ -80,7 +80,7 @@ fi
 source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
 
 # Initialize modules.
-skip_defer=(environment utility powerlevel10k zsh-vim-mode)
+skip_defer=(environment utility powerlevel10k completion zsh-vim-mode)
 
 # source ${ZIM_HOME}/init.zsh
 for zline in ${(f)"$(<$ZIM_HOME/init.zsh)"}; do
