@@ -137,17 +137,16 @@ else
   export EDITOR="nvim"
 fi
 
+export GIT_EDITOR="nvim"
+
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export HOMEBREW_BUNDLE_FILE="~/.config/brewfile/Brewfile"
-export GIT_EDITOR="nvim"
+
 export BAT_THEME="Catppuccin-mocha"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
