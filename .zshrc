@@ -101,7 +101,7 @@ unset key
 
 ## Vi-Mode ##
 
-# set vi-mode timeout to eliminate lag
+# set key timeout to eliminate lag
 KEYTIMEOUT=1
 # remap `vv` to `Ctrl-V`
 bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line 
