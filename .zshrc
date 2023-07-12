@@ -76,33 +76,13 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
 # Initialize zsh-defer.
 source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
 
-# Initialize modules.
-skip_defer=(environment utility powerlevel10k completion zsh-vim-mode)
-
-# source ${ZIM_HOME}/init.zsh
-for zline in ${(f)"$(<$ZIM_HOME/init.zsh)"}; do
-  if [[ $zline == source* ]]; then
-    skip_source=0
-    for skip in "${skip_defer[@]}"; do
-      if [[ $zline == *"/modules/$skip/"* ]]; then
-        skip_source=1
-        break
-      fi
-    done
-    if [[ $skip_source -eq 0 ]]; then
-      zsh-defer -c "${zline}"
-    else
-      eval "${zline}"
-    fi
-  else
-    eval "${zline}"
-  fi
-done
-
-# Defer evals and cache the results on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`)
+# Defer evals and cache the results on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`).
 zsh-defer _evalcache zoxide init zsh
 zsh-defer _evalcache rtx activate zsh
 
