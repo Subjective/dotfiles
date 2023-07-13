@@ -98,6 +98,7 @@ return {
         "!cmp_menu",
         "!noice",
         "!TelescopeResults",
+        "!lazy",
       },
       user_default_options = {
         RRGGBBAA = true,
