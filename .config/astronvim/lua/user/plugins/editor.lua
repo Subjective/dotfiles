@@ -60,6 +60,7 @@ return {
 
       return {
         open_cmd = "new",
+        live_update = true,
         mapping = {
           send_to_qf = { map = prefix .. "q" },
           replace_cmd = { map = prefix .. "c" },
