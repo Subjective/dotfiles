@@ -65,6 +65,8 @@ return {
       return {
         open_cmd = "new",
         live_update = true,
+        line_sep_start = "",
+        line_sep = "",
         mapping = {
           send_to_qf = { map = "<localleader>q" },
           replace_cmd = { map = "<localleader>c" },
