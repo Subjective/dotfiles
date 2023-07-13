@@ -208,14 +208,14 @@ return {
             lc = { "<cmd> Octo label create<CR>", "Create a label" },
 
             e = { name = " Reactions" },
-            e1 = { "<cmd>Octo reaction thumbs_up<CR>", "Add 👍 reaction" },
-            e2 = { "<cmd>Octo reaction thumbs_down<CR>", "Add 👎 reaction" },
-            e3 = { "<cmd>Octo reaction eyes<CR>", "Add 👀 reaction" },
-            e4 = { "<cmd>Octo reaction laugh<CR>", "Add 😄 reaction" },
-            e5 = { "<cmd>Octo reaction confused<CR>", "Add 😕 reaction" },
-            e6 = { "<cmd>Octo reaction rocket<CR>", "Add 🚀 reaction" },
-            e7 = { "<cmd>Octo reaction heart<CR>", "Add ❤️ reaction" },
-            e8 = { "<cmd>Octo reaction party<CR>", "Add 🎉 reaction" },
+            e1 = { "<cmd>Octo reaction thumbs_up<CR>", "Add/remove 👍 reaction" },
+            e2 = { "<cmd>Octo reaction thumbs_down<CR>", "Add/remove 👎 reaction" },
+            e3 = { "<cmd>Octo reaction eyes<CR>", "Add/remove 👀 reaction" },
+            e4 = { "<cmd>Octo reaction laugh<CR>", "Add/remove 😄 reaction" },
+            e5 = { "<cmd>Octo reaction confused<CR>", "Add/remove 😕 reaction" },
+            e6 = { "<cmd>Octo reaction rocket<CR>", "Add/remove 🚀 reaction" },
+            e7 = { "<cmd>Octo reaction heart<CR>", "Add/remove ❤️ reaction" },
+            e8 = { "<cmd>Octo reaction party<CR>", "Add/remove 🎉 reaction" },
 
             x = { "<cmd>Octo actions<CR>", "Run an action" },
 
