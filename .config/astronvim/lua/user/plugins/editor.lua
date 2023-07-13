@@ -47,8 +47,6 @@ return {
     cmd = "Spectre",
     dependencies = "nvim-lua/plenary.nvim",
     opts = function()
-      local prefix = "<localleader>"
-
       vim.api.nvim_create_autocmd("FileType", {
         desc = "Set up Spectre Which-Key descriptions",
         group = vim.api.nvim_create_augroup("spectre_mapping_descriptions", { clear = true }),
@@ -62,13 +60,13 @@ return {
         open_cmd = "new",
         live_update = true,
         mapping = {
-          send_to_qf = { map = prefix .. "q" },
-          replace_cmd = { map = prefix .. "c" },
-          show_option_menu = { map = prefix .. "o" },
-          run_current_replace = { map = prefix .. "r" },
-          run_replace = { map = prefix .. "R" },
-          change_view_mode = { map = prefix .. "v" },
-          resume_last_search = { map = prefix .. "l" },
+          send_to_qf = { map = "<localleader>q" },
+          replace_cmd = { map = "<localleader>c" },
+          change_view_mode = { map = "<localleader>v" },
+          resume_last_search = { map = "<localleader>l" },
+          show_option_menu = { map = "o" },
+          run_current_replace = { map = "r" },
+          run_replace = { map = "R" },
           close_spectre = { map = "q", cmd = "<cmd>lua require('spectre').close()<cr>", desc = "close spectre" },
         },
       }
