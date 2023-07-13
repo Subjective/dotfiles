@@ -143,8 +143,10 @@ return {
         group = vim.api.nvim_create_augroup("octo_settings", { clear = true }),
         pattern = "octo",
         callback = function(event)
+          -- enable autocompletion for issues/prs (`#`) and users (`@`)?**
           vim.api.nvim_buf_set_keymap(0, "i", "@", "@<C-x><C-o>", { silent = true, noremap = true })
           vim.api.nvim_buf_set_keymap(0, "i", "#", "#<C-x><C-o>", { silent = true, noremap = true })
+          -- setup which-key mappings
           require("which-key").register({
             i = { name = " Issue" },
             p = { name = " PR" },
@@ -185,7 +187,7 @@ return {
             ps = { "<cmd>Octo pr list<CR>", "List open PRs" },
             pr = { "<cmd>Octo pr ready<CR>", "Mark draft as ready for review" },
             po = { "<cmd>Octo pr browser<CR>", "Open current PR in browser" },
-            pu = { "<cmd>Octo pr url<CR>", "Copies URL of current PR" },
+            pu = { "<cmd>Octo pr url<CR>", "Copy URL of current PR" },
             pt = { "<cmd>Octo pr commits<CR>", "List PR commits" },
             pl = { "<cmd>Octo pr commits<CR>", "List changed files in PR" },
 
@@ -193,7 +195,7 @@ return {
             rl = { "<cmd>Octo repo list<CR>", "List repo user stats" },
             rf = { "<cmd>Octo repo fork<CR>", "Fork repo" },
             ro = { "<cmd>Octo repo browser<CR>", "Open current repo in browser" },
-            ru = { "<cmd>Octo repo url<CR>", "Copies URL of current repo" },
+            ru = { "<cmd>Octo repo url<CR>", "Copy URL of current repo" },
 
             a = { name = " Assignee/Reviewer" },
             aa = { "<cmd> Octo assignee add<CR>", "Assign a user" },
@@ -220,7 +222,7 @@ return {
             s = { name = " Review" },
             ss = { "<cmd> Octo review start<CR>", "Start review" },
             sf = { "<cmd> Octo review submit<CR>", "Submit review" },
-            sr = { "<cmd> Octo review resume<CR>", "Submit resume" },
+            sr = { "<cmd> Octo review resume<CR>", "Resume review" },
             sd = { "<cmd> Octo review discard<CR>", "Delete pending review" },
             sc = { "<cmd> Octo review comments<CR>", "View pending comments" },
             sp = { "<cmd> Octo review commit<CR>", "Select commit to review" },
@@ -232,11 +234,12 @@ return {
     init = function() utils.set_mappings { n = { ["<leader>G"] = { name = " GitHub" } } } end,
     keys = {
       { "<leader>Gs", "<cmd>Octo search<cr>", desc = "Search GitHub" },
-      { "<leader>Gi", "<cmd>Octo issue list<cr>", desc = "Open Issues" },
+      { "<leader>Gi", "<cmd>Octo issue list<cr>", desc = "List Open Issues" },
       { "<leader>GI", "<cmd>Octo issue search<cr>", desc = "Search Issues" },
-      { "<leader>Gp", "<cmd>Octo pr list<cr>", desc = "Open PRs" },
+      { "<leader>Gp", "<cmd>Octo pr list<cr>", desc = "List Open PRs" },
       { "<leader>GP", "<cmd>Octo pr search<cr>", desc = "Search PRs" },
-      { "<leader>Gr", "<cmd>Octo repo list<cr>", desc = "Open Repository" },
+      { "<leader>Gr", "<cmd>Octo repo list<cr>", desc = "List Repositories" },
+      { "<leader>Gc", "<cmd>Octo repo view<cr>", desc = "View Current Repository" },
     },
   },
   {
