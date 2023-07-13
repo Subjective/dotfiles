@@ -147,6 +147,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export HOMEBREW_BUNDLE_FILE="~/.config/brewfile/Brewfile"
 
+export GLAMOUR_STYLE="$HOME/.config/glamourstyles/catppuccin-mocha.json"
 export BAT_THEME="Catppuccin-mocha"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
