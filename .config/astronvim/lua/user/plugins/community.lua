@@ -39,9 +39,9 @@ return {
           -- italicize lsp inlay hints
           LspInlayHint = { style = { "italic" } },
           -- lightspeed-style highlighting for leap
-          LeapMatch = { fg = colors.text, style = { "bold", "nocombine" } },
-          LeapLabelPrimary = { fg = colors.pink, style = { "bold", "nocombine" } },
-          LeapLabelSecondary = { fg = colors.blue, style = { "bold", "nocombine" } },
+          LeapMatch = { fg = colors.text, style = { "bold" } },
+          LeapLabelPrimary = { fg = colors.pink, style = { "bold" } },
+          LeapLabelSecondary = { fg = colors.blue, style = { "bold" } },
           -- hide results title in flat theme for telescope
           TelescopeResultsTitle = { fg = colors.mantle, bg = colors.none },
           -- dark prompt in flat theme for telescope
