@@ -51,8 +51,14 @@ return {
         desc = "Set up Spectre Which-Key descriptions",
         group = vim.api.nvim_create_augroup("spectre_mapping_descriptions", { clear = true }),
         pattern = "spectre_panel",
-        callback = function()
+        callback = function(event)
+          -- show spectre which-key menus
+          require("which-key").register(
+            { t = { name = "Spectre Options", r = { name = "Replacement Engine" } }, ["<localleader>"] = "Spectre" },
+            { mode = "n", buffer = event.buf }
+          )
           vim.keymap.set("n", "<localleader>", function() require("which-key").show "," end, { buffer = true })
+          vim.keymap.set("n", "t", function() require("which-key").show "t" end, { buffer = true })
         end,
       })
 
