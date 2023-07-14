@@ -23,7 +23,7 @@ return {
 
       utils.set_mappings {
         n = {
-          ["<leader>D"] = { name = " Diff View" },
+          ["<leader>D"] = { name = " DiffView" },
           ["<leader>D" .. "<cr>"] = { "<cmd>DiffviewOpen<cr>", desc = "Open DiffView" },
           ["<leader>D" .. "h"] = { "<cmd>DiffviewFileHistory %<cr>", desc = "Open DiffView File History" },
           ["<leader>D" .. "H"] = { "<cmd>DiffviewFileHistory<cr>", desc = "Open DiffView Branch History" },
