@@ -169,7 +169,7 @@ alias 9='cd -9'
 alias md='mkdir -p'
 alias rd='rmdir'
 alias ls="exa --icons"
-alias l="exa -l -H --icons --git"
+alias l="exa -l -H --group-directories-first --icons --git"
 alias la="l -a"
 alias lt="l --tree --level=2"
 alias tree="exa --tree --level=3"
