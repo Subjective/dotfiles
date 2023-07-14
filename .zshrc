@@ -207,11 +207,11 @@ function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
 
 # function to copy output of command to system clipboard
 function copy() {
-  local output=$(eval "$1" 2>/dev/null)
-  if [ $? -eq 0 ]; then
-      echo "$output" | pbcopy; echo "Output copied to clipboard."
+  local output
+  if output=$(eval "$@" 2>/dev/null); then
+    echo "$output" | pbcopy && echo "Output copied to clipboard."
   else
-      echo "Command execution failed."
+    echo "Command execution failed."
   fi
 }
 
