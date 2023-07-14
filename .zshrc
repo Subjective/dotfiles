@@ -205,6 +205,16 @@ alias s="kitty +kitten ssh"
 # function to make directory and cd into it
 function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
 
+# function to copy output of command to system clipboard
+function copy() {
+  local output=$(eval "$1" 2>/dev/null)
+  if [ $? -eq 0 ]; then
+      echo "$output" | pbcopy; echo "Output copied to clipboard."
+  else
+      echo "Command execution failed."
+  fi
+}
+
 # functions to compile and run c++
 function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 function run() { co $1 && ./${1%.*} & fg; }
@@ -212,9 +222,7 @@ function run() { co $1 && ./${1%.*} & fg; }
 # function to fuzzy find file and open it directly in neovim
 v() {
   if [ $# -eq 0 ]; then
-    local file
-    file=$(fd --type f --hidden --exclude .git | fzf --height=35% --reverse)
-
+    local file=$(fd --type f --hidden --exclude .git | fzf --height=35% --reverse)
     if [ -n "$file" ]; then
       nvim "$file"
     fi
@@ -226,9 +234,7 @@ v() {
 # function to fuzzy find file w/ preview and open it directly in neovim
 vp() {
   if [ $# -eq 0 ]; then
-    local file
-    file=$(fd --type f --hidden --exclude .git | fzf --reverse --preview "bat --style=numbers --color=always {}")
-
+    local file=$(fd --type f --hidden --exclude .git | fzf --reverse --preview "bat --style=numbers --color=always {}")
     if [ -n "$file" ]; then
       nvim "$file"
     fi
