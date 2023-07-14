@@ -73,9 +73,15 @@ return {
     },
     ["<leader>uI"] = {
       function()
-        vim.cmd "IndentBlanklineToggle"
-        utils.notify("Indentation guides " .. (vim.b.indentation_guides and "enabled" or "disabled") .. " (buffer)")
-        vim.b.indentation_guides = not vim.b.indentation_guides
+        vim.g.indent_blankline_enabled = not vim.g.indent_blankline_enabled
+        vim.cmd "IndentBlanklineRefresh"
+        vim.g.miniindentscope_disable = not vim.g.miniindentscope_disable
+        if vim.g.miniindentscope_disable then
+          MiniIndentscope.undraw()
+        else
+          MiniIndentscope.draw()
+        end
+        utils.notify("Indentation guides " .. (vim.g.indent_blankline_enabled and "enabled" or "disabled"))
       end,
       desc = "Toggle indentation guides (buffer)",
     },
