@@ -104,7 +104,6 @@ return {
     cmd = { "RunCode", "RunFile", "RunProject", "RunClose", "CRFiletype", "CRProjects" },
     keys = {
       { "<leader>Rf", "<cmd>RunFile<cr>", desc = "Run File" },
-      { "<leader>Rc", "<cmd>RunClose<cr>", desc = "Close Runner" },
       { "<leader>Rp", "<cmd>RunProject<cr>", desc = "Run Project" },
     },
     opts = {},
