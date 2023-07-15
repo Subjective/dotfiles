@@ -87,6 +87,7 @@ return {
       end,
       desc = "Toggle winbar",
     },
+    -- toggle indentation guides
     ["<leader>uI"] = {
       function()
         vim.g.indent_blankline_enabled = not vim.g.indent_blankline_enabled
