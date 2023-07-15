@@ -15,6 +15,7 @@ return {
         " ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
         "                                                    ",
       }
+      opts.config.opts.noautocmd = false
     end,
   },
   { "max397574/better-escape.nvim", enabled = false },
