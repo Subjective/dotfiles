@@ -188,7 +188,7 @@ return {
         },
         callback = function(event)
           require("which-key").register({
-            ["p"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
+            ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
           }, { prefix = "<localleader>", buffer = event.buf })
         end,
       })
