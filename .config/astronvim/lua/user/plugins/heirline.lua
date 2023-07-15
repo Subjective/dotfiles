@@ -30,6 +30,7 @@ return {
       status.component.file_info {
         filetype = {},
         filename = false,
+        file_icon = false,
         surround = { separator = "none" },
         file_modified = false,
         file_read_only = false,
