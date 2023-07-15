@@ -70,10 +70,10 @@ return {
     ["<leader>uW"] = {
       function()
         if vim.g.winbar_disabled then
-          vim.wo.winbar = PrevHeirlineWinbar
+          vim.wo.winbar = vim.g.prev_winbar
           vim.api.nvim_clear_autocmds { group = "disable_winbar" }
         else
-          PrevHeirlineWinbar = vim.wo.winbar
+          vim.g.prev_winbar = vim.wo.winbar
           vim.wo.winbar = nil
           vim.api.nvim_create_autocmd({ "BufWritePost", "BufWinEnter", "BufNew" }, {
             pattern = "*",
