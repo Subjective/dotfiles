@@ -3,7 +3,13 @@ local utils = require "astronvim.utils"
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    { "andymass/vim-matchup", init = function() vim.g.matchup_matchparen_deferred = 1 end },
+    {
+      "andymass/vim-matchup",
+      init = function()
+        vim.g.matchup_matchparen_deferred = 1
+        vim.g.matchup_matchparen_offscreen = {}
+      end,
+    },
     { "RRethy/nvim-treesitter-textsubjects" },
   },
   opts = function(_, opts)
