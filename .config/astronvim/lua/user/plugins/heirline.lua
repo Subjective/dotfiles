@@ -13,29 +13,35 @@ return {
       end,
     }
 
+    local ignored_filetypes = { "toggleterm", "aerial", "dapui_.", "neo%-tree" }
+    local ignored_buftypes = { "prompt", "nofile", "terminal" }
+    -- local ignored_buftypes =
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode(),
       status.component.git_branch(),
       status.component.grapple,
       status.component.file_info {
-        filetype = false,
-        filename = false,
-        file_modified = false,
-        file_read_only = false,
-        surround = { separator = "none" },
-      },
-      status.component.separated_path {
-        padding = { left = 0 },
-        separator = "/",
-        max_depth = 2,
-        path_func = status.provider.filename { modify = ":.:h" },
-        update = { "BufEnter", "BufLeave", "DirChanged" },
+        filename = { modify = ":~:." }, -- Set relative path name
+        condition = function() -- Only show filename when its file, not neotree, telescope, etc
+          return not status.condition.buffer_matches({
+            buftype = ignored_buftypes,
+            filetype = ignored_filetypes,
+          }, vim.api.nvim_get_current_buf())
+        end,
       },
       status.component.file_info {
-        file_icon = false,
-        filetype = false,
-        filename = { fallback = "Empty" },
+        filetype = {},
+        filename = false,
+        surround = { separator = "none" },
+        file_modified = false,
+        file_read_only = false,
+        condition = function()
+          return status.condition.buffer_matches({
+            buftype = ignored_buftypes,
+            filetype = ignored_filetypes,
+          }, vim.api.nvim_get_current_buf())
+        end,
       },
       status.component.git_diff(),
       status.component.diagnostics(),
