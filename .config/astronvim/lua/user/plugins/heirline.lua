@@ -13,9 +13,7 @@ return {
       end,
     }
 
-    local ignored_filetypes = { "toggleterm", "aerial", "dapui_.", "neo%-tree" }
     local ignored_buftypes = { "prompt", "nofile", "terminal" }
-    -- local ignored_buftypes =
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode(),
@@ -26,7 +24,6 @@ return {
         condition = function() -- Only show filename when its file, not neotree, telescope, etc
           return not status.condition.buffer_matches({
             buftype = ignored_buftypes,
-            filetype = ignored_filetypes,
           }, vim.api.nvim_get_current_buf())
         end,
       },
@@ -39,7 +36,6 @@ return {
         condition = function()
           return status.condition.buffer_matches({
             buftype = ignored_buftypes,
-            filetype = ignored_filetypes,
           }, vim.api.nvim_get_current_buf())
         end,
       },
