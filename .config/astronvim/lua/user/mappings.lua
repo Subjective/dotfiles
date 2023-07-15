@@ -66,10 +66,26 @@ return {
       function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end,
       desc = "Toggle Explorer (cwd)",
     },
-    -- hide winbar in local buffer
+    -- toggle winbar
     ["<leader>uW"] = {
-      function() vim.wo.winbar = nil end,
-      desc = "Hide winbar (buffer)",
+      function()
+        if vim.g.winbar_disabled then
+          vim.wo.winbar = vim.g.winbar_old
+          vim.api.nvim_clear_autocmds { group = "disable_winbar" }
+        else
+          vim.g.winbar_old = vim.wo.winbar
+          vim.wo.winbar = nil
+          vim.api.nvim_create_autocmd({ "BufWritePost", "BufWinEnter", "BufNew" }, {
+            pattern = "*",
+            callback = function() vim.wo.winbar = nil end,
+            group = vim.api.nvim_create_augroup("disable_winbar", { clear = true }),
+            desc = "Toggle winbar",
+          })
+        end
+        utils.notify("Winbar " .. (vim.g.winbar_disabled and "enabled" or "disabled"))
+        vim.g.winbar_disabled = not vim.g.winbar_disabled
+      end,
+      desc = "Toggle winbar",
     },
     ["<leader>uI"] = {
       function()
