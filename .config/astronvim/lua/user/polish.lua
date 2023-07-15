@@ -25,5 +25,8 @@ return function()
   -- disable auto_hlsearch
   vim.on_key(function() end, vim.api.nvim_create_namespace "auto_hlsearch")
 
+  -- don't disable functionality on large files
+  vim.api.nvim_clear_autocmds { group = "large_buf" }
+
   require "user.autocmds"
 end
