@@ -76,10 +76,10 @@ return {
         vim.g.indent_blankline_enabled = not vim.g.indent_blankline_enabled
         vim.cmd "IndentBlanklineRefresh"
         vim.g.miniindentscope_disable = not vim.g.miniindentscope_disable
-        if vim.g.miniindentscope_disable then
-          MiniIndentscope.undraw()
-        else
+        if MiniIndentscope and not vim.g.miniindentscope_disable then
           MiniIndentscope.draw()
+        else
+          MiniIndentscope.undraw()
         end
         utils.notify("Indentation guides " .. (vim.g.indent_blankline_enabled and "enabled" or "disabled"))
       end,
