@@ -13,7 +13,7 @@ return {
       end,
     }
 
-    local ignored_buftypes = { "prompt", "nofile", "terminal" }
+    local ignored_buftypes = { "nofile", "prompt", "help", "quickfix", "terminal" }
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode(),
