@@ -14,20 +14,16 @@ return {
     }
 
     local ignored_buftypes = { "nofile", "prompt", "nowrite", "help", "quickfix", "terminal" }
+    local function is_file() return not status.condition.buffer_matches({ buftype = ignored_buftypes }, vim.api.nvim_get_current_buf()) end
+
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode(),
       status.component.git_branch(),
       status.component.grapple,
       status.component.file_info {
-        filename = { modify = ":~:." }, -- Set relative path name
-        surround = {
-          condition = function() -- Only show filename when its file, not neotree, telescope, etc
-            return not status.condition.buffer_matches({
-              buftype = ignored_buftypes,
-            }, vim.api.nvim_get_current_buf())
-          end,
-        },
+        filename = { modify = ":~:." },
+        surround = { condition = is_file },
       },
       status.component.file_info {
         filetype = {},
@@ -35,13 +31,7 @@ return {
         file_icon = false,
         file_read_only = {},
         file_modified = false,
-        surround = {
-          condition = function()
-            return status.condition.buffer_matches({
-              buftype = ignored_buftypes,
-            }, vim.api.nvim_get_current_buf())
-          end,
-        },
+        surround = { condition = function() return not is_file() end },
       },
       status.component.git_diff(),
       status.component.diagnostics(),
