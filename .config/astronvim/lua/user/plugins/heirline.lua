@@ -33,7 +33,7 @@ return {
         filetype = {},
         filename = false,
         file_icon = false,
-        file_read_only = false,
+        file_read_only = {},
         file_modified = false,
         surround = {
           condition = function()
