@@ -169,9 +169,12 @@ alias 9='cd -9'
 alias md='mkdir -p'
 alias rd='rmdir'
 alias ls="exa --icons"
-alias l="exa -l -H --group-directories-first --icons --git"
+alias l="exa -l -H --icons --git"
 alias la="l -a"
+alias lr="l -smodified"
 alias lt="l --tree --level=2"
+alias ll="l --group-directories-first"
+alias lla="ll -a"
 alias tree="exa --tree --level=3"
 alias lag='exa -l -a -H --icons --color=always --git | rg'
 alias mv="mv -i"
