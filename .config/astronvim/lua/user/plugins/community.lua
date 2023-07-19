@@ -32,7 +32,6 @@ return {
           },
           inlay_hints = { background = false },
         },
-        octo = true,
       },
       custom_highlights = function(colors)
         return {
