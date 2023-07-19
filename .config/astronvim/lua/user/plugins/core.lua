@@ -113,4 +113,8 @@ return {
     "rcarriga/nvim-notify",
     opts = { render = "default", timeout = 250 },
   },
+  {
+    "akinsho/toggleterm.nvim",
+    opts = function(_, opts) opts.highlights = nil end,
+  },
 }
