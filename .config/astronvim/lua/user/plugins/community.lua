@@ -33,6 +33,7 @@ return {
           inlay_hints = { background = false },
         },
         flash = false,
+        neogit = true,
       },
       custom_highlights = function(colors)
         return {
