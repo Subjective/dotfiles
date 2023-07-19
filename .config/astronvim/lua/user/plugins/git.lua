@@ -14,24 +14,6 @@ return {
     end,
   },
   {
-    "NeogitOrg/neogit",
-    dependencies = { "sindrets/diffview.nvim" },
-    cmd = "Neogit",
-    opts = function()
-      local get_icon = require("astronvim.utils").get_icon
-      local fold_signs = { get_icon "FoldClosed", get_icon "FoldOpened" }
-      return {
-        disable_builtin_notifications = true,
-        telescope_sorter = function() return require("telescope").extensions.fzf.native_fzf_sorter() end,
-        integrations = { telescope = true, diffview = true },
-        signs = { section = fold_signs, item = fold_signs },
-      }
-    end,
-    keys = {
-      { "<leader>gG", function() require("neogit").open() end, desc = "Neogit" },
-    },
-  },
-  {
     "sindrets/diffview.nvim",
     event = "User AstroGitFile",
     opts = function()
