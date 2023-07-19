@@ -42,6 +42,11 @@ return {
           LeapMatch = { fg = colors.text, style = { "bold" } },
           LeapLabelPrimary = { fg = colors.pink, style = { "bold" } },
           LeapLabelSecondary = { fg = colors.blue, style = { "bold" } },
+          -- lightspeed-style highlighting for flash
+          FlashBackdrop = { fg = C.overlay0 },
+          FlashLabel = { fg = C.pink, bg = colors.base, style = { "bold" } },
+          FlashMatch = { fg = C.text, bg = colors.base, style = { "bold" } },
+          FlashCurrent = { fg = C.green, bg = colors.base, style = { "bold" } },
           -- hide results title in flat theme for telescope
           TelescopeResultsTitle = { fg = colors.mantle, bg = colors.none },
           -- dark prompt in flat theme for telescope
