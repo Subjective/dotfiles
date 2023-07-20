@@ -111,8 +111,8 @@ I use a tiling window manager called [yabai][yabai] to manage my windows and wor
 1. Start yabai and skhd:
 
 ```
-brew services start yabai
-brew services start skhd
+$ yabai --start-service
+$ skhd --start-service
 ```
 
 ## Backing up app settings and personal files
@@ -185,7 +185,7 @@ The settings for individual colorschemes are stored in . To add a new colorschem
 
 #### 2. Terminal Colorschemes
 
-Since I use vim in the terminal, I need corresponding iTerm2 or Kitty colorschemes for every vim colorscheme. My iTerm2 colorschemes are stored in `itermcolors/`, but of course must be added manually to the iTerm profile. Kitty colorschemes are defined in `~/.config/kitty/themes/` and can be set with kitty's built-in theme manager: `kitty +kitten themes --reload-in=all`.
+Since I use vim in the terminal, I need corresponding iTerm2 or Kitty colorschemes for every vim colorscheme. My iTerm2 colorschemes are stored in `itermcolors/`, but of course must be added manually to the iTerm profile. Kitty colorschemes are defined in `~/.config/kitty/themes/` and can be set with kitty's built-in theme manager: `$ kitty +kitten themes --reload-in=all`.
 
 Multiple pre-made colorschemes are available online for both iTerm2 and Alacritty:
 
@@ -218,7 +218,7 @@ if -F '#{!=:#{status},2}' {
 I also use [tmux plugin manager](https://github.com/tmux-plugins/tpm) to manage my tmux plugins. Clone the repository and press `prefix` + `I` to install plugins:
 
 ```
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ### Useful Colorscheme Links
