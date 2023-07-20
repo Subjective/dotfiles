@@ -7,6 +7,7 @@ These are the dotfiles I use on my Mac system, currently running [MacOS Ventura]
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Zsh Setup](#zsh-setup)
+- [Fish Setup](#fish-setup)
 - [Post-install Tasks](#post-install-tasks)
 - [Setting up Homebrew](#setting-up-iterm2)
 - [Setting up iTerm2](#setting-up-iterm2)
@@ -34,7 +35,7 @@ The dotfiles assume you are running macOS with the following software pre-instal
 - [Homebrew][homebrew] (including [coreutils][coreutils])
 - [Ruby][ruby]
 - [Node.js][nodejs]
-- [Fish][fish] or [Zsh][zsh]
+- [Zsh][zsh] or [Fish][fish]
 - [Oh-My-Zsh][oh-my-zsh] (if using zsh)
 - [Neovim][neovim]
 - [Tmux][tmux]
