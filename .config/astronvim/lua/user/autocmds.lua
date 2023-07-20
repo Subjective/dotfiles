@@ -3,8 +3,8 @@ local autocmd = vim.api.nvim_create_autocmd
 
 autocmd({ "FileType" }, {
   desc = "Don't auto comment new lines",
-  group = augroup("dotfiles_git", { clear = true }),
-  pattern = { "*" },
+  group = augroup("disable_autocomment", { clear = true }),
+  pattern = "*",
   command = "setlocal fo-=c fo-=r fo-=o",
 })
 
