@@ -14,8 +14,8 @@ These are the dotfiles I use on my Mac system, currently running [MacOS Ventura]
 - [Backing up app settings and personal files](backing-up-app-settings-and-personal-files)
 - [Colorschemes](#colorschemes)
   - [1. Colorschemes](#1-colorschemes)
-  - [2. Terminal Colorschemes](#3-terminal-colorschemes)
-  - [3. Tmux Custom Overrides](#4-tmux-custom-overrides)
+  - [2. Terminal Colorschemes](#2-terminal-colorschemes)
+  - [3. Tmux Custom Overrides](#3-tmux-custom-overrides)
   - [4. Useful Colorscheme Links](#useful-colorscheme-links)
 - [My Favorite Programming Fonts](#my-favorite-programming-fonts)
   - [Free Fonts](#free-fonts)
@@ -23,7 +23,7 @@ These are the dotfiles I use on my Mac system, currently running [MacOS Ventura]
   - [Ligatures](#ligatures)
   - [Nerd Font Variants](#nerd-font-variants)
   - [Useful Font Links](#useful-font-links)
-- [Some of my favorite dotfile repos](#some-of-my-favorite-dotfile-repos)
+- [Some cool dotfile repos](#some-cool-dotfile-repos)
 - [Helpful web resources on dotfiles, et al.](#helpful-web-resources-on-dotfiles-et-al)
 
 ## Prerequisites
