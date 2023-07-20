@@ -50,10 +50,10 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
 " buffers
-nnoremap <Leader>n :enew<CR>
-nnoremap <Leader>c :bd<CR>
-nnoremap <Leader>b :ls<CR>:b<Space>
-nnoremap <Leader>w :w<CR>
+nnoremap <leader>n :enew<CR>
+nnoremap <leader>c :bd<CR>
+nnoremap <leader>b :ls<CR>:b<Space>
+nnoremap <leader>w :w<CR>
 
 " buffer navigation
 nnoremap ]b :bnext<CR>
@@ -64,7 +64,7 @@ nnoremap <leader>y "+y
 nnoremap <leader>Y "+y$
 
 " toggle netrw
-nnoremap <Leader>e :Lex<CR>
+nnoremap <leader>e :Lex<CR>
 
 " Plugin Configuration
 let g:highlightedyank_highlight_duration = 250
