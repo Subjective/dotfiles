@@ -18,7 +18,6 @@ syntax on
 colorscheme catppuccin_mocha
 set number relativenumber
 set termguicolors
-set clipboard=unnamed
 set mouse=a
 set autoindent
 set expandtab
@@ -59,6 +58,10 @@ nnoremap <Leader>w :w<CR>
 " buffer navigation
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
+
+" yanking and pasting to system clipboard
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+y$
 
 " toggle netrw
 nnoremap <Leader>e :Lex<CR>
