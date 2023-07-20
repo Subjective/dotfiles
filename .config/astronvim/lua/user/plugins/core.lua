@@ -100,6 +100,7 @@ return {
         "!noice",
         "!TelescopeResults",
         "!lazy",
+        "!neo-tree",
       },
       user_default_options = {
         RRGGBBAA = true,
