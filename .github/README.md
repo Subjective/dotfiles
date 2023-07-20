@@ -76,10 +76,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 1. Install fish: `$ brew install fish`
 1. Install [fisher][fisher]:
-`curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
+   `curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
 1. Restart your computer.
 1. Install [tide][tide] theme:
-`fisher install IlanCosman/tide@v5`
+   `fisher install IlanCosman/tide@v5`
 
 ## Post-install Tasks
 
@@ -217,9 +217,11 @@ set-option -g status-style bg=default
 # set-option -g status-position top
 
 ## Change spacing between window and statusline
-set -Fg 'status-format[1]' '#{status-format[0]}'
-set -g 'status-format[0]' ''
-set -g status 2
+if -F '#{!=:#{status},2}' {
+  set -Fg 'status-format[1]' '#{status-format[0]}'
+  set -g 'status-format[0]' ''
+  set -g status 2
+}
 
 [...]
 ```
