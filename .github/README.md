@@ -65,21 +65,21 @@ I recently switched from [Oh My Zsh][oh-my-zsh] to [Zim][zim] as my primary Zsh 
 
 1. Install fish: `$ brew install fish`
 1. Install [fisher][fisher]:
-   `curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
+   `$ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
 1. Restart your computer.
 1. Install [tide][tide] theme:
-   `fisher install IlanCosman/tide@v5`
+   `$ fisher install IlanCosman/tide@v5`
 
 ## Post-install Tasks
 
 After cloning the dotfiles repo there are still a couple of things that need to be done.
 
 - Set up iTerm2 or Kitty profile (see details below).
-- Complete [Brew Bundle][brew-bundle] with `brew bundle install`
-- Install [Rust][rust] via Rustup: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-- Install neovim via [bob][bob]: `cargo install bob-nvim`
+- Complete [Brew Bundle][brew-bundle] with `$ brew bundle install`
+- Install [Rust][rust] via Rustup: `$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- Install neovim via [bob][bob]: `$ cargo install bob-nvim`
 - After opening Neovim, run [`:checkhealth`][checkhealth] and resolve errors/warnings.
-- If using Fish, customize your setup by running the `fish_config` command.
+- If using Fish, customize your setup by running the `$ fish_config` command.
 
 ## Setting up Hombrew
 
