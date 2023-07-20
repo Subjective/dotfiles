@@ -1,6 +1,6 @@
 # Subjective's dotfiles
 
-These are the dotfiles I use on my Mac system, currently running [MacOS Ventura][ventura]. My editor of choice is [Neovim][neovim], but I also dabble with [VSCode][vscode] occasionally. The instructions are adapted from Joshua Steele's [dotfiles repository][joshua-steele].
+These are the dotfiles I use on my Mac system, currently running [MacOS Ventura][ventura]. My editor of choice is [Neovim][neovim], but I also use [VSCode][vscode] occasionally. The instructions are adapted from Joshua Steele's [dotfiles repository][joshua-steele].
 
 ## Table of Contents
 
@@ -56,21 +56,10 @@ dotfiles checkout
 
 ## Zsh Setup
 
-<!-- TODO: Add steps to configure `.envkeys` -->
+I recently switched from [Oh My Zsh][oh-my-zsh] to [Zim][zim] as my primary Zsh configuration framework/plugin manager. Not only is it much faster, but it also handles automatic installation and updating of custom plugins. If you want to learn more, check out this [post](https://www.joshyin.cc/blog/speeding-up-zsh).
 
 1. Install zsh: `$ brew install zsh`
-1. Install [Oh My Zsh][oh-my-zsh].
-1. Restart your computer.
-1. Install [powerlevel10k][powerlevel10k] theme:
-   `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
-1. Install custom plugins:
-
-```
-git clone https://github.com/mroth/evalcache ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/evalcache
-git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-```
+1. Install custom plugins: `$ zimfw install`
 
 ## Fish Setup
 
@@ -378,3 +367,4 @@ Copyright &copy; 2023 Joshua Yin. [MIT License][license]
 [bob]: https://github.com/MordechaiHadad/bob
 [fisher]: https://github.com/jorgebucaran/fisher
 [tide]: https://github.com/IlanCosman/tide
+[zim]: https://github.com/zimfw/zimfw
