@@ -7,7 +7,7 @@ return {
       set_cwd = function(state)
         local path = state.tree:get_node().path
         vim.api.nvim_set_current_dir(path)
-        vim.cmd(string.format("Neotree %s", path))
+        vim.cmd.Neotree(path)
       end,
       set_root_to_home = function() vim.cmd "Neotree ~" end,
       trash = function(state)
