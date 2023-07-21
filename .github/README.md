@@ -9,8 +9,8 @@ These are the dotfiles I use on my Mac system, currently running [MacOS Ventura]
 - [Zsh Setup](#zsh-setup)
 - [Fish Setup](#fish-setup)
 - [Post-install Tasks](#post-install-tasks)
-- [Setting up Homebrew](#setting-up-iterm2)
 - [Setting up iTerm2](#setting-up-iterm2)
+- [Setting up iTerm2](#setting-up-kitty)
 - [Setting up yabai and skhd](#setting-up-yabai-and-skhd)
 - [Backing up app settings and personal files](backing-up-app-settings-and-personal-files)
 - [Colorschemes](#colorschemes)
@@ -49,10 +49,10 @@ I'm using a bare git repo with its working tree set to my home directory to mana
 2. Run the following commands in the shell to clone the dotfiles:
 
 ```
-git clone --bare <remote-git-repo-url> $HOME/.cfg
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-dotfiles config --local status.showUntrackedFiles no
-dotfiles checkout
+$ git clone --bare <remote-git-repo-url> $HOME/.cfg
+$ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+$ dotfiles config --local status.showUntrackedFiles no
+$ dotfiles checkout
 ```
 
 ## Zsh Setup
@@ -76,15 +76,11 @@ I recently switched from [Oh My Zsh][oh-my-zsh] to [Zim][zim] as my primary Zsh 
 After cloning the dotfiles repo there are still a couple of things that need to be done.
 
 - Set up iTerm2 or Kitty profile (see details below).
-- Complete [Brew Bundle][brew-bundle] with `$ brew bundle install`
+- Complete [Brew Bundle][brew-bundle] and install packages with `$ brew bundle install`
 - Install [Rust][rust] via Rustup: `$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 - Install neovim via [bob][bob]: `$ cargo install bob-nvim`
 - After opening Neovim, run [`:checkhealth`][checkhealth] and resolve errors/warnings.
 - If using Fish, customize your setup by running the `$ fish_config` command.
-
-## Setting up Hombrew
-
-`brew bundle`
 
 ## Setting up iTerm2
 
