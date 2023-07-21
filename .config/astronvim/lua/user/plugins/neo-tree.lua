@@ -37,6 +37,7 @@ return {
 
     -- add new mappings to all windows
     opts.window.mappings = utils.extend_tbl(opts.window.mappings, {
+      Z = "expand_all_nodes",
       T = "trash",
       ["."] = "set_cwd",
       ["@"] = "set_root_to_home",
