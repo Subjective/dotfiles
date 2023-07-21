@@ -169,6 +169,7 @@ alias 9='cd -9'
 alias md='mkdir -p'
 alias rd='rmdir'
 alias ls="exa --icons"
+alias lsa="ls -a"
 alias l="exa -l -H --icons --git"
 alias la="l -a"
 alias lr="l -smodified"
