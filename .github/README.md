@@ -148,7 +148,7 @@ name = Personal Files
 .extra
 ```
 
-When I declare this in my main [`.mackup.cfg`](mackup/.mackup.cfg) they are handled with ease:
+When I declare this in my main [`.mackup.cfg`](../.mackup.cfg) they are handled with ease:
 
 ```ini
 [storage]
