@@ -6,6 +6,7 @@ return {
     conceallevel = 2,
     clipboard = "",
     splitkeep = "screen",
+    cmdheight = 1,
     swapfile = false,
     spellfile = vim.fn.expand "~/.config/astronvim/lua/user/spell/en.utf-8.add",
     thesaurus = vim.fn.expand "~/.config/astronvim/lua/user/spell/mthesaur.txt",
