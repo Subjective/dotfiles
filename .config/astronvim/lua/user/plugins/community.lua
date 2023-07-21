@@ -64,12 +64,7 @@ return {
   -- { import = "astrocommunity.colorscheme.dracula-nvim" },
   -- { import = "astrocommunity.colorscheme.helix-nvim" },
   -- { import = "astrocommunity.colorscheme.fluormachine-nvim" },
-  -- {
-  --   "maxmx03/fluoromachine.nvim",
-  --   opts = {
-  --     glow = true,
-  --   },
-  -- },
+  -- { "maxmx03/fluoromachine.nvim", opts = { glow = true } },
 
   -- indent
   { import = "astrocommunity.indent.indent-tools-nvim" },
@@ -143,10 +138,6 @@ return {
   },
 
   { import = "astrocommunity.motion.portal-nvim" },
-  {
-    "cbochs/portal.nvim",
-    cmd = { "Portal" },
-  },
 
   -- terminal integration
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
