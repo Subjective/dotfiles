@@ -3,11 +3,11 @@ return {
     "ggandor/leap.nvim",
     dependencies = { "tpope/vim-repeat" },
     keys = {
-      { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "s", "<Plug>(leap-forward-to)", mode = { "n" }, desc = "Leap forward to" },
+      { "S", "<Plug>(leap-backward-to)", mode = { "n" }, desc = "Leap backward to" },
       { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
       { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
-      { "zS", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
+      { "gs", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
     },
     init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
       vim.api.nvim_create_autocmd("User", {
