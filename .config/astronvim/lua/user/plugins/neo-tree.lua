@@ -37,10 +37,10 @@ return {
 
     -- add new mappings to all windows
     opts.window.mappings = utils.extend_tbl(opts.window.mappings, {
-      Z = "expand_all_nodes",
-      T = "trash",
       ["."] = "set_cwd",
       ["@"] = "set_root_to_home",
+      T = "trash",
+      Z = "expand_all_nodes",
     })
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
