@@ -36,7 +36,7 @@ The dotfiles assume you are running macOS with the following software pre-instal
 - [Ruby][ruby]
 - [Node.js][nodejs]
 - [Zsh][zsh] or [Fish][fish]
-- [Oh-My-Zsh][oh-my-zsh] (if using zsh)
+- [Zim][zim] (if using zsh)
 - [Neovim][neovim]
 - [Tmux][tmux]
 
