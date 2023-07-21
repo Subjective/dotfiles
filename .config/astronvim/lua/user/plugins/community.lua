@@ -48,8 +48,6 @@ return {
           TelescopePromptNormal = { fg = colors.text, bg = colors.crust },
           TelescopePromptBorder = { fg = colors.crust, bg = colors.crust },
           TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.crust },
-          -- fix tailwindcss colors
-          PmenuSel = { fg = C.none },
         }
       end,
     },
