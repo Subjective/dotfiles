@@ -10,7 +10,7 @@ return {
         vim.g.matchup_matchparen_offscreen = {}
       end,
     },
-    { "RRethy/nvim-treesitter-textsubjects" },
+    { "Subjective/nvim-treesitter-textsubjects" },
   },
   opts = function(_, opts)
     -- Ensure that opts.ensure_installed exists and is a table or string "all".
@@ -53,9 +53,9 @@ return {
       enable = true,
       prev_selection = ",", -- (Optional) keymap to select the previous selection
       keymaps = {
-        ["."] = "textsubjects-smart",
-        [";"] = "textsubjects-container-outer",
-        ["i;"] = "textsubjects-container-inner",
+        ["."] = { query = "textsubjects-smart", desc = "Smart textsubject" },
+        [";"] = { query = "textsubjects-container-outer", desc = "Outer textsubject" },
+        ["i;"] = { query = "textsubjects-container-inner", desc = "Inner textsubject" },
       },
     }
   end,
