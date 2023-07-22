@@ -144,4 +144,14 @@ return {
       { "gA", mode = { "n", "x" }, desc = "Align with preview" },
     },
   },
+  {
+    "axieax/urlview.nvim",
+    cmd = "UrlView",
+    dependencies = "nvim-telescope/telescope.nvim",
+    opts = {},
+    keys = {
+      { "<leader>fU", "<cmd>UrlView<cr>" },
+      { "<leader>fL", "<cmd>UrlView lazy<cr>" },
+    },
+  },
 }
