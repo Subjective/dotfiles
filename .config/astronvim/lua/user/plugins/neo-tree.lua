@@ -5,9 +5,9 @@ return {
     opts.commands = utils.extend_tbl(opts.commands, {
       -- allow set_root when bind_to_cwd is disabled
       set_cwd = function(state)
-        local path = state.tree:get_node().path
-        vim.api.nvim_set_current_dir(path)
-        vim.cmd.Neotree(path)
+        local node = state.tree:get_node()
+        if node.type == "directory" then vim.api.nvim_set_current_dir(node.path) end
+        require("neo-tree.sources.filesystem.commands").set_root(state)
       end,
       set_root_to_home = function() vim.cmd "Neotree ~" end,
       trash = function(state)
