@@ -138,9 +138,11 @@ return {
     },
   },
   {
-    "junegunn/vim-easy-align",
+    "echasnovski/mini.align",
+    opts = {},
     keys = {
-      { "ga", "<Plug>(EasyAlign)", mode = { "n", "x" }, desc = "Easy Align" },
+      { "ga", mode = { "n", "x" }, desc = "Align" },
+      { "gA", mode = { "n", "x" }, desc = "Align with preview" },
     },
   },
 }
