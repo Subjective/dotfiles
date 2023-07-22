@@ -150,7 +150,23 @@ return {
       },
       throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
       ---@type NoiceConfigViews
-      views = {}, ---@see section on views
+      views = {
+        -- add linebreak between status and message
+        cmdline_output = {
+          format = {
+            "{level} ",
+            "{date} ",
+            "{event}",
+            { "{kind}", before = { ".", hl_group = "NoiceFormatKind" } },
+            " ",
+            "{title} ",
+            "{cmdline} ",
+            "\n",
+            "{message}",
+          },
+          view = "split",
+        },
+      }, ---@see section on views
       ---@type table<string, NoiceFilter>
       status = {}, --- @see section on statusline components
       ---@type NoiceFormatOptions
