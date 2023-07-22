@@ -1,7 +1,6 @@
 return {
   {
     "ggandor/leap.nvim",
-    dependencies = { "tpope/vim-repeat" },
     keys = {
       { "s", "<Plug>(leap-forward-to)", mode = { "n" }, desc = "Leap forward to" },
       { "S", "<Plug>(leap-backward-to)", mode = { "n" }, desc = "Leap backward to" },
