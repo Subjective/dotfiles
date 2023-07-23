@@ -46,9 +46,15 @@ return {
     opts.auto_install = vim.fn.executable "tree-sitter" == 1
     opts.matchup = { enable = true }
     opts.indent = { enable = true, disable = { "python" } }
+
+    local large_buf = opts.highlight.disable
     -- fix compatibility issues with vimtex
-    opts.highlight.disable = { "latex" }
-    -- opts.additional_vim_regex_highlighting = { "latex", "markdown" } -- enable vimtex compatibility with md plugins
+    opts.highlight.disable = function(lang, bufnr)
+      local disabled_languages = {
+        "latex",
+      }
+      return vim.tbl_contains(disabled_languages, lang) or large_buf(_, bufnr)
+    end
     opts.textsubjects = {
       enable = true,
       prev_selection = ",", -- (Optional) keymap to select the previous selection
