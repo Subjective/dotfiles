@@ -1,3 +1,5 @@
+local utils = require "astronvim.utils"
+
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
@@ -72,7 +74,14 @@ return {
     telescope.load_extension "projects"
     telescope.load_extension "neoclip"
   end,
+  init = function() utils.set_mappings { x = { ["<leader>g"] = { name = utils.get_icon("Git", 1, true) .. "Git" } } } end,
   keys = {
+    {
+      "<leader>gc",
+      function() require("telescope.builtin").git_bcommits_range { use_file_path = true } end,
+      mode = "x",
+      desc = "Git commmits (selected range)",
+    },
     {
       "<leader>f.",
       function()
