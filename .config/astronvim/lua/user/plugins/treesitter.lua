@@ -10,7 +10,7 @@ return {
         vim.g.matchup_matchparen_offscreen = { method = "popup", fullwidth = 1, highlight = "Normal", syntax_hl = 1 }
       end,
     },
-    { "Subjective/nvim-treesitter-textsubjects" },
+    { "Subjective/nvim-treesitter-textsubjects", branch = "feat-custom-keymap-desc" },
   },
   opts = function(_, opts)
     -- Ensure that opts.ensure_installed exists and is a table or string "all".
@@ -55,7 +55,7 @@ return {
     end
     opts.textsubjects = {
       enable = true,
-      prev_selection = ",", -- (Optional) keymap to select the previous selection
+      prev_selection = { keymap = ",", desc = "Previous textsubject" }, -- (Optional) keymap to select the previous selection
       keymaps = {
         ["."] = { query = "textsubjects-smart", desc = "Smart textsubject" },
         [";"] = { query = "textsubjects-container-outer", desc = "Outer textsubject" },
