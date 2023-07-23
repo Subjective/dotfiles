@@ -48,11 +48,9 @@ return {
     opts.indent = { enable = true, disable = { "python" } }
 
     local large_buf = opts.highlight.disable
-    -- fix compatibility issues with vimtex
     opts.highlight.disable = function(lang, bufnr)
-      local disabled_languages = {
-        "latex",
-      }
+      -- fix compatibility issues with vimtex
+      local disabled_languages = { "latex" }
       return vim.tbl_contains(disabled_languages, lang) or large_buf(_, bufnr)
     end
     opts.textsubjects = {
