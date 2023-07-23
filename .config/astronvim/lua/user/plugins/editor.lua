@@ -150,8 +150,8 @@ return {
     dependencies = "nvim-telescope/telescope.nvim",
     opts = {},
     keys = {
-      { "<leader>fU", "<cmd>UrlView<cr>" },
-      { "<leader>fL", "<cmd>UrlView lazy<cr>" },
+      { "<leader>fU", "<cmd>UrlView<cr>", desc = "Find URLs" },
+      { "<leader>fL", "<cmd>UrlView lazy<cr>", desc = "Find plugin URLs" },
     },
   },
 }
