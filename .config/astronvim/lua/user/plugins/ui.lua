@@ -181,7 +181,7 @@ return {
               { find = "^%d+ lines indented $" }, -- skip line indent notifications
               { find = "^?.+%s$" }, -- skip search not found notifications
               { find = "^/.+%s$" }, -- skip search not found notifications
-              { find = "--No lines in buffer--" }, -- skip "no lines in buffer" notification
+              { find = "^--No lines in buffer--" }, -- skip "no lines in buffer" notification
               { find = "^no targets$" }, -- skip flit notifications
               { find = "^not found: " }, -- skip leap notifications
               { find = "^no previous search$" }, -- skip leap notifications
