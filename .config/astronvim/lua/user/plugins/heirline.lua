@@ -15,8 +15,7 @@ return {
 
     local ignored_buftypes = { "nofile", "prompt", "nowrite", "help", "quickfix", "terminal" }
     local function is_file()
-      return not status.condition.buffer_matches({ buftype = ignored_buftypes }, vim.api.nvim_get_current_buf())
-        or vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t") == "[Command Line]"
+      return not status.condition.buffer_matches({ buftype = ignored_buftypes }, 0) or vim.fn.expand "%" == "[Command Line]"
     end
 
     opts.statusline = {
