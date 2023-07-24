@@ -4,6 +4,10 @@ return {
     keys = {
       { "s", "<Plug>(leap-forward-to)", mode = { "n" }, desc = "Leap forward to" },
       { "S", "<Plug>(leap-backward-to)", mode = { "n" }, desc = "Leap backward to" },
+      { "z", "<Plug>(leap-forward-to)", mode = { "x", "o" }, desc = "Leap forward to" },
+      { "Z", "<Plug>(leap-backward-to)", mode = { "x", "o" }, desc = "Leap backward to" },
+      { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
+      { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
       { "gs", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
     },
     init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
