@@ -30,6 +30,17 @@ return {
         },
       }
 
+      vim.api.nvim_create_autocmd("User", {
+        desc = "Set up DiffView Which-Key descriptions",
+        group = vim.api.nvim_create_augroup("diffview_mapping_descriptions", { clear = true }),
+        pattern = "DiffviewDiffBufRead",
+        callback = function(args)
+          -- show diffview which-key menus
+          require("which-key").register({ ["<localleader>"] = "DiffView" }, { mode = "n", buffer = args.buf })
+          vim.keymap.set("n", "<localleader>", function() require("which-key").show "," end, { buffer = true })
+        end,
+      })
+
       local build_keymaps = function(maps)
         local out = {}
         local i = 1
