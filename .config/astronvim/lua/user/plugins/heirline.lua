@@ -22,7 +22,7 @@ return {
       status.component.git_branch(),
       status.component.grapple,
       status.component.file_info {
-        filename = { modify = ":~:." },
+        filename = { fallback = "[No Name]", modify = ":~:." },
         surround = { condition = is_file },
       },
       status.component.file_info {
