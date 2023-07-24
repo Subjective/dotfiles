@@ -188,10 +188,10 @@ return {
           "markdown",
           "mdx",
         },
-        callback = function(event)
+        callback = function(args)
           require("which-key").register({
             ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
-          }, { prefix = "<localleader>", buffer = event.buf })
+          }, { prefix = "<localleader>", buffer = args.buf })
         end,
       })
     end,

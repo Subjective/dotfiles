@@ -10,11 +10,11 @@ return {
         desc = "Set up VimTex Which-Key descriptions",
         group = vim.api.nvim_create_augroup("vimtex_mapping_descriptions", { clear = true }),
         pattern = "tex",
-        callback = function(event)
+        callback = function(args)
           local wk = require "which-key"
           local opts = {
             mode = "n", -- NORMAL mode
-            buffer = event.buf, -- Specify a buffer number for buffer local mappings to show only in tex buffers
+            buffer = args.buf, -- Specify a buffer number for buffer local mappings to show only in tex buffers
           }
           local mappings = {
             ["<localleader>l"] = {
@@ -87,7 +87,7 @@ return {
           -- VimTeX Text Objects without variants with targets.vim
           opts = {
             mode = "o", -- Operator pending mode
-            buffer = event.buf,
+            buffer = args.buf,
           }
           local objects = {
             ["ic"] = [[LaTeX Command]],
