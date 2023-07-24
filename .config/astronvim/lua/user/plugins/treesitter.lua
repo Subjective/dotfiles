@@ -10,7 +10,23 @@ return {
         vim.g.matchup_surround_enabled = 1
         vim.g.matchup_matchparen_offscreen = { method = "popup", fullwidth = 1, highlight = "Normal", syntax_hl = 1 }
       end,
-      config = function() vim.keymap.del({ "x", "o" }, "z%") end,
+      config = function()
+        vim.keymap.del({ "x", "o" }, "z%")
+        local wk = require "which-key"
+
+        local opts = { mode = { "x", "o" } }
+        local textobjects = {
+          ["i%"] = [[matching pair]],
+          ["a%"] = [[matching pair]],
+        }
+        wk.register(textobjects, opts)
+        local normalmaps = {
+          ["ds%"] = [[matching pair]],
+          ["cs%"] = [[matching pair]],
+          ["z%"] = [[Go inside nearest matching pair ]],
+        }
+        wk.register(normalmaps, { mode = "n" })
+      end,
     },
     { "Subjective/nvim-treesitter-textsubjects", branch = "feat-custom-keymap-desc" },
   },
