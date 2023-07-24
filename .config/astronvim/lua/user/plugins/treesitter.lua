@@ -7,11 +7,10 @@ return {
       "andymass/vim-matchup",
       init = function()
         vim.g.matchup_matchparen_deferred = 1
+        vim.g.matchup_surround_enabled = 1
         vim.g.matchup_matchparen_offscreen = { method = "popup", fullwidth = 1, highlight = "Normal", syntax_hl = 1 }
       end,
-      config = function()
-        vim.keymap.del({ "x", "o" }, "z%")
-      end,
+      config = function() vim.keymap.del({ "x", "o" }, "z%") end,
     },
     { "Subjective/nvim-treesitter-textsubjects", branch = "feat-custom-keymap-desc" },
   },
