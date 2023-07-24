@@ -24,7 +24,7 @@ return {
       status.component.git_branch(),
       status.component.grapple,
       status.component.file_info {
-        filename = { fallback = "[No Name]", modify = ":~:." },
+        filename = { modify = ":~:." },
         surround = { condition = is_file },
       },
       status.component.file_info {
@@ -45,17 +45,5 @@ return {
       status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
     }
-
-    opts.winbar[1][2] = status.component.file_info {
-      file_icon = { hl = status.hl.file_icon "winbar", padding = { left = 0 } },
-      filename = { fallback = "[No Name]" }, -- set fallback to "[No Name]"
-      file_modified = false,
-      file_read_only = false,
-      hl = status.hl.get_attributes("winbarnc", true),
-      surround = false,
-      update = "BufEnter",
-    }
-
-    opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { filename = { fallback = "[No Name]" } }) -- set fallback to "[No Name]"
   end,
 }
