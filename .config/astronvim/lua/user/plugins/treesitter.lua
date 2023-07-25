@@ -11,15 +11,21 @@ return {
         vim.g.matchup_matchparen_offscreen = { method = "popup", fullwidth = 1, highlight = "Normal", syntax_hl = 1 }
       end,
       config = function()
-        vim.keymap.del({ "x", "o" }, "z%")
+        vim.keymap.del({ "x", "o" }, "z%") -- don't conflict with leap
         local wk = require "which-key"
 
-        local opts = { mode = { "x", "o" } }
+        local motions = {
+          ["%"] = [[Go forwards next matching word or seek to one]],
+          ["g%"] = [[Go backwards to previous matching word or seek to one]],
+          ["[%"] = [[Previous matching word]],
+          ["]%"] = [[Next matching word]],
+        }
+        wk.register(motions, { mode = { "n", "x" } })
         local textobjects = {
           ["i%"] = [[matching pair]],
           ["a%"] = [[matching pair]],
         }
-        wk.register(textobjects, opts)
+        wk.register(textobjects, { mode = { "x", "o" } })
         local normalmaps = {
           ["ds%"] = [[matching pair]],
           ["cs%"] = [[matching pair]],
