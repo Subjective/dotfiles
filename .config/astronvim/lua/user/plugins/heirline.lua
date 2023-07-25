@@ -26,6 +26,10 @@ return {
       {
         flexible = 1,
         status.component.file_info {
+          filename = { modify = ":~" },
+          surround = { condition = is_file },
+        },
+        status.component.file_info {
           filename = { modify = ":~:." },
           surround = { condition = is_file },
         },
