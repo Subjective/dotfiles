@@ -87,6 +87,14 @@ return {
       end,
       desc = "Toggle winbar",
     },
+    -- toggle current line git blame
+    ["<leader>gB"] = {
+      function()
+        local enabled = require("gitsigns").toggle_current_line_blame()
+        utils.notify("Current line Git blame " .. (enabled and "enabled" or "disabled"))
+      end,
+      desc = "Toggle current line Git blame",
+    },
     -- toggle indentation guides
     ["<leader>uI"] = {
       function()
