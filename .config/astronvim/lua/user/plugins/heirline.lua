@@ -23,9 +23,16 @@ return {
       status.component.mode(),
       status.component.git_branch(),
       status.component.grapple,
-      status.component.file_info {
-        filename = { modify = ":~:." },
-        surround = { condition = is_file },
+      {
+        flexible = 1,
+        status.component.file_info {
+          filename = { modify = ":~:." },
+          surround = { condition = is_file },
+        },
+        status.component.file_info {
+          filename = {},
+          surround = { condition = is_file },
+        },
       },
       status.component.file_info {
         filetype = {},
