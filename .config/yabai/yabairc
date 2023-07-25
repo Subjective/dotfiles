@@ -1,32 +1,23 @@
-### grant root privileges to change space
+#!/usr/bin/env sh
 
 # for this to work you must configure sudo such that
 # it will be able to run the command without password
-# create a new file for writing - visudo uses the vim editor by default.
-# go read about this if you have no idea what is going on.
-
-# sudo visudo -f /private/etc/sudoers.d/yabai
-
-# input the line below into the file you are editing.
-#  replace <yabai> with the path to the yabai binary (output of: which yabai).
-#  replace <user> with your username (output of: whoami). 
-#  replace <hash> with the sha256 hash of the yabai binary (output of: shasum -a 256 $(which yabai)).
-#   this hash must be updated manually after running brew upgrade.
-
-# <user> ALL=(root) NOPASSWD: sha256:<hash> <yabai> --load-sa
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 # .. more yabai startup stuff
 
-# default layout (can be bsp, stack or float)
+# Default layout (can be bsp, stack or float)
 yabai -m config layout bsp
 
 # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement second_child
 
-# padding set to 12px
+# Padding set to 12px
 yabai -m config top_padding 12
 yabai -m config bottom_padding 12
 yabai -m config left_padding 12
@@ -47,19 +38,19 @@ yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.9
 yabai -m config window_opacity_duration 0.15
 
-# center mouse on window with focus
+# Center mouse on window with focus
 # yabai -m config mouse_follows_focus on
 
-# modifier for clicking and dragging with mouse
+# Modifier for clicking and dragging with mouse
 yabai -m config mouse_modifier fn
-# # set modifier + left-click drag to move window
+# Set modifier + left-click drag to move window
 yabai -m config mouse_action1 move
-# # set modifier + right-click drag to resize window
+# Set modifier + right-click drag to resize window
 yabai -m config mouse_action2 resize
-# enable window animations
+# Enable window animations
 # yabai -m config window_animation_duration 0.35
 
-# when window is dropped in center of another window, swap them (on edges it will split it)
+# When window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action swap
 
 # Space labels
@@ -70,7 +61,7 @@ yabai -m space 4 --label "Social"
 yabai -m space 5 --label "Media"
 yabai -m space 6 --label "Misc"
 
-# # Browser
+# Browser
 # yabai -m rule --add app="Edge" space="Browse"
 # yabai -m rule --add app="Orion" space="Browse"
 # yabai -m rule --add app="Min" space="Browse"
@@ -107,37 +98,37 @@ yabai -m rule --add app="Podcasts" space="Media"
 # Misc
 # yabai -m rule --add app="App Store" space="Misc"
 
-# apps to not manage (ignore)
+# Apps to not manage (ignore)
 yabai -m rule --add label="Finder" app="^Finder$" title="^(Co(py|nnect)|Move|Info|Pref|Finder Settings|Go to Folder)$" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advanced)$" manage=off
 yabai -m rule --add label="Calendar" app="^Calendar$" title="^(General|(Account|Alert)s|Advanced)$" manage=off
-yabai -m rule --add label="Mail" app="^Mail$" title="^(General|(Account|Fonts & Color|Signature|Reule|Extension)s|Junk Mail|Viewing|Composing|Privacy)$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add label="App Store" app="^App Store$" manage=off
-yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="^System Information$" manage=off
-yabai -m rule --add app="^Simulator$" manage=off
-yabai -m rule --add app="^Installer$" manage=off
+yabai -m rule --add label="Mail" app="^Mail$" title="^(General|(Account|Fonts & Color|Signature|Reule|Extension)s|Junk Mail|Viewing|Composing|Privacy)$" manage=off
 yabai -m rule --add label="Orion" app="^Orion$" title="^(General|Appearance|Browsing|Sync|Passwords|Privacy|Search|Websites|Advanced)$" manage=off
 yabai -m rule --add label="Discord Updater" app="^Discord$" title="Discord Updater" manage=off
-yabai -m rule --add app="^Digital Color Meter$" manage=off
 yabai -m rule --add label="Microsoft Teams" app="^Microsoft Teams$" title="Loading Microsoft Teams" manage=off
 yabai -m rule --add label="Books" app="^Books$" title="^(General|Reading|Playback|Advanced)$" manage=off
+yabai -m rule --add label="1Password Settings" app="^1Password$" title="Settings" manage=off
+yabai -m rule --add label="Arc Settings" app="^Arc$" title="^(Joshua|General|Shortcuts|Little Arc|Advanced)$" manage=off
+yabai -m rule --add label="Arc PiP" app="^Arc$" title="^$" mouse_follows_focus=off
+yabai -m rule --add label="Little Arc" app="^Arc$" title="^Space 1$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^Installer$" manage=off
+yabai -m rule --add app="^Digital Color Meter$" manage=off
 yabai -m rule --add app="^Gifski$" manage=off
-yabai -m rule --add app="^1Password$" title="Settings" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
-yabai -m rule --add label="Arc" app="^Arc$" title="^(Joshua|General|Shortcuts|Little Arc|Advanced)$" manage=off
-yabai -m rule --add app="^Arc$" title="^$" mouse_follows_focus=off
-yabai -m rule --add app="^Arc$" title="^Space 1$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^LinearMouse$" manage=off
 
-# make all non-resizeable windows float (#1317)
+# Make all non-resizeable windows float (#1317)
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
