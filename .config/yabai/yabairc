@@ -9,49 +9,31 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-# .. more yabai startup stuff
-
-# Default layout (can be bsp, stack or float)
-yabai -m config layout bsp
-
-# New window spawns to the right if vertical split, or bottom if horizontal split
-yabai -m config window_placement second_child
-
-# Padding set to 12px
-yabai -m config top_padding 12
-yabai -m config bottom_padding 12
-yabai -m config left_padding 12
-yabai -m config right_padding 12
-yabai -m config window_gap 12
-
-# Configure window borders and colors
-yabai -m config window_border on
-yabai -m config window_border_width 4
-yabai -m config window_border_blur off # disable to fix window blur ghosting
-yabai -m config active_window_border_color 0xFFC4A6F5 # tokyonight purple
-yabai -m config normal_window_border_color 0x002E3440 # black
-yabai -m config insert_feedback_color 0xff7793d1 # blue
-
-# Set window opacity effects
-yabai -m config window_opacity off
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.9
-yabai -m config window_opacity_duration 0.15
-
-# Center mouse on window with focus
-# yabai -m config mouse_follows_focus on
-
-# Modifier for clicking and dragging with mouse
-yabai -m config mouse_modifier fn
-# Set modifier + left-click drag to move window
-yabai -m config mouse_action1 move
-# Set modifier + right-click drag to resize window
-yabai -m config mouse_action2 resize
-# Enable window animations
-# yabai -m config window_animation_duration 0.35
-
-# When window is dropped in center of another window, swap them (on edges it will split it)
-yabai -m mouse_drop_action swap
+# Global settings
+yabai -m config \
+  layout bsp \
+  window_placement second_child \
+  top_padding 12 \
+  bottom_padding 12 \
+  left_padding 12 \
+  right_padding 12 \
+  window_gap 12 \
+  window_border on \
+  window_border_width 4 \
+  window_border_blur off \
+  active_window_border_color 0xFFC4A6F5 \
+  normal_window_border_color 0x002E3440 \
+  insert_feedback_color 0xff7793d1 \
+  window_opacity off \
+  active_window_opacity 1.0 \
+  normal_window_opacity 0.9 \
+  window_opacity_duration 0.15 \
+  window_animation_duration 0.0 \
+  mouse_follows_focus off \
+  mouse_modifier fn \
+  mouse_action1 move \
+  mouse_action2 resize \
+  mouse_drop_action swap
 
 # Space labels
 yabai -m space 1 --label "Browse"
