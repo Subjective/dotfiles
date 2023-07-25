@@ -56,7 +56,6 @@ return {
     },
     opts = {
       labeled_modes = "nxo",
-      multiline = false,
     },
   },
   {
