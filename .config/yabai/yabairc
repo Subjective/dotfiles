@@ -61,6 +61,7 @@ yabai -m rule --add app="^Podcasts$" space="Media"
 yabai -m rule --add app="^Calendar$" space="Misc"
 
 # Apps to not manage (ignore)
+yabai -m rule --add app="^(System Settings|Calculator|Dictionary|Karabiner-Elements|Raycast|App Store|Activity Monitor|Simulator|Installer|Digital Color Meter|Gifski|Archive Utility|QuickTime Player|Photo Booth|JetBrains Toolbox|LinearMouse)$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="^(Co(py|nnect)|Move|Info|Pref|Finder Settings|Go to Folder)$" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advanced)$" manage=off
 yabai -m rule --add label="Calendar" app="^Calendar$" title="^(General|(Account|Alert)s|Advanced)$" manage=off
@@ -75,22 +76,6 @@ yabai -m rule --add label="1Password Settings" app="^1Password$" title="Settings
 yabai -m rule --add label="Arc Settings" app="^Arc$" title="^(Joshua|General|Shortcuts|Little Arc|Advanced)$" manage=off
 yabai -m rule --add label="Arc PiP" app="^Arc$" title="^$" mouse_follows_focus=off
 yabai -m rule --add label="Little Arc" app="^Arc$" title="^Space 1$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Dictionary$" manage=off
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^App Store$" manage=off
-yabai -m rule --add app="^Activity Monitor$" manage=off
-yabai -m rule --add app="^Simulator$" manage=off
-yabai -m rule --add app="^Installer$" manage=off
-yabai -m rule --add app="^Digital Color Meter$" manage=off
-yabai -m rule --add app="^Gifski$" manage=off
-yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add app="^QuickTime Player$" manage=off
-yabai -m rule --add app="^Photo Booth$" manage=off
-yabai -m rule --add app="^JetBrains Toolbox$" manage=off
-yabai -m rule --add app="^LinearMouse$" manage=off
 
 # Make all non-resizeable windows float (#1317)
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
