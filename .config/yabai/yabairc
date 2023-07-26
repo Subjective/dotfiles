@@ -36,49 +36,33 @@ yabai -m config \
   mouse_drop_action swap
 
 # Space labels
-yabai -m space 1 --label "Browse"
 yabai -m space 2 --label "Code"
 yabai -m space 3 --label "School"
 yabai -m space 4 --label "Social"
 yabai -m space 5 --label "Media"
 yabai -m space 6 --label "Misc"
 
-# Browser
-# yabai -m rule --add app="Edge" space="Browse"
-# yabai -m rule --add app="Orion" space="Browse"
-# yabai -m rule --add app="Min" space="Browse"
-# yabai -m rule --add app="Chrome" space="Browse"
-# yabai -m rule --add app="Safari" space="Browse"
-
 # Code
-yabai -m rule --add app="Visual Studio Code" space="Code"
-yabai -m rule --add app="iTerm" space="Code"
-yabai -m rule --add app="Alacritty" space="Code"
-yabai -m rule --add app="WezTerm" space="Code"
-yabai -m rule --add app="kitty" space="Code"
+yabai -m rule --add app="^iTerm$" space="Code"
+yabai -m rule --add app="^Alacritty$" space="Code"
+yabai -m rule --add app="^WezTerm$" space="Code"
+yabai -m rule --add app="^kitty$" space="Code"
 
 # School
-yabai -m rule --add app="Microsoft OneNote" space="School"
-yabai -m rule --add app="Microsoft Teams" space="School"
-yabai -m rule --add app="Microsoft Word" space="School"
-yabai -m rule --add app="Microsoft PowerPoint" space="School"
-yabai -m rule --add app="Microsoft Excel" space="School"
+yabai -m rule --add app="^(Microsoft (OneNote|Teams|Word|PowerPoint|Excel))$" space="School"
 
 # Social
-yabai -m rule --add app="Discord" space="Social"
-yabai -m rule --add app="Mail" space="Social"
-yabai -m rule --add app="Microsoft Outlook" space="Social"
-# yabai -m rule --add app="zoom.us" space="Social"
-yabai -m rule --add app="Calendar" space="Misc"
+yabai -m rule --add app="^Discord$" space="Social"
+yabai -m rule --add app="^Mail$" space="Social"
+yabai -m rule --add app="^Microsoft Outlook$" space="Social"
 
 # Media
-yabai -m rule --add app="YT Music" space="Media"
-yabai -m rule --add app="Spotify" space="Media"
-yabai -m rule --add app="Music" space="Media"
-yabai -m rule --add app="Podcasts" space="Media"
+yabai -m rule --add app="^Spotify$" space="Media"
+yabai -m rule --add app="^Music$" space="Media"
+yabai -m rule --add app="^Podcasts$" space="Media"
 
 # Misc
-# yabai -m rule --add app="App Store" space="Misc"
+yabai -m rule --add app="^Calendar$" space="Misc"
 
 # Apps to not manage (ignore)
 yabai -m rule --add label="Finder" app="^Finder$" title="^(Co(py|nnect)|Move|Info|Pref|Finder Settings|Go to Folder)$" manage=off
