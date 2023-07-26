@@ -5,30 +5,30 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 # Global settings
-yabai -m config \
-  layout bsp \
-  window_placement second_child \
-  top_padding 12 \
-  bottom_padding 12 \
-  left_padding 12 \
-  right_padding 12 \
-  window_gap 12 \
-  window_border on \
-  window_border_width 4 \
-  window_border_blur off \
-  active_window_border_color 0xFFC4A6F5 \
-  normal_window_border_color 0x002E3440 \
-  insert_feedback_color 0xff7793d1 \
-  window_opacity off \
-  active_window_opacity 1.0 \
-  normal_window_opacity 0.9 \
-  window_opacity_duration 0.15 \
-  window_animation_duration 0.0 \
-  mouse_follows_focus off \
-  mouse_modifier fn \
-  mouse_action1 move \
-  mouse_action2 resize \
-  mouse_drop_action swap
+yabai -m config                            \
+  layout                      bsp          \
+  window_placement            second_child \
+  top_padding                 12           \
+  bottom_padding              12           \
+  left_padding                12           \
+  right_padding               12           \
+  window_gap                  12           \
+  window_border               on           \
+  window_border_width         4            \
+  window_border_blur          off          \
+  active_window_border_color  0xFFC4A6F5   \
+  normal_window_border_color  0x002E3440   \
+  insert_feedback_color       0xff7793d1   \
+  window_opacity              off          \
+  active_window_opacity       1.0          \
+  normal_window_opacity       0.9          \
+  window_opacity_duration     0.15         \
+  window_animation_duration   0.0          \
+  mouse_follows_focus         off          \
+  mouse_modifier              fn           \
+  mouse_action1               move         \
+  mouse_action2               resize       \
+  mouse_drop_action           swap
 
 # Space labels
 yabai -m space 2 --label "Code"
