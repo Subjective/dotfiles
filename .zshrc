@@ -200,6 +200,7 @@ alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd='pwd && echo -n `pwd`|pbcopy' # copy and print cwd
 alias ywd='echo -n `pwd`|pbcopy' # copy cwd
 alias vs='nvim "+lua require(\"resession\").load(vim.fn.getcwd(), { dir = \"dirsession\" })"'
+alias vl='nvim "+lua require(\"resession\").load(\"Last Session\")"'
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
 alias t="tmux"
 alias tks="t kill-server"
