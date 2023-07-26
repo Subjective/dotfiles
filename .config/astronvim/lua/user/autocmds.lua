@@ -18,6 +18,20 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("BufWritePre", {
+  desc = "Remove trailing whitespace on save",
+  group = augroup("autoclean_trailing_whitespace", { clear = true }),
+  pattern = "*",
+  callback = function()
+    local save = vim.fn.winsaveview()
+    local success = pcall(function() vim.cmd "%s/\\s\\+$//" end)
+    if success then
+      require("astronvim.utils").notify "Automatically removed trailing whitespace"
+      vim.fn.winrestview(save)
+    end
+  end,
+})
+
 -- autocmd("User", {
 --   desc = "Hide tabline when only one buffer and one tab are open",
 --   pattern = "AstroBufsUpdated",
