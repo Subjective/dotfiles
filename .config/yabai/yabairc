@@ -37,7 +37,7 @@ yabai -m config \
 
 # Space labels
 yabai -m space 2 --label "Code"
-yabai -m space 3 --label "School"
+yabai -m space 3 --label "Productivity"
 yabai -m space 4 --label "Social"
 yabai -m space 5 --label "Media"
 yabai -m space 6 --label "Misc"
@@ -48,8 +48,9 @@ yabai -m rule --add app="^Alacritty$" space="Code"
 yabai -m rule --add app="^WezTerm$" space="Code"
 yabai -m rule --add app="^kitty$" space="Code"
 
-# School
-yabai -m rule --add app="^(Microsoft (OneNote|Teams|Word|PowerPoint|Excel))$" space="School"
+# Productivity
+yabai -m rule --add app="^(Microsoft (OneNote|Teams|Word|PowerPoint|Excel))$" space="Productivity"
+yabai -m rule --add app="^Obsidian$" space="Productivity"
 
 # Social
 yabai -m rule --add app="^Discord$" space="Social"
