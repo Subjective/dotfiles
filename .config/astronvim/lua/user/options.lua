@@ -6,6 +6,8 @@ return {
     conceallevel = 2,
     clipboard = "",
     splitkeep = "screen",
+    list = true, -- show whitespace characters
+    listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     swapfile = false,
     spellfile = vim.fn.expand "~/.config/astronvim/lua/user/spell/en.utf-8.add",
     thesaurus = vim.fn.expand "~/.config/astronvim/lua/user/spell/mthesaur.txt",
