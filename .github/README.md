@@ -49,9 +49,11 @@ I'm using a bare git repo with its working tree set to my home directory to mana
 2. Run the following commands in the shell to clone the dotfiles:
 
 ```
+$ echo ".cfg" >> $HOME/.gitignore
 $ git clone --bare 'https://github.com/Subjective/dotfiles.git' $HOME/.cfg
 $ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 $ dotfiles config --local status.showUntrackedFiles no
+$ dotfiles checkout
 $ dotfiles sparse-checkout set --no-cone '/*' '!LICENSE'
 ```
 
