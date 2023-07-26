@@ -8,7 +8,7 @@
 	required = true
 [core]
 	editor = nvim
-	excludesfile = /Users/joshua/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [http]
 	postBuffer = 1048576000
 [diff]
