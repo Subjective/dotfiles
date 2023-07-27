@@ -52,6 +52,7 @@ brew "lf"
 brew "libyaml"
 brew "mackup"
 brew "make"
+brew "mas"
 brew "mono"
 brew "nap"
 brew "ncdu"
@@ -93,6 +94,41 @@ cask "raycast"
 cask "skim"
 cask "spaceid"
 cask "wezterm"
+mas "1Password for Safari", id: 1569813296
+mas "AdGuard for Safari", id: 1440147259
+mas "Balance Lock", id: 1019371109
+mas "Betternet VPN", id: 1028905953
+mas "CotEditor", id: 1024640650
+mas "Craft", id: 1487937127
+mas "Developer", id: 640199958
+mas "Dropover", id: 1355679052
+mas "Endel", id: 1484348796
+mas "GarageBand", id: 682658836
+mas "Gifski", id: 1351639930
+mas "GoodNotes", id: 1444383602
+mas "Hidden Bar", id: 1452453066
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "Klokki Slim", id: 1459795140
+mas "Luminar Neo", id: 1584373150
+mas "Magnet", id: 441258766
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft OneNote", id: 784801555
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
+mas "New File Menu", id: 1064959555
+mas "Numbers", id: 409203825
+mas "OneDrive", id: 823766827
+mas "Pages", id: 409201541
+mas "Paste", id: 967805235
+mas "Reader", id: 1179373118
+mas "ScrollAnywhere", id: 1556838353
+mas "Speed Player", id: 1521133201
+mas "Structured", id: 1499198946
+mas "Vectornator", id: 1219074514
+mas "Xcode", id: 497799835
 vscode "bradlc.vscode-tailwindcss"
 vscode "Catppuccin.catppuccin-vsc"
 vscode "cschlosser.doxdocgen"
