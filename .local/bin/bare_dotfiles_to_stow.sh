@@ -1,5 +1,17 @@
 #!/bin/sh
 
+# Function to check if a command is aliased
+is_command_aliased() {
+    command="$1"
+    [ -n "$(command -V "$command" | grep "alias")" ]
+}
+
+# Check if cp and mv are aliased
+if is_command_aliased cp || is_command_aliased mv; then
+    echo "Error: The 'cp' and 'mv' commands are aliased. Please disable the aliases or use full command paths before running the script."
+    exit 1
+fi
+
 # Function to create the directory structure
 create_directory_structure() {
     SOURCE_PATH=$1
