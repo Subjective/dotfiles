@@ -182,7 +182,7 @@ alias lt="l --tree --level=2"
 alias ll="l --group-directories-first"
 alias lla="ll -a"
 alias tree="exa --tree --level=3"
-alias lag='exa -l -a -H --icons --color=always --git | rg'
+alias lag='exa -l -a -H --icons --color=always --git | rg -i'
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -I"
