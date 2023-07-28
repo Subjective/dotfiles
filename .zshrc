@@ -124,7 +124,7 @@ bindkey '^u' backward-kill-line
 #
 
 # load api keys as environment variables from .envkeys
-source ~/.envkeys
+source $HOME/.envkeys
 
 ## Custom Exports ##
 
@@ -142,7 +142,6 @@ export GIT_EDITOR="nvim"
 
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 export PATH="$HOME/.local/bin":$PATH
-export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
