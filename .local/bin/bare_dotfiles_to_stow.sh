@@ -1,14 +1,23 @@
 #!/bin/sh
 
+# Function to expand tilde to the home directory path
+expand_tilde() {
+    case $1 in
+        "~/"*) echo "$HOME${1#"~/"}";;
+        *) echo "$1";;
+    esac
+}
+
 # Function to create the directory structure
 create_directory_structure() {
-    SOURCE_PATH=$1
-    DOTFILES_PATH=$2
-    BACKUP_PATH=$3
+    SOURCE_PATH=$(expand_tilde "$1")
+    DOTFILES_PATH=$(expand_tilde "$2")
+    BACKUP_PATH=$(expand_tilde "$3")
 
     # Read the list of directories and files
     while IFS= read -r path; do
         path=$(echo "$path" | xargs) # Trim leading/trailing spaces
+        path=$(expand_tilde "$path") # Expand ~ to $HOME
         if [ ! -e "$path" ]; then
             echo "Path '$path' does not exist. Skipping."
             continue
