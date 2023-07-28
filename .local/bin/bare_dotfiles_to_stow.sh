@@ -39,11 +39,11 @@ create_directory_structure() {
         mkdir -p "$(dirname "$destination_backup")"
 
         if [ -d "$path" ]; then
-            mv "$path" "$destination_dotfiles"
             cp -R "$path" "$destination_backup"
-        else
             mv "$path" "$destination_dotfiles"
+        else
             cp "$path" "$destination_backup"
+            mv "$path" "$destination_dotfiles"
         fi
 
         echo "Moved '$path' to '$destination_dotfiles'"
