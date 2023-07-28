@@ -82,7 +82,7 @@ return {
             desc = "Toggle winbar",
           })
         end
-        utils.notify("Winbar " .. (vim.g.winbar_disabled and "enabled" or "disabled"))
+        utils.notify("winbar " .. (vim.g.winbar_disabled and "enabled" or "disabled"))
         vim.g.winbar_disabled = not vim.g.winbar_disabled
       end,
       desc = "Toggle winbar",
