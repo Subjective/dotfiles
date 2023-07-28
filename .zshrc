@@ -173,44 +173,44 @@ alias 8='cd -8'
 alias 9='cd -9'
 alias md='mkdir -p'
 alias rd='rmdir'
-alias ls="exa --icons"
-alias lsa="ls -a"
-alias l="exa -l -H --icons --git"
-alias la="l -a"
-alias lr="l -smodified"
-alias lt="l --tree --level=2"
-alias ll="l --group-directories-first"
-alias lla="ll -a"
-alias tree="exa --tree --level=3"
+alias ls='exa --icons'
+alias lsa='ls -a'
+alias l='exa -l -H --icons --git'
+alias la='l -a'
+alias lr='l -smodified'
+alias lt='l --tree --level=2'
+alias ll='l --group-directories-first'
+alias lla='ll -a'
+alias tree='exa --tree --level=3'
 alias lag='exa -l -a -H --icons --color=always --git | rg -i'
-alias mv="mv -i"
-alias cp="cp -i"
-alias rm="rm -I"
-alias python="python3"
-alias pip="pip3"
-alias lazyvim="NVIM_APPNAME=lazyvim nvim"
-alias nvchad="NVIM_APPNAME=nvchad nvim"
-alias kickstart="NVIM_APPNAME=kickstart nvim"
-alias min="NVIM_APPNAME=min nvim"
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -I'
+alias python='python3'
+alias pip='pip3'
+alias lazyvim='NVIM_APPNAME=lazyvim nvim'
+alias nvchad='NVIM_APPNAME=nvchad nvim'
+alias kickstart='NVIM_APPNAME=kickstart nvim'
+alias min='NVIM_APPNAME=min nvim'
 alias vi="nvim"
 alias dotfiles="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias dot="dotfiles"
-alias dots="dot status"
-alias dota="dot add"
-alias dotc="dot commit"
-alias lg="lazygit"
+alias dot='dotfiles'
+alias dots='dot status'
+alias dota='dot add'
+alias dotc='dot commit'
+alias lg='lazygit'
 alias lgdot="lazygit --git-dir=$HOME/.cfg --work-tree=$HOME"
-alias gitui="gitui -t themes/mocha.ron"
+alias gitui='gitui -t themes/mocha.ron'
 alias brewbackup="brew bundle dump --file=$HOMEBREW_BUNDLE_FILE --force"
 alias ypwd='pwd && echo -n `pwd`|pbcopy' # copy and print cwd
 alias ywd='echo -n `pwd`|pbcopy' # copy cwd
 alias vs='nvim "+lua require(\"resession\").load(vim.fn.getcwd(), { dir = \"dirsession\" })"'
 alias vl='nvim "+lua require(\"resession\").load(\"Last Session\")"'
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
-alias t="tmux"
-alias tks="t kill-server"
-alias icat="kitty +kitten icat"
-alias s="kitty +kitten ssh"
+alias t='tmux'
+alias tks='t kill-server'
+alias icat='kitty +kitten icat'
+alias s='kitty +kitten ssh'
 
 # function to make directory and cd into it
 function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
