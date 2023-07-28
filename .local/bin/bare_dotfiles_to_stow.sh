@@ -21,8 +21,8 @@ create_directory_structure() {
             destination_dotfiles="$DOTFILES_PATH/$package_name/$path"
         else
             # Otherwise, it is not a subdirectory of .config
-            echo -n "Enter the subdirectory name for '$path': "
-            read subdirectory_name < /dev/tty
+            printf "Enter the subdirectory name for '$path': "
+            read -r subdirectory_name < /dev/tty
             destination_dotfiles="$DOTFILES_PATH/$subdirectory_name/"$path""
         fi
 
@@ -45,8 +45,11 @@ create_directory_structure() {
     done < "$SOURCE_PATH"
 }
 
-read -p "Enter the path to the file containing the list of directories and files: " SOURCE_LIST_PATH </dev/tty
-read -p "Enter the path to the dotfiles directory: " DOTFILES_DIRECTORY </dev/tty
+printf "Enter the path to the file containing the list of directories and files: "
+read SOURCE_LIST_PATH < /dev/tty
+
+printf "Enter the path to the dotfiles directory: "
+read DOTFILES_DIRECTORY < /dev/tty
 
 # Set the backup location to ".backup/" relative to the current working directory
 BACKUP_DIRECTORY="$(pwd)/.backup"
