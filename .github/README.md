@@ -55,6 +55,9 @@ $ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 $ dotfiles config --local status.showUntrackedFiles no
 $ dotfiles checkout
 $ dotfiles sparse-checkout set --no-cone '/*' '!LICENSE'
+$ dotfiles config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+$ dotfiles remote update
+$ dotfiles branch -u origin/master
 ```
 
 ## Zsh Setup
