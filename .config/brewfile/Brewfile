@@ -99,6 +99,7 @@ mas "Balance Lock", id: 1019371109
 mas "Betternet VPN", id: 1028905953
 mas "CotEditor", id: 1024640650
 mas "Craft", id: 1487937127
+mas "Curve", id: 1219074514
 mas "Developer", id: 640199958
 mas "Dropover", id: 1355679052
 mas "Endel", id: 1484348796
@@ -126,7 +127,6 @@ mas "Reader", id: 1179373118
 mas "ScrollAnywhere", id: 1556838353
 mas "Speed Player", id: 1521133201
 mas "Structured", id: 1499198946
-mas "Vectornator", id: 1219074514
 mas "Xcode", id: 497799835
 vscode "bradlc.vscode-tailwindcss"
 vscode "Catppuccin.catppuccin-vsc"
