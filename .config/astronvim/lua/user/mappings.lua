@@ -145,7 +145,7 @@ return {
     -- fix substution command conflict with Noice
     ["&"] = { "&", silent = true, desc = "Repeat last substiution" },
     -- disable `q:`
-    ["q:"] = ":",
+    ["q:"] = false,
   },
   v = {},
   i = {
