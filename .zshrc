@@ -86,6 +86,7 @@ source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
 # Defer evals and cache the results on first run via the evalcache plugin (clear the cache w/ `_evalcache_clear`).
 zsh-defer _evalcache zoxide init zsh
 zsh-defer _evalcache rtx activate zsh
+zsh-defer _evalcache direnv hook zsh
 
 # ------------------------------
 # Post-init module configuration
