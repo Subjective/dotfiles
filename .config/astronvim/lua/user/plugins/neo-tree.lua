@@ -33,6 +33,15 @@ return {
           require("neo-tree.sources.manager").refresh(state.name)
         end)
       end,
+      open_nofocus = function(state)
+        local node = state.tree:get_node()
+        if require("neo-tree.utils").is_expandable(node) then
+          state.commands["toggle_node"](state)
+        else
+          state.commands["open"](state)
+          vim.cmd.Neotree "reveal"
+        end
+      end,
     })
 
     -- add new mappings to all windows
@@ -41,6 +50,7 @@ return {
       ["~"] = "set_root_to_home",
       T = "trash",
       Z = "expand_all_nodes",
+      ["<tab>"] = "open_nofocus",
     })
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
