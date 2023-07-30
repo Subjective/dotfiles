@@ -42,6 +42,7 @@ return {
           vim.cmd.Neotree "reveal"
         end
       end,
+      deactivate = function() vim.cmd.Neotree "close" end,
     })
 
     -- add new mappings to all windows
