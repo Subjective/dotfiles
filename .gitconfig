@@ -14,7 +14,7 @@
 [diff]
 	algorithm = patience
 	compactionHeuristic = true
-	tool = nvimdiff
+	tool = vimdiff
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
