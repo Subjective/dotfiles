@@ -52,9 +52,14 @@ return {
   keys = function()
     return {
       {
-        "<leader>E",
+        "<leader>e",
         function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end,
         desc = "Toggle Explorer (cwd)",
+      },
+      {
+        "<leader>E",
+        function() require("neo-tree.command").execute { toggle = true } end,
+        desc = "Toggle Explorer (root)",
       },
     }
   end,
