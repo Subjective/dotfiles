@@ -25,7 +25,6 @@ return {
     },
     -- explorer bindings
     ["<leader>o"] = false,
-    ["<leader>e"] = false,
     -- toggle winbar
     ["<leader>uW"] = {
       function()

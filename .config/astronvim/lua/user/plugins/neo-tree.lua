@@ -4,17 +4,6 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = function(_, opts)
     opts.commands = utils.extend_tbl(opts.commands, {
-      -- set cwd to selected node or root when bind_to_cwd is disabled
-      set_cwd = function(state)
-        local node = state.tree:get_node()
-        if node.type == "directory" then
-          vim.api.nvim_set_current_dir(node.path)
-          require("neo-tree.sources.filesystem.commands").set_root(state)
-        else
-          local root = state.tree:get_nodes()[1]
-          vim.api.nvim_set_current_dir(root.path)
-        end
-      end,
       set_root_to_home = function() vim.cmd.Neotree "~" end,
       trash = function(state)
         local inputs = require "neo-tree.ui.inputs"
@@ -52,7 +41,6 @@ return {
 
     -- add new mappings to all windows
     opts.window.mappings = utils.extend_tbl(opts.window.mappings, {
-      ["."] = "set_cwd",
       ["~"] = "set_root_to_home",
       T = "trash",
       Z = "expand_all_nodes",
@@ -62,48 +50,11 @@ return {
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
   end,
   keys = function()
-    local function get_root()
-      local root_patterns = { ".git", "lua" }
-      ---@type string?
-      local path = vim.api.nvim_buf_get_name(0)
-      path = path ~= "" and vim.uv.fs_realpath(path) or nil
-      ---@type string[]
-      local roots = {}
-      if path then
-        for _, client in pairs(vim.lsp.get_clients { bufnr = 0 }) do
-          local workspace = client.config.workspace_folders
-          local paths = workspace and vim.tbl_map(function(ws) return vim.uri_to_fname(ws.uri) end, workspace)
-            or client.config.root_dir and { client.config.root_dir }
-            or {}
-          for _, p in ipairs(paths) do
-            local r = vim.uv.fs_realpath(p)
-            if path:find(r, 1, true) then roots[#roots + 1] = r end
-          end
-        end
-      end
-      table.sort(roots, function(a, b) return #a > #b end)
-      ---@type string?
-      local root = roots[1]
-      if not root then
-        path = path and vim.fs.dirname(path) or vim.uv.cwd()
-        ---@type string?
-        root = vim.fs.find(root_patterns, { path = path, upward = true })[1]
-        root = root and vim.fs.dirname(root) or vim.uv.cwd()
-      end
-      ---@cast root string
-      return root
-    end
-
     return {
       {
-        "<leader>e",
+        "<leader>E",
         function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end,
         desc = "Toggle Explorer (cwd)",
-      },
-      {
-        "<leader>E",
-        function() require("neo-tree.command").execute { toggle = true, dir = get_root() } end,
-        desc = "Toggle Explorer (root)",
       },
     }
   end,
