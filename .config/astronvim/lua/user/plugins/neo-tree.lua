@@ -29,13 +29,8 @@ return {
         end)
       end,
       open_nofocus = function(state)
-        local node = state.tree:get_node()
-        if require("neo-tree.utils").is_expandable(node) then
-          state.commands["toggle_node"](state)
-        else
-          state.commands["open"](state)
-          vim.cmd.Neotree "reveal"
-        end
+        state.commands["open"](state)
+        if not require("neo-tree.utils").is_expandable(state.tree:get_node()) then vim.api.nvim_set_current_win(state.winid) end
       end,
     })
 
