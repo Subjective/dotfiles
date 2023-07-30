@@ -9,7 +9,7 @@ return {
         if node.type == "directory" then vim.api.nvim_set_current_dir(node.path) end
         require("neo-tree.sources.filesystem.commands").set_root(state)
       end,
-      set_root_to_home = function() vim.cmd "Neotree ~" end,
+      set_root_to_home = function() vim.cmd.Neotree "~" end,
       trash = function(state)
         local inputs = require "neo-tree.ui.inputs"
         local path = state.tree:get_node().path
