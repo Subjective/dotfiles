@@ -15,7 +15,7 @@ return {
       "jay-babu/project.nvim",
       name = "project-nvim",
       event = "VeryLazy",
-      opts = { ignore_lsp = { "null-ls", "texlab" } },
+      opts = { ignore_lsp = { "lua_ls", "null-ls", "texlab" } },
       keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
     },
     {
