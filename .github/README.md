@@ -57,7 +57,7 @@ $ dotfiles checkout
 $ dotfiles sparse-checkout set --no-cone '/*' '!LICENSE'
 $ dotfiles config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 $ dotfiles remote update
-$ dotfiles branch -u origin/master
+$ dotfiles branch -u origin/main
 ```
 
 ## Zsh Setup
