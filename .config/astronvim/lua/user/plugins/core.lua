@@ -116,6 +116,22 @@ return {
   },
   {
     "akinsho/toggleterm.nvim",
-    opts = function(_, opts) opts.highlights = nil end,
+    opts = { highlights = false },
+  },
+  {
+    "stevearc/dressing.nvim",
+    opts = {
+      select = {
+        backend = { "telescope", "builtin" },
+        telescope = {
+          layout_strategy = "horizontal",
+          layout_config = {
+            preview_cutoff = false,
+            width = function(_, max_columns, _) return math.min(max_columns, 80) end,
+            height = function(_, _, max_lines) return math.min(max_lines, 15) end,
+          },
+        },
+      },
+    },
   },
 }
