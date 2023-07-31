@@ -75,6 +75,10 @@ return {
         },
         mapping = {
           ["<CR>"] = cmp.mapping.confirm { select = true },
+          ["<S-CR>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          },
           -- <C-n> and <C-p> for navigating snippets
           ["<C-n>"] = cmp.mapping(function()
             if luasnip.jumpable(1) then luasnip.jump(1) end
