@@ -9,6 +9,8 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = main
 [http]
 	postBuffer = 1048576000
 [diff]
