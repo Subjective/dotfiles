@@ -79,6 +79,8 @@ return {
       desc = "Previous buffer",
     },
     ["<leader>`"] = { "<cmd>e #<cr>", desc = "Previous buffer" },
+    -- create a new tab
+    ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "Open a new tab" },
     -- disable default bindings
     ["<C-Down>"] = false,
     ["<C-Left>"] = false,
