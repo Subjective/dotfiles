@@ -70,6 +70,9 @@ return {
       local luasnip = require "luasnip"
 
       return utils.extend_tbl(opts, {
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
         mapping = {
           ["<CR>"] = cmp.mapping.confirm { select = true },
           -- <C-n> and <C-p> for navigating snippets
