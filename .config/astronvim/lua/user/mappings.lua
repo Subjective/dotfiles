@@ -10,7 +10,7 @@ return {
     -- disable quick save
     ["<C-s>"] = false,
     -- clear search highlights
-    ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr>", desc = "Clear search highlights" },
+    ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr><cmd>echon ''<cr>", desc = "Clear search highlights" },
     -- yank to system clipboard
     ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
     ["<leader>Y"] = { '"+y$', desc = "which_key_ignore" },
