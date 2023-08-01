@@ -35,6 +35,13 @@ autocmd({ "User" }, {
   command = "VimtexClean",
 })
 
+autocmd({ "VimResized" }, {
+  desc = "Automatically resize windows when resizing the terminal",
+  group = augroup("autoresize_window", { clear = true }),
+  pattern = "*",
+  command = "wincmd =",
+})
+
 -- if vim.env.KITTY_LISTEN_ON then
 --   local cmd = require("astronvim.utils").cmd
 --
