@@ -10,6 +10,7 @@ return {
     listchars = { tab = "│·", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     swapfile = false,
     spellfile = vim.fn.expand "~/.config/astronvim/lua/user/spell/en.utf-8.add",
+    cmdheight = 1,
     thesaurus = vim.fn.expand "~/.config/astronvim/lua/user/spell/mthesaur.txt",
     shada = string.gsub(vim.opt.shada._value, "'(%d+)", "'" .. 500), -- increase default oldfiles history length to 500
   },

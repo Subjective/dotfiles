@@ -69,6 +69,20 @@ return {
       end,
       desc = "Toggle indentation guides (buffer)",
     },
+    -- toggle noice
+    ["<leader>uU"] = {
+      function()
+        if vim.g.noice_disabled then
+          vim.cmd.Noice "enable"
+        else
+          vim.cmd.Noice "disable"
+          vim.cmd.set "cmdheight=1"
+        end
+        utils.notify("Noice " .. (vim.g.noice_disabled and "enabled" or "disabled"))
+        vim.g.noice_disabled = not vim.g.noice_disabled
+      end,
+      desc = "Toggle Noice",
+    },
     -- better buffer navigation
     L = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
