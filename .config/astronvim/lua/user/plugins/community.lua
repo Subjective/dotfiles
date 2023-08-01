@@ -48,6 +48,8 @@ return {
           TelescopePromptNormal = { fg = colors.text, bg = colors.crust },
           TelescopePromptBorder = { fg = colors.crust, bg = colors.crust },
           TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.crust },
+          -- make telescope and cmp selection color consistent
+          PmenuSel = { bg = colors.surface0 },
         }
       end,
     },
