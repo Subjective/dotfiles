@@ -1,5 +1,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local cmd = vim.api.nvim_create_user_command
 
 autocmd({ "FileType" }, {
   desc = "Don't auto comment new lines",
@@ -41,6 +42,14 @@ autocmd({ "VimResized" }, {
   pattern = "*",
   command = "wincmd =",
 })
+
+cmd("Redir", function(ctx)
+  local lines = vim.split(vim.api.nvim_exec(ctx.args, true), "\n", { plain = true })
+  vim.cmd "new"
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  vim.keymap.set("n", "q", "<cmd>q!<cr>", { buffer = true })
+  vim.opt_local.modified = false
+end, { nargs = "+", complete = "command" })
 
 -- if vim.env.KITTY_LISTEN_ON then
 --   local cmd = require("astronvim.utils").cmd
