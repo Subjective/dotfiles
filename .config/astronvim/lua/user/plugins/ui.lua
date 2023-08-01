@@ -1,7 +1,7 @@
 return {
   {
     "folke/noice.nvim",
-    event = "VeryLazy",
+    event = not vim.g.noice_disabled and "VeryLazy" or nil,
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
       cmdline = {

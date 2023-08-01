@@ -25,6 +25,7 @@ return {
     resession_enabled = true, -- enable resession
     inlay_hints_enabled = true, -- enable lsp inlay hints
     git_worktrees = { { toplevel = vim.env.HOME, gitdir = vim.env.HOME .. "/.cfg" } }, -- allow detached git_worktrees to be detected
+    noice_disabled = true,
   },
 }
 -- If you need more control, you can use the function()...end notation

@@ -72,6 +72,13 @@ return {
     -- toggle noice
     ["<leader>uU"] = {
       function()
+        local success, _ = pcall(vim.cmd.Noice, "dismiss")
+        if not success then
+          require("lazy").load { plugins = { "noice.nvim" } }
+          vim.g.noice_disabled = false
+          utils.notify "Noice enabled"
+          return
+        end
         if vim.g.noice_disabled then
           vim.cmd.Noice "enable"
         else
