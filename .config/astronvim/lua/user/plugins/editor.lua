@@ -154,4 +154,5 @@ return {
       { "<leader>fL", "<cmd>UrlView lazy<cr>", desc = "Find plugin links" },
     },
   },
+  { "rafcamlet/nvim-luapad", cmd = { "Luapad", "Luarun" } },
 }
