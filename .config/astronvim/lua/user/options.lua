@@ -23,7 +23,6 @@ return {
     icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     ui_notifications_enabled = true, -- enable notifications
     resession_enabled = true, -- enable resession
-    inlay_hints_enabled = true, -- enable lsp inlay hints
     git_worktrees = { { toplevel = vim.env.HOME, gitdir = vim.env.HOME .. "/.cfg" } }, -- allow detached git_worktrees to be detected
     noice_disabled = true, -- disable noice on startup
   },
