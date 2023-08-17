@@ -51,6 +51,12 @@ cmd("Redir", function(ctx)
   vim.opt_local.modified = false
 end, { nargs = "+", complete = "command" })
 
+autocmd({ "CursorMoved", "InsertEnter" }, {
+  desc = "Automatically clear cmdline messages",
+  group = augroup("autoclear_cmdline", { clear = true }),
+  command = "echon ''",
+})
+
 -- if vim.env.KITTY_LISTEN_ON then
 --   local cmd = require("astronvim.utils").cmd
 --
