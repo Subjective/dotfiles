@@ -26,7 +26,7 @@ return {
       {
         flexible = 10,
         status.component.file_info {
-          filename = { modify = ":~:." },
+          filename = { fallback = "", modify = ":~:." },
           surround = { condition = is_file },
         },
         status.component.file_info {
