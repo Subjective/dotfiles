@@ -51,6 +51,10 @@ cmd("Redir", function(ctx)
   vim.opt_local.modified = false
 end, { nargs = "+", complete = "command" })
 
+vim.on_key(function()
+  if vim.fn.mode() == "n" then vim.cmd [[echon '']] end
+end, vim.api.nvim_create_namespace "auto_clearcmdline")
+
 -- if vim.env.KITTY_LISTEN_ON then
 --   local cmd = require("astronvim.utils").cmd
 --
