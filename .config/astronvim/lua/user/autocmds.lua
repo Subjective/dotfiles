@@ -51,7 +51,7 @@ cmd("Redir", function(ctx)
   vim.opt_local.modified = false
 end, { nargs = "+", complete = "command" })
 
-autocmd({ "InsertEnter" }, {
+autocmd({ "CursorMoved", "InsertEnter" }, {
   desc = "Automatically clear cmdline messages",
   group = augroup("autoclear_cmdline", { clear = true }),
   command = "echon ''",
