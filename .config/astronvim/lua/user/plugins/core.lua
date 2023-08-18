@@ -120,7 +120,7 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    opts = { render = "default", timeout = 250 },
+    enabled = false,
   },
   {
     "akinsho/toggleterm.nvim",
