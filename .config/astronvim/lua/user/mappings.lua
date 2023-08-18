@@ -135,8 +135,7 @@ return {
     ["<C-l>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
   },
   t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
+    ["<esc><esc>"] = { "<c-\\><c-n>", desc = "Enter Normal Mode" },
   },
   x = {
     -- yank to system clipboard
