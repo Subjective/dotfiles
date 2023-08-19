@@ -1,3 +1,25 @@
 gui:
   nerdFontsVersion: 3
 promptToReturnFromSubprocess: false
+customCommands:
+  - key: "<c-r>"
+    command: "gh pr create --fill --web"
+    context: "global"
+    loadingText: "Creating pull request on GitHub"
+  - key: "v"
+    prompts:
+      - type: "input"
+        title: "PR id:"
+    command: "hub pr checkout {{index .PromptResponses 0}}"
+    context: "localBranches"
+    loadingText: "checking out PR"
+  - key: "M"
+    command: "git mergetool {{ .SelectedFile.Name }}"
+    context: "files"
+    loadingText: "opening git mergetool"
+    subprocess: true
+  - key: "<c-p>"
+    command: "git remote prune {{.SelectedRemote.Name}}"
+    context: "remotes"
+    loadingText: "Pruning..."
+    description: "prune deleted remote branches"
