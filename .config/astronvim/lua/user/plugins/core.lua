@@ -20,7 +20,6 @@ return {
     end,
   },
   { "max397574/better-escape.nvim", enabled = false },
-  { "lukas-reineke/indent-blankline.nvim", opts = { char = "│", context_char = "│" } },
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
