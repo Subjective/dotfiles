@@ -48,6 +48,8 @@ return {
           TelescopePromptNormal = { fg = colors.text, bg = colors.crust },
           TelescopePromptBorder = { fg = colors.crust, bg = colors.crust },
           TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.crust },
+          -- subtle cmdline text
+          MsgArea = { fg = colors.subtext1 },
         }
       end,
     },
