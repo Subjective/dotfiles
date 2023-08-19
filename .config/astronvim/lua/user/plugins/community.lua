@@ -80,20 +80,23 @@ return {
         show_current_context = false,
       },
     },
-    opts = {
-      draw = {
-        delay = 0,
-        animation = function() return 0 end,
-      },
-      mappings = {
-        object_scope = "io",
-        object_scope_with_border = "ao",
-        goto_top = "[o",
-        goto_bottom = "]o",
-      },
-      symbol = "▏",
-      options = { try_as_border = true, indent_at_cursor = false },
-    },
+    opts = function()
+      vim.defer_fn(function() require("mini.indentscope").draw() end, 0)
+      return {
+        draw = {
+          delay = 0,
+          animation = function() return 0 end,
+        },
+        mappings = {
+          object_scope = "io",
+          object_scope_with_border = "ao",
+          goto_top = "[o",
+          goto_bottom = "]o",
+        },
+        symbol = "▏",
+        options = { try_as_border = true, indent_at_cursor = false },
+      }
+    end,
   },
 
   -- editor
