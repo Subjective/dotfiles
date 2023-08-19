@@ -93,7 +93,7 @@ return {
           goto_bottom = "]o",
         },
         symbol = "▏",
-        options = { try_as_border = true, indent_at_cursor = false },
+        options = { try_as_border = true },
       }
     end,
   },
