@@ -68,19 +68,6 @@ return {
 
   -- indent
   { import = "astrocommunity.indent.indent-tools-nvim" },
-  { import = "astrocommunity.indent.indent-blankline-nvim" },
-  { import = "astrocommunity.indent.mini-indentscope" },
-  {
-    "echasnovski/mini.indentscope",
-    opts = {
-      mappings = {
-        object_scope = "io",
-        object_scope_with_border = "ao",
-        goto_top = "[o",
-        goto_bottom = "]o",
-      },
-    },
-  },
 
   -- editor
   { import = "astrocommunity.editing-support.refactoring-nvim" },
