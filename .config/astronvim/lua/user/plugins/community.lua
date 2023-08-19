@@ -81,11 +81,12 @@ return {
       },
     },
     opts = function()
-      vim.defer_fn(function() require("mini.indentscope").draw() end, 0)
+      local indentscope = require "mini.indentscope"
+      vim.defer_fn(function() indentscope.draw() end, 0)
       return {
         draw = {
           delay = 0,
-          animation = function() return 0 end,
+          animation = indentscope.gen_animation.none(),
         },
         mappings = {
           object_scope = "io",
