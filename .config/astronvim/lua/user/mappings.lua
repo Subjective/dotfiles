@@ -133,7 +133,7 @@ return {
     ["<C-l>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
   },
   t = {
-    ["<esc><esc>"] = { "<c-\\><c-n>", desc = "Enter Normal Mode" },
+    -- ["<esc><esc>"] = { "<c-\\><c-n>", desc = "Enter Normal Mode" },
   },
   x = {
     -- yank to system clipboard
