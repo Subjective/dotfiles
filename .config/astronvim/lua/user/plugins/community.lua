@@ -50,6 +50,9 @@ return {
           TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.crust },
           -- subtle cmdline text
           MsgArea = { fg = colors.subtext1 },
+          -- light statusline
+          StatusLine = { bg = colors.surface0 },
+          StatusLineNC = { fg = colors.surface0 },
         }
       end,
     },

@@ -20,7 +20,7 @@ return {
 
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
-      status.component.mode(),
+      status.component.mode { mode_text = { padding = { left = 1, right = 1 } } },
       status.component.git_branch(),
       status.component.grapple,
       {
@@ -50,7 +50,6 @@ return {
       status.component.lsp(),
       status.component.treesitter(),
       status.component.nav(),
-      status.component.mode { surround = { separator = "right" } },
     }
   end,
 }
