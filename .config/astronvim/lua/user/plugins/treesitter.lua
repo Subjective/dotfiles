@@ -22,13 +22,13 @@ return {
         }
         wk.register(motions, { mode = { "n", "x" } })
         local textobjects = {
-          ["i%"] = [[matching pair]],
-          ["a%"] = [[matching pair]],
+          ["i%"] = [[inside matching pair]],
+          ["a%"] = [[around matching pair]],
         }
         wk.register(textobjects, { mode = { "x", "o" } })
         local normalmaps = {
-          ["ds%"] = [[matching pair]],
-          ["cs%"] = [[matching pair]],
+          ["ds%"] = [[Delete surrounding matching pair]],
+          ["cs%"] = [[Change surrounding matching pair]],
           ["z%"] = [[Go inside nearest matching pair ]],
         }
         wk.register(normalmaps, { mode = "n" })
