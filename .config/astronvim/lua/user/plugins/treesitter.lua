@@ -8,7 +8,7 @@ return {
       init = function()
         vim.g.matchup_matchparen_deferred = 1
         vim.g.matchup_surround_enabled = 1
-        vim.g.matchup_matchparen_offscreen = { method = "popup", fullwidth = 1, highlight = "Normal", syntax_hl = 1 }
+        vim.g.matchup_matchparen_offscreen = {}
       end,
       config = function()
         vim.keymap.del({ "x", "o" }, "z%") -- don't conflict with leap
