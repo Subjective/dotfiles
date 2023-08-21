@@ -82,8 +82,8 @@ return {
       prev_selection = { keymap = ",", desc = "Previous textsubject" }, -- (Optional) keymap to select the previous selection
       keymaps = {
         ["."] = { query = "textsubjects-smart", desc = "Smart textsubject" },
-        [";"] = { query = "textsubjects-container-outer", desc = "Outer textsubject" },
-        ["i;"] = { query = "textsubjects-container-inner", desc = "Inner textsubject" },
+        ["a;"] = { query = "textsubjects-container-outer", desc = "around textsubject" },
+        ["i;"] = { query = "textsubjects-container-inner", desc = "inside textsubject" },
       },
     }
   end,
