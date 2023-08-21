@@ -69,7 +69,6 @@ return {
   -- { "maxmx03/fluoromachine.nvim", opts = { glow = true } },
 
   -- indent
-  { import = "astrocommunity.indent.indent-tools-nvim" },
   { import = "astrocommunity.indent.mini-indentscope" },
   {
     "echasnovski/mini.indentscope",
@@ -81,6 +80,13 @@ return {
       },
     },
     opts = function()
+      local wk = require "which-key"
+      local textobjects = {
+        ["ii"] = [[inside indent scope]],
+        ["ai"] = [[around indent scope]],
+      }
+      wk.register(textobjects, { mode = { "x", "o" } })
+
       local indentscope = require "mini.indentscope"
       vim.defer_fn(function() indentscope.draw() end, 0)
       return {
@@ -89,10 +95,10 @@ return {
           animation = indentscope.gen_animation.none(),
         },
         mappings = {
-          object_scope = "io",
-          object_scope_with_border = "ao",
-          goto_top = "[o",
-          goto_bottom = "]o",
+          object_scope = "ii",
+          object_scope_with_border = "ai",
+          goto_top = "[i",
+          goto_bottom = "]i",
         },
         symbol = "▏",
         options = { try_as_border = true },
