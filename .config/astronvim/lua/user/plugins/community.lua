@@ -11,6 +11,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+
     opts = {
       term_colors = true,
       integrations = {
@@ -39,6 +40,7 @@ return {
           -- italicize lsp inlay hints
           LspInlayHint = { style = { "italic" } },
           -- lightspeed-style highlighting for leap
+          LeapBackdrop = { link = "Comment" },
           LeapMatch = { fg = colors.text, style = { "bold" } },
           LeapLabelPrimary = { fg = colors.pink, style = { "bold" } },
           LeapLabelSecondary = { fg = colors.blue, style = { "bold" } },
