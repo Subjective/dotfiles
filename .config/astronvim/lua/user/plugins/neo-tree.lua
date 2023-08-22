@@ -30,7 +30,12 @@ return {
       end,
       open_nofocus = function(state)
         state.commands["open"](state)
-        if not require("neo-tree.utils").is_expandable(state.tree:get_node()) then vim.api.nvim_set_current_win(state.winid) end
+        local position = state.current_position
+        if position == "float" or position == "current" then
+          vim.cmd("Neotree reveal position=" .. position)
+        else
+          vim.api.nvim_set_current_win(state.winid)
+        end
       end,
     })
 
