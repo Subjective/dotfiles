@@ -35,6 +35,20 @@ return {
   opts = function(_, opts)
     local actions = require "telescope.actions"
     local fb_actions = require("telescope").extensions.file_browser.actions
+
+    actions.select_one_or_multi = function(prompt_bufnr)
+      local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+      local multi = picker:get_multi_selection()
+      if not vim.tbl_isempty(multi) then
+        require("telescope.actions").close(prompt_bufnr)
+        for _, j in pairs(multi) do
+          if j.path ~= nil then vim.cmd(string.format("%s %s", "edit", j.path)) end
+        end
+      else
+        require("telescope.actions").select_default(prompt_bufnr)
+      end
+    end
+
     return require("astronvim.utils").extend_tbl(opts, {
       defaults = {
         selection_caret = "  ",
@@ -42,10 +56,12 @@ return {
           i = {
             ["<c-x>"] = false,
             ["<c-h>"] = "select_horizontal",
+            ["<cr>"] = "select_one_or_multi",
           },
           n = {
             ["<c-x>"] = false,
             ["<c-h>"] = "select_horizontal",
+            ["<cr>"] = "select_one_or_multi",
           },
         },
       },
