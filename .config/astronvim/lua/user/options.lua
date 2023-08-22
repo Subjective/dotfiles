@@ -1,6 +1,3 @@
-vim.cmd [[aunmenu PopUp.How-to\ disable\ mouse]] -- remove "How-to disable mouse" menu item
-vim.cmd [[aunmenu PopUp.-1-]] -- remove "How-to disable mouse" separator
-
 return {
   opt = {
     spell = false,

@@ -23,8 +23,10 @@ return function()
 
   -- disable auto_hlsearch
   vim.on_key(function() end, vim.api.nvim_create_namespace "auto_hlsearch")
-  -- don't disable functionality on large files
-  -- vim.api.nvim_clear_autocmds { group = "large_buf" }
+
+  -- remove "How-to disable mouse" menu item
+  vim.cmd [[aunmenu PopUp.How-to\ disable\ mouse]]
+  vim.cmd [[aunmenu PopUp.-1-]]
 
   require "user.autocmds"
 end
