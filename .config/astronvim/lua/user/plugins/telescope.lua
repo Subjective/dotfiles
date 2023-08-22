@@ -36,7 +36,7 @@ return {
     local actions = require "telescope.actions"
     local fb_actions = require("telescope").extensions.file_browser.actions
 
-    actions.select_one_or_multi = function(prompt_bufnr)
+    actions.select = function(prompt_bufnr)
       local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
       local multi = picker:get_multi_selection()
       if not vim.tbl_isempty(multi) then
@@ -56,12 +56,12 @@ return {
           i = {
             ["<c-x>"] = false,
             ["<c-h>"] = "select_horizontal",
-            ["<cr>"] = "select_one_or_multi",
+            ["<cr>"] = "select",
           },
           n = {
             ["<c-x>"] = false,
             ["<c-h>"] = "select_horizontal",
-            ["<cr>"] = "select_one_or_multi",
+            ["<cr>"] = "select",
           },
         },
       },
