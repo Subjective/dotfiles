@@ -38,6 +38,16 @@ return {
     return require("astronvim.utils").extend_tbl(opts, {
       defaults = {
         selection_caret = "  ",
+        mappings = {
+          i = {
+            ["<c-x>"] = false,
+            ["<c-h>"] = "select_horizontal",
+          },
+          n = {
+            ["<c-x>"] = false,
+            ["<c-h>"] = "select_horizontal",
+          },
+        },
       },
       extensions = {
         file_browser = {
@@ -55,8 +65,8 @@ return {
         buffers = {
           path_display = { "smart" },
           mappings = {
-            i = { ["<c-d>"] = actions.delete_buffer },
-            n = { ["d"] = actions.delete_buffer },
+            i = { ["<c-x>"] = actions.delete_buffer },
+            n = { ["x"] = actions.delete_buffer },
           },
         },
       },
