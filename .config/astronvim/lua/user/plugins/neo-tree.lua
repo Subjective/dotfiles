@@ -32,13 +32,10 @@ return {
         state.clipboard = state.clipboard or {}
         local function mark_node(node)
           if node.type == "directory" then
-            require("neo-tree.sources.filesystem.commands").expand_all_nodes(state, node)
-            vim.defer_fn(function()
-              local children = state.tree:get_nodes(node:get_id())
-              for _, child in ipairs(children) do
-                mark_node(child)
-              end
-            end, 50)
+            local children = state.tree:get_nodes(node:get_id())
+            for _, child in ipairs(children) do
+              mark_node(child)
+            end
           else
             local id = node:get_id()
             local data = state.clipboard[id]
@@ -51,7 +48,10 @@ return {
           end
         end
         local node = state.tree:get_node()
-        if node then mark_node(node) end
+        if node then
+          require("neo-tree.sources.filesystem.commands").expand_all_nodes(state, node)
+          vim.defer_fn(function() mark_node(node) end, 100)
+        end
       end,
       smart_open = function(state)
         local clipboard = state.clipboard or {}
