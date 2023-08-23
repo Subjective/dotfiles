@@ -28,36 +28,48 @@ return {
           require("neo-tree.sources.manager").refresh(state.name)
         end)
       end,
-      open_nofocus = function(state)
-        local node = state.tree:get_node()
-        local position = state.current_position
-        local switch_back = function()
-          if position == "float" or position == "current" then
-            vim.cmd("Neotree reveal position=" .. position)
+      mark_file = function(state)
+        state.clipboard = state.clipboard or {}
+        local function mark_node(node)
+          if node.type == "directory" then
+            require("neo-tree.sources.filesystem.commands").expand_all_nodes(state, node)
+            vim.defer_fn(function()
+              local children = state.tree:get_nodes(node:get_id())
+              for _, child in ipairs(children) do
+                mark_node(child)
+              end
+            end, 50)
           else
-            vim.api.nvim_set_current_win(state.winid)
-          end
-        end
-        local function open_recursive(parent)
-          if parent.type == "directory" then
-            local children = state.tree:get_nodes(parent:get_id())
-            for _, child in ipairs(children) do
-              open_recursive(child)
+            local id = node:get_id()
+            local data = state.clipboard[id]
+            if data and data.action == "mark" then
+              state.clipboard[id] = nil
+            else
+              state.clipboard[id] = { action = "mark", node = node }
             end
-          else
-            require("neo-tree.utils").open_file(state, parent:get_id())
+            require("neo-tree.ui.renderer").redraw(state)
           end
         end
-        if node.type == "directory" then
-          require("neo-tree.sources.filesystem.commands").expand_all_nodes(state, node)
-          vim.defer_fn(function()
-            open_recursive(node)
-            switch_back()
-          end, 100)
-        else
-          require("neo-tree.utils").open_file(state, node:get_id())
-          switch_back()
+        local node = state.tree:get_node()
+        if node then mark_node(node) end
+      end,
+      smart_open = function(state)
+        local clipboard = state.clipboard or {}
+        local node = state.tree:get_node()
+        local marked = false
+        for id, data in pairs(clipboard) do
+          if data.action == "mark" then
+            marked = true
+            require("neo-tree.utils").open_file(state, id)
+            state.clipboard[id] = nil
+          end
         end
+        if marked then
+          if node.type ~= "directory" then require("neo-tree.utils").open_file(state, node:get_id()) end
+        else
+          state.commands["open"](state)
+        end
+        require("neo-tree.ui.renderer").redraw(state)
       end,
       clear_clipboard = function(state)
         state.clipboard = {}
@@ -68,9 +80,10 @@ return {
     -- add new mappings to all windows
     opts.window.mappings = utils.extend_tbl(opts.window.mappings, {
       ["~"] = "set_root_to_home",
-      ["<tab>"] = "open_nofocus",
       T = "trash",
       Z = "expand_all_nodes",
+      ["<tab>"] = "mark_file",
+      ["<cr>"] = "smart_open",
       X = "clear_clipboard",
     })
     opts.filesystem.bind_to_cwd = false
