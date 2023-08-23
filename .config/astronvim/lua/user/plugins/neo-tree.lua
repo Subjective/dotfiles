@@ -62,6 +62,10 @@ return {
         state.commands["open"](state)
         require("neo-tree.ui.renderer").redraw(state)
       end,
+      clear_clipboard = function(state)
+        state.clipboard = {}
+        require("neo-tree.ui.renderer").redraw(state)
+      end,
     })
 
     -- add new mappings to all windows
@@ -71,6 +75,7 @@ return {
       Z = "expand_all_nodes",
       ["<tab>"] = "mark_file",
       ["<cr>"] = "smart_open",
+      X = "clear_clipboard",
     })
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
