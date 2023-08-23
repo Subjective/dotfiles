@@ -28,14 +28,39 @@ return {
           require("neo-tree.sources.manager").refresh(state.name)
         end)
       end,
-      open_nofocus = function(state)
-        state.commands["open"](state)
-        local position = state.current_position
-        if position == "float" or position == "current" then
-          vim.cmd("Neotree reveal position=" .. position)
-        else
-          vim.api.nvim_set_current_win(state.winid)
+      mark_file = function(state)
+        state.clipboard = state.clipboard or {}
+        local function mark_node(node)
+          if node.type == "directory" then
+            require("neo-tree.sources.filesystem.commands").expand_all_nodes(state, node)
+            local children = state.tree:get_nodes(node:get_id())
+            for _, child in ipairs(children) do
+              mark_node(child)
+            end
+          else
+            local id = node:get_id()
+            local data = state.clipboard[id]
+            if data and data.action == "mark" then
+              state.clipboard[id] = nil
+            else
+              state.clipboard[id] = { action = "mark", node = node }
+            end
+          end
         end
+        local node = state.tree:get_node()
+        if node then mark_node(node) end
+        require("neo-tree.ui.renderer").redraw(state)
+      end,
+      smart_open = function(state)
+        local clipboard = state.clipboard or {}
+        for id, data in pairs(clipboard) do
+          if data.action == "mark" then
+            require("neo-tree.utils").open_file(state, id)
+            state.clipboard[id] = nil
+          end
+        end
+        state.commands["open"](state)
+        require("neo-tree.ui.renderer").redraw(state)
       end,
     })
 
@@ -44,7 +69,8 @@ return {
       ["~"] = "set_root_to_home",
       T = "trash",
       Z = "expand_all_nodes",
-      ["<tab>"] = "open_nofocus",
+      ["<tab>"] = "mark_file",
+      ["<cr>"] = "smart_open",
     })
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
