@@ -53,22 +53,6 @@ return {
         local node = state.tree:get_node()
         if node then mark_node(node) end
       end,
-      mark_file_visual = function(state, selected_nodes)
-        state.clipboard = state.clipboard or {}
-        require("neo-tree.ui.renderer").redraw(state)
-        for _, node in ipairs(selected_nodes) do
-          if node.type ~= "directory" then
-            local id = node:get_id()
-            local data = state.clipboard[id]
-            if data and data.action == "mark" then
-              state.clipboard[id] = nil
-            else
-              state.clipboard[id] = { action = "mark", node = node }
-            end
-          end
-        end
-        require("neo-tree.ui.renderer").redraw(state)
-      end,
       smart_open = function(state)
         local clipboard = state.clipboard or {}
         local node = state.tree:get_node()
