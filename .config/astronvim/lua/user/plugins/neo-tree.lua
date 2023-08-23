@@ -29,12 +29,34 @@ return {
         end)
       end,
       open_nofocus = function(state)
-        state.commands["open"](state)
+        local node = state.tree:get_node()
         local position = state.current_position
-        if position == "float" or position == "current" then
-          vim.cmd("Neotree reveal position=" .. position)
+        local switch_back = function()
+          if position == "float" or position == "current" then
+            vim.cmd("Neotree reveal position=" .. position)
+          else
+            vim.api.nvim_set_current_win(state.winid)
+          end
+        end
+        local function open_recursive(parent)
+          if parent.type == "directory" then
+            local children = state.tree:get_nodes(parent:get_id())
+            for _, child in ipairs(children) do
+              open_recursive(child)
+            end
+          else
+            require("neo-tree.utils").open_file(state, parent:get_id())
+          end
+        end
+        if node.type == "directory" then
+          require("neo-tree.sources.filesystem.commands").expand_all_nodes(state, node)
+          vim.defer_fn(function()
+            open_recursive(node)
+            switch_back()
+          end, 100)
         else
-          vim.api.nvim_set_current_win(state.winid)
+          require("neo-tree.utils").open_file(state, node:get_id())
+          switch_back()
         end
       end,
       clear_clipboard = function(state)
