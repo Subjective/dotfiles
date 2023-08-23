@@ -51,7 +51,7 @@ return {
           TelescopePromptBorder = { fg = colors.crust, bg = colors.crust },
           TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.crust },
           -- use subtle indentscope color
-          MiniIndentscopeSymbol = { fg = colors.surface2 },
+          MiniIndentscopeSymbol = { fg = colors.surface2, nocombine = true },
         }
       end,
     },
