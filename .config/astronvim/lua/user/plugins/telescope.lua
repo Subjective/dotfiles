@@ -54,9 +54,13 @@ return {
         selection_caret = "  ",
         mappings = {
           i = {
+            ["<c-x>"] = false,
+            ["<c-s>"] = "select_horizontal",
             ["<cr>"] = "select",
           },
           n = {
+            ["<c-x>"] = false,
+            ["<c-s>"] = "select_horizontal",
             ["<cr>"] = "select",
           },
         },
@@ -77,8 +81,8 @@ return {
         buffers = {
           path_display = { "smart" },
           mappings = {
-            i = { ["<c-d>"] = actions.delete_buffer },
-            n = { ["d"] = actions.delete_buffer },
+            i = { ["<c-x>"] = actions.delete_buffer },
+            n = { ["x"] = actions.delete_buffer },
           },
         },
       },
