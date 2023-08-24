@@ -111,14 +111,14 @@ return {
       {
         "<leader>e",
         function()
-          toggle_neotree(function() require("neo-tree.command").execute { action = "focus", reveal = true, dir = vim.uv.cwd() } end)
+          toggle_neotree(function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end)
         end,
         desc = "Toggle Explorer (cwd)",
       },
       {
         "<leader>E",
         function()
-          toggle_neotree(function() require("neo-tree.command").execute { action = "focus", reveal = true } end)
+          toggle_neotree(function() require("neo-tree.command").execute { toggle = true } end)
         end,
         desc = "Toggle Explorer (root)",
       },
