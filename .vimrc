@@ -30,6 +30,7 @@ set incsearch
 set hlsearch
 set belloff=all
 set updatetime=100
+set shm+=I
 
 " vertical cursor line in insert mode
 let &t_SI = "\e[6 q"
