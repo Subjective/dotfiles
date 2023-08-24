@@ -55,12 +55,12 @@ return {
         mappings = {
           i = {
             ["<c-x>"] = false,
-            ["<c-h>"] = "select_horizontal",
+            ["<c-s>"] = "select_horizontal",
             ["<cr>"] = "select",
           },
           n = {
             ["<c-x>"] = false,
-            ["<c-h>"] = "select_horizontal",
+            ["<c-s>"] = "select_horizontal",
             ["<cr>"] = "select",
           },
         },
