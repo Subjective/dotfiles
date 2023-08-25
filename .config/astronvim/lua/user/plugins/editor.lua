@@ -66,6 +66,7 @@ return {
         live_update = true,
         line_sep_start = "",
         line_sep = "",
+        is_block_ui_break = true,
         mapping = {
           send_to_qf = { map = "<localleader>q" },
           replace_cmd = { map = "<localleader>c" },
