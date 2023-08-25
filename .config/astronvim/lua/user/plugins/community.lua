@@ -82,12 +82,14 @@ return {
       },
     },
     opts = function()
-      local wk = require "which-key"
-      local textobjects = {
-        ["ii"] = [[inside indent scope]],
-        ["ai"] = [[around indent scope]],
-      }
-      wk.register(textobjects, { mode = { "x", "o" } })
+      local success, wk = pcall(require, "which-key")
+      if success then
+        local textobjects = {
+          ["ii"] = [[inside indent scope]],
+          ["ai"] = [[around indent scope]],
+        }
+        wk.register(textobjects, { mode = { "x", "o" } })
+      end
 
       local indentscope = require "mini.indentscope"
       vim.defer_fn(function() indentscope.draw() end, 0)

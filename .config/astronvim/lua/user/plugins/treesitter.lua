@@ -12,26 +12,28 @@ return {
       end,
       config = function()
         vim.keymap.del({ "x", "o" }, "z%") -- don't conflict with leap
-        local wk = require "which-key"
 
-        local motions = {
-          ["%"] = [[Go forwards next matching word or seek to one]],
-          ["g%"] = [[Go backwards to previous matching word or seek to one]],
-          ["[%"] = [[Previous matching word]],
-          ["]%"] = [[Next matching word]],
-        }
-        wk.register(motions, { mode = { "n", "x" } })
-        local textobjects = {
-          ["i%"] = [[inside matching pair]],
-          ["a%"] = [[around matching pair]],
-        }
-        wk.register(textobjects, { mode = { "x", "o" } })
-        local normalmaps = {
-          ["ds%"] = [[Delete surrounding matching pair]],
-          ["cs%"] = [[Change surrounding matching pair]],
-          ["z%"] = [[Go inside nearest matching pair ]],
-        }
-        wk.register(normalmaps, { mode = "n" })
+        local success, wk = pcall(require, "which-key")
+        if success then
+          local motions = {
+            ["%"] = [[Go forwards next matching word or seek to one]],
+            ["g%"] = [[Go backwards to previous matching word or seek to one]],
+            ["[%"] = [[Previous matching word]],
+            ["]%"] = [[Next matching word]],
+          }
+          wk.register(motions, { mode = { "n", "x" } })
+          local textobjects = {
+            ["i%"] = [[inside matching pair]],
+            ["a%"] = [[around matching pair]],
+          }
+          wk.register(textobjects, { mode = { "x", "o" } })
+          local normalmaps = {
+            ["ds%"] = [[Delete surrounding matching pair]],
+            ["cs%"] = [[Change surrounding matching pair]],
+            ["z%"] = [[Go inside nearest matching pair ]],
+          }
+          wk.register(normalmaps, { mode = "n" })
+        end
       end,
     },
     { "Subjective/nvim-treesitter-textsubjects", branch = "feat-custom-keymap-desc" },
