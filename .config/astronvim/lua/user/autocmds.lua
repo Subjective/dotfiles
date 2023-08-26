@@ -29,13 +29,6 @@ autocmd("FileType", {
 --   end,
 -- })
 
-autocmd({ "User" }, {
-  desc = "Cleanup latexmk junk files upon exiting Vim",
-  group = augroup("vimtex_autocleanup", { clear = true }),
-  pattern = { "VimtexEventQuit" },
-  command = "VimtexClean",
-})
-
 autocmd({ "VimResized" }, {
   desc = "Automatically resize windows when resizing the terminal",
   group = augroup("autoresize_window", { clear = true }),

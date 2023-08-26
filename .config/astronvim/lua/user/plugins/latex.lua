@@ -107,6 +107,14 @@ return {
         end,
       })
     end,
+    config = function()
+      vim.api.nvim_create_autocmd({ "User" }, {
+        desc = "Cleanup latexmk junk files upon exiting Vim",
+        group = vim.api.nvim_create_augroup("vimtex_autocleanup", { clear = true }),
+        pattern = { "VimtexEventQuit" },
+        command = "VimtexClean",
+      })
+    end,
   },
   {
     "iurimateus/luasnip-latex-snippets.nvim",
