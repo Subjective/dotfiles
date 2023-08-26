@@ -75,7 +75,6 @@ return {
         state.clipboard = {}
         require("neo-tree.ui.renderer").redraw(state)
       end,
-      close_all = function() require("neo-tree").close_all() end,
     })
 
     -- add new mappings to all windows
@@ -86,44 +85,22 @@ return {
       ["<tab>"] = "select_file",
       ["<cr>"] = "smart_open",
       X = "clear_clipboard",
-      q = "close_all",
     })
     opts.window.mappings.o = nil -- TODO: remove in AstroNvim v4
 
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
   end,
-  keys = function()
-    local find_buffer_by_type = function(type)
-      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-        if ft == type then return buf end
-      end
-      return -1
-    end
-    local toggle_neotree = function(toggle_command)
-      if find_buffer_by_type "neo-tree" > 0 then
-        require("neo-tree.command").execute { action = "close" }
-      else
-        toggle_command()
-      end
-    end
-
-    return {
-      {
-        "<leader>e",
-        function()
-          toggle_neotree(function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end)
-        end,
-        desc = "Toggle Explorer (cwd)",
-      },
-      {
-        "<leader>E",
-        function()
-          toggle_neotree(function() require("neo-tree.command").execute { toggle = true } end)
-        end,
-        desc = "Toggle Explorer (root)",
-      },
-    }
-  end,
+  keys = {
+    {
+      "<leader>e",
+      function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd() } end,
+      desc = "Toggle Explorer (cwd)",
+    },
+    {
+      "<leader>E",
+      function() require("neo-tree.command").execute { toggle = true } end,
+      desc = "Toggle Explorer (root)",
+    },
+  },
 }
