@@ -75,6 +75,7 @@ return {
         state.clipboard = {}
         require("neo-tree.ui.renderer").redraw(state)
       end,
+      close_all = function() require("neo-tree").close_all() end,
     })
 
     -- add new mappings to all windows
@@ -85,6 +86,7 @@ return {
       ["<tab>"] = "select_file",
       ["<cr>"] = "smart_open",
       X = "clear_clipboard",
+      q = "close_all",
     })
     opts.window.mappings.o = nil -- TODO: remove in AstroNvim v4
 
