@@ -36,6 +36,7 @@ set cursorline
 set ignorecase
 set incsearch
 set hlsearch
+set showcmd
 set belloff=all
 set updatetime=100
 set shm+=I
