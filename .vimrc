@@ -62,7 +62,14 @@ nnoremap [b :bprev<CR>
 
 " yanking and pasting to system clipboard
 nnoremap <leader>y "+y
+xnoremap <leader>y "+y
 nnoremap <leader>Y "+y$
+
+" delete and paste to black hole register
+xnoremap <leader>p "_dP
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+nnoremap <leader>D "_d$
 
 " toggle netrw
 nnoremap <leader>e :Lex<CR>
