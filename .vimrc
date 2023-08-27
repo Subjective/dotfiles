@@ -9,6 +9,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'raimondi/delimitmate'
 Plug 'justinmk/vim-sneak'
+Plug 'jszakmeister/vim-togglecursor'
 Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
@@ -31,10 +32,6 @@ set hlsearch
 set belloff=all
 set updatetime=100
 set shm+=I
-
-" vertical cursor line in insert mode
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
 
 " leader and localleader keys
 let mapleader = " "
