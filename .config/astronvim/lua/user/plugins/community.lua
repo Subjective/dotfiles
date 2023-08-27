@@ -49,7 +49,7 @@ return {
           -- dark prompt in flat theme for telescope
           TelescopePromptNormal = { fg = colors.text, bg = colors.crust },
           TelescopePromptBorder = { fg = colors.crust, bg = colors.crust },
-          TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.crust },
+          TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.none },
           -- use subtle indentscope color
           MiniIndentscopeSymbol = { fg = colors.surface2, nocombine = true },
         }
