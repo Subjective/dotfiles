@@ -22,7 +22,7 @@ vim.opt.wrap = true -- display lines as one long line
 
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "tokyonight-night"
+lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 lvim.use_icons = true
 
@@ -44,16 +44,6 @@ lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<CR>"
 lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["kj"] = "<Esc>"
 
-lvim.lsp.diagnostics.virtual_text = false
-
--- enable live preview in file search
-lvim.builtin.telescope = {
-  active = true,
-  defaults = {
-    layout_strategy = "horizontal",
-    path_display = { truncate = 2 }
-  }
-}
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -109,38 +99,6 @@ lvim.builtin.which_key.mappings["m"] = {
 lvim.builtin.which_key.mappings["gh"] = {
   "<cmd>Gitsigns toggle_linehl<CR>",
   "toggle line highlight"
-}
-
-lvim.builtin.which_key.mappings["S"] = {
-  function()
-    local t    = {}
-    t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '250' } }
-    t['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '250' } }
-    t['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '450' } }
-    t['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450' } }
-    t['<C-y>'] = { 'scroll', { '-0.10', 'false', '100' } }
-    t['<C-e>'] = { 'scroll', { '0.10', 'false', '100' } }
-    t['zt']    = { 'zt', { '250' } }
-    t['zz']    = { 'zz', { '250' } }
-    t['zb']    = { 'zb', { '250' } }
-    local o    = {}
-    o['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '0' } }
-    o['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '0' } }
-    o['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '0' } }
-    o['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '0' } }
-    o['<C-y>'] = { 'scroll', { '-0.10', 'false', '0' } }
-    o['<C-e>'] = { 'scroll', { '0.10', 'false', '0' } }
-    o['zt']    = { 'zt', { '0' } }
-    o['zz']    = { 'zz', { '0' } }
-    o['zb']    = { 'zb', { '0' } }
-    if not Neoscroll_enabled then
-      require('neoscroll.config').set_mappings(o)
-    else
-      require('neoscroll.config').set_mappings(t)
-    end
-    Neoscroll_enabled = not Neoscroll_enabled
-  end,
-  "Toggle smooth scrolling"
 }
 
 -- TODO: User Config for predefined plugins
@@ -253,12 +211,6 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
   {
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
-  {
     "max397574/better-escape.nvim",
     config = function()
       require("better_escape").setup {
@@ -267,30 +219,11 @@ lvim.plugins = {
     end,
   },
   {
-    "karb94/neoscroll.nvim",
-    event = "WinScrolled",
-    config = function()
-      require('neoscroll').setup({
-        -- All these keys will be mapped to their corresponding default scrolling animation
-        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-          '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-        hide_cursor = true, -- Hide cursor while scrolling
-        stop_eof = true, -- Stop at <EOF> when scrolling downwards
-        use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-        respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-        easing_function = nil, -- Default easing function
-        pre_hook = nil, -- Function to run before the scrolling animation starts
-        post_hook = nil, -- Function to run after the scrolling animation ends
-      })
-    end
-  },
-  {
     "ggandor/leap.nvim",
+    name = "leap",
     config = function()
-      require('leap').add_default_mappings()
+      require("leap").add_default_mappings()
     end,
-    enabled = lvim.builtin.motion_provider == "leap",
   },
   {
     "echasnovski/mini.map",
@@ -305,7 +238,7 @@ lvim.plugins = {
   },
   {
     "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
