@@ -58,9 +58,12 @@ return {
 	},
 	keys = {
 		-- allow tmux to receive <C-'>/<C-;> binding
-		{ key = "'", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;39~") },
-		{ key = ";", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;59~") },
-		{ key = "-", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;45~") },
-		{ key = "=", mods = "CTRL", action = wezterm.action.SendString("\x1b[27;5;61~") },
+		{ key = "'",     mods = "CTRL",  action = wezterm.action.SendString("\x1b[27;5;39~") },
+		{ key = ";",     mods = "CTRL",  action = wezterm.action.SendString("\x1b[27;5;59~") },
+		{ key = ",",     mods = "CTRL",  action = wezterm.action.SendString("\x1b[27;5;44~") },
+		{ key = "-",     mods = "CTRL",  action = wezterm.action.SendString("\x1b[27;5;45~") },
+		{ key = "=",     mods = "CTRL",  action = wezterm.action.SendString("\x1b[27;5;61~") },
+		{ key = "Enter", mods = "CTRL",  action = wezterm.action.SendString("\x1b[13;5u~") },
+		{ key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\x1b[13;2u~") },
 	},
 }
