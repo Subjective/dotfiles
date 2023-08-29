@@ -11,8 +11,7 @@ return {
         vim.g.matchup_matchparen_offscreen = {}
       end,
       config = function()
-        vim.keymap.del({ "n" }, "ds%") -- don't conflict with leap
-        vim.keymap.del({ "n" }, "cs%") -- don't conflict with leap
+        vim.keymap.del({ "x", "o" }, "z%") -- don't conflict with leap
 
         local success, wk = pcall(require, "which-key")
         if success then
@@ -29,8 +28,8 @@ return {
           }
           wk.register(textobjects, { mode = { "x", "o" } })
           local normalmaps = {
-            ["gzd%"] = { "<Plug>(matchup-ds%)", "Delete surrounding matching pair" },
-            ["gzr%"] = { "<Plug>(matchup-cs%)", "Change surrounding matching pair" },
+            ["ds%"] = [[Delete surrounding matching pair]],
+            ["cs%"] = [[Change surrounding matching pair]],
             ["z%"] = [[Go inside nearest matching pair ]],
           }
           wk.register(normalmaps, { mode = "n" })

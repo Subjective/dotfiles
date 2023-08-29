@@ -3,10 +3,14 @@ return {
     "ggandor/leap.nvim",
     dependencies = "tpope/vim-repeat",
     keys = {
-      { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
-      { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
+      { "s", "<Plug>(leap-forward-to)", mode = { "n" }, desc = "Leap forward to" },
+      { "S", "<Plug>(leap-backward-to)", mode = { "n" }, desc = "Leap backward to" },
+      { "z", "<Plug>(leap-forward-to)", mode = { "o" }, desc = "Leap forward to" },
+      { "Z", "<Plug>(leap-backward-to)", mode = { "o" }, desc = "Leap backward to" },
+      { "x", "<Plug>(leap-forward-till)", mode = { "o" }, desc = "Leap forward till" },
+      { "X", "<Plug>(leap-backward-till)", mode = { "o" }, desc = "Leap backward till" },
+      { "x", "<Plug>(leap-forward-to)", mode = { "x" }, desc = "Leap forward to" },
+      { "X", "<Plug>(leap-backward-to)", mode = { "x" }, desc = "Leap backward to" },
       { "gs", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
     },
     init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
