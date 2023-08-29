@@ -9,8 +9,6 @@ return {
       { "Z", "<Plug>(leap-backward-to)", mode = { "o" }, desc = "Leap backward to" },
       { "x", "<Plug>(leap-forward-till)", mode = { "o" }, desc = "Leap forward till" },
       { "X", "<Plug>(leap-backward-till)", mode = { "o" }, desc = "Leap backward till" },
-      { "x", "<Plug>(leap-forward-to)", mode = { "x" }, desc = "Leap forward to" },
-      { "X", "<Plug>(leap-backward-to)", mode = { "x" }, desc = "Leap backward to" },
       { "gs", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
     },
     init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
