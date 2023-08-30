@@ -164,22 +164,24 @@ return {
   { import = "astrocommunity.motion.grapple-nvim" },
   {
     "cbochs/grapple.nvim",
-    keys = {
-      { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "which_key_ignore" },
-      { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "which_key_ignore" },
-      { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "which_key_ignore" },
-      { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "which_key_ignore" },
-      { "<c-p>", nil },
-      { "<c-n>", nil },
-      { "L", "<cmd>GrappleCycle forward<CR>", desc = "Select next tag" },
-      { "H", "<cmd>GrappleCycle backward<CR>", desc = "Select previous tag" },
-      { "<leader><leader>a", "<cmd>GrappleTag<cr><cmd>redrawstatus<cr>", desc = "Add file" },
-      { "<leader><leader>d", "<cmd>GrappleUntag<cr><cmd>redrawstatus<cr>", desc = "Remove file" },
-      { "<leader><leader>t", "<cmd>GrappleToggle<cr><cmd>redrawstatus<cr>", desc = "Toggle a file" },
-      { "<leader><leader>x", "<cmd>GrappleReset<cr><cmd>redrawstatus<cr>", desc = "Clear tags from current project" },
-    },
+    keys = function()
+      local prefix = "<leader><leader>"
+      return {
+        { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Go to tag 1" },
+        { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Go to tag 2" },
+        { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Go to tag 3" },
+        { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Go to tag 4" },
+        { prefix .. "a", "<cmd>GrappleTag<cr><cmd>redrawstatus<cr>", desc = "Add file" },
+        { prefix .. "d", "<cmd>GrappleUntag<cr><cmd>redrawstatus<cr>", desc = "Remove file" },
+        { prefix .. "t", "<cmd>GrappleToggle<cr><cmd>redrawstatus<cr>", desc = "Toggle a file" },
+        { prefix .. "e", "<cmd>GrapplePopup tags<CR>", desc = "Select from tags" },
+        { prefix .. "s", "<cmd>GrapplePopup scopes<CR>", desc = "Select a project scope" },
+        { prefix .. "x", "<cmd>GrappleReset<cr><cmd>redrawstatus<cr>", desc = "Clear tags from current project" },
+        { "L", "<cmd>GrappleCycle forward<CR>", desc = "Select next tag" },
+        { "H", "<cmd>GrappleCycle backward<CR>", desc = "Select previous tag" },
+      }
+    end,
   },
-
   { import = "astrocommunity.motion.portal-nvim" },
 
   -- terminal integration
