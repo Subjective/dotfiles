@@ -48,27 +48,6 @@ return {
       end,
       desc = "Toggle indentation guides (buffer)",
     },
-    -- toggle noice
-    ["<leader>uU"] = {
-      function()
-        local success, _ = pcall(vim.cmd.Noice, "dismiss")
-        if not success then
-          require("lazy").load { plugins = { "noice.nvim" } }
-          vim.g.noice_disabled = false
-          utils.notify "Noice enabled"
-          return
-        end
-        if vim.g.noice_disabled then
-          vim.cmd.Noice "enable"
-        else
-          vim.cmd.Noice "disable"
-          vim.cmd.set "cmdheight=1"
-        end
-        utils.notify("Noice " .. (vim.g.noice_disabled and "enabled" or "disabled"))
-        vim.g.noice_disabled = not vim.g.noice_disabled
-      end,
-      desc = "Toggle Noice",
-    },
     ["<leader>`"] = { function() require("astronvim.utils.buffer").prev() end, desc = "Previous buffer" },
     -- disable default bindings
     ["<C-Down>"] = false,
@@ -92,8 +71,6 @@ return {
       function() require("smart-splits").resize_right() end,
       desc = "Resize split right",
     },
-    -- fix substution command conflict with Noice
-    ["&"] = { "&", silent = true, desc = "Repeat last substiution" },
   },
   v = {},
   i = {

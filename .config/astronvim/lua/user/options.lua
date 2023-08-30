@@ -24,6 +24,5 @@ return {
     ui_notifications_enabled = true, -- enable notifications
     resession_enabled = true, -- enable resession
     git_worktrees = { { toplevel = vim.env.HOME, gitdir = vim.env.HOME .. "/.cfg" } }, -- allow detached git_worktrees to be detected
-    noice_disabled = true, -- disable noice on startup
   },
 }

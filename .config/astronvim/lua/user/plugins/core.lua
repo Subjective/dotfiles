@@ -105,7 +105,6 @@ return {
         "!typescript",
         "!typescriptreact",
         "!cmp_menu",
-        "!noice",
         "!TelescopeResults",
         "!lazy",
         "!neo-tree",
