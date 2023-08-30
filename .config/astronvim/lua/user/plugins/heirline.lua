@@ -46,7 +46,5 @@ return {
       status.component.mode { surround = { separator = "right" } },
     }
     opts.winbar = nil
-    opts.tabline[1] = {}
-    opts.tabline[2] = {}
   end,
 }
