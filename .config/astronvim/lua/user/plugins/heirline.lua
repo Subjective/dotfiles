@@ -23,16 +23,9 @@ return {
       status.component.mode(),
       status.component.git_branch(),
       status.component.grapple,
-      {
-        flexible = 10,
-        status.component.file_info {
-          filename = { fallback = "[No Name]", modify = ":~:." },
-          surround = { condition = is_file },
-        },
-        status.component.file_info {
-          filename = {},
-          surround = { condition = is_file },
-        },
+      status.component.file_info {
+        filename = { fallback = "[No Name]" },
+        surround = { condition = is_file },
       },
       status.component.file_info {
         filetype = {},
