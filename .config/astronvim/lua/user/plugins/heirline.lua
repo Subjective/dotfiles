@@ -52,5 +52,6 @@ return {
       status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
     }
+    opts.winbar = nil
   end,
 }
