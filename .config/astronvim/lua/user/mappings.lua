@@ -25,9 +25,6 @@ return {
     },
     -- explorer bindings
     ["<leader>o"] = false,
-    -- telescope shortcuts
-    ["<tab>"] = { "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
-    ["<c-p>"] = { "<cmd>Telescope find_files<cr>", desc = "Find files" },
     -- toggle current line git blame
     ["<leader>gB"] = {
       function()

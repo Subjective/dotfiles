@@ -52,10 +52,5 @@ return {
       function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd(), source = "last" } end,
       desc = "Toggle Explorer",
     },
-    {
-      "<c-n>",
-      function() require("neo-tree.command").execute { toggle = true, action = "show", dir = vim.uv.cwd(), source = "last" } end,
-      desc = "Show Explorer",
-    },
   },
 }
