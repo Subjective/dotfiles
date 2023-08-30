@@ -146,6 +146,27 @@ return {
     },
   },
   {
+    "echasnovski/mini.move",
+    keys = {
+      { "<s-h>", mode = { "x" } },
+      { "<s-l>", mode = { "x" } },
+      { "<s-j>", mode = { "x" } },
+      { "<s-k>", mode = { "x" } },
+    },
+    opts = {
+      mappings = {
+        left = "<s-h>",
+        right = "<s-l>",
+        down = "<s-j>",
+        up = "<s-k>",
+        line_left = "",
+        line_right = "",
+        line_down = "",
+        line_up = "",
+      },
+    },
+  },
+  {
     "axieax/urlview.nvim",
     cmd = "UrlView",
     dependencies = "nvim-telescope/telescope.nvim",

@@ -110,9 +110,6 @@ return {
     ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
     -- don't replace yank buffer when pasting over selection
     ["<leader>p"] = { '"_dP', desc = "Blackhole paste" },
-    -- move lines up and down
-    J = { ":m '>+1<CR>gv=gv", desc = "Move line down", silent = true },
-    K = { ":m '<-2<CR>gv=gv", desc = "Move line up", silent = true },
     -- better increment/decrement
     ["<C-->"] = { "g<C-a>", desc = "Increment number" },
     ["<C-=>"] = { "g<C-x>", desc = "Decrement number" },
