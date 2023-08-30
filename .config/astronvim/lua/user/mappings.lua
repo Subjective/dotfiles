@@ -73,7 +73,7 @@ return {
       end,
       desc = "Toggle Noice",
     },
-    ["<leader>`"] = { "<cmd>e #<cr>", desc = "Previous buffer" },
+    ["<leader>`"] = { function() require("astronvim.utils.buffer").prev() end, desc = "Previous buffer" },
     -- disable default bindings
     ["<C-Down>"] = false,
     ["<C-Left>"] = false,
