@@ -25,27 +25,6 @@ return {
     },
     -- explorer bindings
     ["<leader>o"] = false,
-    -- toggle winbar
-    ["<leader>uW"] = {
-      function()
-        if vim.g.winbar_disabled then
-          vim.wo.winbar = vim.g.prev_winbar
-          vim.api.nvim_clear_autocmds { group = "disable_winbar" }
-        else
-          vim.g.prev_winbar = vim.wo.winbar
-          vim.wo.winbar = nil
-          vim.api.nvim_create_autocmd({ "BufWritePost", "BufWinEnter", "BufNew" }, {
-            pattern = "*",
-            callback = function() vim.wo.winbar = nil end,
-            group = vim.api.nvim_create_augroup("disable_winbar", { clear = true }),
-            desc = "Toggle winbar",
-          })
-        end
-        utils.notify("winbar " .. (vim.g.winbar_disabled and "enabled" or "disabled"))
-        vim.g.winbar_disabled = not vim.g.winbar_disabled
-      end,
-      desc = "Toggle winbar",
-    },
     -- toggle current line git blame
     ["<leader>gB"] = {
       function()
