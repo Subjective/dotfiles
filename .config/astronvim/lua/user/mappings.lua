@@ -9,6 +9,11 @@ return {
   n = {
     -- disable quick save
     ["<C-s>"] = false,
+    -- disable default window navigation bindings
+    ["<C-h>"] = false,
+    ["<C-j>"] = false,
+    ["<C-k>"] = false,
+    ["<C-l>"] = false,
     -- clear search highlights
     ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr><cmd>echon ''<cr>", desc = "Clear search highlights" },
     -- yank to system clipboard

@@ -163,16 +163,22 @@ return {
   { import = "astrocommunity.motion.grapple-nvim" },
   {
     "cbochs/grapple.nvim",
+    opts = {
+      integrations = {
+        resession = true,
+      },
+    },
     keys = function()
       local prefix = "<leader><leader>"
       return {
-        { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Go to tag 1" },
-        { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Go to tag 2" },
-        { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Go to tag 3" },
-        { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Go to tag 4" },
+        { "<c-j>", function() require("grapple").select { key = 1 } end, desc = "Go to tag 1" },
+        { "<c-k>", function() require("grapple").select { key = 2 } end, desc = "Go to tag 2" },
+        { "<c-l>", function() require("grapple").select { key = 3 } end, desc = "Go to tag 3" },
+        { "<c-;>", function() require("grapple").select { key = 4 } end, desc = "Go to tag 4" },
         { prefix .. "a", "<cmd>GrappleTag<cr><cmd>redrawstatus<cr>", desc = "Add file" },
         { prefix .. "d", "<cmd>GrappleUntag<cr><cmd>redrawstatus<cr>", desc = "Remove file" },
         { prefix .. "t", "<cmd>GrappleToggle<cr><cmd>redrawstatus<cr>", desc = "Toggle a file" },
+        { "<leader>'", "<cmd>GrappleToggle<cr><cmd>redrawstatus<cr>", desc = "Toggle file tag" },
         { prefix .. "e", "<cmd>GrapplePopup tags<CR>", desc = "Select from tags" },
         { prefix .. "s", "<cmd>GrapplePopup scopes<CR>", desc = "Select a project scope" },
         { prefix .. "x", "<cmd>GrappleReset<cr><cmd>redrawstatus<cr>", desc = "Clear tags from current project" },
