@@ -16,16 +16,10 @@ return {
       name = "project-nvim",
       event = "VeryLazy",
       opts = {
-        manual_mode = true,
-        silent_chdir = false,
         patterns = { "lua" },
         ignore_lsp = { "lua_ls", "null-ls", "texlab" },
-        scope_chdir = "tab",
       },
-      keys = {
-        { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
-        { "<leader>.", "<cmd>ProjectRoot<cr>", desc = "Set project root" },
-      },
+      keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
     },
     {
       "AckslD/nvim-neoclip.lua",
