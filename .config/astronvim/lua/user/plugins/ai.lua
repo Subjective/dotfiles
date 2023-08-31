@@ -74,8 +74,21 @@ return {
         },
       },
       settings_window = {
+        border = {
+          highlight = "TelescopePromptBorder",
+        },
         win_options = {
           winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
+        },
+      },
+      chat = {
+        sessions_window = {
+          border = {
+            highlight = "TelescopePromptBorder",
+          },
+          win_options = {
+            winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
+          },
         },
       },
     },
