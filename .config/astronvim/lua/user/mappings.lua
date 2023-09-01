@@ -9,11 +9,6 @@ return {
   n = {
     -- disable quick save
     ["<C-s>"] = false,
-    -- disable default window navigation bindings
-    ["<C-h>"] = false,
-    ["<C-j>"] = false,
-    ["<C-k>"] = false,
-    ["<C-l>"] = false,
     -- clear search highlights
     ["<ESC>"] = { "<cmd>nohlsearch<cr><cmd>redrawstatus<cr><cmd>echon ''<cr>", desc = "Clear search highlights" },
     -- yank to system clipboard
@@ -52,6 +47,15 @@ return {
         utils.notify("Indentation guides " .. (vim.g.indent_blankline_enabled and "enabled" or "disabled"))
       end,
       desc = "Toggle indentation guides",
+    },
+    -- better buffer navigation
+    L = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    H = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
     },
     ["<leader>`"] = { function() require("astronvim.utils.buffer").prev() end, desc = "Previous buffer" },
     -- disable default bindings

@@ -166,10 +166,10 @@ return {
     keys = function()
       local prefix = "<leader><leader>"
       return {
-        { "<c-j>", function() require("grapple").select { key = 1 } end, desc = "Go to tag 1" },
-        { "<c-k>", function() require("grapple").select { key = 2 } end, desc = "Go to tag 2" },
-        { "<c-l>", function() require("grapple").select { key = 3 } end, desc = "Go to tag 3" },
-        { "<c-;>", function() require("grapple").select { key = 4 } end, desc = "Go to tag 4" },
+        { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Go to tag 1" },
+        { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Go to tag 2" },
+        { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Go to tag 3" },
+        { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Go to tag 4" },
         { prefix .. "a", "<cmd>GrappleTag<cr><cmd>redrawstatus<cr>", desc = "Add file" },
         { prefix .. "d", "<cmd>GrappleUntag<cr><cmd>redrawstatus<cr>", desc = "Remove file" },
         { prefix .. "t", "<cmd>GrappleToggle<cr><cmd>redrawstatus<cr>", desc = "Toggle a file" },
@@ -177,8 +177,8 @@ return {
         { prefix .. "e", "<cmd>GrapplePopup tags<CR>", desc = "Select from tags" },
         { prefix .. "s", "<cmd>GrapplePopup scopes<CR>", desc = "Select a project scope" },
         { prefix .. "x", "<cmd>GrappleReset<cr><cmd>redrawstatus<cr>", desc = "Clear tags from current project" },
-        { "L", "<cmd>GrappleCycle forward<CR>", desc = "Select next tag" },
-        { "H", "<cmd>GrappleCycle backward<CR>", desc = "Select previous tag" },
+        { "<c-n>", "<cmd>GrappleCycle forward<CR>", desc = "Select next tag" },
+        { "<c-p>", "<cmd>GrappleCycle backward<CR>", desc = "Select previous tag" },
       }
     end,
   },
