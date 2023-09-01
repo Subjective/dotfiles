@@ -51,7 +51,7 @@ return {
         end
         utils.notify("Indentation guides " .. (vim.g.indent_blankline_enabled and "enabled" or "disabled"))
       end,
-      desc = "Toggle indentation guides (buffer)",
+      desc = "Toggle indentation guides",
     },
     ["<leader>`"] = { function() require("astronvim.utils.buffer").prev() end, desc = "Previous buffer" },
     -- disable default bindings
