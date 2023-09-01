@@ -35,6 +35,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set cursorline
+set signcolumn=yes
 set ignorecase
 set incsearch
 set hlsearch
@@ -84,6 +85,7 @@ nnoremap <leader>e :Lex<CR>
 " yanking and pasting to system clipboard
 nnoremap <leader>y "+y
 xnoremap <leader>y "+y
+nnoremap Y y$
 nnoremap <leader>Y "+y$
 
 " delete and paste to black hole register
