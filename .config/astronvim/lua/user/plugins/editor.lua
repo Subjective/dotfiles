@@ -177,4 +177,5 @@ return {
     },
   },
   { "rafcamlet/nvim-luapad", cmd = { "Luapad", "Luarun" } },
+  { "nanotee/zoxide.vim", cmd = { "Z", "Lz", "Tz", "Zi", "Lzi", "Tzi" } },
 }
