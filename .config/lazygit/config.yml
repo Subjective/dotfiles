@@ -3,7 +3,7 @@ gui:
 promptToReturnFromSubprocess: false
 customCommands:
   - key: "<c-g>"
-    description: "Open GitHub Pull Request"
+    description: "Create pull request with GitHub CLI"
     command: "gh pr create --fill --web"
     context: "global"
     loadingText: "Creating pull request on GitHub"
