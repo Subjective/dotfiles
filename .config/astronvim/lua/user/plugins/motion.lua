@@ -49,10 +49,10 @@ return {
     "ggandor/flit.nvim",
     dependencies = { "ggandor/leap.nvim" },
     keys = {
-      { "f", mode = { "n", "x" }, desc = "Flit forward to" },
-      { "F", mode = { "n", "x" }, desc = "Flit backward to" },
-      { "t", mode = { "n", "x" }, desc = "Flit forward till" },
-      { "T", mode = { "n", "x" }, desc = "Flit backward till" },
+      { "f", mode = { "n", "x", "o" }, desc = "Flit forward to" },
+      { "F", mode = { "n", "x", "o" }, desc = "Flit backward to" },
+      { "t", mode = { "n", "x", "o" }, desc = "Flit forward till" },
+      { "T", mode = { "n", "x", "o" }, desc = "Flit backward till" },
     },
     opts = {
       labeled_modes = "nx",
