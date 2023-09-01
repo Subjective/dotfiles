@@ -59,9 +59,10 @@ nnoremap <C-h> <C-w>h
 
 " buffers
 nnoremap <leader>n :enew<CR>
-nnoremap <leader>c :bd<CR>
+nnoremap <leader>c :confirm bdelete<CR>
+nnoremap <leader>q :confirm quit<CR>
 nnoremap <leader>b :ls<CR>:b<Space>
-nnoremap <leader>w :w<CR>
+nnoremap <leader>w :write<CR>
 
 " buffer navigation
 nnoremap ]b :bnext<CR>
