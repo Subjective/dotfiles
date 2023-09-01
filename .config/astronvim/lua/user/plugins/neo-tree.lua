@@ -28,6 +28,15 @@ return {
           require("neo-tree.sources.manager").refresh(state.name)
         end)
       end,
+      open_nofocus = function(state)
+        state.commands["open"](state)
+        local position = state.current_position
+        if position == "float" or position == "current" then
+          vim.cmd("Neotree reveal position=" .. position)
+        else
+          vim.api.nvim_set_current_win(state.winid)
+        end
+      end,
       clear_clipboard = function(state)
         state.clipboard = {}
         require("neo-tree.ui.renderer").redraw(state)
@@ -37,6 +46,7 @@ return {
     -- add new mappings to all windows
     opts.window.mappings = utils.extend_tbl(opts.window.mappings, {
       ["~"] = "set_root_to_home",
+      ["<tab>"] = "open_nofocus",
       T = "trash",
       Z = "expand_all_nodes",
       X = "clear_clipboard",
