@@ -48,41 +48,22 @@ return {
         x = { ["<leader>;r"] = { name = "ChatGPT: Run" } },
       }
     end,
-    opts = {
-      popup_window = {
-        border = {
-          highlight = "TelescopePreviewBorder",
+    opts = function()
+      require("cmp").setup.filetype({ "chatgpt-input" }, {
+        completion = {
+          autocomplete = false,
         },
-        win_options = {
-          winhighlight = "Normal:TelescopePreviewNormal,FloatBorder:FloatBorder",
+      })
+      return {
+        popup_window = {
+          border = {
+            highlight = "TelescopePreviewBorder",
+          },
+          win_options = {
+            winhighlight = "Normal:TelescopePreviewNormal,FloatBorder:FloatBorder",
+          },
         },
-      },
-      system_window = {
-        border = {
-          highlight = "TelescopePromptBorder",
-        },
-        win_options = {
-          winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
-        },
-      },
-      popup_input = {
-        border = {
-          highlight = "TelescopePromptBorder",
-        },
-        win_options = {
-          winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
-        },
-      },
-      settings_window = {
-        border = {
-          highlight = "TelescopePromptBorder",
-        },
-        win_options = {
-          winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
-        },
-      },
-      chat = {
-        sessions_window = {
+        system_window = {
           border = {
             highlight = "TelescopePromptBorder",
           },
@@ -90,8 +71,34 @@ return {
             winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
           },
         },
-      },
-    },
+        popup_input = {
+          border = {
+            highlight = "TelescopePromptBorder",
+          },
+          win_options = {
+            winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
+          },
+        },
+        settings_window = {
+          border = {
+            highlight = "TelescopePromptBorder",
+          },
+          win_options = {
+            winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
+          },
+        },
+        chat = {
+          sessions_window = {
+            border = {
+              highlight = "TelescopePromptBorder",
+            },
+            win_options = {
+              winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
+            },
+          },
+        },
+      }
+    end,
     keys = {
       { "<leader>;c", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
       { "<leader>;a", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT: Act As" },
