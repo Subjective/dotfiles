@@ -9,6 +9,8 @@ endif
 call plug#begin()
 
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -64,6 +66,19 @@ nnoremap <leader>w :w<CR>
 " buffer navigation
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
+nnoremap <leader>` :e #<CR>
+
+" fzf
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fo :History<CR>
+nnoremap <leader>fw :RG<CR>
+nnoremap <leader>f/ :BLines<CR>
+nnoremap <leader>fh :Helptags<CR>
+
+" toggle netrw
+nnoremap <leader>e :Lex<CR>
 
 " yanking and pasting to system clipboard
 nnoremap <leader>y "+y
@@ -75,9 +90,6 @@ xnoremap <leader>p "_dP
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 nnoremap <leader>D "_d$
-
-" toggle netrw
-nnoremap <leader>e :Lex<CR>
 
 " Plugin Configuration
 let g:highlightedyank_highlight_duration = 250
