@@ -16,6 +16,7 @@ return {
       name = "project-nvim",
       event = "VeryLazy",
       opts = {
+        scope_chdir = "tab",
         patterns = { "lua" },
         ignore_lsp = { "lua_ls", "null-ls", "texlab" },
       },
