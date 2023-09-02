@@ -80,6 +80,23 @@ return {
       function() require("smart-splits").resize_right() end,
       desc = "Resize split right",
     },
+    -- rename session
+    ["<leader>Sr"] = {
+      function()
+        local current_session_name = require("resession").get_current()
+        if current_session_name then
+          vim.ui.input({ prompt = string.format('Rename session "%s" to', current_session_name) }, function(name)
+            if name then
+              require("resession").save(name)
+              require("resession").delete(current_session_name)
+            end
+          end)
+        else
+          utils.notify("No session available to rename", vim.log.levels.ERROR, { title = "" })
+        end
+      end,
+      desc = "Rename this session",
+    },
   },
   v = {},
   i = {
