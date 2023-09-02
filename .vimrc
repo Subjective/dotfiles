@@ -43,6 +43,7 @@ set showcmd
 set belloff=all
 set updatetime=100
 set shm+=I
+set fillchars+=eob:\ 
 
 " leader and localleader keys
 let mapleader = " "
