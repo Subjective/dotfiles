@@ -126,6 +126,10 @@ return {
     opts = { highlights = false },
   },
   {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+  },
+  {
     "stevearc/dressing.nvim",
     opts = {
       select = {
