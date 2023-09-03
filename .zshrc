@@ -193,7 +193,7 @@ alias lazyvim='NVIM_APPNAME=lazyvim nvim'
 alias nvchad='NVIM_APPNAME=nvchad nvim'
 alias kickstart='NVIM_APPNAME=kickstart nvim'
 alias min='NVIM_APPNAME=min nvim'
-alias vi="nvim"
+alias vi='nvim'
 alias dotfiles="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias dot='dotfiles'
 alias dots='dot status'
