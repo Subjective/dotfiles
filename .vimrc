@@ -107,5 +107,7 @@ let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 let g:sneak#s_next = 1
 
+let g:delimitMate_expand_cr=1
+
 " Hack fix to make ctrl-l work properly in netrw
 autocmd filetype netrw noremap <buffer> <C-l> <C-w>l 
