@@ -104,6 +104,7 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 20
 
 let g:sneak#label = 1
+let g:sneak#use_ic_scs = 1
 
 " Hack fix to make ctrl-l work properly in netrw
 autocmd filetype netrw noremap <buffer> <C-l> <C-w>l 
