@@ -236,22 +236,10 @@ function copy() {
 function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 function run() { co $1 && ./${1%.*} & fg; }
 
-# function to fuzzy find file and open it directly in neovim
+# function to fuzzy find file w/ preview and open it directly in neovim
 v() {
   if [ $# -eq 0 ]; then
-    local file=$(fd --type f --hidden --exclude .git | fzf --height=35% --reverse)
-    if [ -n "$file" ]; then
-      nvim "$file"
-    fi
-  else
-    nvim "$@"
-  fi
-}
-
-# function to fuzzy find file w/ preview and open it directly in neovim
-vp() {
-  if [ $# -eq 0 ]; then
-    local file=$(fd --type f --hidden --exclude .git | fzf --reverse --preview "bat --style=numbers --color=always {}")
+    local file=$(fd --type f --hidden --exclude .git | fzf --bind ctrl-/:toggle-preview --height=40% --reverse --preview "bat --style=numbers --line-range :500 --color=always {}")
     if [ -n "$file" ]; then
       nvim "$file"
     fi
