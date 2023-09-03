@@ -87,6 +87,7 @@ source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
 zsh-defer _evalcache zoxide init zsh
 zsh-defer _evalcache rtx activate zsh
 zsh-defer _evalcache direnv hook zsh
+zsh-defer _evalcache leetcode completions
 
 # ------------------------------
 # Post-init module configuration
@@ -213,6 +214,7 @@ alias tks='t kill-server'
 alias icat='kitty +kitten icat'
 alias s='kitty +kitten ssh'
 alias hg='kitty +kitten hyperlinked_grep'
+alias lc='leetcode'
 
 # function to make directory and cd into it
 function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
