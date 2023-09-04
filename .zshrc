@@ -250,7 +250,7 @@ v() {
 
 # function to lookup documentation on cht.sh
 cht() {
-  local query="$1"
+  local query="${(j:+:)@}"
   curl -s "cht.sh/$query" | bat --style=plain
 }
 
