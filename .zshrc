@@ -250,13 +250,8 @@ v() {
 
 # function to lookup documentation on cht.sh
 cht() {
-  if [ $# -ne 2 ]; then
-    echo "Usage: cht <language> <concept>"
-    return 1
-  fi
-  local language="$1"
-  local concept="$2"
-  curl "cht.sh/$language/$concept"
+  local query="$1"
+  curl "cht.sh/$query"
 }
 
 # function to gauge zsh's startup time
