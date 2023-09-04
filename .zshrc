@@ -251,7 +251,7 @@ v() {
 # function to lookup documentation on cht.sh
 cht() {
   local query="$1"
-  curl "cht.sh/$query"
+  curl -s "cht.sh/$query" | bat --style=plain
 }
 
 # function to gauge zsh's startup time
