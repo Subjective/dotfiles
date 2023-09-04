@@ -218,6 +218,7 @@ alias icat='kitty +kitten icat'
 alias s='kitty +kitten ssh'
 alias hg='kitty +kitten hyperlinked_grep'
 alias lc='leetcode'
+alias loc='scc --no-cocomo'
 
 # function to make directory and cd into it
 function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
