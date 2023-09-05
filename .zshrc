@@ -238,7 +238,7 @@ function co() { g++ -std=c++17 -O2 -o "${1%.*}" $1 -Wall; }
 function run() { co $1 && ./${1%.*} & fg; }
 
 # function to fuzzy find file w/ preview and open it directly in neovim
-v() {
+function v() {
   if [ $# -eq 0 ]; then
     local file=$(fd --type f --hidden --exclude .git | fzf --bind ctrl-/:toggle-preview --height=40% --reverse --preview "bat --style=numbers --line-range :500 --color=always {}")
     if [ -n "$file" ]; then
@@ -250,7 +250,7 @@ v() {
 }
 
 # function to lookup documentation on cht.sh
-cht() {
+function cht() {
   local query="${(j:+:)@}"
   curl -s "cht.sh/$query" | bat --style=plain
 }
