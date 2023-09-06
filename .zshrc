@@ -87,7 +87,6 @@ source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
 zsh-defer _evalcache zoxide init zsh
 zsh-defer _evalcache rtx activate zsh
 zsh-defer _evalcache direnv hook zsh
-zsh-defer _evalcache leetcode completions
 
 # ------------------------------
 # Post-init module configuration
