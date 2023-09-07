@@ -25,7 +25,7 @@ call plug#end()
 
 " Options
 syntax on
-colorscheme catppuccin_mocha
+silent! colorscheme catppuccin_mocha
 set number relativenumber
 set termguicolors
 set mouse=a
