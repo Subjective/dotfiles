@@ -13,13 +13,13 @@ yabai -m config                            \
   left_padding                12           \
   right_padding               12           \
   window_gap                  12           \
-  window_border               on           \
+  window_border               off          \
   window_border_width         4            \
   window_border_blur          off          \
   active_window_border_color  0xFFC4A6F5   \
   normal_window_border_color  0x002E3440   \
   insert_feedback_color       0xff7793d1   \
-  window_opacity              off          \
+  window_opacity              on           \
   active_window_opacity       1.0          \
   normal_window_opacity       0.9          \
   window_opacity_duration     0.15         \
