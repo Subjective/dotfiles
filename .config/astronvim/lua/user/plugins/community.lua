@@ -69,6 +69,14 @@ return {
   -- { import = "astrocommunity.colorscheme.fluormachine-nvim" },
   -- { "maxmx03/fluoromachine.nvim", opts = { glow = true } },
 
+  { import = "astrocommunity.note-taking.obsidian-nvim" },
+  {
+    "epwalsh/obsidian.nvim",
+    event = { "BufReadPre " .. vim.env.HOME .. "/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/**.md" },
+    opts = {
+      dir = "~/Library/Mobile Documents/com~apple~CloudDocs/Obsidian",
+    },
+  },
   -- indent
   { import = "astrocommunity.indent.mini-indentscope" },
   {
