@@ -178,4 +178,24 @@ return {
   },
   { "rafcamlet/nvim-luapad", cmd = { "Luapad", "Luarun" } },
   { "nanotee/zoxide.vim", cmd = { "Z", "Lz", "Tz", "Zi", "Lzi", "Tzi" } },
+  {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+    opts = {
+      auto_enable = true,
+      auto_resize_height = true,
+      preview = {
+        border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+      },
+      func_map = {
+        split = "<c-s>",
+        fzffilter = "<nop>",
+      },
+      filter = {
+        fzf = {
+          action_for = { ["ctrl-s"] = "split" },
+        },
+      },
+    },
+  },
 }
