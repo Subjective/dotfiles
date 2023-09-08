@@ -16,6 +16,7 @@ return {
       term_colors = true,
       integrations = {
         telescope = { enabled = true, style = "nvchad" },
+        ufo = false,
         native_lsp = {
           enabled = true,
           virtual_text = {
