@@ -186,6 +186,9 @@ return {
   { import = "astrocommunity.motion.grapple-nvim" },
   {
     "cbochs/grapple.nvim",
+    opts = {
+      scope = "static",
+    },
     keys = function()
       local prefix = "<leader><leader>"
       return {
