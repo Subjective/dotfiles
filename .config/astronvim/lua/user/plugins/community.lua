@@ -152,7 +152,35 @@ return {
     },
   },
 
-  { import = "astrocommunity.code-runner.compiler-nvim" },
+  { import = "astrocommunity.code-runner.overseer-nvim" },
+  {
+    "stevearc/overseer.nvim",
+    opts = {
+      setup = {
+        task_list = {
+          direction = "bottom",
+          bindings = {
+            ["<C-l>"] = false,
+            ["<C-h>"] = false,
+            ["<C-k>"] = false,
+            ["<C-j>"] = false,
+            q = "<Cmd>close<CR>",
+            J = "IncreaseDetail",
+            K = "DecreaseDetail",
+            ["<C-p>"] = "ScrollOutputUp",
+            ["<C-n>"] = "ScrollOutputDown",
+          },
+        },
+      },
+    },
+    config = function(_, opts) require("overseer").setup(opts.setup) end,
+  },
+  {
+    "Zeioth/compiler.nvim",
+    dependencies = { "stevearc/overseer.nvim" },
+    cmd = { "CompilerOpen", "CompilerToggleResults" },
+    opts = {},
+  },
 
   -- motion
   { import = "astrocommunity.motion.grapple-nvim" },
