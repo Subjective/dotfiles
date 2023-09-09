@@ -7,7 +7,6 @@ return {
       "andymass/vim-matchup",
       init = function()
         vim.g.matchup_matchparen_deferred = 1
-        vim.g.matchup_surround_enabled = 1
         vim.g.matchup_matchparen_offscreen = {}
       end,
       config = function()
@@ -28,8 +27,6 @@ return {
           }
           wk.register(textobjects, { mode = { "x", "o" } })
           local normalmaps = {
-            ["ds%"] = [[Delete surrounding matching pair]],
-            ["cs%"] = [[Change surrounding matching pair]],
             ["z%"] = [[Go inside nearest matching pair ]],
           }
           wk.register(normalmaps, { mode = "n" })
