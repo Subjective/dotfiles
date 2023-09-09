@@ -190,12 +190,56 @@ return {
   { import = "astrocommunity.motion.grapple-nvim" },
   {
     "cbochs/grapple.nvim",
-    opts = {
-      scope = "static",
-      integrations = {
-        resession = true,
-      },
-    },
+    opts = function()
+      local scope = require "grapple.scope"
+      local resession = require "resession"
+      local files = require "resession.files"
+      local util = require "resession.util"
+
+      local get_session_path = function(session_name)
+        if session_name then
+          local filename = util.get_session_file(session_name)
+          local data = files.load_json_file(filename)
+          local formatted = ""
+          if data then
+            if data.tab_scoped then
+              local tab_cwd = data.tabs[1].cwd
+              formatted = formatted .. string.format("%s (tab)", tab_cwd)
+            else
+              formatted = formatted .. string.format("%s", data.global.cwd)
+            end
+          end
+          return formatted
+        end
+      end
+
+      local session_path = scope.resolver(
+        function() return string.format("%s", get_session_path(resession.get_current())) end,
+        { cache = false, persist = false }
+      )
+
+      local session_name = scope.resolver(
+        function() return string.format("(%s)", resession.get_current() or "No Session") end,
+        { cache = false, persist = false }
+      )
+
+      local resolver =
+        scope.fallback { scope.suffix(session_path, session_name, { persist = false }), require("grapple.scope_resolvers").git }
+
+      local format_title = function()
+        local current_session = resession.get_current()
+        if current_session then return string.format("%s [%s]", current_session, util.shorten_path(get_session_path(current_session))) end
+        return nil
+      end
+
+      return {
+        scope = resolver,
+        popup_tags_title = format_title,
+        integrations = {
+          resession = true,
+        },
+      }
+    end,
     keys = function()
       local prefix = "<leader><leader>"
       return {
