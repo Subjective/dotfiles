@@ -13,9 +13,11 @@ return {
       end,
     }
 
-    local ignored_buftypes = { "nofile", "prompt", "nowrite", "help", "quickfix", "terminal" }
+    local ignored_buftypes = { "nofile", "prompt", "nowrite", "help", "quickfix" }
+    local ignored_filetypes = { "toggleterm" }
     local function is_file()
-      return not status.condition.buffer_matches({ buftype = ignored_buftypes }, 0) or vim.fn.expand "%" == "[Command Line]"
+      return not status.condition.buffer_matches({ buftype = ignored_buftypes, filetype = ignored_filetypes }, 0)
+        or vim.fn.expand "%" == "[Command Line]"
     end
 
     opts.statusline = {
