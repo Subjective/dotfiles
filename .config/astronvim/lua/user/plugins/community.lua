@@ -213,23 +213,28 @@ return {
         end
       end
 
-      local session_path = scope.resolver(
-        function() return string.format("%s", get_session_path(resession.get_current())) end,
-        { cache = false, persist = false }
-      )
+      local session_path = scope.fallback {
+        scope.resolver(
+          function() return string.format("%s", get_session_path(resession.get_current())) end,
+          { cache = false, persist = false }
+        ),
+        require("grapple.scope_resolvers").git,
+      }
 
       local session_name = scope.resolver(
-        function() return string.format("(%s)", resession.get_current() or "No Session") end,
+        function() return string.format("%s", resession.get_current() or "No Session") end,
         { cache = false, persist = false }
       )
 
-      local resolver =
-        scope.fallback { scope.suffix(session_path, session_name, { persist = false }), require("grapple.scope_resolvers").git }
+      local resolver = scope.suffix(session_path, session_name, { persist = false })
 
       local format_title = function()
         local current_session = resession.get_current()
-        if current_session then return string.format("%s [%s]", current_session, util.shorten_path(get_session_path(current_session))) end
-        return nil
+        if current_session then
+          return string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session)))
+        else
+          return string.format(" %s ", util.shorten_path(require("grapple.state").ensure_loaded(require("grapple.scope_resolvers").git)))
+        end
       end
 
       return {
