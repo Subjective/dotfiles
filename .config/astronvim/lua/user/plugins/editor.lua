@@ -184,9 +184,6 @@ return {
     opts = {
       auto_enable = true,
       auto_resize_height = true,
-      preview = {
-        border = "single",
-      },
       func_map = {
         pscrollup = "<c-u>",
         pscrolldown = "<c-d>",

@@ -235,6 +235,9 @@ return {
       return {
         scope = resolver,
         popup_tags_title = format_title,
+        popup_options = {
+          border = "rounded",
+        },
         integrations = {
           resession = true,
         },
@@ -260,6 +263,14 @@ return {
     end,
   },
   { import = "astrocommunity.motion.portal-nvim" },
+  {
+    "cbochs/portal.nvim",
+    opts = {
+      window_options = {
+        border = "rounded",
+      },
+    },
+  },
 
   -- terminal integration
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
