@@ -188,6 +188,8 @@ return {
         border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
       },
       func_map = {
+        pscrollup = "<c-u>",
+        pscrolldown = "<c-d>",
         split = "<c-s>",
         fzffilter = "<nop>",
       },
