@@ -185,7 +185,7 @@ return {
       auto_enable = true,
       auto_resize_height = true,
       preview = {
-        border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+        border = "single",
       },
       func_map = {
         pscrollup = "<c-u>",
