@@ -57,7 +57,6 @@ return {
       return {
         popup_window = {
           border = {
-            style = "single",
             highlight = "TelescopePreviewBorder",
           },
           win_options = {
@@ -66,7 +65,6 @@ return {
         },
         system_window = {
           border = {
-            style = "single",
             highlight = "TelescopePromptBorder",
           },
           win_options = {
@@ -75,7 +73,6 @@ return {
         },
         popup_input = {
           border = {
-            style = "single",
             highlight = "TelescopePromptBorder",
           },
           win_options = {
@@ -84,7 +81,6 @@ return {
         },
         settings_window = {
           border = {
-            style = "single",
             highlight = "TelescopePromptBorder",
           },
           win_options = {
@@ -94,7 +90,6 @@ return {
         chat = {
           sessions_window = {
             border = {
-              style = "single",
               highlight = "TelescopePromptBorder",
             },
             win_options = {
@@ -108,12 +103,7 @@ return {
       { "<leader>;c", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
       { "<leader>;a", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT: Act As" },
       { "<leader>;C", "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT: Complete Code" },
-      {
-        "<leader>;e",
-        "<cmd>ChatGPTEditWithInstructions<cr>",
-        mode = { "n", "x" },
-        desc = "ChatGPT: Edit With Instructions",
-      },
+      { "<leader>;e", "<cmd>ChatGPTEditWithInstructions<cr>", mode = { "n", "x" }, desc = "ChatGPT: Edit With Instructions" },
       { "<leader>;rg", "<cmd>ChatGPTRun grammar_correction<cr>", mode = { "n", "x" }, desc = "Grammar Correction" },
       { "<leader>;rT", "<cmd>ChatGPTRun translate<cr>", mode = { "n", "x" }, desc = "Translate" },
       { "<leader>;rk", "<cmd>ChatGPTRun keywords<cr>", mode = { "n", "x" }, desc = "Keywords" },
@@ -124,12 +114,7 @@ return {
       { "<leader>;rf", "<cmd>ChatGPTRun fix_bugs<cr>", mode = { "n", "x" }, desc = "Fix Bugs" },
       { "<leader>;re", "<cmd>ChatGPTRun explain_code<cr>", mode = { "n", "x" }, desc = "Explain Code" },
       { "<leader>;rR", "<cmd>ChatGPTRun roxygen_edit<cr>", mode = { "n", "x" }, desc = "Roxygen Edit" },
-      {
-        "<leader>;rr",
-        "<cmd>ChatGPTRun code_readability_analysis<cr>",
-        mode = { "n", "x" },
-        desc = "Code Readabiliy Analysis",
-      },
+      { "<leader>;rr", "<cmd>ChatGPTRun code_readability_analysis<cr>", mode = { "n", "x" }, desc = "Code Readabiliy Analysis" },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
