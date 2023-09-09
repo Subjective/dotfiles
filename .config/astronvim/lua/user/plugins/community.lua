@@ -15,7 +15,6 @@ return {
     opts = {
       term_colors = true,
       integrations = {
-        telescope = { enabled = true, style = "nvchad" },
         ufo = false,
         native_lsp = {
           enabled = true,
@@ -44,12 +43,6 @@ return {
           LeapMatch = { fg = colors.text, style = { "bold" } },
           LeapLabelPrimary = { fg = colors.pink, style = { "bold" } },
           LeapLabelSecondary = { fg = colors.blue, style = { "bold" } },
-          -- hide results title in flat theme for telescope
-          TelescopeResultsTitle = { fg = colors.mantle, bg = colors.none },
-          -- dark prompt in flat theme for telescope
-          TelescopePromptNormal = { fg = colors.text, bg = colors.crust },
-          TelescopePromptBorder = { fg = colors.crust, bg = colors.crust },
-          TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.none },
           -- use subtle indentscope color
           MiniIndentscopeSymbol = { fg = colors.surface2, nocombine = true },
         }

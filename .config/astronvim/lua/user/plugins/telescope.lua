@@ -52,7 +52,8 @@ return {
 
     return require("astronvim.utils").extend_tbl(opts, {
       defaults = {
-        selection_caret = "  ",
+        -- selection_caret = "  ",
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         mappings = {
           i = {
             ["<c-x>"] = false,
