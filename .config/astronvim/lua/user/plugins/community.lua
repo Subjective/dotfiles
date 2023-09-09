@@ -176,6 +176,10 @@ return {
     config = function(_, opts) require("overseer").setup(opts.setup) end,
   },
   {
+    "stevearc/resession.nvim",
+    opts = function(_, opts) opts.extensions = utils.extend_tbl(opts.extensions, { overseer = {}, grapple = {} }) end,
+  },
+  {
     "Zeioth/compiler.nvim",
     dependencies = { "stevearc/overseer.nvim" },
     cmd = { "CompilerOpen", "CompilerToggleResults" },
@@ -188,6 +192,9 @@ return {
     "cbochs/grapple.nvim",
     opts = {
       scope = "static",
+      integrations = {
+        resession = true,
+      },
     },
     keys = function()
       local prefix = "<leader><leader>"
