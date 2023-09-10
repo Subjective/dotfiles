@@ -1,3 +1,5 @@
+local utils = require "astronvim.utils"
+
 return {
   {
     "ggandor/leap.nvim",
@@ -88,5 +90,87 @@ return {
         desc = "Flash Treesitter Search",
       },
     },
+  },
+  {
+    "Subjective/grapple.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "Grapple" },
+    opts = function()
+      local scope = require "grapple.scope"
+      local resession = require "resession"
+      local files = require "resession.files"
+      local util = require "resession.util"
+
+      local get_session_path = function(session_name)
+        if session_name then
+          local filename = util.get_session_file(session_name)
+          local data = files.load_json_file(filename)
+          local formatted = ""
+          if data then
+            if data.tab_scoped then
+              local tab_cwd = data.tabs[1].cwd
+              formatted = formatted .. string.format("%s (tab)", tab_cwd)
+            else
+              formatted = formatted .. string.format("%s", data.global.cwd)
+            end
+          end
+          return formatted
+        end
+      end
+
+      local session_path = scope.fallback {
+        scope.resolver(
+          function() return string.format("%s", get_session_path(resession.get_current())) end,
+          { cache = false, persist = false }
+        ),
+        require("grapple.scope_resolvers").git,
+      }
+
+      local session_name = scope.resolver(
+        function() return string.format("%s", resession.get_current() or "No Session") end,
+        { cache = false, persist = false }
+      )
+
+      local resolver = scope.suffix(session_path, session_name, { persist = false })
+
+      local format_title = function()
+        local current_session = resession.get_current()
+        if current_session then
+          return string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session)))
+        else
+          return string.format(" %s ", util.shorten_path(require("grapple.state").ensure_loaded(require("grapple.scope_resolvers").git)))
+        end
+      end
+
+      return {
+        scope = resolver,
+        popup_tags_title = format_title,
+        popup_options = {
+          border = "rounded",
+        },
+        integrations = {
+          resession = true,
+        },
+      }
+    end,
+    init = function() utils.set_mappings { n = { ["<leader><leader>"] = { name = "󰛢 Grapple" } } } end,
+    keys = function()
+      local prefix = "<leader><leader>"
+      return {
+        { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Go to tag 1" },
+        { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Go to tag 2" },
+        { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Go to tag 3" },
+        { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Go to tag 4" },
+        { "<leader>'", "<cmd>GrappleToggle<cr><cmd>redrawstatus<cr>", desc = "Toggle file tag" },
+        { prefix .. "a", "<cmd>GrappleTag<cr><cmd>redrawstatus<cr>", desc = "Add file" },
+        { prefix .. "d", "<cmd>GrappleUntag<cr><cmd>redrawstatus<cr>", desc = "Remove file" },
+        { prefix .. "t", "<cmd>GrappleToggle<cr><cmd>redrawstatus<cr>", desc = "Toggle a file" },
+        { prefix .. "e", "<cmd>GrapplePopup tags<CR>", desc = "Select from tags" },
+        { prefix .. "s", "<cmd>GrapplePopup scopes<CR>", desc = "Select a project scope" },
+        { prefix .. "x", "<cmd>GrappleReset<cr><cmd>redrawstatus<cr>", desc = "Clear tags from current project" },
+        { "<c-n>", "<cmd>GrappleCycle forward<CR>", desc = "Select next tag" },
+        { "<c-p>", "<cmd>GrappleCycle backward<CR>", desc = "Select previous tag" },
+      }
+    end,
   },
 }
