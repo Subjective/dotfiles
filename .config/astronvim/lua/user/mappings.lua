@@ -87,8 +87,8 @@ return {
         if current_session_name then
           vim.ui.input({ prompt = string.format('Rename session "%s" to', current_session_name) }, function(name)
             if name then
-              require("resession").save(name)
               require("resession").delete(current_session_name)
+              require("resession").save(name)
             end
           end)
         else
