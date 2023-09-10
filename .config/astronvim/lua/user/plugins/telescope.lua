@@ -14,32 +14,35 @@ return {
     keys = { { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Find in undo history" } },
   },
   {
-    "jay-babu/project.nvim",
-    dependencies = "nvim-telescope/telescope.nvim",
-    name = "project-nvim",
-    event = "VeryLazy",
-    config = function() require("telescope").load_extension "projects" end,
-    opts = {
-      scope_chdir = "tab",
-      patterns = { "lua" },
-      ignore_lsp = { "lua_ls", "null-ls", "texlab" },
-    },
-    keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
-  },
-  {
-    "AckslD/nvim-neoclip.lua",
-    dependencies = "nvim-telescope/telescope.nvim",
-    event = { "TextYankPost", "RecordingEnter" },
-    config = function() require("telescope").load_extension "neoclip" end,
-    opts = {},
-    keys = {
-      { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Find yank history" },
-      { "<leader>fq", function() require("telescope").extensions.macroscope.default() end, desc = "Find macro history" },
-    },
-  },
-  {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    dependencies = {
+      {
+        "jay-babu/project.nvim",
+        name = "project-nvim",
+        event = "VeryLazy",
+        opts = {
+          scope_chdir = "tab",
+          patterns = { "lua" },
+          ignore_lsp = { "lua_ls", "null-ls", "texlab" },
+        },
+        keys = { { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" } },
+      },
+      {
+        "AckslD/nvim-neoclip.lua",
+        event = { "TextYankPost", "RecordingEnter" },
+        opts = {},
+        keys = {
+          { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Find yank history" },
+          { "<leader>fq", function() require("telescope").extensions.macroscope.default() end, desc = "Find macro history" },
+        },
+      },
+    },
+    config = function(...)
+      require "plugins.configs.telescope"(...)
+      require("telescope").load_extension "projects"
+      require("telescope").load_extension "neoclip"
+    end,
     opts = function(_, opts)
       local actions = require "telescope.actions"
       local fb_actions = require("telescope").extensions.file_browser.actions
