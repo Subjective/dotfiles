@@ -168,8 +168,6 @@ return {
         { prefix .. "e", "<cmd>GrapplePopup tags<CR>", desc = "Select from tags" },
         { prefix .. "s", "<cmd>GrapplePopup scopes<CR>", desc = "Select a project scope" },
         { prefix .. "x", "<cmd>GrappleReset<cr><cmd>redrawstatus<cr>", desc = "Clear tags from current project" },
-        { "<c-n>", "<cmd>GrappleCycle forward<CR>", desc = "Select next tag" },
-        { "<c-p>", "<cmd>GrappleCycle backward<CR>", desc = "Select previous tag" },
       }
     end,
   },

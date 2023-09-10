@@ -179,6 +179,15 @@ return {
   { "rafcamlet/nvim-luapad", cmd = { "Luapad", "Luarun" } },
   { "nanotee/zoxide.vim", cmd = { "Z", "Lz", "Tz", "Zi", "Lzi", "Tzi" } },
   {
+    "stevearc/qf_helper.nvim",
+    ft = "qf",
+    opts = {},
+    keys = {
+      { "<c-n>", "<cmd>QNext<cr>", desc = "Next quickfix list item" },
+      { "<c-p>", "<cmd>QPrev<cr>", desc = "Previous quickfix list item" },
+    },
+  },
+  {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
     opts = {
