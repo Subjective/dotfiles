@@ -138,7 +138,8 @@ return {
         if current_session then
           return string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session)))
         else
-          return string.format(" %s ", util.shorten_path(require("grapple.state").ensure_loaded(require("grapple.scope_resolvers").git)))
+          local cwd = vim.fn.getcwd()
+          return string.format(" %s ", cwd ~= vim.env.HOME and util.shorten_path(cwd) or cwd)
         end
       end
 
