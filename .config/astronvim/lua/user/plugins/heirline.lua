@@ -54,5 +54,11 @@ return {
       status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
     }
+
+    local astro_disable = opts.opts.disable_winbar_cb
+    opts.opts.disable_winbar_cb = function(args)
+      if vim.bo[args.buf].filetype == "neo-tree" then return end
+      return astro_disable(args)
+    end
   end,
 }
