@@ -124,14 +124,14 @@ return {
         else
           return nil
         end
-      end, { cache = true, persist = false })
+      end, { cache = false, persist = false })
 
       local session_name = scope.resolver(
-        function() return string.format("%s", resession.get_current() or "No Session") end,
-        { cache = true, persist = false }
+        function() return string.format("%s", resession.get_current()) end,
+        { cache = false, persist = false }
       )
 
-      local session_scope = scope.suffix(session_path, session_name, { persist = false })
+      local session_scope = scope.suffix(session_path, session_name, { cache = false, persist = false })
 
       local resolver = scope.fallback {
         session_scope,
@@ -142,7 +142,7 @@ return {
         local current_session = resession.get_current()
         if current_session then
           local title = string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session)))
-          return #title > 30 and string.format(" %s ", current_session) or title
+          return #title > 50 and string.format(" %s ", current_session) or title
         else
           local git_root = require("grapple.state").ensure_loaded(require("grapple.scope_resolvers").git)
           return string.format(" %s ", git_root ~= vim.env.HOME and util.shorten_path(git_root) or git_root)
