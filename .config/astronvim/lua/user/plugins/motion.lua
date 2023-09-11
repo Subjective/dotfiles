@@ -118,28 +118,34 @@ return {
         end
       end
 
-      local session_path = scope.fallback {
-        scope.resolver(
-          function() return string.format("%s", get_session_path(resession.get_current())) end,
-          { cache = false, persist = false }
-        ),
-        require("grapple.scope_resolvers").git,
-      }
+      local session_path = scope.resolver(function()
+        if resession.get_current() then
+          return string.format("%s", get_session_path(resession.get_current()))
+        else
+          return nil
+        end
+      end, { cache = true, persist = false })
 
       local session_name = scope.resolver(
         function() return string.format("%s", resession.get_current() or "No Session") end,
-        { cache = false, persist = false }
+        { cache = true, persist = false }
       )
 
-      local resolver = scope.suffix(session_path, session_name, { persist = false })
+      local session_scope = scope.suffix(session_path, session_name, { persist = false })
+
+      local resolver = scope.fallback {
+        session_scope,
+        require("grapple.scope_resolvers").git,
+      }
 
       local format_title = function()
         local current_session = resession.get_current()
         if current_session then
-          return string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session)))
+          local title = string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session)))
+          return #title > 30 and string.format(" %s ", current_session) or title
         else
-          local cwd = vim.fn.getcwd()
-          return string.format(" %s ", cwd ~= vim.env.HOME and util.shorten_path(cwd) or cwd)
+          local git_root = require("grapple.state").ensure_loaded(require("grapple.scope_resolvers").git)
+          return string.format(" %s ", git_root ~= vim.env.HOME and util.shorten_path(git_root) or git_root)
         end
       end
 
@@ -148,9 +154,6 @@ return {
         popup_tags_title = format_title,
         popup_options = {
           border = "rounded",
-        },
-        integrations = {
-          resession = true,
         },
       }
     end,
