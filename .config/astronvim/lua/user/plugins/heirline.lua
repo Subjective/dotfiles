@@ -5,10 +5,11 @@ return {
 
     status.component.grapple = {
       provider = function()
-        local key = require("grapple").key()
-        return " " .. key .. " "
+        local available, grapple = pcall(require, "grapple")
+        if available then
+          if grapple.exists() then return string.format(" %s ", grapple.key()) end
+        end
       end,
-      condition = require("grapple").exists,
       update = { "User", pattern = "GrappleStateUpdate", callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end) },
     }
 
