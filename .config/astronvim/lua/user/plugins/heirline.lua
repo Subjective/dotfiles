@@ -11,6 +11,7 @@ return {
         end
       end,
       update = { "User", pattern = "GrappleStateUpdate", callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end) },
+      init = require("astronvim.utils.status.init").update_events { "BufEnter" },
     }
 
     local ignored_buftypes = { "nofile", "prompt", "nowrite", "help", "quickfix" }
