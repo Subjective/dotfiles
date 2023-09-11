@@ -3,6 +3,51 @@ return {
   opts = function(_, opts)
     local status = require "astronvim.utils.status"
 
+    status.component.overseer = function()
+      return {
+        condition = function()
+          local ok, _ = pcall(require, "overseer")
+          if ok then return true end
+        end,
+        init = function(self)
+          self.overseer = require "overseer"
+          self.tasks = self.overseer.task_list
+          self.STATUS = self.overseer.constants.STATUS
+        end,
+        static = {
+          symbols = {
+            ["CANCELED"] = "",
+            ["FAILURE"] = "󰅚",
+            ["SUCCESS"] = "󰄴",
+            ["RUNNING"] = "󰑮",
+          },
+          colors = {
+            ["CANCELED"] = "gray",
+            ["FAILURE"] = "red",
+            ["SUCCESS"] = "green",
+            ["RUNNING"] = "yellow",
+          },
+        },
+        {
+          condition = function(self) return #self.tasks.list_tasks() > 0 end,
+          {
+            provider = function(self)
+              local tasks_by_status = self.overseer.util.tbl_group_by(self.tasks.list_tasks { unique = true }, "status")
+
+              for _, _status in ipairs(self.STATUS.values) do
+                local status_tasks = tasks_by_status[_status]
+                if self.symbols[_status] and status_tasks then
+                  self.color = self.colors[_status]
+                  return string.format("  %s %s", self.symbols[_status], _status)
+                end
+              end
+            end,
+            hl = function(self) return { fg = self.color } end,
+          },
+        },
+      }
+    end
+
     status.component.grapple = function()
       local available, grapple = pcall(require, "grapple")
       return {
@@ -59,6 +104,7 @@ return {
       status.component.cmd_info(),
       status.component.fill(),
       status.component.lsp(),
+      status.component.overseer(),
       status.component.treesitter(),
       status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
