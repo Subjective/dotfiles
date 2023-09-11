@@ -5,12 +5,11 @@ return {
 
     status.component.grapple = {
       provider = function()
-        local available, grapple = pcall(require, "grapple")
-        if available then
-          local key = grapple.key { buffer = 0 }
-          if key ~= nil then return " " .. key .. " " end
-        end
+        local key = require("grapple").key()
+        return " " .. key .. " "
       end,
+      condition = require("grapple").exists,
+      update = { "User", pattern = "GrappleStateUpdate", callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end) },
     }
 
     local ignored_buftypes = { "nofile", "prompt", "nowrite", "help", "quickfix" }
