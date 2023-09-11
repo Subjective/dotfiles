@@ -181,7 +181,14 @@ return {
   {
     "stevearc/qf_helper.nvim",
     ft = "qf",
-    opts = {},
+    opts = {
+      quickfix = {
+        default_bindings = false,
+      },
+      loclist = {
+        default_bindings = false,
+      },
+    },
     keys = {
       { "<c-n>", "<cmd>QNext<cr>", desc = "Next quickfix list item" },
       { "<c-p>", "<cmd>QPrev<cr>", desc = "Previous quickfix list item" },
@@ -197,7 +204,7 @@ return {
         pscrollup = "<c-u>",
         pscrolldown = "<c-d>",
         split = "<c-s>",
-        fzffilter = "<nop>",
+        fzffilter = "",
       },
       filter = {
         fzf = {
