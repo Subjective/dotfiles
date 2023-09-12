@@ -126,15 +126,7 @@ return {
         end
       end, { cache = false, persist = false })
 
-      local session_name = scope.resolver(
-        function() return string.format("%s", resession.get_current()) end,
-        { cache = false, persist = false }
-      )
-
-      local session_scope = scope.suffix(session_path, session_name, { cache = false, persist = false })
-
       local resolver = scope.fallback {
-        -- session_scope,
         session_path,
         require("grapple.scope_resolvers").git,
       }
@@ -149,39 +141,6 @@ return {
           return string.format(" %s ", git_root ~= vim.env.HOME and util.shorten_path(git_root) or git_root)
         end
       end
-
-      -- local current_tags
-      -- resession.add_hook("pre_save", function()
-      --   if not resession.get_current() then require("grapple.settings").integrations.resession = false end
-      --
-      --   scope = require("grapple.state").ensure_loaded(require("grapple.settings").scope)
-      --   local popup_state = { scope = scope }
-      --   current_tags = require("grapple.tags").tags(scope)
-      --   for _, tag in ipairs(current_tags) do
-      --     require("grapple").tag(tag)
-      --   end
-      -- end)
-
-      -- resession.add_hook("post_save", function() require("grapple.settings").integrations.resession = true end)
-
-      -- resession.add_hook("pre_save", function()
-      --   if not resession.get_current() then
-      --     require("grapple.state").save()
-      --     require("grapple.state").prune()
-      --   end
-      -- end)
-
-      -- resession.add_hook("pre_load", function()
-      --   require("grapple").save()
-      --   require("grapple.settings").integrations.resession = true
-      --   require("grapple.state").reset()
-      -- end)
-      --
-      -- resession.add_hook("post_load", function()
-      --   require("grapple").save()
-      --   require("grapple.settings").integrations.resession = true
-      --   require("grapple.state").reset()
-      -- end)
 
       return {
         scope = resolver,
