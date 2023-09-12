@@ -213,4 +213,9 @@ return {
       },
     },
   },
+  {
+    "jcdickinson/wpm.nvim",
+    event = "InsertEnter",
+    opts = {},
+  },
 }

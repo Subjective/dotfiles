@@ -48,6 +48,20 @@ return {
       }
     end
 
+    status.component.wpm = function()
+      return {
+        flexible = 1,
+        {
+          provider = function() return string.format("  %s %s WPM", require("wpm").historic_graph(), require("wpm").wpm()) end,
+          update = { "CursorMovedI", "CursorMoved" },
+        },
+        {
+          provider = function() return string.format("  %s WPM", require("wpm").wpm()) end,
+          update = { "CursorMovedI", "CursorMoved" },
+        },
+      }
+    end
+
     status.component.grapple = function()
       local available, grapple = pcall(require, "grapple")
       return {
@@ -106,6 +120,7 @@ return {
       status.component.lsp(),
       status.component.overseer(),
       status.component.treesitter(),
+      status.component.wpm(),
       status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
     }
