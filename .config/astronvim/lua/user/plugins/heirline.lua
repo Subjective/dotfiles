@@ -5,10 +5,7 @@ return {
 
     status.component.overseer = function()
       return {
-        condition = function()
-          local ok, _ = pcall(require, "overseer")
-          if ok then return true end
-        end,
+        condition = function() return package.loaded["overseer"] end,
         init = function(self)
           self.overseer = require "overseer"
           self.tasks = self.overseer.task_list
@@ -49,13 +46,11 @@ return {
     end
 
     status.component.grapple = function()
-      local available, grapple = pcall(require, "grapple")
       return {
         provider = function()
-          if available then
-            if grapple.exists() then return string.format(" %s ", grapple.key()) end
-          end
+          if require("grapple").exists() then return string.format(" %s ", require("grapple").key()) end
         end,
+        condition = function() return package.loaded["grapple"] end,
         update = { "User", pattern = "GrappleStateUpdate", callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end) },
         init = require("astronvim.utils.status.init").update_events { "BufEnter" },
       }
