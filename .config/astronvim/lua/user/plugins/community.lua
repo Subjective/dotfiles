@@ -197,8 +197,8 @@ return {
       )
     end,
     keys = function()
-      local prefix = "<leader>O"
-      utils.set_mappings { n = { [prefix] = { name = "󱁤 Overseer" } } }
+      local prefix = "<leader>T"
+      utils.set_mappings { n = { [prefix] = { name = "󱁤 Tasks" } } }
       return {
         { prefix .. "<CR>", "<Cmd>OverseerToggle<CR>", desc = "Toggle" },
         { prefix .. "a", "<Cmd>OverseerQuickAction<CR>", desc = "Quick Action" },
