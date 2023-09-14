@@ -172,8 +172,43 @@ return {
           },
         },
       },
+      templates = {
+        {
+          name = "compile with compiler",
+          builder = function() return { cmd = { "compiler" }, args = { vim.fn.expand "%:p" } } end,
+        },
+      },
     },
-    config = function(_, opts) require("overseer").setup(opts.setup) end,
+    config = function(_, opts)
+      require("overseer").setup(opts.setup)
+      vim.api.nvim_create_user_command("AutoCompile", function()
+        require("overseer").run_template({ name = "compile with compiler" }, function(task)
+          if task then
+            task:add_component { "restart_on_save", paths = { vim.fn.expand "%:p" } }
+          else
+            vim.notify("Error setting up auto compilation", vim.log.levels.ERROR)
+          end
+        end)
+      end, { desc = "Automatically compile the current file with `compiler` on save" })
+      vim.api.nvim_create_user_command(
+        "Compile",
+        function() require("overseer").run_template { name = "compile with compiler" } end,
+        { desc = "Compile the current file with `compiler`" }
+      )
+    end,
+    keys = function()
+      local prefix = "<leader>O"
+      utils.set_mappings { n = { [prefix] = { name = "󱁤 Overseer" } } }
+      return {
+        { prefix .. "<CR>", "<Cmd>OverseerToggle<CR>", desc = "Toggle" },
+        { prefix .. "a", "<Cmd>OverseerQuickAction<CR>", desc = "Quick Action" },
+        { prefix .. "c", "<Cmd>Compile<CR>", desc = "Compile" },
+        { prefix .. "C", "<Cmd>AutoCompile<CR>", desc = "Auto Compile" },
+        { prefix .. "i", "<Cmd>OverseerInfo<CR>", desc = "Info" },
+        { prefix .. "l", "<cmd>OverseerLoadBundle<cr>", desc = "Load bundle" },
+        { prefix .. "r", "<Cmd>OverseerRun<CR>", desc = "Run" },
+      }
+    end,
   },
   {
     "stevearc/resession.nvim",
