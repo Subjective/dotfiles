@@ -177,7 +177,19 @@ return {
   },
   {
     "stevearc/resession.nvim",
-    opts = function(_, opts) opts.extensions = utils.extend_tbl(opts.extensions, { overseer = {}, grapple = {} }) end,
+    opts = function(_, opts)
+      opts.extensions = utils.extend_tbl(opts.extensions, { overseer = {}, grapple = {} })
+      require("resession").add_hook("pre_save", function()
+        if require("resession").get_current() == nil then
+          require("grapple").save()
+          require("grapple.settings").integrations.resession = true
+        end
+      end)
+      require("resession").add_hook("pre_load", function()
+        require("grapple").save()
+        require("grapple.settings").integrations.resession = true
+      end)
+    end,
   },
   {
     "Zeioth/compiler.nvim",
