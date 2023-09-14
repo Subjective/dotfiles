@@ -93,7 +93,7 @@ return {
   },
   {
     "Subjective/grapple.nvim",
-    event = "BufEnter",
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "Grapple" },
     opts = function()
