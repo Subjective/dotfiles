@@ -189,10 +189,6 @@ return {
         default_bindings = false,
       },
     },
-    keys = {
-      { "<c-n>", "<cmd>QNext<cr>", desc = "Next quickfix list item" },
-      { "<c-p>", "<cmd>QPrev<cr>", desc = "Previous quickfix list item" },
-    },
   },
   {
     "kevinhwang91/nvim-bqf",

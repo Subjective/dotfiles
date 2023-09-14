@@ -170,6 +170,23 @@ return {
     init = function() utils.set_mappings { n = { ["<leader><leader>"] = { name = "󰛢 Grapple" } } } end,
     keys = function()
       local prefix = "<leader><leader>"
+
+      local find_buffer_by_type = function(type)
+        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+          if ft == type then return true end
+        end
+        return false
+      end
+      local conditional_action = function(condition, primary_action, alternate_action)
+        if condition then
+          primary_action()
+        else
+          alternate_action()
+        end
+      end
+
       return {
         { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Go to tag 1" },
         { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Go to tag 2" },
@@ -182,6 +199,16 @@ return {
         { prefix .. "e", "<cmd>GrapplePopup tags<CR>", desc = "Select from tags" },
         { prefix .. "s", "<cmd>GrapplePopup scopes<CR>", desc = "Select a project scope" },
         { prefix .. "x", "<cmd>GrappleReset<cr>", desc = "Clear tags from current project" },
+        {
+          "<c-n>",
+          function() conditional_action(find_buffer_by_type "qf", vim.cmd.QNext, require("grapple").cycle_forward) end,
+          desc = "Next Grapple tag or quickfix list item",
+        },
+        {
+          "<c-p>",
+          function() conditional_action(find_buffer_by_type "qf", vim.cmd.QPrev, require("grapple").cycle_backward) end,
+          desc = "Previous Grapple tag or quickfix list item",
+        },
       }
     end,
   },
