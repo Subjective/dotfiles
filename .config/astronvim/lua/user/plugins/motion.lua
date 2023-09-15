@@ -147,16 +147,21 @@ return {
         if require("resession").get_current() == nil then
           require("grapple").save()
           require("grapple.settings").integrations.resession = true
-          local grapple_state = require("grapple.state").state()
-          for loaded_scope, _ in pairs(grapple_state) do
-            if loaded_scope ~= get_session_path(resession.get_current()) then require("grapple.state").unload(loaded_scope) end
-          end
         end
       end)
       resession.add_hook("pre_load", function()
         require("grapple").save()
         require("grapple.settings").integrations.resession = true
       end)
+
+      local unload_scopes = function()
+        local grapple_state = require("grapple.state").state()
+        for loaded_scope, _ in pairs(grapple_state) do
+          if loaded_scope ~= get_session_path(resession.get_current()) then require("grapple.state").reset(loaded_scope, true) end
+        end
+      end
+      resession.add_hook("post_save", function() unload_scopes() end)
+      resession.add_hook("post_load", function() unload_scopes() end)
 
       return {
         scope = resolver,
