@@ -102,9 +102,9 @@ return {
       local files = require "resession.files"
       local util = require "resession.util"
 
-      local get_session_path = function(session_name)
+      local get_session_path = function(session_name, dirname)
         if session_name then
-          local filename = util.get_session_file(session_name)
+          local filename = util.get_session_file(session_name, dirname)
           local data = files.load_json_file(filename)
           local formatted = ""
           if data then
@@ -133,9 +133,9 @@ return {
       }
 
       local format_title = function()
-        local current_session = resession.get_current()
+        local current_session, session_dir = resession.get_current()
         if current_session then
-          local title = string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session)))
+          local title = string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session, session_dir)))
           return #title > 50 and string.format(" %s ", current_session) or title
         else
           local git_root = require("grapple.state").ensure_loaded(require("grapple.scope_resolvers").git)
@@ -147,7 +147,6 @@ return {
         if require("resession").get_current() == nil then
           require("grapple").save()
           require("grapple.settings").integrations.resession = true
-
           local grapple_state = require("grapple.state").state()
           for loaded_scope, _ in pairs(grapple_state) do
             if loaded_scope ~= get_session_path(resession.get_current()) then require("grapple.state").unload(loaded_scope) end
