@@ -123,13 +123,13 @@ return {
       }
 
       local format_title = function()
-        local current_session, session_dir = resession.get_current()
+        local current_session = resession.get_current()
+        local path = require("grapple.state").ensure_loaded(resolver)
         if current_session then
-          local title = string.format(" %s [%s] ", current_session, util.shorten_path(get_session_path(current_session, session_dir)))
+          local title = string.format(" %s [%s] ", current_session, util.shorten_path(path))
           return #title > 50 and string.format(" %s ", current_session) or title
         else
-          local git_root = require("grapple.state").ensure_loaded(require("grapple.scope_resolvers").git)
-          return string.format(" %s ", git_root ~= vim.env.HOME and util.shorten_path(git_root) or git_root)
+          return string.format(" %s ", path ~= vim.env.HOME and util.shorten_path(path) or path)
         end
       end
 
@@ -147,7 +147,7 @@ return {
       local unload_scopes = function()
         local grapple_state = require("grapple.state").state()
         for loaded_scope, _ in pairs(grapple_state) do
-          if loaded_scope ~= get_session_path(resession.get_current()) then require("grapple.state").reset(loaded_scope, true) end
+          if loaded_scope ~= require("grapple.scope").get(resolver) then require("grapple.state").reset(loaded_scope, true) end
         end
       end
       resession.add_hook("post_save", function() unload_scopes() end)
