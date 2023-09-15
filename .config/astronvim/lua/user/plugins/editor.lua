@@ -186,7 +186,7 @@ return {
   { "nanotee/zoxide.vim", cmd = { "Z", "Lz", "Tz", "Zi", "Lzi", "Tzi" } },
   {
     "stevearc/qf_helper.nvim",
-    ft = "qf",
+    event = "VeryLazy",
     opts = {
       quickfix = {
         default_bindings = false,

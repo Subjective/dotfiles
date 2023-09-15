@@ -93,7 +93,7 @@ return {
   },
   {
     "Subjective/grapple.nvim",
-    event = "VeryLazy",
+    event = "User AstroFile",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "Grapple" },
     opts = function()
