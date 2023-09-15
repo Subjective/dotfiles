@@ -106,25 +106,15 @@ return {
         if session_name then
           local filename = util.get_session_file(session_name, dirname)
           local data = files.load_json_file(filename)
-          local formatted = ""
           if data then
-            if data.tab_scoped then
-              local tab_cwd = data.tabs[1].cwd
-              formatted = formatted .. string.format("%s (tab)", tab_cwd)
-            else
-              formatted = formatted .. string.format("%s", data.global.cwd)
-            end
+            local session_cwd = data.tab_scoped and data.tabs[1].cwd or data.global.cwd
+            return string.format("%s", session_cwd)
           end
-          return formatted
         end
       end
 
       local session_path = scope.resolver(function()
-        if resession.get_current() then
-          return string.format("%s", get_session_path(resession.get_current()))
-        else
-          return nil
-        end
+        if resession.get_current() then return string.format("%s", get_session_path(resession.get_current())) end
       end, { cache = false, persist = false })
 
       local resolver = scope.fallback {
