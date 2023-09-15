@@ -117,8 +117,15 @@ return {
         if resession.get_current() then return string.format("%s", get_session_path(resession.get_current())) end
       end, { cache = false, persist = false })
 
+      local session_name = scope.resolver(
+        function() return string.format("%s", resession.get_current()) end,
+        { cache = false, persist = false }
+      )
+
+      local session_scope = scope.suffix(session_path, session_name, { persist = false })
+
       local resolver = scope.fallback {
-        session_path,
+        session_scope,
         require("grapple.scope_resolvers").git,
       }
 
@@ -137,6 +144,8 @@ return {
         if require("resession").get_current() == nil then
           require("grapple").save()
           require("grapple.settings").integrations.resession = true
+          -- TODO: Investigate whether this condition is needed
+          -- require("grapple.state").reset()
         end
       end)
       resession.add_hook("pre_load", function()
@@ -144,12 +153,16 @@ return {
         require("grapple.settings").integrations.resession = true
       end)
 
+      -- TODO: Don't unload tab-scoped sessions that are active
       local unload_scopes = function()
         local grapple_state = require("grapple.state").state()
         for loaded_scope, _ in pairs(grapple_state) do
-          if loaded_scope ~= get_session_path(resession.get_current()) then require("grapple.state").reset(loaded_scope, true) end
+          vim.print(loaded_scope)
+          -- vim.print("Resolver: ", require("grapple.scope").get(resolver))
+          if loaded_scope ~= require("grapple.state").ensure_loaded(resolver) then require("grapple.state").reset(loaded_scope, true) end
         end
       end
+      -- TODO: ADD DETACH HOOK PR (triggers when deleting current session)
       resession.add_hook("post_save", function() unload_scopes() end)
       resession.add_hook("post_load", function() unload_scopes() end)
 
