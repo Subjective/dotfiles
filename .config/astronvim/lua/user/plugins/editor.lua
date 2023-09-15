@@ -201,6 +201,7 @@ return {
     ft = "qf",
     opts = {
       auto_enable = true,
+      auto_close = false,
       auto_resize_height = true,
       func_map = {
         pscrollup = "<c-u>",
