@@ -212,10 +212,7 @@ return {
   },
   {
     "stevearc/resession.nvim",
-    opts = function(_, opts)
-      opts.extensions = utils.extend_tbl(opts.extensions, { overseer = {}, grapple = {} })
-      require("resession").add_hook("post_load", function() vim.opt.showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1 end)
-    end,
+    opts = function(_, opts) opts.extensions = utils.extend_tbl(opts.extensions, { overseer = {}, grapple = {} }) end,
   },
   {
     "Zeioth/compiler.nvim",

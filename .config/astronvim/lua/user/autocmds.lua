@@ -19,15 +19,15 @@ autocmd("FileType", {
   end,
 })
 
-autocmd("User", {
-  desc = "Hide tabline when only one buffer and one tab are open",
-  pattern = "AstroBufsUpdated",
-  group = augroup("autohidetabline", { clear = true }),
-  callback = function()
-    local new_showtabline = #vim.t.bufs > 1 and 2 or 1
-    if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
-  end,
-})
+-- autocmd("User", {
+--   desc = "Hide tabline when only one buffer and one tab are open",
+--   pattern = "AstroBufsUpdated",
+--   group = augroup("autohidetabline", { clear = true }),
+--   callback = function()
+--     local new_showtabline = #vim.t.bufs > 1 and 2 or 1
+--     if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
+--   end,
+-- })
 
 autocmd({ "VimResized" }, {
   desc = "Automatically resize windows when resizing the terminal",
