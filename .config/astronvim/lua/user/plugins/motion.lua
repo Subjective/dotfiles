@@ -115,12 +115,12 @@ return {
 
       local session_path = scope.resolver(function()
         if resession.get_current() then return string.format("%s", get_session_path(resession.get_current())) end
-      end, { cache = false, persist = false })
+      end)
 
-      local resolver = scope.fallback {
+      local resolver = scope.fallback({
         session_path,
         require("grapple.scope_resolvers").git,
-      }
+      }, { cache = { "DirChanged" }, persist = false })
 
       local format_title = function()
         local current_session = resession.get_current()
