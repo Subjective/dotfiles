@@ -198,6 +198,7 @@ return {
   },
   {
     "kevinhwang91/nvim-bqf",
+    dependencies = "junegunn/fzf",
     ft = "qf",
     opts = {
       auto_enable = true,
@@ -207,7 +208,7 @@ return {
         pscrollup = "<c-u>",
         pscrolldown = "<c-d>",
         split = "<c-s>",
-        fzffilter = "",
+        -- fzffilter = "",
       },
       filter = {
         fzf = {
