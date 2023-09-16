@@ -12,6 +12,7 @@ return {
     cmdheight = 1,
     thesaurus = vim.fn.expand "~/.config/astronvim/lua/user/spell/mthesaur.txt",
     shada = string.gsub(vim.opt.shada._value, "'(%d+)", "'" .. 500), -- increase default oldfiles history length to 500
+    showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
