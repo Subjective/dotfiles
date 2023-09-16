@@ -59,7 +59,8 @@ return {
   keys = {
     {
       "<leader>e",
-      function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd(), source = "last" } end,
+      -- TODO: remove vim.loop when 0.10 releases
+      function() require("neo-tree.command").execute { toggle = true, dir = vim.loop.cwd() or vim.uv.cwd(), source = "last" } end,
       desc = "Toggle Explorer",
     },
   },
