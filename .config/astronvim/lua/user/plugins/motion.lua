@@ -49,7 +49,8 @@ return {
       { "T", mode = { "n", "x", "o" }, desc = "Flit backward till" },
     },
     opts = {
-      labeled_modes = "nx",
+      labeled_modes = "nxo",
+      multiline = false,
     },
   },
   {
