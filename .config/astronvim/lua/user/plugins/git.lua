@@ -147,6 +147,4 @@ return {
       }
     end,
   },
-  { "akinsho/git-conflict.nvim", event = "User AstroGitFile", version = "*", opts = {} },
-  { "yorickpeterse/nvim-pqf", lazy = false, opts = {} },
 }
