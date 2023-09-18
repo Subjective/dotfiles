@@ -62,7 +62,6 @@ return {
 
       return require("astronvim.utils").extend_tbl(opts, {
         defaults = {
-          selection_caret = "  ",
           mappings = {
             i = {
               ["<c-x>"] = false,
