@@ -114,7 +114,8 @@ return {
       end
 
       local session_path = scope.resolver(function()
-        if resession.get_current() then return string.format("%s", get_session_path(resession.get_current())) end
+        local current_session = resession.get_current_session_info()
+        if current_session then return string.format("%s", get_session_path(current_session.name, current_session.dir)) end
       end)
 
       local resolver = scope.fallback({
@@ -134,6 +135,7 @@ return {
       end
 
       resession.add_hook("pre_save", function()
+        -- TODO: check hook payload to see if in current session
         if require("resession").get_current() == nil then
           require("grapple").save()
           require("grapple.settings").integrations.resession = true
