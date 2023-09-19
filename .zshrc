@@ -52,6 +52,7 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
 # Configure zsh-vim-mode
+KEYTIMEOUT=1
 VIM_MODE_NO_DEFAULT_BINDINGS=true
 MODE_CURSOR_VIINS="blinking bar"
 MODE_CURSOR_VISUAL="block"
@@ -101,16 +102,9 @@ for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 
-## Vi-Mode ##
-
-# set key timeout to eliminate lag
-KEYTIMEOUT=1
-# remap `vv` to `Ctrl-V`
-bindkey -M viins '^V' edit-command-line; bindkey -M vicmd '^V' edit-command-line 
-# allow ctrl-a and ctrl-e to move to beginning/end of line
+# Restore standard keybinds in vi-mode
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
-# allow ctrl-h, ctrl-w, ctrl-?, ctrl-u for char, word, and line deletion (standard behaviour)
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
