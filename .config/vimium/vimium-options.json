@@ -10,7 +10,7 @@
       "passKeys": ""
     },
     {
-      "pattern": "https?://leetcode.com/*",
+      "pattern": "https?://leetcode.com/problems/*",
       "passKeys": ""
     }
   ],
