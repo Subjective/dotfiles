@@ -1,5 +1,5 @@
 {
-  "settingsVersion": "1.67.4",
+  "settingsVersion": "1.67.7",
   "exclusionRules": [
     {
       "pattern": "https?://github.com/*",
@@ -8,12 +8,16 @@
     {
       "pattern": "https?://hyperbeam.com/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://leetcode.com/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\nunmap x\nunmap j\nunmap r\nunmap k\nunmap d\nunmap u\nunmap V\nunmap t\nunmap i\nunmap W\nmap <c-j> scrollDown\nmap <c-k> scrollUp\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp\nunmap /\nunmap m",
+  "keyMappings": "# Insert your preferred key mappings here.\nunmap x\nunmap r\nunmap d\nunmap u\nunmap W\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
