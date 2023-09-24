@@ -45,12 +45,15 @@ brew "gawk"
 brew "gdu"
 brew "gh"
 brew "git"
+brew "git-delta"
 brew "gitui"
 brew "glow"
 brew "gnu-sed"
 brew "go"
 brew "grep"
-brew "helix"
+brew "helix", args: ["HEAD"]
+brew "htop"
+brew "imagemagick"
 brew "lazygit"
 brew "less"
 brew "lf"
@@ -121,7 +124,7 @@ mas "Gifski", id: 1351639930
 mas "Goodnotes", id: 1444383602
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
+mas "Kindle Classic", id: 405399194
 mas "Klokki Slim", id: 1459795140
 mas "Luminar Neo", id: 1584373150
 mas "Magnet", id: 441258766
@@ -187,6 +190,7 @@ vscode "redhat.java"
 vscode "ritwickdey.LiveServer"
 vscode "RudreshVeerkhare.catalyst"
 vscode "streetsidesoftware.code-spell-checker"
+vscode "sumneko.lua"
 vscode "twxs.cmake"
 vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
 vscode "VisualStudioExptTeam.vscodeintellicode"
