@@ -77,8 +77,7 @@ return {
     dependencies = {
       "lukas-reineke/indent-blankline.nvim",
       opts = {
-        show_trailing_blankline_indent = false,
-        show_current_context = false,
+        scope = { enabled = false },
       },
     },
     opts = function()
