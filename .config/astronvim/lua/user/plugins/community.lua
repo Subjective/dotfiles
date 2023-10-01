@@ -5,6 +5,7 @@ return {
 
   -- language packs
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.java" },
 
   -- colorschemes
   { import = "astrocommunity.colorscheme.catppuccin" },
