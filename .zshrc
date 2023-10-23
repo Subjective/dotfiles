@@ -241,6 +241,18 @@ function v() {
   fi
 }
 
+# function to fuzzy find file w/ preview and open it with default program
+function o() {
+  if [ $# -eq 0 ]; then
+    local file=$(fd --type f --hidden --exclude .git | fzf --bind ctrl-/:toggle-preview --height=40% --reverse --preview "bat --style=numbers --line-range :500 --color=always {}")
+    if [ -n "$file" ]; then
+      open "$file"
+    fi
+  else
+    open "$@"
+  fi
+}
+
 # function to interactively fuzzy find ripgrep results and open them in neovim
 function irg() {
   rm -f /tmp/rg-fzf-{r,f}
@@ -271,3 +283,9 @@ function timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/joshua/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/joshua/.local/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/joshua/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/joshua/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
