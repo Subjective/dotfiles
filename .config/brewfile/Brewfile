@@ -7,9 +7,11 @@ tap "railwaycat/emacsmacport"
 tap "sourcegraph/src-cli"
 brew "openssl@3"
 brew "readline"
-brew "python@3.11"
 brew "asciinema"
+brew "libssh2"
+brew "libgit2"
 brew "bat"
+brew "bob"
 brew "boost"
 brew "bottom"
 brew "gmp"
@@ -25,14 +27,13 @@ brew "folly"
 brew "edencommon"
 brew "harfbuzz"
 brew "node"
+brew "python@3.11"
 brew "emscripten"
-brew "libssh2"
-brew "libgit2"
 brew "exa"
 brew "fizz"
 brew "wangle"
-brew "fbthrift"
 brew "fb303"
+brew "fbthrift"
 brew "fd"
 brew "unbound"
 brew "gnutls"
@@ -58,7 +59,6 @@ brew "lazygit"
 brew "less"
 brew "lf"
 brew "libyaml"
-brew "openssl@1.1"
 brew "mackup"
 brew "make"
 brew "mas"
@@ -67,6 +67,7 @@ brew "nap"
 brew "ncdu"
 brew "neofetch"
 brew "onefetch"
+brew "openssl@1.1"
 brew "pandoc"
 brew "pnpm"
 brew "pyenv"
@@ -90,7 +91,6 @@ brew "zellij"
 brew "zoxide"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
-brew "sourcegraph/src-cli/src-cli"
 cask "1password-cli"
 cask "alacritty"
 cask "alt-tab"
@@ -103,45 +103,28 @@ cask "hiddenbar"
 cask "keycastr"
 cask "kitty"
 cask "linearmouse"
-cask "neovide"
 cask "raycast"
 cask "skim"
 cask "spaceid"
+cask "visual-studio-code"
 cask "wezterm"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
-mas "Balance Lock", id: 1019371109
-mas "Betternet VPN", id: 1028905953
-mas "CotEditor", id: 1024640650
-mas "Craft", id: 1487937127
 mas "Curve", id: 1219074514
-mas "Default Browser", id: 1055264211
-mas "Developer", id: 640199958
 mas "Dropover", id: 1355679052
-mas "Endel", id: 1484348796
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
-mas "Goodnotes", id: 1444383602
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "Kindle Classic", id: 405399194
-mas "Klokki Slim", id: 1459795140
-mas "Luminar Neo", id: 1584373150
-mas "Magnet", id: 441258766
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft OneNote", id: 784801555
 mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
-mas "New File Menu", id: 1064959555
 mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Paste", id: 967805235
-mas "Reader", id: 1179373118
-mas "ScrollAnywhere", id: 1556838353
-mas "Speed Player", id: 1521133201
-mas "Structured", id: 1499198946
 mas "Xcode", id: 497799835
 vscode "bradlc.vscode-tailwindcss"
 vscode "Catppuccin.catppuccin-vsc"
@@ -158,6 +141,7 @@ vscode "file-icons.file-icons"
 vscode "formulahendry.auto-close-tag"
 vscode "formulahendry.code-runner"
 vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
 vscode "GitHub.vscode-pull-request-github"
 vscode "googlecloudtools.cloudcode"
 vscode "hex-ci.stylelint-plus"
