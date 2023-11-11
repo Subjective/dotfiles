@@ -83,6 +83,7 @@ brew "sd"
 brew "stow"
 brew "tmux", args: ["HEAD"]
 brew "trash"
+brew "tree-sitter"
 brew "watchman"
 brew "wget"
 brew "xh"
