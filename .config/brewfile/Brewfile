@@ -98,25 +98,27 @@ cask "font-hack-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "keycastr"
 cask "kitty"
-cask "linearmouse"
-cask "raycast"
 cask "skim"
 cask "spaceid"
 cask "visual-studio-code"
 cask "wezterm"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
+mas "Compressor", id: 424390742
 mas "Curve", id: 1219074514
 mas "Dropover", id: 1355679052
+mas "Final Cut Pro", id: 424389933
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Logic Pro", id: 634148309
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft OneNote", id: 784801555
 mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
+mas "Motion", id: 434290957
 mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
