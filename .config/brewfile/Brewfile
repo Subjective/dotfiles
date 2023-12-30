@@ -103,7 +103,6 @@ cask "spaceid"
 cask "visual-studio-code"
 cask "wezterm"
 mas "1Password for Safari", id: 1569813296
-mas "AdGuard for Safari", id: 1440147259
 mas "Compressor", id: 424390742
 mas "Curve", id: 1219074514
 mas "Dropover", id: 1355679052
@@ -123,6 +122,7 @@ mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Paste", id: 967805235
+mas "Wipr", id: 1320666476
 mas "Xcode", id: 497799835
 vscode "bradlc.vscode-tailwindcss"
 vscode "Catppuccin.catppuccin-vsc"
