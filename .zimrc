@@ -20,6 +20,9 @@ zmodule romkatv/powerlevel10k
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion. Must be sourced after all modules that add completion definitions.
+if [[ -d /opt/homebrew/share/zsh ]] && [[ $(uname) == Darwin ]] && [[ $(uname -m) == arm64 ]] ; then
+    zmodule /opt/homebrew/share/zsh/site-functions --fpath .
+fi
 zmodule completion
 
 ### Modules that must be initialized last ###
