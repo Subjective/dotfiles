@@ -12,7 +12,7 @@ autocmd({ "FileType" }, {
 autocmd("FileType", {
   desc = "Enable wrap and spell for text like documents",
   group = augroup("auto_spell", { clear = true }),
-  pattern = { "gitcommit", "markdown", "mdx", "text", "plaintex" },
+  pattern = { "gitcommit", "markdown", "mdx", "text", "plaintex", "tex" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
