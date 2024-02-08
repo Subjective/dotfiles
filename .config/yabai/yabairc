@@ -13,13 +13,8 @@ yabai -m config                            \
   left_padding                12           \
   right_padding               12           \
   window_gap                  12           \
-  window_border               off          \
-  window_border_width         4            \
-  window_border_blur          off          \
-  active_window_border_color  0xFFC4A6F5   \
-  normal_window_border_color  0x002E3440   \
   insert_feedback_color       0xff7793d1   \
-  window_opacity              on           \
+  window_opacity              off          \
   active_window_opacity       1.0          \
   normal_window_opacity       0.9          \
   window_opacity_duration     0.15         \
@@ -80,3 +75,5 @@ yabai -m rule --add label="Little Arc" app="^Arc$" title="^(Space 1|Report Bug o
 
 # Make all non-resizeable windows float (#1317)
 # yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
+
+borders active_color=0xFFC4A6F5 inactive_color=0x002E3440 width=5.0 &
