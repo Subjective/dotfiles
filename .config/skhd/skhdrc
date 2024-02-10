@@ -78,15 +78,6 @@ shift + alt - 5 : yabai -m window --space 5;
 shift + alt - 6 : yabai -m window --space 6;
 shift + alt - 7 : yabai -m window --space 7;
 
-# Move to space
-cmd - 1 : yabai -m space --focus  1 || skhd -k "ctrl + alt + cmd - 1"
-cmd - 2 : yabai -m space --focus  2 || skhd -k "ctrl + alt + cmd - 2"
-cmd - 3 : yabai -m space --focus  3 || skhd -k "ctrl + alt + cmd - 3"
-cmd - 4 : yabai -m space --focus  4 || skhd -k "ctrl + alt + cmd - 4"
-cmd - 5 : yabai -m space --focus  5 || skhd -k "ctrl + alt + cmd - 5"
-cmd - 6 : yabai -m space --focus  6 || skhd -k "ctrl + alt + cmd - 6"
-cmd - 7 : yabai -m space --focus  7 || skhd -k "ctrl + alt + cmd - 7"
-
 ### Miscellaneous Shorctuts ###
 
 # Enable / Disable gaps in current workspace
