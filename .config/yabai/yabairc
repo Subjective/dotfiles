@@ -13,6 +13,7 @@ sudo yabai --load-sa
 yabai -m config                            \
   layout                      bsp          \
   window_placement            second_child \
+  auto_balance                on           \
   top_padding                 12           \
   bottom_padding              12           \
   left_padding                12           \
