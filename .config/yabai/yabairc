@@ -50,16 +50,10 @@ yabai -m rule --add app="^Obsidian$" space="Productivity"
 
 # Social
 yabai -m rule --add app="^Discord$" space="Social"
-yabai -m rule --add app="^Mail$" space="Social"
-yabai -m rule --add app="^Microsoft Outlook$" space="Social"
 
 # Media
-yabai -m rule --add app="^Spotify$" space="Media"
 yabai -m rule --add app="^Music$" space="Media"
 yabai -m rule --add app="^Podcasts$" space="Media"
-
-# Misc
-yabai -m rule --add app="^Calendar$" space="Misc"
 
 # Apps to not manage (ignore)
 yabai -m rule --add app="^(System Settings|Calculator|Dictionary|Karabiner-Elements|Raycast|App Store|Activity Monitor|Simulator|Installer|Digital Color Meter|Gifski|Archive Utility|QuickTime Player|Photo Booth|JetBrains Toolbox|LinearMouse|AltTab|Default Browser)$" manage=off
