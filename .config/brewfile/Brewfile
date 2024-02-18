@@ -52,6 +52,7 @@ brew "grep"
 brew "helix", args: ["HEAD"]
 brew "htop"
 brew "imagemagick"
+brew "jq"
 brew "lazygit"
 brew "less"
 brew "lf"
