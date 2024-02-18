@@ -22,20 +22,20 @@ shift + alt - y : yabai -m space --mirror y-axis
 shift + alt - x : yabai -m space --mirror x-axis
 
 # Toggle window float
-shift + alt - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # Toggle sticky window
-shift + alt - p : yabai -m window --toggle sticky\
-                  yabai -m window --toggle topmost\
+alt - p : yabai -m window --toggle sticky \
+                  yabai -m window --toggle topmost \
                   yabai -m window --grid 4:4:1:1:2:2
 
 ### Shortcuts for Modifying Window Size ###
 
 # Maximize a window
-shift + alt - m : yabai -m window --toggle zoom-fullscreen
+alt - m : yabai -m window --toggle zoom-fullscreen
 
 # Balance out tree of windows (resize to occupy same area)
-shift + alt - e : yabai -m space --balance
+alt - e : yabai -m space --balance
 
 ### Shortcuts for Moving Windows Around ###
 
