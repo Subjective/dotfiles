@@ -62,8 +62,8 @@ ctrl + alt - h : yabai -m window --warp west
 ctrl + alt - l : yabai -m window --warp east
 
 # Move window to display prev and next
-shift + alt - s : yabai -m window --display prev; yabai -m display --focus prev;
-shift + alt - g : yabai -m window --display next; yabai -m display --focus next;
+shift + alt - s : yabai -m window --display prev --focus;
+shift + alt - g : yabai -m window --display next --focus;
 
 # Move space to other display
 alt + shift - tab : yabai -m space --display recent;
