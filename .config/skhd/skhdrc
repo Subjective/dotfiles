@@ -90,9 +90,14 @@ shift + alt - 5 : yabai -m window --space 5 --focus
 shift + alt - 6 : yabai -m window --space 6 --focus
 shift + alt - 7 : yabai -m window --space 7 --focus
 
-# Move space left and right ("-"/"=")
-shift + alt - 0x1B : yabai -m space --move prev
-shift + alt - 0x18 : yabai -m space --move next
+# Swap spaces
+ctrl + shift + alt - 1 : yabai -m space --swap 1
+ctrl + shift + alt - 2 : yabai -m space --swap 2
+ctrl + shift + alt - 3 : yabai -m space --swap 3
+ctrl + shift + alt - 4 : yabai -m space --swap 4
+ctrl + shift + alt - 5 : yabai -m space --swap 5
+ctrl + shift + alt - 6 : yabai -m space --swap 6
+ctrl + shift + alt - 7 : yabai -m space --swap 7
 
 ### Miscellaneous Shorctuts ###
 
