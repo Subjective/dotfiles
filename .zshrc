@@ -136,7 +136,7 @@ fi
 export GIT_EDITOR="nvim"
 
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
