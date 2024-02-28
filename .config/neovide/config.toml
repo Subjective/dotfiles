@@ -1,7 +1,3 @@
-multigrid = false
 vsync = true
-maximized = false
-srgb = false
-idle = true
 neovim_bin = "/Users/joshua/.local/share/bob/nvim-bin/nvim"
-frame = "Buttonless"
+frame = "buttonless"
