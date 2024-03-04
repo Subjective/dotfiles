@@ -24,7 +24,7 @@ yabai -m config                            \
   active_window_opacity       1.0          \
   normal_window_opacity       0.9          \
   window_opacity_duration     0.15         \
-  window_animation_duration   0.0          \
+  window_animation_duration   0.1          \
   mouse_follows_focus         off          \
   mouse_modifier              fn           \
   mouse_action1               move         \
