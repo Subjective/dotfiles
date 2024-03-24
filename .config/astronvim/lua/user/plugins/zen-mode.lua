@@ -28,8 +28,7 @@ return {
       vim.g.diagnostics_mode = 0
       vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
 
-      vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
-      vim.g.indent_blankline_enabled = false
+      vim.cmd "IBLDisable"
       vim.g.miniindentscope_disable_old = vim.g.miniindentscope_disable
       vim.g.miniindentscope_disable = true
 
@@ -52,9 +51,8 @@ return {
       vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
       vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
 
-      vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
       vim.g.miniindentscope_disable = vim.g.miniindentscope_disable_old
-      if vim.g.indent_blankline_enabled_old then pcall(vim.cmd "IndentBlanklineRefresh") end
+      if not vim.g.miniindentscope_disable then vim.cmd "IBLEnable" end
 
       vim.api.nvim_clear_autocmds { group = "disable_winbar" }
       vim.o.winbar = vim.g.winbar_old

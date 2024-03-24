@@ -36,15 +36,14 @@ return {
     -- toggle indentation guides
     ["<leader>uI"] = {
       function()
-        vim.g.indent_blankline_enabled = not vim.g.indent_blankline_enabled
-        vim.cmd "IndentBlanklineRefresh"
+        vim.cmd "IBLToggle"
         vim.g.miniindentscope_disable = not vim.g.miniindentscope_disable
         if MiniIndentscope and not vim.g.miniindentscope_disable then
           MiniIndentscope.draw()
         else
           MiniIndentscope.undraw()
         end
-        utils.notify("Indentation guides " .. (vim.g.indent_blankline_enabled and "enabled" or "disabled"))
+        utils.notify("Indentation guides " .. (vim.g.miniindentscope_disable and "disabled" or "enabled"))
       end,
       desc = "Toggle indentation guides",
     },
