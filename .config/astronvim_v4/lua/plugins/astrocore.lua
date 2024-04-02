@@ -106,8 +106,8 @@ return {
           end,
           desc = "Toggle current line Git blame",
         },
-        -- toggle indentation guides
-        ["<leader>uI"] = {
+        -- toggle indent guides
+        ["<leader>u|"] = {
           function()
             vim.cmd "IBLToggle"
             vim.g.miniindentscope_disable = not vim.g.miniindentscope_disable
@@ -116,9 +116,9 @@ return {
             else
               MiniIndentscope.undraw()
             end
-            utils.notify("Indentation guides " .. (vim.g.miniindentscope_disable and "disabled" or "enabled"))
+            utils.notify("Indent guides " .. (vim.g.miniindentscope_disable and "disabled" or "enabled"))
           end,
-          desc = "Toggle indentation guides",
+          desc = "Toggle indent guides",
         },
         -- better buffer navigation
         L = {
