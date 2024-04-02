@@ -1,0 +1,11 @@
+-- return {
+--   s({
+--     trig = "UTCDateTime",
+--     namr = "UTC Date and Time",
+--     dscr = { "UTC date and time in the form of YYYY-MM-DDTHH:MM:SSZ" },
+--   }, {
+--     f(function() return os.date "!%Y-%m-%dT%H:%M:%SZ" end, {}),
+--   }),
+-- },
+-- -- autosnippets
+-- { s({ trig = "//" }, { t "\\frac{}{}" }) }
