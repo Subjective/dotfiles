@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Treesitter
 
 ---@type LazySpec
@@ -67,11 +65,10 @@ return {
     opts.matchup = { enable = true }
     opts.indent = { enable = true, disable = { "python" } }
 
-    local large_buf = opts.highlight.disable
-    opts.highlight.disable = function(lang, bufnr)
+    opts.highlight.disable = function(lang, _)
       -- fix compatibility issues with vimtex
       local disabled_languages = { "latex" }
-      return vim.tbl_contains(disabled_languages, lang) or large_buf(_, bufnr)
+      return vim.tbl_contains(disabled_languages, lang)
     end
     opts.textsubjects = {
       enable = true,
