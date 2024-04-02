@@ -73,16 +73,17 @@ return {
         {
           flexible = 10,
           status.component.file_info {
+            filetype = false,
             filename = { fallback = "[No Name]", modify = ":~:." },
             surround = { condition = is_file },
           },
           status.component.file_info {
+            filetype = false,
             filename = {},
             surround = { condition = is_file },
           },
         },
         status.component.file_info {
-          filetype = {},
           filename = false,
           file_icon = false,
           file_read_only = {},
