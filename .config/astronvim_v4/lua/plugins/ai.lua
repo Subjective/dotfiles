@@ -5,6 +5,7 @@ utils.set_mappings {
   x = { ["<leader>;"] = { name = "󰧑 AI Assistant" } },
 }
 
+---@type LazySpec
 return {
   {
     "Exafunction/codeium.vim",

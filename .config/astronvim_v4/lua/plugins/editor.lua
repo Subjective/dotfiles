@@ -1,5 +1,6 @@
 local utils = require "astrocore"
 
+---@type LazySpec
 return {
   {
     "kylechui/nvim-surround",
