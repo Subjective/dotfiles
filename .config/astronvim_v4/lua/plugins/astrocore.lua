@@ -28,6 +28,13 @@ return {
       update_in_insert = false,
       signs = false,
     },
+    -- HACK: Configure signs while disabling them for diagnostics
+    signs = {
+      DiagnosticSignError = { text = "", texthl = "DiagnosticSignError" },
+      DiagnosticSignWarn = { text = "", texthl = "DiagnosticSignWarn" },
+      DiagnosticSignInfo = { text = "", texthl = "DiagnosticSignInfo" },
+      DiagnosticSignHint = { text = "󰌵", texthl = "DiagnosticSignHint" },
+    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
