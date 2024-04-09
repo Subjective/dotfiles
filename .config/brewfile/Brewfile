@@ -105,6 +105,7 @@ cask "font-hack-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "iterm2"
 cask "keycastr"
+cask "keyclu"
 cask "kitty"
 cask "mactex-no-gui"
 cask "neovide"
@@ -120,6 +121,7 @@ mas "Dropover", id: 1355679052
 mas "Final Cut Pro", id: 424389933
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
+mas "Hand Mirror", id: 1502839586
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Logic Pro", id: 634148309
