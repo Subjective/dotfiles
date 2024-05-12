@@ -73,6 +73,7 @@ yabai -m rule --add label="Arc Settings" app="^Arc$" title="^(Joshua|General|Sho
 yabai -m rule --add label="Arc PiP" app="^Arc$" title="^$" mouse_follows_focus=off
 yabai -m rule --add label="Little Arc" app="^Arc$" title="^(Space 1|Report Bug or Feedback)$" manage=off
 yabai -m rule --add label="Parallels Desktop" app="^Parallels Desktop$" title='^(Parallels Desktop Preferences|".*" Configuration|Control Center)$' manage=off
+yabai -m rule --add app="^Numi$" scratchpad=numi grid=4:4:1:1:2:2 opacity=0.9
 
 # Make all non-resizeable windows float (#1317)
 yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'

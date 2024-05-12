@@ -114,3 +114,5 @@ shift + ctrl + alt - l : yabai -m window --insert east
 ctrl + alt - q : yabai --stop-service
 ctrl + alt - s : yabai --start-service
 ctrl + alt - r : yabai --restart-service
+
+alt - n : yabai -m window --toggle numi || open -a Numi
