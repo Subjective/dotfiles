@@ -13,22 +13,6 @@ return {
       { "X", "<Plug>(leap-backward-till)", mode = { "o" }, desc = "Leap backward till" },
       { "gs", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
     },
-    init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
-      vim.api.nvim_create_autocmd("User", {
-        callback = function()
-          vim.cmd.hi("Cursor", "blend=100")
-          vim.opt.guicursor:append { "a:Cursor/lCursor" }
-        end,
-        pattern = "LeapEnter",
-      })
-      vim.api.nvim_create_autocmd("User", {
-        callback = function()
-          vim.cmd.hi("Cursor", "blend=0")
-          vim.opt.guicursor:remove { "a:Cursor/lCursor" }
-        end,
-        pattern = "LeapLeave",
-      })
-    end,
     opts = function()
       require("leap").add_repeat_mappings(";", ",", {
         relative_directions = true,
