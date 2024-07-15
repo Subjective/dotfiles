@@ -140,6 +140,4 @@ ctrl + alt - s : yabai --start-service
 ctrl + alt - r : yabai --restart-service
 
 ### Scratchpads
-
-alt - n : yabai -m window --toggle numi || open -a Numi
-alt - c : yabai -m window --toggle calculate84 || open -a Calculate84
+alt - n : yabai -m window --toggle calculate84 || open -a Calculate84
