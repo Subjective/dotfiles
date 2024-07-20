@@ -15,22 +15,25 @@ return {
 
         local success, wk = pcall(require, "which-key")
         if success then
-          local motions = {
-            ["%"] = [[Go forwards next matching word or seek to one]],
-            ["g%"] = [[Go backwards to previous matching word or seek to one]],
-            ["[%"] = [[Previous matching word]],
-            ["]%"] = [[Next matching word]],
+          -- motions
+          wk.add {
+            mode = { "n", "x" },
+            { "%", desc = [[Go forwards next matching word or seek to one]] },
+            { "g%", desc = [[Go backwards to previous matching word or seek to one]] },
+            { "[%", desc = [[Previous matching word]] },
+            { "]%", desc = [[Next matching word]] },
           }
-          wk.register(motions, { mode = { "n", "x" } })
-          local textobjects = {
-            ["i%"] = [[inside matching pair]],
-            ["a%"] = [[around matching pair]],
+          -- textobjects
+          wk.add {
+            mode = { "x", "o" },
+            { "i%", desc = [[inside matching pair]] },
+            { "a%", desc = [[around matching pair]] },
           }
-          wk.register(textobjects, { mode = { "x", "o" } })
-          local normalmaps = {
-            ["z%"] = [[Go inside nearest matching pair ]],
+          -- normalmaps
+          wk.add {
+            mode = "n",
+            { "z%", desc = [[Go inside nearest matching pair ]] },
           }
-          wk.register(normalmaps, { mode = "n" })
         end
       end,
     },

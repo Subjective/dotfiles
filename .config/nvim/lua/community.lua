@@ -90,11 +90,11 @@ return {
     opts = function()
       local success, wk = pcall(require, "which-key")
       if success then
-        local textobjects = {
-          ["ii"] = [[inside indent scope]],
-          ["ai"] = [[around indent scope]],
+        wk.add {
+          mode = { "x", "o" },
+          { "ii", desc = "inside indent scope" },
+          { "ai", desc = "around indent scope" },
         }
-        wk.register(textobjects, { mode = { "x", "o" } })
       end
 
       local indentscope = require "mini.indentscope"
@@ -277,9 +277,14 @@ return {
           "mdx",
         },
         callback = function(args)
-          require("which-key").register({
-            ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
-          }, { prefix = "<localleader>", buffer = args.buf })
+          require("which-key").add {
+            {
+              buffer = args.buf,
+              "<localleader>m",
+              "<cmd>MarkdownPreviewToggle<cr>",
+              desc = "Toggle Markdown Preview",
+            },
+          }
         end,
       })
     end,

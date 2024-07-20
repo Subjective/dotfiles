@@ -59,10 +59,13 @@ return {
         pattern = "spectre_panel",
         callback = function(args)
           -- show spectre which-key menus
-          require("which-key").register(
-            { t = { name = "Spectre Options", r = { name = "Replacement Engine" } }, ["<localleader>"] = "Spectre" },
-            { mode = "n", buffer = args.buf }
-          )
+          require("which-key").add {
+            mode = "n",
+            buffer = args.buf,
+            { "t", group = "Spectre Options" },
+            { "tr", group = "Replacement Engine" },
+            { "<localleader", "Spectre" },
+          }
           vim.keymap.set("n", "<localleader>", function() require("which-key").show "," end, { buffer = true })
           vim.keymap.set("n", "t", function() require("which-key").show "t" end, { buffer = true })
         end,

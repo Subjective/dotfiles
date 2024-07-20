@@ -38,7 +38,7 @@ return {
         pattern = "DiffviewDiffBufRead",
         callback = function(args)
           -- show diffview which-key menus
-          require("which-key").register({ ["<localleader>"] = "DiffView" }, { mode = "n", buffer = args.buf })
+          require("which-key").add { mode = "n", buffer = args.buf, { "<localleader>", desc = "DiffView" } }
           vim.keymap.set("n", "<localleader>", function() require("which-key").show "," end, { buffer = true })
         end,
       })
