@@ -1,2 +1,3 @@
 set relativenumber
 set number
+set surround
