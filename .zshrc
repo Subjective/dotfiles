@@ -109,6 +109,7 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^u' backward-kill-line
+bindkey -M vicmd '_' vi-first-non-blank
 
 # ------------------
 # User configuration 
