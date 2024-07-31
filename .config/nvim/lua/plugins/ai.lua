@@ -98,6 +98,14 @@ return {
             },
           },
         },
+        help_window = {
+          border = {
+            highlight = "TelescopePromptBorder",
+          },
+          win_options = {
+            winhighlight = "Normal:TelescopePromptNormal,FloatBorder:FloatBorder",
+          },
+        },
       }
     end,
     keys = {
