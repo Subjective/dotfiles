@@ -160,7 +160,10 @@ return {
   },
   {
     "akinsho/toggleterm.nvim",
-    opts = { highlights = false },
+    opts = {
+      highlights = false,
+      direction = "float",
+    },
   },
   {
     "stevearc/dressing.nvim",
