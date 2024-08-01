@@ -39,8 +39,8 @@ autocmd({ "VimResized" }, {
 cmd("Redir", function(ctx)
   local lines = vim.split(vim.api.nvim_exec2(ctx.args, { output = true }).output, "\n", { plain = true })
   vim.cmd "new"
-  vim.api.nvim_buf_set_option(0, "buflisted", false)
-  vim.api.nvim_buf_set_option(0, "bufhidden", "wipe")
+  vim.api.nvim_set_option_value("buflisted", false, { buf = 0 })
+  vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = 0 })
   vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
   vim.keymap.set("n", "q", "<cmd>q!<cr>", { buffer = true })
   vim.opt_local.modified = false
