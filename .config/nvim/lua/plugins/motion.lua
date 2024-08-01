@@ -190,12 +190,24 @@ return {
         { prefix .. "x", "<cmd>GrappleReset<cr>", desc = "Clear tags from current project" },
         {
           "<c-n>",
-          function() conditional_action(find_buffer_by_type "qf", vim.cmd.QNext, require("grapple").cycle_forward) end,
+          function()
+            conditional_action(
+              find_buffer_by_type "qf" and vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "",
+              vim.cmd.QNext,
+              require("grapple").cycle_forward
+            )
+          end,
           desc = "Next Grapple tag or quickfix list item",
         },
         {
           "<c-p>",
-          function() conditional_action(find_buffer_by_type "qf", vim.cmd.QPrev, require("grapple").cycle_backward) end,
+          function()
+            conditional_action(
+              find_buffer_by_type "qf" and vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "",
+              vim.cmd.QPrev,
+              require("grapple").cycle_backward
+            )
+          end,
           desc = "Previous Grapple tag or quickfix list item",
         },
       }
