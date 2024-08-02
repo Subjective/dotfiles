@@ -51,7 +51,6 @@ return {
       Z = "expand_all_nodes",
       X = "clear_clipboard",
     })
-    opts.window.mappings.o = nil -- TODO: remove in AstroNvim v4
 
     opts.filesystem.bind_to_cwd = false
     opts.default_component_configs.indent = { padding = 0, indent_size = 2 }
@@ -59,10 +58,7 @@ return {
   keys = {
     {
       "<leader>e",
-      -- TODO: remove vim.loop when 0.10 releases
-      function()
-        require("neo-tree.command").execute { toggle = true, dir = vim.loop.cwd() or vim.uv.cwd(), source = "last" }
-      end,
+      function() require("neo-tree.command").execute { toggle = true, dir = vim.uv.cwd(), source = "last" } end,
       desc = "Toggle Explorer",
     },
   },
