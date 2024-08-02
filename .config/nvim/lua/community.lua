@@ -50,8 +50,7 @@ return {
           -- lightspeed-style highlighting for leap
           LeapBackdrop = { link = "Comment" },
           LeapMatch = { fg = colors.text, style = { "bold" } },
-          LeapLabelPrimary = { fg = colors.pink, style = { "bold" } },
-          LeapLabelSecondary = { fg = colors.blue, style = { "bold" } },
+          LeapLabel = { fg = colors.pink, style = { "bold" } },
           -- hide results title in flat theme for telescope
           TelescopeResultsTitle = { fg = colors.mantle, bg = colors.none },
           -- dark prompt in flat theme for telescope
