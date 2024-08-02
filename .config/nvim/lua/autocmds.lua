@@ -52,37 +52,18 @@ autocmd({ "InsertEnter", "BufEnter", "BufLeave" }, {
   command = "echon ''",
 })
 
--- if vim.env.KITTY_LISTEN_ON then
---   local cmd = require("astrocore").cmd
---
---   for _, color in ipairs(vim.fn.split(cmd { "kitty", "@", "get-colors" } or "", "\n")) do
---     local orig_bg = color:match "^background%s+(#[0-9a-fA-F]+)$"
---     if orig_bg then
---       local function set_bg(new_color) cmd { "kitty", "@", "set-colors", ("background=%s"):format(new_color) } end
---
---       local autocmd_group = augroup("kitty_background", { clear = true })
---
---       autocmd("ColorScheme", {
---         desc = "Set Kitty background to colorscheme's background",
---         group = autocmd_group,
---         callback = function()
---           local bg_color = require("astroui").get_hlgroup("Normal").bg
---           if not bg_color or bg_color == "NONE" then
---             bg_color = orig_bg
---           elseif type(bg_color) == "number" then
---             bg_color = string.format("#%06x", bg_color)
---           end
---
---           set_bg(bg_color)
---         end,
---       })
---
---       autocmd("VimLeave", {
---         desc = "Set Kitty background back to original background",
---         group = autocmd_group,
---         callback = function() set_bg(orig_bg) end,
---       })
---       break
---     end
---   end
--- end
+autocmd({ "UIEnter", "ColorScheme" }, {
+  desc = "Set terminal background to Neovim colorscheme's background",
+  group = augroup("terminal_background_sync", { clear = true }),
+  callback = function()
+    local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+    if not normal.bg then return end
+    io.write(string.format("\027]11;#%06x\027\\", normal.bg))
+  end,
+})
+
+autocmd("UILeave", {
+  desc = "Set terminal background to original background upon exiting Neovim",
+  group = augroup("terminal_background_sync", { clear = true }),
+  callback = function() io.write "\027]111\027\\" end,
+})
