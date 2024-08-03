@@ -188,23 +188,45 @@ return {
       },
       t = {
         -- ["<esc><esc>"] = { "<c-\\><c-n>", desc = "Enter Normal Mode" },
+        ["<C-h>"] = {
+          callback = function()
+            if vim.api.nvim_win_get_config(0).zindex ~= nil then
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-h>", true, false, true), "n", false)
+            else
+              vim.cmd "wincmd h"
+            end
+          end,
+          desc = "Terminal left window navigation",
+        },
         ["<C-j>"] = {
           callback = function()
-            if string.match(vim.api.nvim_buf_get_name(0), ":lazygit") then
+            if vim.api.nvim_win_get_config(0).zindex ~= nil then
               vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-j>", true, false, true), "n", false)
             else
               vim.cmd "wincmd j"
             end
           end,
+          desc = "Terminal down window navigation",
         },
         ["<C-k>"] = {
           callback = function()
-            if string.match(vim.api.nvim_buf_get_name(0), ":lazygit") then
+            if vim.api.nvim_win_get_config(0).zindex ~= nil then
               vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-k>", true, false, true), "n", false)
             else
               vim.cmd "wincmd k"
             end
           end,
+          desc = "Terminal up window navigation",
+        },
+        ["<C-l>"] = {
+          callback = function()
+            if vim.api.nvim_win_get_config(0).zindex ~= nil then
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-l>", true, false, true), "n", false)
+            else
+              vim.cmd "wincmd l"
+            end
+          end,
+          desc = "Terminal right window navigation",
         },
       },
       x = {
