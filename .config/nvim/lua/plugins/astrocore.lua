@@ -188,6 +188,24 @@ return {
       },
       t = {
         -- ["<esc><esc>"] = { "<c-\\><c-n>", desc = "Enter Normal Mode" },
+        ["<C-j>"] = {
+          callback = function()
+            if string.match(vim.api.nvim_buf_get_name(0), ":lazygit") then
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-j>", true, false, true), "n", false)
+            else
+              vim.cmd "wincmd j"
+            end
+          end,
+        },
+        ["<C-k>"] = {
+          callback = function()
+            if string.match(vim.api.nvim_buf_get_name(0), ":lazygit") then
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<c-k>", true, false, true), "n", false)
+            else
+              vim.cmd "wincmd k"
+            end
+          end,
+        },
       },
       x = {
         -- yank to system clipboard
