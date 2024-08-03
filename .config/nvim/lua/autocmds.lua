@@ -54,7 +54,7 @@ autocmd({ "InsertEnter", "BufEnter", "BufLeave" }, {
 
 autocmd({ "UIEnter", "ColorScheme" }, {
   desc = "Set terminal background to Neovim colorscheme's background",
-  group = augroup("terminal_background_sync", { clear = true }),
+  group = augroup("sync_terminal_background", { clear = true }),
   callback = function()
     local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
     if not normal.bg then return end
@@ -64,6 +64,6 @@ autocmd({ "UIEnter", "ColorScheme" }, {
 
 autocmd("UILeave", {
   desc = "Set terminal background to original background upon exiting Neovim",
-  group = augroup("terminal_background_sync", { clear = true }),
+  group = augroup("reset_terminal_background", { clear = true }),
   callback = function() io.write "\027]111\027\\" end,
 })
