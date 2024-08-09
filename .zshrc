@@ -119,9 +119,6 @@ bindkey -M vicmd '_' vi-first-non-blank
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #
 
-# load api keys as environment variables from .envkeys
-source $HOME/.envkeys
-
 ## Custom Exports ##
 
 export MANPATH="/usr/local/man:$MANPATH"
