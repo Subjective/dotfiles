@@ -44,8 +44,8 @@ return {
       },
       custom_highlights = function(colors)
         return {
+          TabLineFill = { link = "NormalNC" },
           -- italicize lsp inlay hints
-          TabLineFill = { link = "TablineFill" },
           LspInlayHint = { style = { "italic" } },
           -- lightspeed-style highlighting for leap
           LeapBackdrop = { link = "Comment" },
