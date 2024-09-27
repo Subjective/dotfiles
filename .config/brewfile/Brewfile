@@ -5,10 +5,10 @@ tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 brew "openssl@3"
-brew "readline"
+brew "sqlite"
+brew "python@3.12"
 brew "asciinema"
 brew "libssh2"
-brew "libgit2"
 brew "bat"
 brew "bob"
 brew "boost"
@@ -16,6 +16,7 @@ brew "bottom"
 brew "gmp"
 brew "gcc"
 brew "btop"
+brew "glib"
 brew "cmake"
 brew "node"
 brew "corepack"
@@ -25,19 +26,21 @@ brew "dog"
 brew "duf"
 brew "dust"
 brew "folly"
+brew "fizz"
+brew "wangle"
+brew "fbthrift"
+brew "fb303"
 brew "edencommon"
 brew "harfbuzz"
 brew "openjdk"
 brew "emscripten"
+brew "libgit2"
 brew "eza"
-brew "fizz"
-brew "wangle"
-brew "fb303"
-brew "fbthrift"
 brew "fd"
 brew "unbound"
 brew "gnutls"
 brew "libmicrohttpd"
+brew "librist"
 brew "tesseract"
 brew "ffmpeg"
 brew "fish"
@@ -53,34 +56,37 @@ brew "go"
 brew "grep"
 brew "helix", args: ["HEAD"]
 brew "htop"
+brew "libheif"
 brew "imagemagick"
 brew "jq"
 brew "lazygit"
 brew "less"
 brew "lf"
 brew "libyaml"
+brew "llvm"
 brew "mackup"
 brew "make"
 brew "mas"
 brew "mise"
-brew "python@3.11"
 brew "mono"
 brew "nap"
 brew "ncdu"
 brew "neofetch"
 brew "tree-sitter"
 brew "onefetch"
+brew "opam"
 brew "openssl@1.1"
 brew "pandoc"
 brew "pyenv"
 brew "pygments"
 brew "python@3.10"
+brew "python@3.11"
 brew "ranger"
 brew "ruby-build"
 brew "rbenv"
 brew "ripgrep"
 brew "rust"
-brew "rustup-init"
+brew "rustup"
 brew "scc"
 brew "sd"
 brew "silicon"
@@ -98,7 +104,6 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 cask "1password-cli"
 cask "alacritty"
-cask "alt-tab"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
@@ -109,21 +114,27 @@ cask "keyclu"
 cask "kitty"
 cask "mactex-no-gui"
 cask "neovide"
+cask "orbstack"
 cask "skim"
 cask "spaceid"
+cask "stats"
 cask "visual-studio-code"
 cask "wezterm"
 mas "1Password for Safari", id: 1569813296
 mas "Accelerate", id: 1459809092
+mas "Calculate84", id: 1459712793
 mas "Compressor", id: 424390742
-mas "Curve", id: 1219074514
 mas "Dropover", id: 1355679052
 mas "Final Cut Pro", id: 424389933
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
+mas "Goodnotes", id: 1444383602
 mas "Hand Mirror", id: 1502839586
+mas "Highlights", id: 1498912833
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Kindle", id: 302584613
+mas "Linearity Curve", id: 1219074514
 mas "Logic Pro", id: 634148309
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft OneNote", id: 784801555
@@ -131,12 +142,13 @@ mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Motion", id: 434290957
+mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Paste", id: 967805235
+mas "Pie Menu", id: 1631568126
 mas "Pixelmator Pro", id: 1289583905
-mas "rcmd", id: 1596283165
 mas "Wipr", id: 1320666476
 mas "Xcode", id: 497799835
 vscode "bradlc.vscode-tailwindcss"
