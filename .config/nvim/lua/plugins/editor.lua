@@ -31,18 +31,20 @@ return {
   {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
+    opts = {},
+    cmd = "Trouble",
     keys = function()
       local prefix = "<leader>x"
       utils.set_mappings { n = { [prefix] = { name = "󰔫 Trouble" } } }
       return {
-        { prefix .. "r", "<cmd>Trouble lsp_references<cr>", desc = "References" },
-        { prefix .. "d", "<cmd>Trouble lsp_definitions<cr>", desc = "Definitions" },
-        { prefix .. "D", "<cmd>Trouble lsp_type_definitions<cr>", desc = "Type Definitions" },
-        { prefix .. "i", "<cmd>Trouble lsp_type_implementations<cr>", desc = "Implementations" },
-        { prefix .. "x", "<cmd>Trouble document_diagnostics<cr>", desc = "Document Diagnostics" },
-        { prefix .. "X", "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
-        { prefix .. "q", "<cmd>Trouble quickfix<cr>", desc = "Quickfix List" },
-        { prefix .. "l", "<cmd>Trouble loclist<cr>", desc = "Location List" },
+        { prefix .. "r", "<cmd>Trouble lsp_references toggle<cr>", desc = "References" },
+        { prefix .. "d", "<cmd>Trouble lsp_definitions toggle<cr>", desc = "Definitions" },
+        { prefix .. "D", "<cmd>Trouble lsp_type_definitions toggle<cr>", desc = "Type Definitions" },
+        { prefix .. "i", "<cmd>Trouble lsp_implementations toggle<cr>", desc = "Implementations" },
+        { prefix .. "x", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Document Diagnostics" },
+        { prefix .. "X", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace Diagnostics" },
+        { prefix .. "q", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List" },
+        { prefix .. "l", "<cmd>Trouble loclist toggle<cr>", desc = "Location List" },
         { prefix .. "t", "<cmd>TodoTrouble<cr>", desc = "TODOs" },
         { prefix .. "T", "<cmd>TodoTrouble<cr>", desc = "TODO/FIX/FIXME" },
       }
