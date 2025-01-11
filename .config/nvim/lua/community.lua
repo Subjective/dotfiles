@@ -246,7 +246,7 @@ return {
       window = {
         open = "alternate",
       },
-      callbacks = {
+      hooks = {
         post_open = function(bufnr, winnr, ft)
           vim.api.nvim_set_current_win(winnr)
           -- If the file is a git commit, create one-shot autocmd to delete its buffer on write
