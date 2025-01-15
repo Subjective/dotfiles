@@ -88,6 +88,7 @@ source ${ZIM_HOME}/modules/zsh-defer/zsh-defer.plugin.zsh
 zsh-defer _evalcache zoxide init zsh
 zsh-defer _evalcache mise activate zsh
 zsh-defer _evalcache direnv hook zsh
+zsh-defer _evalcache /opt/anaconda3/bin/conda shell.zsh hook
 
 # ------------------------------
 # Post-init module configuration
