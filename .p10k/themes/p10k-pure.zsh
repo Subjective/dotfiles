@@ -50,6 +50,7 @@
     # =========================[ Line #2 ]=========================
     newline                   # \n
     virtualenv                # python virtual environment
+    anaconda                  # anaconda environment
     prompt_char               # prompt symbol
   )
 
