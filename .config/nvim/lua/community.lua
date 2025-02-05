@@ -247,8 +247,7 @@ return {
         open = "alternate",
       },
       hooks = {
-        post_open = function(bufnr, winnr, ft)
-          vim.api.nvim_set_current_win(winnr)
+        post_open = function(bufnr, _, ft, _)
           -- If the file is a git commit, create one-shot autocmd to delete its buffer on write
           if ft == "gitcommit" then
             vim.api.nvim_create_autocmd("BufWritePost", {
