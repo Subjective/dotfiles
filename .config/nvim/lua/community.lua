@@ -130,6 +130,7 @@ return {
 
   -- media
   { import = "astrocommunity.media.vim-wakatime" },
+  { import = "astrocommunity.media.img-clip-nvim" },
 
   -- code-runner
   {
