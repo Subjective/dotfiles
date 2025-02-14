@@ -289,4 +289,7 @@ return {
       })
     end,
   },
+
+  -- search
+  { import = "astrocommunity.search.grug-far-nvim" },
 }
