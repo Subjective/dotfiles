@@ -214,6 +214,7 @@ alias '??'='gh copilot suggest -t shell'
 alias 'git?'='gh copilot suggest -t git'
 alias 'gh?'='gh copilot suggest -t gh'
 alias attu='ssh -t joshjyin@attu.cs.washington.edu "zsh -l"'
+alias tmpcd='cd $(mktemp -d)'
 
 # function to make directory and cd into it
 function mkcd () { mkdir -p -- "$1" && cd -P -- "$1" }
