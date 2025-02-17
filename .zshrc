@@ -276,6 +276,15 @@ function irg() {
       --bind 'enter:become(nvim {1} +{2})'
 }
 
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
 # function to lookup documentation on cht.sh
 function cht() {
   local query="${(j:+:)@}"
