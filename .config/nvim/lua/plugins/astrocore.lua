@@ -144,7 +144,12 @@ return {
         ["<C-Left>"] = false,
         ["<C-Right>"] = false,
         ["<C-Up>"] = false,
-        -- Resize with arrows
+        -- recenter cursor on long jumps
+        ["<C-u>"] = "<c-u>zz",
+        ["<C-d>"] = "<c-d>zz",
+        ["<C-f>"] = "<c-f>zz",
+        ["<C-b>"] = "<c-b>zz",
+        -- resize with arrows
         ["<Up>"] = {
           function() require("smart-splits").resize_up() end,
           desc = "Resize split up",
