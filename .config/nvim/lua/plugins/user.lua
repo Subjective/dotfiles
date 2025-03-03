@@ -1,6 +1,8 @@
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
+local utils = require "astrocore"
+
 ---@type LazySpec
 return {
   {
@@ -180,5 +182,101 @@ return {
         },
       },
     },
+  },
+  {
+    "stevearc/overseer.nvim",
+    opts = {
+      setup = {
+        task_list = {
+          direction = "bottom",
+          bindings = {
+            ["<C-l>"] = false,
+            ["<C-h>"] = false,
+            ["<C-k>"] = false,
+            ["<C-j>"] = false,
+            q = "<Cmd>close<CR>",
+            J = "IncreaseDetail",
+            K = "DecreaseDetail",
+            ["<C-p>"] = "ScrollOutputUp",
+            ["<C-n>"] = "ScrollOutputDown",
+          },
+        },
+      },
+      templates = {
+        {
+          name = "compile with compiler",
+          builder = function() return { cmd = { "compiler" }, args = { vim.fn.expand "%:p" } } end,
+        },
+      },
+    },
+    config = function(_, opts)
+      require("overseer").setup(opts.setup)
+      vim.api.nvim_create_user_command("AutoCompile", function()
+        require("overseer").run_template({ name = "compile with compiler" }, function(task)
+          if task then
+            task:add_component { "restart_on_save", paths = { vim.fn.expand "%:p" } }
+          else
+            vim.notify("Error setting up auto compilation", vim.log.levels.ERROR)
+          end
+        end)
+      end, { desc = "Automatically compile the current file with `compiler` on save" })
+      vim.api.nvim_create_user_command(
+        "Compile",
+        function() require("overseer").run_template { name = "compile with compiler" } end,
+        { desc = "Compile the current file with `compiler`" }
+      )
+    end,
+    keys = function()
+      local prefix = "<leader>T"
+      utils.set_mappings { n = { [prefix] = { name = "󱁤 Tasks" } } }
+      return {
+        { prefix .. "<CR>", "<Cmd>OverseerToggle<CR>", desc = "Toggle" },
+        { prefix .. "a", "<Cmd>OverseerQuickAction<CR>", desc = "Quick Action" },
+        { prefix .. "c", "<Cmd>Compile<CR>", desc = "Compile" },
+        { prefix .. "C", "<Cmd>AutoCompile<CR>", desc = "Auto Compile" },
+        { prefix .. "i", "<Cmd>OverseerInfo<CR>", desc = "Info" },
+        { prefix .. "l", "<cmd>OverseerLoadBundle<cr>", desc = "Load bundle" },
+        { prefix .. "r", "<Cmd>OverseerRun<CR>", desc = "Run" },
+      }
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = function(plugin)
+      local package_manager = vim.fn.executable "yarn" and "yarn" or vim.fn.executable "npx" and "npx -y yarn" or false
+
+      --- HACK: Use `yarn` or `npx` when possible, otherwise throw an error
+      ---@see https://github.com/iamcco/markdown-preview.nvim/issues/690
+      ---@see https://github.com/iamcco/markdown-preview.nvim/issues/695
+      if not package_manager then error "Missing `yarn` or `npx` in the PATH" end
+
+      local cmd = string.format(
+        "!cd %s && cd app && COREPACK_ENABLE_AUTO_PIN=0 %s install --frozen-lockfile",
+        plugin.dir,
+        package_manager
+      )
+
+      vim.cmd(cmd)
+    end,
+    ft = { "markdown", "mdx" },
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown", "mdx" }
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "markdown",
+          "mdx",
+        },
+        callback = function(args)
+          require("which-key").add {
+            {
+              buffer = args.buf,
+              "<localleader>m",
+              "<cmd>MarkdownPreviewToggle<cr>",
+              desc = "Toggle Markdown Preview",
+            },
+          }
+        end,
+      })
+    end,
   },
 }
