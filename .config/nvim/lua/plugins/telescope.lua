@@ -17,22 +17,6 @@ return {
     cmd = "Telescope",
     dependencies = {
       {
-        "jay-babu/project.nvim",
-        dependencies = {
-          { "AstroNvim/astrocore", opts = { rooter = false } },
-        },
-        name = "project-nvim",
-        event = "VeryLazy",
-        opts = {
-          scope_chdir = "tab",
-          patterns = { "lua" },
-          ignore_lsp = { "lua_ls", "null-ls", "texlab" },
-        },
-        keys = {
-          { "<leader>fp", function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
-        },
-      },
-      {
         "AckslD/nvim-neoclip.lua",
         event = { "TextYankPost", "RecordingEnter" },
         opts = {},
@@ -48,7 +32,6 @@ return {
     },
     config = function(...)
       require "astronvim.plugins.configs.telescope"(...)
-      require("telescope").load_extension "projects"
       require("telescope").load_extension "neoclip"
     end,
     opts = function(_, opts)
