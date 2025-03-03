@@ -169,17 +169,6 @@ return {
     opts = {},
   },
 
-  -- motion
-  { import = "astrocommunity.motion.portal-nvim" },
-  {
-    "cbochs/portal.nvim",
-    opts = {
-      window_options = {
-        border = "rounded",
-      },
-    },
-  },
-
   -- terminal integration
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   {
