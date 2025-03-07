@@ -103,7 +103,7 @@ return {
         desc = "Cleanup latexmk junk files upon exiting Vim",
         group = vim.api.nvim_create_augroup("vimtex_autocleanup", { clear = true }),
         pattern = { "VimtexEventQuit" },
-        command = "VimtexClean",
+        command = "silent! VimtexClean",
       })
     end,
   },
