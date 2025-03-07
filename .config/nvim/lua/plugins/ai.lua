@@ -8,35 +8,45 @@ utils.set_mappings {
 ---@type LazySpec
 return {
   {
-    "Exafunction/codeium.vim",
-    cmd = "Codeium",
-    init = function()
-      vim.g.codeium_enabled = 0
-      vim.g.codeium_disable_bindings = 1
-      vim.g.codeium_idle_delay = 150
-    end,
-    config = function()
-      vim.keymap.set("i", "<C-;>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-->", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
-      vim.keymap.set("i", "<C-=>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
-      vim.keymap.set("i", "<C-BS>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
-    end,
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "BufReadPost",
+    opts = {
+      panel = {
+        enabled = false,
+      },
+      suggestion = {
+        keymap = {
+          accept = false, -- handled by completion engine
+          next = "<C-=>",
+          prev = "<C-->",
+        },
+      },
+    },
     keys = {
       {
         "<leader>;;",
-        function()
-          vim.cmd.Codeium(vim.g.codeium_enabled == 0 and "Enable" or "Disable")
-          utils.notify("Codeium " .. (vim.g.codeium_enabled == 0 and "Disabled" or "Enabled"))
-        end,
-        desc = "Toggle Codeium (global)",
+        function() require("copilot.suggestion").toggle_auto_trigger() end,
+        desc = "Toggle Copilot",
       },
+    },
+    specs = {
       {
-        "<leader>;,",
-        function()
-          vim.cmd.Codeium(vim.b.codeium_enabled == 0 and "EnableBuffer" or "DisableBuffer")
-          utils.notify("Codeium (buffer) " .. (vim.b.codeium_enabled == 0 and "Disabled" or "Enabled"))
-        end,
-        desc = "Toggle Codeium (buffer)",
+        "AstroNvim/astrocore",
+        opts = {
+          options = {
+            g = {
+              -- set the ai_accept function
+              ai_accept = function()
+                if require("copilot.suggestion").is_visible() then
+                  require("copilot.suggestion").accept()
+                  return true
+                end
+              end,
+            },
+          },
+        },
       },
     },
   },

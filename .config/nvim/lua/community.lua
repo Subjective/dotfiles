@@ -196,4 +196,6 @@ return {
 
   -- search
   { import = "astrocommunity.search.grug-far-nvim" },
+  -- ai
+  { import = "astrocommunity.recipes.ai" },
 }
