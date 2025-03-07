@@ -75,5 +75,35 @@ return {
         },
       },
     },
+    keys = {
+      {
+        "<leader>;c",
+        "<cmd>CodeCompanionChat<cr>",
+        desc = "Open AI Chat",
+      },
+      {
+        "<leader>;a",
+        "<cmd>CodeCompanionActions<cr>",
+        desc = "AI Actions",
+      },
+      {
+        mode = { "n", "x" },
+        "<leader>;e",
+        "<cmd>CodeCompanion /explain<cr>",
+        desc = "Explain code",
+      },
+      {
+        mode = { "n", "x" },
+        "<leader>;f",
+        "<cmd>CodeCompanion /fix<cr>",
+        desc = "Fix code",
+      },
+      {
+        mode = { "x" },
+        "<leader>;;",
+        "<cmd>CodeCompanion<cr>",
+        desc = "Ask AI",
+      },
+    },
   },
 }
