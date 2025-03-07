@@ -78,10 +78,10 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "openai",
+          adapter = "copilot",
         },
         inline = {
-          adapter = "openai",
+          adapter = "copilot",
         },
       },
     },
