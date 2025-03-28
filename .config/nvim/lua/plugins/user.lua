@@ -10,6 +10,19 @@ return {
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
+    "Saghen/blink.cmp",
+    opts = {
+      completion = {
+        list = {
+          selection = {
+            preselect = true,
+            auto_insert = true,
+          },
+        },
+      },
+    },
+  },
+  {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
       opts.enable_autosnippets = true
@@ -18,7 +31,6 @@ return {
       require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/snippets/lua" } -- load lua snippets
     end,
   },
-
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -47,68 +59,6 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-calc",
-      "kdheepak/cmp-latex-symbols",
-      {
-        "js-everts/cmp-tailwind-colors",
-        opts = {
-          format = function(itemColor)
-            return {
-              fg = itemColor,
-              bg = itemColor,
-              text = " ",
-            }
-          end,
-        },
-      },
-    },
-    opts = function(_, opts)
-      local cmp = require "cmp"
-      opts.sources = cmp.config.sources {
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip", priority = 750 },
-        { name = "latex_symbols", priority = 700, option = { strategy = 2 } },
-        { name = "buffer", priority = 500 },
-        { name = "path", priority = 250 },
-        { name = "calc", priority = 700 },
-      }
-
-      local format_kinds = opts.formatting.format
-      opts.formatting.format = function(entry, item)
-        if item.kind == "Color" then
-          item = require("cmp-tailwind-colors").format(entry, item)
-          if item.kind == "Color" then return format_kinds(entry, item) end
-          return item
-        end
-        return format_kinds(entry, item)
-      end
-
-      local luasnip = require "luasnip"
-
-      return require("astrocore").extend_tbl(opts, {
-        completion = {
-          completeopt = "menu,menuone,noinsert",
-        },
-        mapping = {
-          ["<CR>"] = cmp.mapping.confirm { select = true },
-          ["<S-CR>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          },
-          -- <C-n> and <C-p> for navigating snippets
-          ["<C-n>"] = cmp.mapping(function()
-            if luasnip.jumpable(1) then luasnip.jump(1) end
-          end, { "i", "s" }),
-          ["<C-p>"] = cmp.mapping(function()
-            if luasnip.jumpable(-1) then luasnip.jump(-1) end
-          end, { "i", "s" }),
-        },
-      })
     end,
   },
   {
