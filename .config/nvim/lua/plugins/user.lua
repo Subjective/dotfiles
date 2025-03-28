@@ -5,25 +5,6 @@ local utils = require "astrocore"
 
 ---@type LazySpec
 return {
-  {
-    "goolord/alpha-nvim",
-    enabled = false,
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        "                                                    ",
-        " ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-        " ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-        " ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-        " ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-        " ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-        " ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-        "                                                    ",
-      }
-      opts.config.opts.noautocmd = false
-    end,
-  },
-
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
 
@@ -289,6 +270,9 @@ return {
         -- refer to the configuration section below
       },
       scratch = {},
+      dashboard = {
+        enabled = false,
+      },
     },
     keys = {
       { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
