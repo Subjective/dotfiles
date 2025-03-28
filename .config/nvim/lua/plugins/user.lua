@@ -279,4 +279,20 @@ return {
       })
     end,
   },
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      image = {
+        -- your image configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      scratch = {},
+    },
+    keys = {
+      { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+      { "<leader>>", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+    },
+  },
 }
