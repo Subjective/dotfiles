@@ -62,32 +62,6 @@ return {
     end,
   },
   {
-    "NvChad/nvim-colorizer.lua",
-    opts = {
-      filetypes = {
-        "*",
-        javascriptreact = { names = true, tailwind = "lsp" },
-        javascript = { names = true, tailwind = "lsp" },
-        typescript = { names = true, tailwind = "lsp" },
-        typescriptreact = { names = true, tailwind = "lsp" },
-        "!javascriptreact",
-        "!javascript",
-        "!typescript",
-        "!typescriptreact",
-        "!cmp_menu",
-        "!TelescopeResults",
-        "!lazy",
-        "!neo-tree",
-      },
-      user_default_options = {
-        RRGGBBAA = true,
-        AARRGGBB = true,
-        -- mode = "virtualtext",
-        names = false,
-      },
-    },
-  },
-  {
     "rcarriga/nvim-notify",
     enabled = false,
   },
