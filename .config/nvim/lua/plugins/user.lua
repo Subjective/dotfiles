@@ -92,13 +92,6 @@ return {
     enabled = false,
   },
   {
-    "akinsho/toggleterm.nvim",
-    opts = {
-      highlights = false,
-      direction = "float",
-    },
-  },
-  {
     "stevearc/overseer.nvim",
     opts = {
       setup = {
