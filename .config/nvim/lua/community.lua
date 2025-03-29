@@ -39,12 +39,12 @@ return {
             information = { "undercurl" },
           },
           inlay_hints = { background = false },
-          render_markdown = true,
         },
         snacks = {
           enabled = true,
           indent_scope_color = "surface2",
         },
+        render_markdown = true,
         flash = false,
       },
       custom_highlights = function(colors)
@@ -162,4 +162,13 @@ return {
   { import = "astrocommunity.search.grug-far-nvim" },
   -- ai
   { import = "astrocommunity.recipes.ai" },
+
+  -- markdown and latex
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      file_types = { "markdown", "codecompanion" },
+    },
+  },
 }
