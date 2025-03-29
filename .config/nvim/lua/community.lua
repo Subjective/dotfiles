@@ -39,6 +39,11 @@ return {
             information = { "undercurl" },
           },
           inlay_hints = { background = false },
+          render_markdown = true,
+        },
+        snacks = {
+          enabled = true,
+          indent_scope_color = "surface2",
         },
         flash = false,
       },
@@ -57,8 +62,6 @@ return {
           TelescopePromptNormal = { fg = colors.text, bg = colors.crust },
           TelescopePromptBorder = { fg = colors.crust, bg = colors.crust },
           TelescopePromptPrefix = { fg = colors.flamingo, bg = colors.none },
-          -- use subtle indentscope color
-          MiniIndentscopeSymbol = { fg = colors.surface2, nocombine = true },
         }
       end,
     },
@@ -76,45 +79,6 @@ return {
   -- { import = "astrocommunity.colorscheme.helix-nvim" },
   -- { import = "astrocommunity.colorscheme.fluormachine-nvim" },
   -- { "maxmx03/fluoromachine.nvim", opts = { glow = true } },
-
-  -- indent
-  { import = "astrocommunity.indent.mini-indentscope" },
-  {
-    "echasnovski/mini.indentscope",
-    dependencies = {
-      "lukas-reineke/indent-blankline.nvim",
-      opts = {
-        scope = { enabled = false },
-      },
-    },
-    opts = function()
-      local success, wk = pcall(require, "which-key")
-      if success then
-        wk.add {
-          mode = { "x", "o" },
-          { "ii", desc = "inside indent scope" },
-          { "ai", desc = "around indent scope" },
-        }
-      end
-
-      local indentscope = require "mini.indentscope"
-      vim.defer_fn(function() indentscope.draw() end, 0)
-      return {
-        draw = {
-          delay = 0,
-          animation = indentscope.gen_animation.none(),
-        },
-        mappings = {
-          object_scope = "ii",
-          object_scope_with_border = "ai",
-          goto_top = "[i",
-          goto_bottom = "]i",
-        },
-        symbol = "▏",
-        options = { try_as_border = true },
-      }
-    end,
-  },
 
   -- editor
   { import = "astrocommunity.editing-support.refactoring-nvim" },

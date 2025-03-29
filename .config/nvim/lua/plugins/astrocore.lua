@@ -107,20 +107,6 @@ return {
           end,
           desc = "Toggle current line Git blame",
         },
-        -- toggle indent guides
-        ["<leader>u|"] = {
-          function()
-            vim.cmd "IBLToggle"
-            vim.g.miniindentscope_disable = not vim.g.miniindentscope_disable
-            if MiniIndentscope and not vim.g.miniindentscope_disable then
-              MiniIndentscope.draw()
-            else
-              MiniIndentscope.undraw()
-            end
-            utils.notify("Indent guides " .. (vim.g.miniindentscope_disable and "disabled" or "enabled"))
-          end,
-          desc = "Toggle indent guides",
-        },
         -- better buffer navigation
         L = {
           function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,

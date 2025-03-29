@@ -207,6 +207,28 @@ return {
       dashboard = {
         enabled = false,
       },
+      -- Make indent scope keybinds use cursor position.
+      scope = {
+        cursor = true,
+        keys = {
+          textobject = {
+            ii = {
+              cursor = true,
+            },
+            ai = {
+              cursor = true,
+            },
+          },
+          jump = {
+            ["[i"] = {
+              cursor = true,
+            },
+            ["]i"] = {
+              cursor = true,
+            },
+          },
+        },
+      },
     },
     keys = {
       { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
