@@ -106,16 +106,6 @@ return {
       },
     },
   },
-  {
-    "axieax/urlview.nvim",
-    cmd = "UrlView",
-    dependencies = "nvim-telescope/telescope.nvim",
-    opts = {},
-    keys = {
-      { "<leader>fl", "<cmd>UrlView buffer bufnr=0<cr>", desc = "Find links" },
-      { "<leader>fL", "<cmd>UrlView lazy<cr>", desc = "Find plugin links" },
-    },
-  },
   { "rafcamlet/nvim-luapad", cmd = { "Luapad", "Luarun" } },
   { "nanotee/zoxide.vim", cmd = { "Z", "Lz", "Tz", "Zi", "Lzi", "Tzi" } },
   {
