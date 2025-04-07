@@ -2,7 +2,6 @@
 -- Here are some examples:
 
 local utils = require "astrocore"
-local Snacks = require "snacks"
 
 ---@type LazySpec
 return {
@@ -161,5 +160,11 @@ return {
         end,
       })
     end,
+  },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    opts = {
+      render = "virtual",
+    },
   },
 }
