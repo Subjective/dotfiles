@@ -79,24 +79,6 @@ return {
       strategies = {
         chat = {
           adapter = "copilot",
-          slash_commands = {
-            ["file"] = {
-              callback = "strategies.chat.slash_commands.file",
-              description = "Select a file using Snacks picker",
-              opts = {
-                provider = "snacks",
-                contains_code = true,
-              },
-            },
-            ["buffer"] = {
-              callback = "strategies.chat.slash_commands.buffer",
-              description = "Select a buffer using Snacks picker",
-              opts = {
-                provider = "snacks",
-                contains_code = true,
-              },
-            },
-          },
         },
         inline = {
           adapter = "copilot",
