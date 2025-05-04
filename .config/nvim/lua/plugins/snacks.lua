@@ -4,6 +4,11 @@ return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
+    notifier = {
+      style = "minimal",
+      top_down = false,
+      margin = { top = 0, right = 1, bottom = 1 },
+    },
     image = {},
     scratch = {},
     dashboard = {
