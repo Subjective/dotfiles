@@ -18,7 +18,6 @@ return {
         "clangd",
         "marksman",
         "ocaml-lsp",
-        "pyright",
         "texlab",
         "grammarly-languageserver",
 

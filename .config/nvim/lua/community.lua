@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.python-ruff" },
 
   -- colorschemes
   { import = "astrocommunity.colorscheme.catppuccin" },
