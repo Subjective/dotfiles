@@ -1,12 +1,19 @@
 tap "1password/tap"
 tap "felixkratz/formulae"
+tap "gromgit/fuse"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
+tap "mocki-toki/formulae"
 tap "nikitabobko/tap"
 brew "jpeg-xl"
+brew "glib"
+brew "harfbuzz"
 brew "openssl@3"
+brew "openjdk"
+brew "apktool"
+brew "arduino-cli"
 brew "python@3.12"
 brew "asciinema"
 brew "libssh2"
@@ -15,8 +22,6 @@ brew "bob"
 brew "boost"
 brew "bottom"
 brew "btop"
-brew "glib"
-brew "harfbuzz"
 brew "chafa"
 brew "cmake"
 brew "gmp"
@@ -32,7 +37,6 @@ brew "fbthrift"
 brew "fb303"
 brew "edencommon"
 brew "node"
-brew "openjdk"
 brew "emscripten"
 brew "libgit2"
 brew "eza"
@@ -61,6 +65,7 @@ brew "htop"
 brew "libheif"
 brew "imagemagick"
 brew "jq"
+brew "lazydocker"
 brew "lazygit"
 brew "less"
 brew "lf"
@@ -111,8 +116,8 @@ brew "felixkratz/formulae/borders"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 cask "1password-cli"
-cask "alacritty"
 cask "betterdisplay"
+cask "deskpad"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
@@ -121,33 +126,34 @@ cask "ghostty"
 cask "google-cloud-sdk"
 cask "iterm2"
 cask "jordanbaird-ice"
+cask "karabiner-elements"
 cask "keycastr"
 cask "keyclu"
 cask "kitty"
 cask "mactex-no-gui"
+cask "miniforge"
 cask "orbstack"
 cask "pearcleaner"
 cask "skim"
 cask "spaceid"
 cask "stats"
 cask "visual-studio-code"
+cask "warp"
 cask "wezterm"
 mas "1Password for Safari", id: 1569813296
 mas "Accelerate", id: 1459809092
-mas "Betternet VPN", id: 1028905953
+mas "Amphetamine", id: 937984704
 mas "Calculate84", id: 1459712793
 mas "Compressor", id: 424390742
-mas "Dropover", id: 1355679052
 mas "Final Cut Pro", id: 424389933
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
+mas "Goodnotes", id: 1444383602
 mas "Hand Mirror", id: 1502839586
-mas "Highlights", id: 1498912833
 mas "iMovie", id: 408981434
 mas "Keka", id: 470158793
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
-mas "Linearity Curve", id: 1219074514
 mas "Logic Pro", id: 634148309
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft OneNote", id: 784801555
@@ -160,11 +166,11 @@ mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Paste", id: 967805235
-mas "Perplexity", id: 6714467650
 mas "Pixelmator Pro", id: 1289583905
-mas "Screen Mirror and Control", id: 1612180624
-mas "Velja", id: 1607635845
+mas "Screen Mirror", id: 1612180624
+mas "ScrollAnywhere", id: 1556838353
 mas "Wipr", id: 1662217862
+mas "WutheringWaves", id: 6475033368
 mas "Xcode", id: 497799835
 vscode "bradlc.vscode-tailwindcss"
 vscode "catppuccin.catppuccin-vsc"
@@ -173,6 +179,7 @@ vscode "dbaeumer.vscode-eslint"
 vscode "devine-davies.make-hidden"
 vscode "digitalbrainstem.javascript-ejs-support"
 vscode "divyanshuagrawal.competitive-programming-helper"
+vscode "docker.docker"
 vscode "eamodio.gitlens"
 vscode "enkia.tokyo-night"
 vscode "erikphansen.vscode-toggle-column-selection"
@@ -191,6 +198,8 @@ vscode "gruntfuggly.todo-tree"
 vscode "hex-ci.stylelint-plus"
 vscode "jdinhlife.gruvbox"
 vscode "jeff-hykin.better-cpp-syntax"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-mssql.data-workspace-vscode"
 vscode "ms-mssql.mssql"
