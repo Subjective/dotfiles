@@ -8,6 +8,8 @@ local utils = require "astrocore"
 return {
   "AstroNvim/astrocommunity",
 
+  -- recipies
+  { import = "astrocommunity.recipes.vscode" },
   -- language packs
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.typescript" },
