@@ -94,7 +94,9 @@ return {
         ["<C-=>"] = { "<c-a>", desc = "Increment number" },
         -- toggle-term dotfiles
         ["<leader>g."] = {
-          function() utils.toggle_term_cmd "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME" end,
+          function()
+            utils.toggle_term_cmd { cmd = "lazygit --git-dir=$HOME/.cfg --work-tree=$HOME", direction = "float" }
+          end,
           desc = "ToggleTerm lazygit dotfiles",
         },
         -- explorer bindings
