@@ -46,6 +46,7 @@ return {
         snacks = {
           enabled = true,
           indent_scope_color = "surface2",
+          picker_style = "nvchad",
         },
         render_markdown = true,
         flash = false,
