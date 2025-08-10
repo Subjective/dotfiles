@@ -73,68 +73,32 @@ return {
     },
   },
   {
-    "olimorris/codecompanion.nvim",
-    cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionChat", "CodeCompanionCmd" },
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
     opts = {
-      strategies = {
-        chat = {
-          adapter = "copilot",
-        },
-        inline = {
-          adapter = "copilot",
-        },
-      },
-      adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "gpt-4.1",
-              },
-            },
-          })
-        end,
-      },
-      display = {
-        chat = {
-          window = {
-            opts = {
-              number = false,
-              relativenumber = false,
-            },
-          },
+      terminal = {
+        provider = "external",
+        provider_opts = {
+          external_terminal_cmd = "tmux split-window -h -p 30 %s",
         },
       },
     },
     keys = {
+      { "<leader>;c", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+      { "<leader>;f", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+      { "<leader>;r", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+      { "<leader>;C", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<leader>;b", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+      { "<leader>;s", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
       {
-        "<leader>;c",
-        "<cmd>CodeCompanionChat<cr>",
-        desc = "Open AI Chat",
+        "<leader>;s",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file",
+        ft = { "NvimTree", "neo-tree", "oil" },
       },
-      {
-        "<leader>;a",
-        "<cmd>CodeCompanionActions<cr>",
-        desc = "AI Actions",
-      },
-      {
-        mode = { "n", "x" },
-        "<leader>;e",
-        "<cmd>CodeCompanion /explain<cr>",
-        desc = "Explain code",
-      },
-      {
-        mode = { "n", "x" },
-        "<leader>;f",
-        "<cmd>CodeCompanion /fix<cr>",
-        desc = "Fix code",
-      },
-      {
-        mode = { "x" },
-        "<leader>;;",
-        "<cmd>CodeCompanion<cr>",
-        desc = "Ask AI",
-      },
+      -- Diff management
+      { "<leader>;a", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<leader>;d", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
     },
   },
 }
