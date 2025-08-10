@@ -16,3 +16,7 @@
 	tool = vimdiff
 	conflictstyle = diff3
 	prompt = false
+[include]
+	path = ~/.config/delta/themes/catppuccin.gitconfig
+[delta]
+	features = catppuccin-mocha
