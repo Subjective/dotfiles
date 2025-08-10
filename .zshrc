@@ -1,3 +1,8 @@
+# Auto-start tmux in Kitty terminal
+if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+  tmux attach || exec tmux new-session && exit;
+fi
+
 # Display beam cursor on startup for vi-mode compatbility
 echo -n $'\e[5 q'
 
