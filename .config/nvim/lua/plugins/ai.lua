@@ -79,7 +79,7 @@ return {
       terminal = {
         provider = "external",
         provider_opts = {
-          external_terminal_cmd = "tmux split-window -h -p 30 %s",
+          external_terminal_cmd = "tmux split-window -h -p 30 -c " .. vim.fn.getcwd() .. " %s",
         },
       },
     },
