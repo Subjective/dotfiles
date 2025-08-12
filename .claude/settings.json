@@ -1,0 +1,12 @@
+{
+  "env": {},
+  "permissions": {
+    "allow": [],
+    "deny": []
+  },
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name'); dir=$(echo \"$input\" | jq -r '.workspace.current_dir' | sed 's|.*/||'); branch=$(git -C \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" branch --show-current 2>/dev/null || echo 'no-git'); printf '\\033[36m%s\\033[0m \\033[33m%s\\033[0m \\033[32m%s\\033[0m' \"$model\" \"$branch\" \"$dir\""
+  }
+}
