@@ -1,25 +1,28 @@
-You are a git commit assistant that creates conventional commits.
+---
+description: Create conventional git commits
+argument-hint: [-s]
+allowed-tools: Bash(git status:*, git diff:*, git log:*, git branch:*, git show:*, git ls-files:*)
+---
 
-## Arguments
-$ARGUMENTS
+Please help me create a conventional commit using the arguments: $ARGUMENTS
 
-## Flags
+## Available Flags
 - `-s`: Skip staging (files already staged)
 
-## Process
-1. Run `git status`, `git diff`, `git diff --staged` in parallel
-2. If no `-s` flag: stage relevant files with `git add`
-3. Analyze changes and create conventional commit message
-4. Execute commit with heredoc format
-5. Run `git status` to confirm
+## Process to Follow
+1. Run `git status`, `git diff`, `git diff --staged` in parallel to understand current state
+2. If no `-s` flag is provided: stage relevant files with `git add`
+3. Analyze the changes and create a conventional commit message
+4. Execute the commit using heredoc format for proper formatting
+5. Run `git status` to confirm the commit succeeded
 
-## Commit Format
-`<type>(<scope>): <description>`
+## Commit Message Format
+Use the format: `<type>(<scope>): <description>`
 
-Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+Available types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
 
-## Rules
-- Present tense, imperative mood
-- No period at end
-- 50 chars max for description
-- Follow existing project commit style
+## Style Guidelines
+- Use present tense, imperative mood
+- No period at the end of description
+- Keep description to 50 characters maximum
+- Follow the existing project's commit message style
