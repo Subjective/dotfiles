@@ -24,6 +24,9 @@ return {
     ---@type CatppuccinOptions
     opts = {
       term_colors = true,
+      float = {
+        solid = true, -- use nvchad styling for floating windows
+      },
       integrations = {
         telescope = { enabled = true, style = "nvchad" },
         ufo = false,
@@ -46,7 +49,6 @@ return {
         snacks = {
           enabled = true,
           indent_scope_color = "surface2",
-          picker_style = "nvchad",
         },
         render_markdown = true,
         flash = false,
