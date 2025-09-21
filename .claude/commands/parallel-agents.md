@@ -12,7 +12,7 @@ You are orchestrating parallel solution exploration. Parse arguments: extract co
 2. Create parent directory `../[task-name]` if it doesn't exist using `mkdir -p ../[task-name]`
 3. List parent directory `../[task-name]` to prompt user to add as working directory for session
 4. Create N git worktrees using `git worktree add ../[task-name]/[i] -b [task-name]-[i]` from current directory
-5. Spawn N Task agents with subagent_type "developer", each with prompt:
+5. Spawn N Task agents in parallel with subagent_type "developer", each with prompt:
    "cd ../[task-name]/[i] && work here. Task: $ARGUMENTS. Focus on different approach than other agents. Complete implementation with tests. Commit all changes when done."
 
 **Phase 2: Analysis & Merge**
