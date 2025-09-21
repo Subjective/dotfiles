@@ -61,7 +61,7 @@ return {
       {
         "gw",
         mode = { "n" },
-        function() require("wtf").ai() end,
+        function() require("wtf").diagnose() end,
         desc = "Debug diagnostic with AI",
       },
       {
