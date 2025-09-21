@@ -2,3 +2,5 @@
 node = "system"
 python = "latest"
 java = "temurin-17"
+rust = "latest"
+uv = "latest"
