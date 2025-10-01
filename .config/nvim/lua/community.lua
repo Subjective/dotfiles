@@ -52,6 +52,7 @@ return {
         },
         render_markdown = true,
         flash = false,
+        leap = false,
       },
       custom_highlights = function(colors)
         return {
