@@ -9,6 +9,9 @@ return {
       init = function()
         vim.g.matchup_matchparen_deferred = 1
         vim.g.matchup_matchparen_offscreen = {}
+        vim.g.matchup_treesitter_stopline = 10000
+        vim.g.matchup_delim_stopline = 10000
+        vim.g.matchup_matchparen_stopline = 10000
       end,
       config = function()
         vim.keymap.del({ "x", "o" }, "z%") -- don't conflict with leap
