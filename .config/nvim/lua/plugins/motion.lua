@@ -2,7 +2,7 @@ local utils = require "astrocore"
 
 return {
   {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     dependencies = "tpope/vim-repeat",
     keys = {
       { "s", "<Plug>(leap-forward)", mode = { "n" }, desc = "Leap forward to" },
@@ -12,29 +12,40 @@ return {
       { "x", "<Plug>(leap-forward-till)", mode = { "o" }, desc = "Leap forward till" },
       { "X", "<Plug>(leap-backward-till)", mode = { "o" }, desc = "Leap backward till" },
       { "gs", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
+      {
+        "f",
+        mode = { "n", "x", "o" },
+        desc = "Flit forward to",
+        function() require("leap").leap { inputlen = 1, inclusive = true } end,
+      },
+      {
+        "F",
+        mode = { "n", "x", "o" },
+        desc = "Flit backward to",
+        function() require("leap").leap { inputlen = 1, backward = true } end,
+      },
+      {
+        "t",
+        mode = { "n", "x", "o" },
+        desc = "Flit forward till",
+        function() require("leap").leap { inputlen = 1, offset = -1, inclusive = true } end,
+      },
+      {
+        "T",
+        mode = { "n", "x", "o" },
+        desc = "Flit backward till",
+        function() require("leap").leap { inputlen = 1, backward = true, offset = 1 } end,
+      },
     },
     opts = function()
-      require("leap").add_repeat_mappings(";", ",", {
+      require("leap.user").set_repeat_keys(";", ",", {
         relative_directions = true,
-        modes = { "n" },
+        modes = { "n", "x", "o" },
       })
       return {
         highlight_unlabeled_phase_one_targets = true,
       }
     end,
-  },
-  {
-    "ggandor/flit.nvim",
-    dependencies = { "ggandor/leap.nvim" },
-    keys = {
-      { "f", mode = { "n", "x", "o" }, desc = "Flit forward to" },
-      { "F", mode = { "n", "x", "o" }, desc = "Flit backward to" },
-      { "t", mode = { "n", "x", "o" }, desc = "Flit forward till" },
-      { "T", mode = { "n", "x", "o" }, desc = "Flit backward till" },
-    },
-    opts = {
-      labeled_modes = "nx",
-    },
   },
   {
     "folke/flash.nvim",
