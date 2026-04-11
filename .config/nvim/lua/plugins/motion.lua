@@ -43,7 +43,18 @@ return {
         modes = { "n", "x", "o" },
       })
       return {
-        highlight_unlabeled_phase_one_targets = true,
+        on_beacons = function(targets)
+          for _, target in ipairs(targets) do
+            if not target.label and not target.beacon and target.chars and target.is_previewable ~= false then
+              target.beacon = {
+                0,
+                {
+                  virt_text = { { table.concat(target.chars), "LeapMatch" } },
+                },
+              }
+            end
+          end
+        end,
       }
     end,
   },
