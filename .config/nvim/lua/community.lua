@@ -97,6 +97,29 @@ return {
       }
     end,
   },
+  { import = "astrocommunity.git.codediff-nvim" },
+  {
+    "esmuellert/codediff.nvim",
+    opts = function()
+      utils.set_mappings {
+        n = {
+          ["<leader>D"] = { name = " Diff" },
+          ["<leader>D" .. "<cr>"] = { "<cmd>CodeDiff<cr>", desc = "Current Changes" },
+          ["<leader>D" .. "h"] = { "<cmd>CodeDiff history %<cr>", desc = "File History" },
+          ["<leader>D" .. "H"] = { "<cmd>CodeDiff history<cr>", desc = "Branch History" },
+        },
+      }
+
+      return {
+        keymaps = {
+          view = {
+            toggle_explorer = "<leader>e",
+            focus_explorer = "<leader>o",
+          },
+        },
+      }
+    end,
+  },
 
   -- media
   { import = "astrocommunity.media.vim-wakatime" },
