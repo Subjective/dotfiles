@@ -5,21 +5,15 @@ return {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
-    opts = {
-      keymaps = {
-        insert = "<C-g>s",
-        insert_line = "<C-g>S",
-        normal = "ys",
-        normal_cur = "yss",
-        normal_line = "yS",
-        normal_cur_line = "ySS",
-        visual = "s",
-        visual_line = "S",
-        delete = "ds",
-        change = "cs",
-        change_line = "cS",
-      },
-    },
+    init = function()
+      vim.g.nvim_surround_no_visual_mappings = true
+      vim.keymap.set("x", "s", "<Plug>(nvim-surround-visual)", {
+        desc = "Add a surrounding pair around a visual selection",
+      })
+      vim.keymap.set("x", "S", "<Plug>(nvim-surround-visual-line)", {
+        desc = "Add a surrounding pair around a visual selection, on new lines",
+      })
+    end,
   },
   {
     "folke/todo-comments.nvim",
