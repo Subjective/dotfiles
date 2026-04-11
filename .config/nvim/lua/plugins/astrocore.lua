@@ -27,6 +27,37 @@ return {
       underline = true,
       update_in_insert = false,
     },
+    treesitter = {
+      auto_install = vim.fn.executable "tree-sitter" == 1,
+      ensure_installed = {
+        "lua",
+        "javascript",
+        "typescript",
+        "swift",
+        "html",
+        "css",
+        "cpp",
+        "python",
+        "java",
+        "bash",
+        "markdown",
+        "markdown_inline",
+        "regex",
+        "vim",
+        "latex",
+        "tsx",
+        "diff",
+        "git_rebase",
+        "gitcommit",
+        "git_config",
+        "gitignore",
+      },
+      highlight = function(lang, _)
+        -- Keep VimTeX highlighting in LaTeX buffers.
+        return lang ~= "latex"
+      end,
+      indent = function(lang, _) return lang ~= "python" end,
+    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>

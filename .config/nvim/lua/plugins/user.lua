@@ -10,7 +10,7 @@ return {
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
-    "Saghen/blink.cmp",
+    "saghen/blink.cmp",
     opts = {
       completion = {
         list = {
