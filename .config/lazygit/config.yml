@@ -1,7 +1,7 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 gui:
   nerdFontsVersion: 3
 promptToReturnFromSubprocess: false
@@ -16,4 +16,4 @@ customCommands:
     command: "git mergetool {{ .SelectedFile.Name }}"
     context: "files"
     loadingText: "Opening git mergetool"
-    subprocess: true
+    output: terminal
