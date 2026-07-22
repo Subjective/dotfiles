@@ -9,8 +9,7 @@ return {
         condition = function() return package.loaded["overseer"] end,
         init = function(self)
           self.overseer = require "overseer"
-          self.tasks = self.overseer.task_list
-          self.STATUS = self.overseer.constants.STATUS
+          self.util = require "overseer.util"
         end,
         static = {
           symbols = {
@@ -27,12 +26,12 @@ return {
           },
         },
         {
-          condition = function(self) return #self.tasks.list_tasks() > 0 end,
+          condition = function(self) return #self.overseer.list_tasks() > 0 end,
           {
             provider = function(self)
-              local tasks_by_status = self.overseer.util.tbl_group_by(self.tasks.list_tasks { unique = true }, "status")
+              local tasks_by_status = self.util.tbl_group_by(self.overseer.list_tasks { unique = true }, "status")
 
-              for _, _status in ipairs(self.STATUS.values) do
+              for _, _status in ipairs(self.overseer.STATUS.values) do
                 local status_tasks = tasks_by_status[_status]
                 if self.symbols[_status] and status_tasks then
                   self.color = self.colors[_status]
