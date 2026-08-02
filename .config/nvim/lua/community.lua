@@ -75,7 +75,9 @@ return {
       end,
     },
   },
-
+  -- { import = "astrocommunity.colorscheme.everforest" },
+  -- { import = "astrocommunity.colorscheme.kanagawa-paper-nvim" },
+  -- { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   -- { import = "astrocommunity.colorscheme.vscode-nvim" },
   -- { import = "astrocommunity.colorscheme.nightfox-nvim" },
   -- { import = "astrocommunity.colorscheme.rose-pine" },
