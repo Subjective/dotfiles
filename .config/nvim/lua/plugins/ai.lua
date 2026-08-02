@@ -8,97 +8,75 @@ utils.set_mappings {
 ---@type LazySpec
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    event = "BufReadPost",
+    "folke/sidekick.nvim",
     opts = {
-      panel = {
-        enabled = false,
-      },
-      suggestion = {
-        keymap = {
-          accept = false, -- handled by completion engine
-          next = "<C-=>",
-          prev = "<C-->",
+      cli = {
+        mux = {
+          backend = "tmux",
+          enabled = true,
         },
-      },
-    },
-    keys = {
-      {
-        "<leader>;;",
-        function() require("copilot.suggestion").toggle_auto_trigger() end,
-        desc = "Toggle Copilot",
-      },
-    },
-    specs = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          options = {
-            g = {
-              -- set the ai_accept function
-              ai_accept = function()
-                if require("copilot.suggestion").is_visible() then
-                  require("copilot.suggestion").accept()
-                  return true
-                end
-              end,
-            },
+        win = {
+          keys = {
+            prompt = false,
           },
         },
       },
     },
-  },
-  {
-    "piersolenski/wtf.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    cmd = { "WTF", "WTFSearch" },
-    opts = {},
     keys = {
       {
-        "gw",
-        mode = { "n" },
-        function() require("wtf").diagnose() end,
-        desc = "Debug diagnostic with AI",
+        "<tab>",
+        function()
+          -- if there is a next edit, jump to it, otherwise apply it if any
+          if not require("sidekick").nes_jump_or_apply() then
+            return "<Tab>" -- fallback to normal tab
+          end
+        end,
+        expr = true,
+        desc = "Goto/Apply Next Edit Suggestion",
       },
       {
-        mode = { "n" },
-        "gW",
-        function() require("wtf").search() end,
-        desc = "Search diagnostic with Google",
+        "<leader>;a",
+        function() require("sidekick.cli").toggle() end,
+        desc = "Sidekick Toggle CLI",
       },
-    },
-  },
-  {
-    "coder/claudecode.nvim",
-    dependencies = { "folke/snacks.nvim" },
-    opts = {
-      terminal = {
-        provider = "external",
-        provider_opts = {
-          external_terminal_cmd = "tmux split-window -h -p 30 -c " .. vim.fn.getcwd() .. " %s",
-        },
+      {
+        "<leader>;;",
+        function()
+          local nes = require "sidekick.nes"
+          nes.toggle()
+          utils.notify("Next edit suggestions " .. (nes.enabled and "enabled" or "disabled"))
+        end,
+        desc = "Toggle Next Edit Suggestions",
       },
-    },
-    keys = {
-      { "<leader>;c", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-      { "<leader>;f", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
-      { "<leader>;r", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
-      { "<leader>;C", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-      { "<leader>;b", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-      { "<leader>;s", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
       {
         "<leader>;s",
-        "<cmd>ClaudeCodeTreeAdd<cr>",
-        desc = "Add file",
-        ft = { "NvimTree", "neo-tree", "oil" },
+        function() require("sidekick.cli").select() end,
+        -- Or to select only installed tools:
+        -- require("sidekick.cli").select({ filter = { installed = true } })
+        desc = "Select CLI",
       },
-      -- Diff management
-      { "<leader>;a", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-      { "<leader>;d", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+      {
+        "<leader>;d",
+        function() require("sidekick.cli").close() end,
+        desc = "Detach a CLI Session",
+      },
+      {
+        "<leader>;t",
+        function() require("sidekick.cli").send { msg = "{this}" } end,
+        mode = { "x", "n" },
+        desc = "Send This",
+      },
+      {
+        "<leader>;f",
+        function() require("sidekick.cli").send { msg = "{file}" } end,
+        desc = "Send File",
+      },
+      {
+        "<leader>;v",
+        function() require("sidekick.cli").send { msg = "{selection}" } end,
+        mode = { "x" },
+        desc = "Send Visual Selection",
+      },
     },
   },
 }
